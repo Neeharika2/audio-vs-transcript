@@ -112,11 +112,11 @@ The idea is that **agreement between multiple independent models increases confi
 
 Since all inputs are **transcripts**, the framework compares them to identify:
 
--  **Common Information** – Information agreed upon by most models.
--  **Disagreements** – Sentences or words where models differ.
--  **Entity Differences** – Names, dates, numbers, medications, etc.
--  **Low-Confidence Regions** – Parts of the transcript where models disagree significantly.
--  **Potential Errors** – Segments that should be reviewed manually or by another AI.
+- **Common Information** – Information agreed upon by most models.
+- **Disagreements** – Sentences or words where models differ.
+- **Entity Differences** – Names, dates, numbers, medications, etc.
+- **Low-Confidence Regions** – Parts of the transcript where models disagree significantly.
+- **Potential Errors** – Segments that should be reviewed manually or by another AI.
   
 ### Why Is This Approach Interesting?
 
@@ -139,3 +139,73 @@ If two or more models agree, there's a higher chance that the transcription is c
 - Detecting low-confidence transcripts
 - Quality assurance pipelines
 - Systems where manual verification is expensive
+  
+---
+
+The above 2 approaches are typically comparing text-tot-text. If we want to strictly compare audio vs text, then the only possible way is: 
+
+## Approach 2: AI-as-a-Judge (Audio vs Transcript)
+
+### The Main Idea
+
+Instead of creating a human reference transcript, we treat the **audio itself as the source of truth**.
+
+A multimodal LLM (such as Gemini or GPT-4o) listens to the audio while simultaneously reading the generated transcript. It then evaluates whether the transcript faithfully captures everything spoken in the audio.
+
+### How It Works
+
+```text
+                 Audio File
+                      │
+                      │
+          Generated Transcript
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+         Audio             Transcript
+                │
+                ▼
+      Multimodal LLM (Judge)
+                │
+                ▼
+       Evaluation Framework
+                │
+                ▼
+ ┌──────────────┼──────────────┬──────────────┐
+ ▼              ▼              ▼              ▼
+Missing     Incorrect     Conflicting   Hallucinations
+Information Information   Information    (Made Up!)
+```
+
+### What Does the Framework Compare?
+
+The LLM jointly analyzes the audio and transcript to determine:
+
+- **Speech Coverage** – Was everything spoken captured in the transcript?
+- **Semantic Meaning** – Does the transcript preserve the speaker's intended meaning?
+- **Missing Information** – Were any words, phrases, or facts omitted?
+- **Incorrect Information** – Were names, numbers, dates, or medical terms transcribed incorrectly?
+- **Conflicting Information** – Does the transcript contradict what was actually spoken?
+- **Hallucinations** – Did the transcript introduce information that never appeared in the audio?
+
+### Why Is This Approach Interesting?
+
+Unlike the benchmark approach, this method **doesn't require a human-created reference transcript**.
+
+Since the LLM directly understands both audio and text, it can act as an intelligent evaluator, making it suitable for production environments where ground truth is unavailable.
+
+### The Good & The Bad
+
+| Pros                                              | Cons                                                     |
+| ------------------------------------------------- | -------------------------------------------------------- |
+| No human reference transcript required            | Depends on the quality of the multimodal LLM             |
+| Can work in production                            | More expensive than text-to-text comparison              |
+| Detects semantic errors, not just word mismatches | Slower due to audio processing                           |
+| Generates detailed explanations for each error    | The LLM itself may occasionally make incorrect judgments |
+
+### Best Used For
+
+- Production quality assurance
+- Continuous monitoring of STT systems
+- Validating transcripts without ground truth
+- Healthcare, customer support, and other real-world audio workflows
