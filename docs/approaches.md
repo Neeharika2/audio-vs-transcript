@@ -47,8 +47,6 @@ The framework checks for:
 - **Incorrect Information** – Were any words, values, or facts transcribed incorrectly?
 - **Hallucinations** – Did the model add information that was never spoken?
 
----
-
 ### Why Is This Approach Popular?
 
 Because we already know the correct answer.
@@ -59,16 +57,85 @@ This is why it's considered the **gold standard** for benchmarking Speech-to-Tex
 
 ### The Good & The Bad
 
-|  Pros |  Cons |
-|---------|---------|
-| Most accurate way to evaluate an STT model | Requires manually created reference transcripts |
-| Easy to calculate evaluation metrics | Time-consuming and expensive |
-| Ideal for comparing different STT models | Not practical in real-world production systems |
-| Produces reliable benchmark datasets | Doesn't scale well for thousands of audio recordings |
+| Pros                                       | Cons                                                 |
+| ------------------------------------------ | ---------------------------------------------------- |
+| Most accurate way to evaluate an STT model | Requires manually created reference transcripts      |
+| Easy to calculate evaluation metrics       | Time-consuming and expensive                         |
+| Ideal for comparing different STT models   | Not practical in real-world production systems       |
+| Produces reliable benchmark datasets       | Doesn't scale well for thousands of audio recordings |
 
-## Best Used For
+### Best Used For
 
 - Research and experimentation
 - Benchmarking Speech-to-Text models
 - Creating evaluation datasets
 - Comparing different STT systems under the same conditions
+
+---
+
+## Approach 2: Consensus-Based Evaluation (Multiple STT Models)
+
+### The Main Idea
+
+Instead of relying on a single Speech-to-Text model, we transcribe the **same audio** using multiple STT models.
+
+If most models produce similar transcripts, we can be more confident that the transcription is correct. If one model produces a significantly different transcript, it is flagged for further review.
+
+The idea is that **agreement between multiple independent models increases confidence**.
+
+### How It Works
+
+```text
+                    Audio File
+                         │
+        ┌────────────────┼────────────────┐
+        ▼                ▼                ▼
+     Whisper        Google STT      Deepgram
+        │                │                │
+        ▼                ▼                ▼
+ Transcript A     Transcript B     Transcript C
+        └────────────────┼────────────────┘
+                         │
+                         ▼
+                Consensus Engine
+                         │
+                         ▼
+              Evaluation Framework
+                         │
+                         ▼
+        ┌────────────────┼────────────────┐
+        ▼                ▼                ▼
+   High Confidence   Low Confidence   Needs Review
+```
+
+### What Does the Framework Compare?
+
+Since all inputs are **transcripts**, the framework compares them to identify:
+
+-  **Common Information** – Information agreed upon by most models.
+-  **Disagreements** – Sentences or words where models differ.
+-  **Entity Differences** – Names, dates, numbers, medications, etc.
+-  **Low-Confidence Regions** – Parts of the transcript where models disagree significantly.
+-  **Potential Errors** – Segments that should be reviewed manually or by another AI.
+  
+### Why Is This Approach Interesting?
+
+Instead of depending on a human-created reference transcript, this approach leverages **multiple independent STT models**.
+
+If two or more models agree, there's a higher chance that the transcription is correct. Large disagreements indicate that the audio segment may be difficult to transcribe accurately.
+
+### The Good & The Bad
+
+| Pros                                          | Cons                                         |
+| --------------------------------------------- | -------------------------------------------- |
+| No human reference transcript required        | Agreement does **not** guarantee correctness |
+| Can identify uncertain parts of a transcript  | Multiple models increase computational cost  |
+| Suitable for continuous production monitoring | All models may make the same mistake         |
+| Can automatically flag transcripts for review | Requires access to multiple STT services     |
+
+### Best Used For
+
+- Production monitoring
+- Detecting low-confidence transcripts
+- Quality assurance pipelines
+- Systems where manual verification is expensive
