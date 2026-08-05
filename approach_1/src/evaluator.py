@@ -84,6 +84,26 @@ class GeminiEvaluator:
         )
         return response.parsed
 
+class GeminiJudge:
+    """Segment-level LLM judge for the V2 pipeline (implements Judge protocol)."""
+
+    def __init__(self, model_name: str, api_key: str):
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY is required for EVAL_PROVIDER='gemini'")
+        self.model_name = model_name
+        self.client = genai.Client(api_key=api_key)
+
+    def judge(self, prompt: str, schema):
+        response = self.client.models.generate_content(
+            model=self.model_name,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema=schema,
+            ),
+        )
+        return response.parsed
+
 class MockEvaluator:
     def evaluate(self, gold_transcript: str, candidate_transcript: str) -> EvaluationReport:
         return EvaluationReport(

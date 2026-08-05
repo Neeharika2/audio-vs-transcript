@@ -6,6 +6,8 @@ google-genai
 python-dotenv
 openai
 faster-whisper
+rapidfuzz
+sentence-transformers
 pytest
 httpx
 rich
