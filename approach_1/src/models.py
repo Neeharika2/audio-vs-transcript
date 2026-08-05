@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 
 class ErrorItem(BaseModel):
@@ -8,6 +8,7 @@ class ErrorItem(BaseModel):
     context: Optional[str] = None
     explanation: Optional[str] = None
     severity: str = "medium"  # low, medium, high
+    signal_evidence: Optional[dict] = None
 
 class EvaluationReport(BaseModel):
     missing_information: List[ErrorItem] = []
@@ -16,3 +17,48 @@ class EvaluationReport(BaseModel):
     hallucinated_information: List[ErrorItem] = []
     overall_score: int = 100
     status: str = "Match"
+
+# ---------------------------------------------------------------------------
+# V2: structured evaluation pipeline
+# ---------------------------------------------------------------------------
+
+class SegmentJudgement(BaseModel):
+    relationship: str  # match | incorrect | conflict | missing | hallucination
+    explanation: Optional[str] = None
+    severity: str = "low"
+
+class FindingList(BaseModel):
+    findings: List[ErrorItem] = []
+
+class EvaluationInputs(BaseModel):
+    gold_source: Optional[str] = None
+    candidate_source: Optional[str] = None
+    stt_model: Optional[str] = None
+    evaluator: Optional[str] = None
+
+class AlignmentStats(BaseModel):
+    gold_segments: int = 0
+    candidate_segments: int = 0
+    matched: int = 0
+    unmatched_gold: int = 0
+    unmatched_candidate: int = 0
+    covered_gold: int = 0
+
+class ScoreBreakdown(BaseModel):
+    semantic: Optional[float] = None
+    entity: float = 0.0
+    lexical: float = 0.0
+    error_penalty: float = 0.0
+
+class Meta(BaseModel):
+    llm_calls: int = 0
+    latency_ms: int = 0
+    generated_at: Optional[str] = None
+
+class EvaluationReportV2(EvaluationReport):
+    id: Optional[str] = None
+    inputs: EvaluationInputs = Field(default_factory=EvaluationInputs)
+    alignment: AlignmentStats = Field(default_factory=AlignmentStats)
+    signals: dict = Field(default_factory=dict)
+    score_breakdown: ScoreBreakdown = Field(default_factory=ScoreBreakdown)
+    meta: Meta = Field(default_factory=Meta)
