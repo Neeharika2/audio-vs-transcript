@@ -1,7 +1,25 @@
+import json
+import re
+
 import pytest
 
 from approach_1.src.align import align
-from approach_1.src.classify import CATEGORY_MAP, MockJudge, classify
+from approach_1.src.classify import CATEGORY_MAP, classify
+from approach_1.src.models import ErrorItem, FindingList
+
+
+class FakeJudge:
+    def __init__(self, relationship="match", severity="low"):
+        self.relationship = relationship
+        self.severity = severity
+
+    def judge(self, prompt, schema):
+        if schema is FindingList:
+            match = re.search(r"\[.*\]", prompt, flags=re.S)
+            if match:
+                return schema(findings=[ErrorItem(**item) for item in json.loads(match.group(0))])
+            return schema(findings=[])
+        return schema(relationship=self.relationship, explanation="fake judgement", severity=self.severity)
 
 
 GOLD = (
@@ -14,9 +32,9 @@ GOLD = (
 class TestClassify:
     def test_perfect_match_no_findings(self):
         result = align(GOLD, GOLD)
-        findings, calls = classify(result, MockJudge(relationship="match"), GOLD, GOLD)
+        findings, calls = classify(result, FakeJudge(relationship="match"), GOLD, GOLD)
         assert findings == []
-        assert calls == len(result.pairs)
+        assert calls == 0
 
     def test_missing_sentence(self):
         candidate = (
@@ -49,10 +67,10 @@ class TestClassify:
             "The hospital is on Main Street."
         )
         result = align(GOLD, candidate)
-        findings, calls = classify(result, MockJudge(relationship="incorrect", severity="high"), GOLD, candidate)
+        findings, calls = classify(result, FakeJudge(relationship="incorrect", severity="high"), GOLD, candidate)
         cats = [f.category for f in findings]
         assert "incorrect_information" in cats
-        assert calls >= len(result.pairs)
+        assert calls >= 1
 
     def test_category_map_covers_all(self):
         assert set(CATEGORY_MAP) == {"missing", "incorrect", "conflict", "hallucination"}

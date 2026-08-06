@@ -2,7 +2,6 @@ fastapi
 uvicorn
 python-multipart
 pydantic>=2.0
-google-genai
 python-dotenv
 openai
 faster-whisper

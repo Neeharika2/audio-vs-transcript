@@ -7,9 +7,9 @@ prunes false positives and catches cross-segment contradictions.
 
 from __future__ import annotations
 
+import concurrent.futures
 import json
-import re
-from typing import Protocol, TypeVar, cast
+from typing import Protocol, TypeVar
 
 from pydantic import BaseModel
 
@@ -33,27 +33,6 @@ class Judge(Protocol):
     def judge(self, prompt: str, schema: type[JudgementT]) -> JudgementT:
         """Send a classification prompt and return a validated structured output."""
         ...
-
-
-class MockJudge:
-    """Deterministic judge for offline tests.
-
-    Returns `relationship`/`severity` for segment judgements. For the global
-    review (FindingList) it echoes the preliminary findings back unchanged so
-    pair-level findings survive the review pass.
-    """
-
-    def __init__(self, relationship: str = "match", severity: str = "low"):
-        self.relationship = relationship
-        self.severity = severity
-
-    def judge(self, prompt: str, schema: type[JudgementT]) -> JudgementT:
-        if schema is FindingList:
-            match = re.search(r"\[.*\]", prompt, flags=re.S)
-            if match:
-                return cast(JudgementT, FindingList(findings=[ErrorItem(**item) for item in json.loads(match.group(0))]))
-            return cast(JudgementT, FindingList(findings=[]))
-        return cast(JudgementT, schema(relationship=self.relationship, explanation="mock judgement", severity=self.severity))
 
 
 _PAIR_PROMPT = """You are auditing a speech-to-text transcript against a reference (gold) transcript.
@@ -162,6 +141,37 @@ def _auto_hallucination(seg) -> ErrorItem:
     )
 
 
+MATCH_SKIP_THRESHOLD = 0.99
+MAX_CONCURRENCY = 6
+
+
+def _judge_pair(pair: AlignedPair, judge: Judge, gold_full: str, candidate_full: str) -> SegmentJudgement:
+    prompt = _PAIR_PROMPT.format(
+        gold=pair.gold.text,
+        candidate=pair.candidate.text,
+        gold_context=_neighbor_context(gold_full, pair.gold.text),
+        candidate_context=_neighbor_context(candidate_full, pair.candidate.text),
+    )
+    return judge.judge(prompt, SegmentJudgement)
+
+
+def _record(pair: AlignedPair, judgement: SegmentJudgement) -> ErrorItem | None:
+    if judgement.relationship == "match":
+        return None
+    category = CATEGORY_MAP.get(judgement.relationship)
+    if not category:
+        return None
+    return ErrorItem(
+        category=category,
+        reference_text=pair.gold.text,
+        generated_text=pair.candidate.text,
+        context=None,
+        explanation=judgement.explanation,
+        severity=judgement.severity,
+        signal_evidence={"segment_similarity": round(pair.similarity, 3)},
+    )
+
+
 def classify(
     alignment: AlignmentResult,
     judge: Judge | None,
@@ -171,39 +181,30 @@ def classify(
     """Classify alignment results into findings. Returns (findings, llm_calls).
 
     When `judge` is None, pairs are classified with deterministic heuristics
-    (so the pipeline is functional offline); llm_calls stays 0.
+    (so the pipeline is functional offline); llm_calls stays 0. With an LLM
+    judge, pairs whose segments are near-identical (similarity >= 0.95) are
+    skipped as obvious matches, and the remaining pairs are judged in parallel.
     """
     findings: list[ErrorItem] = []
     llm_calls = 0
 
-    for pair in alignment.pairs:
-        if judge is not None:
-            prompt = _PAIR_PROMPT.format(
-                gold=pair.gold.text,
-                candidate=pair.candidate.text,
-                gold_context=_neighbor_context(gold_full, pair.gold.text),
-                candidate_context=_neighbor_context(candidate_full, pair.candidate.text),
-            )
-            judgement = judge.judge(prompt, SegmentJudgement)
-            llm_calls += 1
-        else:
-            judgement = heuristic_judge(pair)
-        if judgement.relationship == "match":
-            continue
-        category = CATEGORY_MAP.get(judgement.relationship)
-        if not category:
-            continue
-        findings.append(
-            ErrorItem(
-                category=category,
-                reference_text=pair.gold.text,
-                generated_text=pair.candidate.text,
-                context=None,
-                explanation=judgement.explanation,
-                severity=judgement.severity,
-                signal_evidence={"segment_similarity": round(pair.similarity, 3)},
-            )
-        )
+    if judge is not None:
+        to_judge = [p for p in alignment.pairs if p.similarity < MATCH_SKIP_THRESHOLD]
+        if to_judge:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_CONCURRENCY) as pool:
+                judgements = list(
+                    pool.map(lambda p: _judge_pair(p, judge, gold_full, candidate_full), to_judge)
+                )
+            llm_calls += len(to_judge)
+            for pair, judgement in zip(to_judge, judgements):
+                item = _record(pair, judgement)
+                if item:
+                    findings.append(item)
+    else:
+        for pair in alignment.pairs:
+            item = _record(pair, heuristic_judge(pair))
+            if item:
+                findings.append(item)
 
     findings.extend(_auto_missing(seg) for seg in alignment.unmatched_gold)
     findings.extend(_auto_hallucination(seg) for seg in alignment.unmatched_candidate)

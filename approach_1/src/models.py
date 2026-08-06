@@ -1,6 +1,15 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
+class SignalEvidence(BaseModel):
+    """Deterministic metric values backing a finding.
+
+    Kept as a fixed model (not a free-form dict) so the JSON schema stays
+    compatible with Gemini's Developer API, which rejects additionalProperties.
+    """
+    segment_similarity: Optional[float] = None
+
+
 class ErrorItem(BaseModel):
     category: str  # missing, incorrect, conflicting, hallucinated
     reference_text: Optional[str] = None
@@ -8,7 +17,7 @@ class ErrorItem(BaseModel):
     context: Optional[str] = None
     explanation: Optional[str] = None
     severity: str = "medium"  # low, medium, high
-    signal_evidence: Optional[dict] = None
+    signal_evidence: Optional[SignalEvidence] = None
 
 class EvaluationReport(BaseModel):
     missing_information: List[ErrorItem] = []

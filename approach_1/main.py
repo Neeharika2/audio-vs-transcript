@@ -3,7 +3,6 @@
 Usage:
     python -m approach_1.main evaluate <audio_file> --gold <gold.txt>
     python -m approach_1.main evaluate-text --gold <gold.txt> --candidate <candidate.txt>
-    python -m approach_1.main validate
 """
 
 from __future__ import annotations
@@ -11,9 +10,12 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from pathlib import Path
 
 from approach_1 import config
 from approach_1.src.models import EvaluationInputs
+
+STT_OUT = Path(__file__).resolve().parent / "datasets" / "stt_generated_transcripts"
 
 
 def _load(path: str) -> str:
@@ -22,14 +24,15 @@ def _load(path: str) -> str:
 
 
 def cmd_evaluate(args) -> None:
-    stt_runner = config.get_stt_runner()
     judge = config.get_judge()
     embedder = config.get_embedder()
 
-    print(f"STT Provider: {config.STT_PROVIDER} ({config.STT_MODEL_NAME})", file=sys.stderr)
-    print(f"Evaluator Provider: {config.EVAL_PROVIDER} ({config.EVAL_MODEL_NAME})", file=sys.stderr)
+    print(f"STT Model: {config.STT_MODEL_NAME}", file=sys.stderr)
+    print(f"Evaluator Model: {config.EVAL_MODEL_NAME}", file=sys.stderr)
 
-    candidate = stt_runner.transcribe(args.audio)
+    from approach_1.src.evaluator import transcribe_cached
+
+    candidate = transcribe_cached(args.audio, config.STT_MODEL_NAME, STT_OUT, force=args.force_stt)
     gold = _load(args.gold)
     report = _run(gold, candidate, judge, embedder,
                   inputs=EvaluationInputs(
@@ -53,13 +56,6 @@ def cmd_evaluate_text(args) -> None:
     print(json.dumps(report.model_dump(), indent=2))
 
 
-def cmd_validate(args) -> None:
-    from approach_1.src.validation import run_suite
-
-    metrics = run_suite()
-    print(json.dumps(metrics, indent=2))
-
-
 def _run(gold: str, candidate: str, judge, embedder, inputs=None):
     from approach_1.src.evaluate import evaluate
 
@@ -74,15 +70,13 @@ def main() -> None:
     p_eval = sub.add_parser("evaluate", help="transcribe audio and evaluate against a gold transcript")
     p_eval.add_argument("audio")
     p_eval.add_argument("--gold", required=True)
+    p_eval.add_argument("--force-stt", action="store_true", help="re-transcribe instead of reusing a cached transcript")
     p_eval.set_defaults(func=cmd_evaluate)
 
     p_text = sub.add_parser("evaluate-text", help="compare two transcript files")
     p_text.add_argument("--gold", required=True)
     p_text.add_argument("--candidate", required=True)
     p_text.set_defaults(func=cmd_evaluate_text)
-
-    p_val = sub.add_parser("validate", help="run the synthetic validation suite")
-    p_val.set_defaults(func=cmd_validate)
 
     args = parser.parse_args()
     args.func(args)

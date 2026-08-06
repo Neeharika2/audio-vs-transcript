@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio vs Transcript Evaluator</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --ok: #4ade80;
+    --bad: #f87171;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); margin: 0 0 32px; }
+  #step-run { text-align: center; padding: 60px 0; }
+  .btn {
+    font: inherit;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .btn-lg { font-size: 1.25rem; padding: 16px 44px; }
+  .btn-primary { background: var(--accent); color: #0b1220; }
+  .btn-primary:hover { filter: brightness(1.1); }
+  .btn-primary:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
+  .hint { color: var(--muted); margin-top: 12px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .drop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: var(--panel);
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 36px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .15s;
+  }
+  .drop:hover, .drop.has-file { border-color: var(--accent); }
+  .drop-title { font-weight: 600; }
+  .drop-sub { color: var(--muted); font-size: .85rem; }
+  .drop-name { color: var(--accent); font-size: .9rem; word-break: break-all; }
+  #status { margin: 16px 0 0; color: var(--muted); }
+  #status.error { color: var(--bad); }
+  #result { margin-top: 32px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .score-line { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .score { font-size: 2.5rem; font-weight: 700; }
+  .badge { padding: 4px 12px; border-radius: 999px; font-weight: 600; font-size: .85rem; }
+  .badge.match { background: rgba(74,222,128,.15); color: var(--ok); }
+  .badge.mismatch { background: rgba(248,113,113,.15); color: var(--bad); }
+  .counts { display: flex; gap: 20px; color: var(--muted); font-size: .9rem; flex-wrap: wrap; }
+  .counts b { color: var(--text); }
+  h2 { font-size: 1.05rem; margin: 24px 0 12px; }
+  h2 .empty { color: var(--ok); font-weight: 500; font-size: .9rem; }
+  .finding { border-left: 3px solid var(--border); padding: 8px 12px; margin-bottom: 10px; background: rgba(255,255,255,.03); }
+  .finding .sev { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .finding .sev.high { color: var(--bad); }
+  .finding .sev.medium { color: #fbbf24; }
+  .finding .exp { margin: 4px 0; }
+  .finding .span { color: var(--muted); font-size: .9rem; margin: 2px 0; }
+  .finding .span b { color: var(--text); font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 500; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="container">
+  <h1>Audio vs Transcript Evaluation</h1>
+  <p class="subtitle">Transcribe an audio file and check it against a manual transcript.</p>
+
+  <section id="step-run">
+    <button id="btn-run" class="btn btn-primary btn-lg">Run</button>
+    <p class="hint">Click Run to upload an audio file and a manual transcript.</p>
+  </section>
+
+  <section id="step-upload" hidden>
+    <div class="grid">
+      <label class="drop" id="drop-audio">
+        <input type="file" id="file-audio" hidden>
+        <span class="drop-title">Audio</span>
+        <span class="drop-sub">any audio format</span>
+      </label>
+      <label class="drop" id="drop-transcript">
+        <input type="file" id="file-transcript" accept=".pdf,.txt" hidden>
+        <span class="drop-title">Manual Transcript</span>
+        <span class="drop-sub">.pdf or .txt</span>
+      </label>
+    </div>
+    <button id="btn-start" class="btn btn-primary" disabled>Evaluate</button>
+    <p id="status"></p>
+  </section>
+
+  <section id="result" hidden></section>
+</main>
+
+<script>
+const els = {
+  stepRun: document.getElementById("step-run"),
+  stepUpload: document.getElementById("step-upload"),
+  btnRun: document.getElementById("btn-run"),
+  btnStart: document.getElementById("btn-start"),
+  fileAudio: document.getElementById("file-audio"),
+  fileTranscript: document.getElementById("file-transcript"),
+  dropAudio: document.getElementById("drop-audio"),
+  dropTranscript: document.getElementById("drop-transcript"),
+  status: document.getElementById("status"),
+  result: document.getElementById("result"),
+};
+
+els.btnRun.addEventListener("click", () => {
+  els.stepRun.hidden = true;
+  els.stepUpload.hidden = false;
+});
+
+function wire(drop, input) {
+  input.addEventListener("change", () => {
+    if (!input.files.length) return;
+    const name = input.files[0].name;
+    const existing = drop.querySelector(".drop-name");
+    if (existing) existing.remove();
+    const el = document.createElement("span");
+    el.className = "drop-name";
+    el.textContent = name;
+    drop.appendChild(el);
+    drop.classList.add("has-file");
+    els.btnStart.disabled = !(els.fileAudio.files.length && els.fileTranscript.files.length);
+  });
+}
+wire(els.dropAudio, els.fileAudio);
+wire(els.dropTranscript, els.fileTranscript);
+
+els.btnStart.addEventListener("click", async () => {
+  const fd = new FormData();
+  fd.append("audio", els.fileAudio.files[0]);
+  fd.append("manual_transcript", els.fileTranscript.files[0]);
+  els.btnStart.disabled = true;
+  els.status.className = "";
+  els.status.textContent = "Transcribing audio and comparing... this can take a while.";
+  els.result.hidden = true;
+  try {
+    const res = await fetch("/evaluate", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!res.ok) {
+      els.status.className = "error";
+      els.status.textContent = data.detail || "Evaluation failed.";
+    } else {
+      els.status.textContent = "";
+      render(data);
+    }
+  } catch (err) {
+    els.status.className = "error";
+    els.status.textContent = "Request failed: " + err.message;
+  } finally {
+    els.btnStart.disabled = false;
+  }
+});
+
+function render(data) {
+  els.result.hidden = false;
+  const sections = [
+    ["missing_information", "Missing"],
+    ["incorrect_information", "Incorrect"],
+    ["conflicting_information", "Conflicting"],
+    ["hallucinated_information", "Hallucinated"],
+  ];
+  const html = `
+    <div class="card">
+      <div class="score-line">
+        <span class="score">${data.overall_score}</span>
+        <span class="badge ${data.status === "Match" ? "match" : "mismatch"}">${data.status}</span>
+      </div>
+      <div class="counts">
+        ${sections.map(([key, label]) => `<span><b>${(data[key] || []).length}</b> ${label}</span>`).join("")}
+        <span>STT model: <b>${data.inputs?.stt_model || "-"}</b></span>
+      </div>
+    </div>
+
+    ${sections.map(([key, label]) => {
+      const items = data[key] || [];
+      return `<h2>${label} information <span class="empty">${items.length ? "" : "\u2014 none"}</span></h2>
+        ${items.map(f => `
+          <div class="finding">
+            <div class="sev ${f.severity}">${f.severity}</div>
+            <div class="exp">${esc(f.explanation || "")}</div>
+            ${f.reference_text ? `<div class="span"><b>Manual:</b> ${esc(f.reference_text)}</div>` : ""}
+            ${f.generated_text ? `<div class="span"><b>STT:</b> ${esc(f.generated_text)}</div>` : ""}
+          </div>`).join("") || ""}`;
+    }).join("")}
+
+    <div class="card">
+      <h2 style="margin-top:0">Signals</h2>
+      <table>
+        <tr><th>Metric</th><th>Value</th></tr>
+        ${Object.entries(data.signals || {}).map(([k, v]) =>
+          `<tr><td>${esc(k)}</td><td>${v === null ? "-" : v}</td></tr>`).join("")}
+      </table>
+    </div>`;
+  els.result.innerHTML = html;
+}
+
+function esc(s) {
+  return s.replace(/[&<>"']/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+</script>
+</body>
+</html>
