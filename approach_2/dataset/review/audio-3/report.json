@@ -1,0 +1,1769 @@
+{
+  "audio": "audio-3",
+  "engines": [
+    "whisper",
+    "deepgram"
+  ],
+  "segments": [
+    {
+      "idx": 0,
+      "start": 1.65,
+      "end": 8.719999,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 1.65,
+        "end": 8.35,
+        "text": "Multiple use of heart and great vessels reveal normal intracardic and great vessel relationships.",
+        "confidence": 0.8482,
+        "words": [
+          {
+            "text": " Multiple",
+            "confidence": 0.2891788184642792
+          },
+          {
+            "text": " use",
+            "confidence": 0.5131790041923523
+          },
+          {
+            "text": " of",
+            "confidence": 0.9973047971725464
+          },
+          {
+            "text": " heart",
+            "confidence": 0.9808467030525208
+          },
+          {
+            "text": " and",
+            "confidence": 0.9137170910835266
+          },
+          {
+            "text": " great",
+            "confidence": 0.8697230219841003
+          },
+          {
+            "text": " vessels",
+            "confidence": 0.950165331363678
+          },
+          {
+            "text": " reveal",
+            "confidence": 0.6627723574638367
+          },
+          {
+            "text": " normal",
+            "confidence": 0.9550930261611938
+          },
+          {
+            "text": " intracardic",
+            "confidence": 0.8474898189306259
+          },
+          {
+            "text": " and",
+            "confidence": 0.9910750389099121
+          },
+          {
+            "text": " great",
+            "confidence": 0.9728828072547913
+          },
+          {
+            "text": " vessel",
+            "confidence": 0.9703468680381775
+          },
+          {
+            "text": " relationships.",
+            "confidence": 0.9610708355903625
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 2.1599998,
+        "end": 8.719999,
+        "text": "multiple use of heart and great vessels reveal normal intracardiac and great vessel relationships",
+        "confidence": 0.9875,
+        "words": [
+          {
+            "text": "multiple",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "use",
+            "confidence": 0.98291016
+          },
+          {
+            "text": "of",
+            "confidence": 1.0
+          },
+          {
+            "text": "heart",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "and",
+            "confidence": 0.91748047
+          },
+          {
+            "text": "great",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "vessels",
+            "confidence": 0.99609375
+          },
+          {
+            "text": "reveal",
+            "confidence": 0.96533203
+          },
+          {
+            "text": "normal",
+            "confidence": 1.0
+          },
+          {
+            "text": "intracardiac",
+            "confidence": 0.9967448
+          },
+          {
+            "text": "and",
+            "confidence": 0.9760742
+          },
+          {
+            "text": "great",
+            "confidence": 1.0
+          },
+          {
+            "text": "vessel",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "relationships",
+            "confidence": 0.9995117
+          }
+        ]
+      },
+      "agreement": 0.9286,
+      "diff": [
+        {
+          "text": "multiple",
+          "op": "match"
+        },
+        {
+          "text": "use",
+          "op": "match"
+        },
+        {
+          "text": "of",
+          "op": "match"
+        },
+        {
+          "text": "heart",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "great",
+          "op": "match"
+        },
+        {
+          "text": "vessels",
+          "op": "match"
+        },
+        {
+          "text": "reveal",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        },
+        {
+          "text": "intracardiac",
+          "op": "substitute"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "great",
+          "op": "match"
+        },
+        {
+          "text": "vessel",
+          "op": "match"
+        },
+        {
+          "text": "relationships",
+          "op": "match"
+        }
+      ],
+      "confidence": 92.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 1,
+      "start": 8.97,
+      "end": 10.959999,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 8.97,
+        "end": 10.57,
+        "text": "Cardiac function is normal.",
+        "confidence": 0.9204,
+        "words": [
+          {
+            "text": " Cardiac",
+            "confidence": 0.7348179817199707
+          },
+          {
+            "text": " function",
+            "confidence": 0.977382242679596
+          },
+          {
+            "text": " is",
+            "confidence": 0.9934444427490234
+          },
+          {
+            "text": " normal.",
+            "confidence": 0.9759358763694763
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 9.04,
+        "end": 10.959999,
+        "text": "cardiac function is normal",
+        "confidence": 0.9856,
+        "words": [
+          {
+            "text": "cardiac",
+            "confidence": 0.9428711
+          },
+          {
+            "text": "function",
+            "confidence": 1.0
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "normal",
+            "confidence": 0.9995117
+          }
+        ]
+      },
+      "agreement": 1.0,
+      "diff": [
+        {
+          "text": "cardiac",
+          "op": "match"
+        },
+        {
+          "text": "function",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        }
+      ],
+      "confidence": 98.0,
+      "tier": "auto_accept",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 2,
+      "start": 11.04,
+      "end": 15.44,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 11.13,
+        "end": 15.29,
+        "text": "There is no significant chamber, enlargement or hypertrophy.",
+        "confidence": 0.9612,
+        "words": [
+          {
+            "text": " There",
+            "confidence": 0.9718310832977295
+          },
+          {
+            "text": " is",
+            "confidence": 0.9915245175361633
+          },
+          {
+            "text": " no",
+            "confidence": 0.9962461590766907
+          },
+          {
+            "text": " significant",
+            "confidence": 0.9664483070373535
+          },
+          {
+            "text": " chamber,",
+            "confidence": 0.9456990957260132
+          },
+          {
+            "text": " enlargement",
+            "confidence": 0.993848443031311
+          },
+          {
+            "text": " or",
+            "confidence": 0.8385276794433594
+          },
+          {
+            "text": " hypertrophy.",
+            "confidence": 0.9855899810791016
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 11.04,
+        "end": 15.44,
+        "text": "there is no significant chamber enlargement or hypertrophy",
+        "confidence": 0.9871,
+        "words": [
+          {
+            "text": "there",
+            "confidence": 1.0
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "no",
+            "confidence": 1.0
+          },
+          {
+            "text": "significant",
+            "confidence": 1.0
+          },
+          {
+            "text": "chamber",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "enlargement",
+            "confidence": 0.9003906
+          },
+          {
+            "text": "or",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "hypertrophy",
+            "confidence": 0.9996745
+          }
+        ]
+      },
+      "agreement": 1.0,
+      "diff": [
+        {
+          "text": "there",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "no",
+          "op": "match"
+        },
+        {
+          "text": "significant",
+          "op": "match"
+        },
+        {
+          "text": "chamber",
+          "op": "match"
+        },
+        {
+          "text": "enlargement",
+          "op": "match"
+        },
+        {
+          "text": "or",
+          "op": "match"
+        },
+        {
+          "text": "hypertrophy",
+          "op": "match"
+        }
+      ],
+      "confidence": 99.0,
+      "tier": "auto_accept",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 3,
+      "start": 15.87,
+      "end": 21.795,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 15.87,
+        "end": 19.47,
+        "text": "There is no pre-cardial effusion or visitation seen.",
+        "confidence": 0.8599,
+        "words": [
+          {
+            "text": " There",
+            "confidence": 0.9864257574081421
+          },
+          {
+            "text": " is",
+            "confidence": 0.994082510471344
+          },
+          {
+            "text": " no",
+            "confidence": 0.9966253042221069
+          },
+          {
+            "text": " pre",
+            "confidence": 0.7099544405937195
+          },
+          {
+            "text": "-cardial",
+            "confidence": 0.7860209147135416
+          },
+          {
+            "text": " effusion",
+            "confidence": 0.9811730980873108
+          },
+          {
+            "text": " or",
+            "confidence": 0.9859436750411987
+          },
+          {
+            "text": " visitation",
+            "confidence": 0.631688579916954
+          },
+          {
+            "text": " seen.",
+            "confidence": 0.6672993898391724
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 15.955,
+        "end": 21.795,
+        "text": "there is no pericardial effusion or vegetation seen doppler interrogation",
+        "confidence": 0.977,
+        "words": [
+          {
+            "text": "there",
+            "confidence": 1.0
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "no",
+            "confidence": 1.0
+          },
+          {
+            "text": "pericardial",
+            "confidence": 0.88671875
+          },
+          {
+            "text": "effusion",
+            "confidence": 1.0
+          },
+          {
+            "text": "or",
+            "confidence": 1.0
+          },
+          {
+            "text": "vegetation",
+            "confidence": 0.9555664
+          },
+          {
+            "text": "seen",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "doppler",
+            "confidence": 0.9995117
+          },
+          {
+            "text": "interrogation",
+            "confidence": 0.929362
+          }
+        ]
+      },
+      "agreement": 0.5,
+      "diff": [
+        {
+          "text": "there",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "no",
+          "op": "match"
+        },
+        {
+          "text": "pre",
+          "op": "delete"
+        },
+        {
+          "text": "pericardial",
+          "op": "substitute"
+        },
+        {
+          "text": "effusion",
+          "op": "match"
+        },
+        {
+          "text": "or",
+          "op": "match"
+        },
+        {
+          "text": "vegetation",
+          "op": "substitute"
+        },
+        {
+          "text": "seen",
+          "op": "match"
+        },
+        {
+          "text": "doppler",
+          "op": "insert"
+        },
+        {
+          "text": "interrogation",
+          "op": "insert"
+        }
+      ],
+      "confidence": 74.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 4,
+      "start": 20.39,
+      "end": 26.595,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 20.39,
+        "end": 25.65,
+        "text": "Doppler interrogation including colour flow imaging reveals systemic venous return to",
+        "confidence": 0.8769,
+        "words": [
+          {
+            "text": " Doppler",
+            "confidence": 0.9704842567443848
+          },
+          {
+            "text": " interrogation",
+            "confidence": 0.9447913467884064
+          },
+          {
+            "text": " including",
+            "confidence": 0.7571521997451782
+          },
+          {
+            "text": " colour",
+            "confidence": 0.6505551338195801
+          },
+          {
+            "text": " flow",
+            "confidence": 0.6941301226615906
+          },
+          {
+            "text": " imaging",
+            "confidence": 0.9934079647064209
+          },
+          {
+            "text": " reveals",
+            "confidence": 0.9568315148353577
+          },
+          {
+            "text": " systemic",
+            "confidence": 0.9868624210357666
+          },
+          {
+            "text": " venous",
+            "confidence": 0.7274249494075775
+          },
+          {
+            "text": " return",
+            "confidence": 0.9724000096321106
+          },
+          {
+            "text": " to",
+            "confidence": 0.9923876523971558
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 21.795,
+        "end": 26.595,
+        "text": "including color flow imaging reveals systemic veneous return to the return",
+        "confidence": 0.9145,
+        "words": [
+          {
+            "text": "including",
+            "confidence": 1.0
+          },
+          {
+            "text": "color",
+            "confidence": 0.9863281
+          },
+          {
+            "text": "flow",
+            "confidence": 0.91503906
+          },
+          {
+            "text": "imaging",
+            "confidence": 0.95458984
+          },
+          {
+            "text": "reveals",
+            "confidence": 0.78808594
+          },
+          {
+            "text": "systemic",
+            "confidence": 0.9941406
+          },
+          {
+            "text": "veneous",
+            "confidence": 0.7786458
+          },
+          {
+            "text": "return",
+            "confidence": 0.9921875
+          },
+          {
+            "text": "to",
+            "confidence": 1.0
+          },
+          {
+            "text": "the",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "return",
+            "confidence": 0.65234375
+          }
+        ]
+      },
+      "agreement": 0.4545,
+      "diff": [
+        {
+          "text": "doppler",
+          "op": "delete"
+        },
+        {
+          "text": "interrogation",
+          "op": "delete"
+        },
+        {
+          "text": "including",
+          "op": "match"
+        },
+        {
+          "text": "color",
+          "op": "substitute"
+        },
+        {
+          "text": "flow",
+          "op": "match"
+        },
+        {
+          "text": "imaging",
+          "op": "match"
+        },
+        {
+          "text": "reveals",
+          "op": "match"
+        },
+        {
+          "text": "systemic",
+          "op": "match"
+        },
+        {
+          "text": "veneous",
+          "op": "substitute"
+        },
+        {
+          "text": "return",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "insert"
+        },
+        {
+          "text": "return",
+          "op": "insert"
+        }
+      ],
+      "confidence": 71.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 5,
+      "start": 25.65,
+      "end": 30.355,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 25.65,
+        "end": 30.35,
+        "text": "the written right atom with normal tricuspid inflow.",
+        "confidence": 0.8249,
+        "words": [
+          {
+            "text": " the",
+            "confidence": 0.9883673787117004
+          },
+          {
+            "text": " written",
+            "confidence": 0.37237676978111267
+          },
+          {
+            "text": " right",
+            "confidence": 0.8469604253768921
+          },
+          {
+            "text": " atom",
+            "confidence": 0.5460100173950195
+          },
+          {
+            "text": " with",
+            "confidence": 0.9609941244125366
+          },
+          {
+            "text": " normal",
+            "confidence": 0.9898926615715027
+          },
+          {
+            "text": " tricuspid",
+            "confidence": 0.9304516911506653
+          },
+          {
+            "text": " inflow.",
+            "confidence": 0.9637892842292786
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 27.154999,
+        "end": 30.355,
+        "text": "right atom with normal tricuspid inflow",
+        "confidence": 0.9825,
+        "words": [
+          {
+            "text": "right",
+            "confidence": 0.98291016
+          },
+          {
+            "text": "atom",
+            "confidence": 0.9206543
+          },
+          {
+            "text": "with",
+            "confidence": 0.9921875
+          },
+          {
+            "text": "normal",
+            "confidence": 1.0
+          },
+          {
+            "text": "tricuspid",
+            "confidence": 1.0
+          },
+          {
+            "text": "inflow",
+            "confidence": 0.99902344
+          }
+        ]
+      },
+      "agreement": 0.75,
+      "diff": [
+        {
+          "text": "the",
+          "op": "delete"
+        },
+        {
+          "text": "written",
+          "op": "delete"
+        },
+        {
+          "text": "right",
+          "op": "match"
+        },
+        {
+          "text": "atom",
+          "op": "match"
+        },
+        {
+          "text": "with",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        },
+        {
+          "text": "tricuspid",
+          "op": "match"
+        },
+        {
+          "text": "inflow",
+          "op": "match"
+        }
+      ],
+      "confidence": 82.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 6,
+      "start": 30.35,
+      "end": 33.93,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 30.35,
+        "end": 33.57,
+        "text": "Pulmonary outflow is normal at the wall.",
+        "confidence": 0.8041,
+        "words": [
+          {
+            "text": " Pulmonary",
+            "confidence": 0.48766033351421356
+          },
+          {
+            "text": " outflow",
+            "confidence": 0.8667817711830139
+          },
+          {
+            "text": " is",
+            "confidence": 0.9883272051811218
+          },
+          {
+            "text": " normal",
+            "confidence": 0.980678379535675
+          },
+          {
+            "text": " at",
+            "confidence": 0.9423105716705322
+          },
+          {
+            "text": " the",
+            "confidence": 0.9916821122169495
+          },
+          {
+            "text": " wall.",
+            "confidence": 0.37094131112098694
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 30.89,
+        "end": 33.93,
+        "text": "pulmonary outflow is normal at the wall",
+        "confidence": 0.9632,
+        "words": [
+          {
+            "text": "pulmonary",
+            "confidence": 0.9995117
+          },
+          {
+            "text": "outflow",
+            "confidence": 1.0
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "normal",
+            "confidence": 1.0
+          },
+          {
+            "text": "at",
+            "confidence": 0.8964844
+          },
+          {
+            "text": "the",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "wall",
+            "confidence": 0.84716797
+          }
+        ]
+      },
+      "agreement": 1.0,
+      "diff": [
+        {
+          "text": "pulmonary",
+          "op": "match"
+        },
+        {
+          "text": "outflow",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        },
+        {
+          "text": "at",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "wall",
+          "op": "match"
+        }
+      ],
+      "confidence": 93.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 7,
+      "start": 34.07,
+      "end": 37.69,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 34.07,
+        "end": 37.29,
+        "text": "Pulmonary venous return is to the left atom.",
+        "confidence": 0.7735,
+        "words": [
+          {
+            "text": " Pulmonary",
+            "confidence": 0.7615187466144562
+          },
+          {
+            "text": " venous",
+            "confidence": 0.5564384907484055
+          },
+          {
+            "text": " return",
+            "confidence": 0.9008018970489502
+          },
+          {
+            "text": " is",
+            "confidence": 0.9717166423797607
+          },
+          {
+            "text": " to",
+            "confidence": 0.9859731197357178
+          },
+          {
+            "text": " the",
+            "confidence": 0.974090576171875
+          },
+          {
+            "text": " left",
+            "confidence": 0.989423930644989
+          },
+          {
+            "text": " atom.",
+            "confidence": 0.04780924320220947
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 34.17,
+        "end": 37.69,
+        "text": "pulmonary veneous return is to the left atom",
+        "confidence": 0.9723,
+        "words": [
+          {
+            "text": "pulmonary",
+            "confidence": 1.0
+          },
+          {
+            "text": "veneous",
+            "confidence": 0.8489583
+          },
+          {
+            "text": "return",
+            "confidence": 0.9716797
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "to",
+            "confidence": 1.0
+          },
+          {
+            "text": "the",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "left",
+            "confidence": 1.0
+          },
+          {
+            "text": "atom",
+            "confidence": 0.960612
+          }
+        ]
+      },
+      "agreement": 0.875,
+      "diff": [
+        {
+          "text": "pulmonary",
+          "op": "match"
+        },
+        {
+          "text": "veneous",
+          "op": "substitute"
+        },
+        {
+          "text": "return",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "left",
+          "op": "match"
+        },
+        {
+          "text": "atom",
+          "op": "match"
+        }
+      ],
+      "confidence": 87.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 8,
+      "start": 37.85,
+      "end": 40.809998,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 37.95,
+        "end": 40.43,
+        "text": "The left arterial spectrum is intact.",
+        "confidence": 0.9826,
+        "words": [
+          {
+            "text": " The",
+            "confidence": 0.9683522582054138
+          },
+          {
+            "text": " left",
+            "confidence": 0.9971842169761658
+          },
+          {
+            "text": " arterial",
+            "confidence": 0.9841468334197998
+          },
+          {
+            "text": " spectrum",
+            "confidence": 0.9549694061279297
+          },
+          {
+            "text": " is",
+            "confidence": 0.9953456521034241
+          },
+          {
+            "text": " intact.",
+            "confidence": 0.9957822561264038
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 37.85,
+        "end": 40.809998,
+        "text": "the left atrial spectrum is intact",
+        "confidence": 0.979,
+        "words": [
+          {
+            "text": "the",
+            "confidence": 1.0
+          },
+          {
+            "text": "left",
+            "confidence": 1.0
+          },
+          {
+            "text": "atrial",
+            "confidence": 0.90625
+          },
+          {
+            "text": "spectrum",
+            "confidence": 0.96875
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "intact",
+            "confidence": 0.99902344
+          }
+        ]
+      },
+      "agreement": 0.8333,
+      "diff": [
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "left",
+          "op": "match"
+        },
+        {
+          "text": "atrial",
+          "op": "substitute"
+        },
+        {
+          "text": "spectrum",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "intact",
+          "op": "match"
+        }
+      ],
+      "confidence": 92.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 9,
+      "start": 41.129997,
+      "end": 44.65,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 41.19,
+        "end": 44.59,
+        "text": "Material inflow and ascending autra flow are normal.",
+        "confidence": 0.7929,
+        "words": [
+          {
+            "text": " Material",
+            "confidence": 0.1678583174943924
+          },
+          {
+            "text": " inflow",
+            "confidence": 0.9877102971076965
+          },
+          {
+            "text": " and",
+            "confidence": 0.991134524345398
+          },
+          {
+            "text": " ascending",
+            "confidence": 0.9879572987556458
+          },
+          {
+            "text": " autra",
+            "confidence": 0.4297766759991646
+          },
+          {
+            "text": " flow",
+            "confidence": 0.8422964215278625
+          },
+          {
+            "text": " are",
+            "confidence": 0.9386267066001892
+          },
+          {
+            "text": " normal.",
+            "confidence": 0.9976008534431458
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 41.129997,
+        "end": 44.65,
+        "text": "mitral inflow and ascending aorta flow are normal",
+        "confidence": 0.904,
+        "words": [
+          {
+            "text": "mitral",
+            "confidence": 0.829834
+          },
+          {
+            "text": "inflow",
+            "confidence": 1.0
+          },
+          {
+            "text": "and",
+            "confidence": 1.0
+          },
+          {
+            "text": "ascending",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "aorta",
+            "confidence": 0.45239258
+          },
+          {
+            "text": "flow",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "are",
+            "confidence": 0.9526367
+          },
+          {
+            "text": "normal",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "agreement": 0.75,
+      "diff": [
+        {
+          "text": "mitral",
+          "op": "substitute"
+        },
+        {
+          "text": "inflow",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "ascending",
+          "op": "match"
+        },
+        {
+          "text": "aorta",
+          "op": "substitute"
+        },
+        {
+          "text": "flow",
+          "op": "match"
+        },
+        {
+          "text": "are",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        }
+      ],
+      "confidence": 80.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 10,
+      "start": 45.235,
+      "end": 48.035,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 45.33,
+        "end": 47.67,
+        "text": "The aortic valve is tri-lifted.",
+        "confidence": 0.8176,
+        "words": [
+          {
+            "text": " The",
+            "confidence": 0.9854652285575867
+          },
+          {
+            "text": " aortic",
+            "confidence": 0.5675051286816597
+          },
+          {
+            "text": " valve",
+            "confidence": 0.9038136601448059
+          },
+          {
+            "text": " is",
+            "confidence": 0.9982494711875916
+          },
+          {
+            "text": " tri",
+            "confidence": 0.717957615852356
+          },
+          {
+            "text": "-lifted.",
+            "confidence": 0.7325192391872406
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 45.235,
+        "end": 48.035,
+        "text": "the aortic valve is trileftlet",
+        "confidence": 0.9285,
+        "words": [
+          {
+            "text": "the",
+            "confidence": 1.0
+          },
+          {
+            "text": "aortic",
+            "confidence": 0.9589844
+          },
+          {
+            "text": "valve",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "trileftlet",
+            "confidence": 0.6855469
+          }
+        ]
+      },
+      "agreement": 0.6667,
+      "diff": [
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "aortic",
+          "op": "match"
+        },
+        {
+          "text": "valve",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "tri",
+          "op": "delete"
+        },
+        {
+          "text": "trileftlet",
+          "op": "substitute"
+        }
+      ],
+      "confidence": 78.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 11,
+      "start": 48.195,
+      "end": 52.195,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 48.33,
+        "end": 51.71,
+        "text": "The coronary arteries appear to be normal in their origins.",
+        "confidence": 0.9072,
+        "words": [
+          {
+            "text": " The",
+            "confidence": 0.18040302395820618
+          },
+          {
+            "text": " coronary",
+            "confidence": 0.9771268665790558
+          },
+          {
+            "text": " arteries",
+            "confidence": 0.9918741583824158
+          },
+          {
+            "text": " appear",
+            "confidence": 0.9855263233184814
+          },
+          {
+            "text": " to",
+            "confidence": 0.9962822794914246
+          },
+          {
+            "text": " be",
+            "confidence": 0.9968493580818176
+          },
+          {
+            "text": " normal",
+            "confidence": 0.9974119067192078
+          },
+          {
+            "text": " in",
+            "confidence": 0.9947415590286255
+          },
+          {
+            "text": " their",
+            "confidence": 0.9851020574569702
+          },
+          {
+            "text": " origins.",
+            "confidence": 0.9671443700790405
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 48.195,
+        "end": 52.195,
+        "text": "the coronary arteries appear to be normal in their origins",
+        "confidence": 0.9967,
+        "words": [
+          {
+            "text": "the",
+            "confidence": 0.9760742
+          },
+          {
+            "text": "coronary",
+            "confidence": 1.0
+          },
+          {
+            "text": "arteries",
+            "confidence": 1.0
+          },
+          {
+            "text": "appear",
+            "confidence": 0.99316406
+          },
+          {
+            "text": "to",
+            "confidence": 1.0
+          },
+          {
+            "text": "be",
+            "confidence": 1.0
+          },
+          {
+            "text": "normal",
+            "confidence": 1.0
+          },
+          {
+            "text": "in",
+            "confidence": 1.0
+          },
+          {
+            "text": "their",
+            "confidence": 1.0
+          },
+          {
+            "text": "origins",
+            "confidence": 0.9980469
+          }
+        ]
+      },
+      "agreement": 1.0,
+      "diff": [
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "coronary",
+          "op": "match"
+        },
+        {
+          "text": "arteries",
+          "op": "match"
+        },
+        {
+          "text": "appear",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "be",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        },
+        {
+          "text": "in",
+          "op": "match"
+        },
+        {
+          "text": "their",
+          "op": "match"
+        },
+        {
+          "text": "origins",
+          "op": "match"
+        }
+      ],
+      "confidence": 97.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 12,
+      "start": 52.51,
+      "end": 58.995,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 52.51,
+        "end": 58.97,
+        "text": "The aortic arch is left-sided and patent with normal descending autra pulsatility.",
+        "confidence": 0.9359,
+        "words": [
+          {
+            "text": " The",
+            "confidence": 0.9917793869972229
+          },
+          {
+            "text": " aortic",
+            "confidence": 0.8960885107517242
+          },
+          {
+            "text": " arch",
+            "confidence": 0.9687974452972412
+          },
+          {
+            "text": " is",
+            "confidence": 0.9973753690719604
+          },
+          {
+            "text": " left",
+            "confidence": 0.9940470457077026
+          },
+          {
+            "text": "-sided",
+            "confidence": 0.7398070245981216
+          },
+          {
+            "text": " and",
+            "confidence": 0.9532694220542908
+          },
+          {
+            "text": " patent",
+            "confidence": 0.8348731994628906
+          },
+          {
+            "text": " with",
+            "confidence": 0.983511209487915
+          },
+          {
+            "text": " normal",
+            "confidence": 0.986230194568634
+          },
+          {
+            "text": " descending",
+            "confidence": 0.9884713888168335
+          },
+          {
+            "text": " autra",
+            "confidence": 0.9568113386631012
+          },
+          {
+            "text": " pulsatility.",
+            "confidence": 0.8759064277013143
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 52.515,
+        "end": 58.995,
+        "text": "the aortic arch is left sided and patent with normal descending aorta pulsatility",
+        "confidence": 0.9494,
+        "words": [
+          {
+            "text": "the",
+            "confidence": 1.0
+          },
+          {
+            "text": "aortic",
+            "confidence": 0.90625
+          },
+          {
+            "text": "arch",
+            "confidence": 1.0
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "left",
+            "confidence": 1.0
+          },
+          {
+            "text": "sided",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "and",
+            "confidence": 0.9375
+          },
+          {
+            "text": "patent",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "with",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "normal",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "descending",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "aorta",
+            "confidence": 0.70654297
+          },
+          {
+            "text": "pulsatility",
+            "confidence": 0.80322266
+          }
+        ]
+      },
+      "agreement": 0.9231,
+      "diff": [
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "aortic",
+          "op": "match"
+        },
+        {
+          "text": "arch",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "left",
+          "op": "match"
+        },
+        {
+          "text": "sided",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "patent",
+          "op": "match"
+        },
+        {
+          "text": "with",
+          "op": "match"
+        },
+        {
+          "text": "normal",
+          "op": "match"
+        },
+        {
+          "text": "descending",
+          "op": "match"
+        },
+        {
+          "text": "aorta",
+          "op": "substitute"
+        },
+        {
+          "text": "pulsatility",
+          "op": "match"
+        }
+      ],
+      "confidence": 94.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    }
+  ],
+  "spot_check": {
+    "seed": 42,
+    "sample_ids": [
+      3,
+      4,
+      5,
+      7,
+      9,
+      10,
+      8,
+      12
+    ],
+    "accuracy": null,
+    "accepted": null,
+    "expanded": false,
+    "full_review": false
+  },
+  "generated_at": "2026-08-06T13:15:49+00:00"
+}

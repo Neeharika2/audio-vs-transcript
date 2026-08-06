@@ -1,0 +1,51 @@
+Audio: audio-5
+Engines: whisper, deepgram
+
+[00]    0.66-   4.94s  conf= 46  mandatory
+      I have seen ABC today for her pre-operator visit for weight management.
+[01]    0.80-  16.34s  conf= 70  mandatory
+      I have explained to her the need for Optifast for weight loss prior to these procedures
+[02]   10.18-  13.40s  conf= 54  mandatory
+      to make it safer because of the large size of her liver.
+[03]   13.90-  14.82s  conf= 54  mandatory
+      She understands this.
+[04]   15.06-  27.26s  conf= 92  review_technical
+      Impression plan. We are going to put her on two weeks of Optifast at around 900 calories. I have also explained the risks and potential complications of laparoscopic colosyctomy to
+[05]   27.05-  32.89s  conf= 92  review_technical
+      her in detail including bleeding, infection, deep venous, thrombosis, pulmonary embolism,
+[06]   33.12-  38.48s  conf= 88  mandatory
+      injury to the small intestine, stomach, liver, leak from the cystic duct, common bile duct
+[07]   37.69-  44.80s  conf= 86  mandatory
+      and possible need for ERCPA and further surgery. This surgery is going to be planned for October 6.
+[08]   44.98-  49.18s  conf= 63  mandatory
+      This is for Kolelothiasis prior to her lab banning procedure.
+[09]   47.45-  58.98s  conf= 66  mandatory
+      I have also reviewed with her the risks and potential complications of laparoscopic gastric banning including bleeding, infection, deep venous, thrombosis, pulmonary embolism,
+[10]   55.45-  62.91s  conf= 54  mandatory
+      including bleeding infection deep venous thrombosis pulmonary embolism slippage of man erosion of the man injury to the esophagus
+[11]   59.18-  64.72s  conf= 42  mandatory
+      leakage of the band, erosion of the band, injury to the esophagus, stomach and small
+[12]   63.47-  70.83s  conf= 86  mandatory
+      intestine, large intestine, spleen, liver, injury to the band, port or tubing, necessitating
+[13]   70.08-  75.04s  conf= 77  mandatory
+      replacement of the band or porting a tubing among other potential complications and
+[14]   74.94-  76.06s  conf= 84  mandatory
+      she understands.
+[15]   76.04-  86.61s  conf= 67  mandatory
+      We are going to proceed for laparoscopic gastric banning.
+[16]   79.72-  81.98s  conf= 54  mandatory
+      I have reviewed her entire chart in detail.
+[17]   81.98-  87.74s  conf= 41  mandatory
+      I have also gone over with her the Fairfield Country Bariatric Concern Form for
+[18]   86.57-  89.77s  conf= 73  mandatory
+      banding and all the risks.
+[19]   89.93-  95.66s  conf= 67  mandatory
+      She has also signed the St. Vincent Hospital Concern Form for lap banding.
+[20]   94.25- 103.90s  conf= 76  mandatory
+      She has taken the pre-operative quiz for banding. She has assigned the pre-op and post-op instructions and understands them and we reviewed them.
+[21]  102.62- 114.22s  conf= 72  mandatory
+      We have reviewed with her any potential other issues and I have answered her questions.
+[22]  104.28- 106.38s  conf= 55  mandatory
+      She has taken the quiz and done fairly well.
+[23]  111.28- 114.02s  conf= 46  mandatory
+      She has also planned for surgical intervention.

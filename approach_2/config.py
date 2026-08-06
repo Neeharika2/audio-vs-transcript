@@ -10,8 +10,22 @@ OUTPUT_DIRS = {
     "deepgram": DATASET_DIR / "deepgram",
 }
 
+ENGINE_A = "whisper"
+ENGINE_B = "deepgram"
+
 WHISPER_MODEL = "small"
 
 # Deepgram Nova is a cloud API; the key must be provided via the environment.
 DEEPGRAM_API_KEY = os.environ.get("DEEPGRAM_API_KEY", "")
 DEEPGRAM_MODEL = "nova-3"
+
+# Evaluation thresholds and sampling (see docs/plan.md).
+MATCH_THRESHOLD = 0.55
+LOW_CONF_THRESHOLD = 0.6
+TIER_AUTO_ACCEPT = 98
+TIER_REVIEW = 90
+DISAGREE_THRESHOLD = 0.9
+SPOT_CHECK_FRACTION = 0.10
+SPOT_CHECK_SEED = 42
+SPOT_CHECK_ACCEPT = 0.99
+

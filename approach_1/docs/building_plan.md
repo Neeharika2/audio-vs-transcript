@@ -92,3 +92,5 @@ Response (`200 OK`):
 - The pipeline runs end-to-end on real audio and returns a structured report.
 - The single flagged item is a Whisper transcription error ("A zestful food is the hot cross bun." vs gold "A hot cross bun."), which Gemini categorized as hallucinated information — a reminder that STT errors and true hallucinated content both surface here and may need to be distinguished later.
 - `overall_score` and `status` come from Gemini, so they are model-dependent and may vary between runs.
+
+

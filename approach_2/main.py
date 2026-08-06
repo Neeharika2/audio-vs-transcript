@@ -1,16 +1,22 @@
-"""Transcribe every audio file in `dataset/audio` with both STT engines.
+"""Approach 2 CLI: transcribe audio with both STT engines, then evaluate it.
 
-For each file both engines transcribe the same 16 kHz mono WAV (decoded with
-ffmpeg) and the output is written to:
+`transcribe` writes each engine's output to `dataset/<engine>/`:
 
     dataset/whisper/<name>.txt            full transcript
     dataset/whisper/<name>.segments.json  timestamped segments
     dataset/deepgram/<name>.txt
     dataset/deepgram/<name>.segments.json
 
+`review` runs the evaluation pipeline (align -> compare -> score -> sample) on
+the stored transcripts and writes a report to `dataset/review/<name>/`:
+
+    report.json  report.txt  report.md  report.srt  report.vtt
+
 Usage:
-    python -m approach_2.main
-    python -m approach_2.main audio-3.ogg       # transcribe one file only
+    python -m approach_2.main transcribe                # all files
+    python -m approach_2.main transcribe audio-3.ogg    # one file
+    python -m approach_2.main review                    # evaluate all files
+    python -m approach_2.main review audio-1            # evaluate one file
 """
 
 from __future__ import annotations
@@ -59,16 +65,16 @@ def transcribe_file(audio: Path, engines: list, work_dir: Path) -> None:
         print(f"    -> {config.OUTPUT_DIRS[engine.engine] / (audio.stem + '.txt')}")
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("audio", nargs="?", help="audio file name in dataset/audio (default: all files)")
-    args = parser.parse_args()
+def _audio_stems(audio_dir: Path, name: str | None) -> list[str]:
+    return sorted(p.stem for p in _audio_files(audio_dir, name))
 
+
+def _transcribe_all(name: str | None) -> None:
     engines = [
         WhisperEngine(model_name=config.WHISPER_MODEL),
         DeepgramEngine(api_key=config.DEEPGRAM_API_KEY, model=config.DEEPGRAM_MODEL),
     ]
-    files = _audio_files(config.AUDIO_DIR, args.audio)
+    files = _audio_files(config.AUDIO_DIR, name)
     print(
         f"Transcribing {len(files)} file(s)\n"
         f"  whisper : {config.WHISPER_MODEL}\n"
@@ -79,6 +85,55 @@ def main() -> None:
         for audio in files:
             print(f"\n{audio.name}")
             transcribe_file(audio, engines, Path(work))
+
+
+def _print_summary(report) -> None:
+    from collections import Counter
+
+    tiers = Counter(s.tier for s in report.segments)
+    sampled = len(report.spot_check.sample_ids)
+    print(
+        f"  segments: {len(report.segments)}  "
+        f"auto_accept={tiers['auto_accept']}  "
+        f"review_technical={tiers['review_technical']}  "
+        f"mandatory={tiers['mandatory']}  "
+        f"review_sample={sampled}"
+    )
+
+
+def _review_all(name: str | None) -> None:
+    from approach_2.src.export import to_md, to_srt, to_txt, to_vtt
+    from approach_2.src.pipeline import run_pipeline
+
+    stems = _audio_stems(config.AUDIO_DIR, name)
+    print(f"Evaluating {len(stems)} file(s)")
+    for stem in stems:
+        report = run_pipeline(stem)
+        out_dir = config.DATASET_DIR / "review" / stem
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "report.json").write_text(report.model_dump_json(indent=2), encoding="utf-8")
+        (out_dir / "report.txt").write_text(to_txt(report), encoding="utf-8")
+        (out_dir / "report.md").write_text(to_md(report), encoding="utf-8")
+        (out_dir / "report.srt").write_text(to_srt(report), encoding="utf-8")
+        (out_dir / "report.vtt").write_text(to_vtt(report), encoding="utf-8")
+        print(f"\n{stem}")
+        _print_summary(report)
+        print(f"    -> {out_dir}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+    t = sub.add_parser("transcribe", help="transcribe audio with both engines")
+    t.add_argument("audio", nargs="?", help="audio file name in dataset/audio (default: all files)")
+    r = sub.add_parser("review", help="evaluate stored transcripts and export a report")
+    r.add_argument("audio", nargs="?", help="audio file name (default: all files)")
+    args = parser.parse_args()
+
+    if args.command == "review":
+        _review_all(args.audio)
+    else:
+        _transcribe_all(args.audio)
 
 
 if __name__ == "__main__":

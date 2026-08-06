@@ -1,0 +1,1774 @@
+{
+  "audio": "audio-1",
+  "engines": [
+    "whisper",
+    "deepgram"
+  ],
+  "segments": [
+    {
+      "idx": 0,
+      "start": 0.98,
+      "end": 6.32,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 0.98,
+        "end": 5.82,
+        "text": "This 23-year-old white female presents with a complaint of allergies.",
+        "confidence": 0.8321,
+        "words": [
+          {
+            "text": " This",
+            "confidence": 0.6394342184066772
+          },
+          {
+            "text": " 23",
+            "confidence": 0.949041485786438
+          },
+          {
+            "text": "-year",
+            "confidence": 0.6785232573747635
+          },
+          {
+            "text": "-old",
+            "confidence": 0.857943207025528
+          },
+          {
+            "text": " white",
+            "confidence": 0.7863048911094666
+          },
+          {
+            "text": " female",
+            "confidence": 0.9779436588287354
+          },
+          {
+            "text": " presents",
+            "confidence": 0.861993670463562
+          },
+          {
+            "text": " with",
+            "confidence": 0.9618746638298035
+          },
+          {
+            "text": " a",
+            "confidence": 0.32723844051361084
+          },
+          {
+            "text": " complaint",
+            "confidence": 0.9887945652008057
+          },
+          {
+            "text": " of",
+            "confidence": 0.9827793836593628
+          },
+          {
+            "text": " allergies.",
+            "confidence": 0.9738045930862427
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 1.28,
+        "end": 6.32,
+        "text": "this twenty three year old white female presents with the complaint of allergies",
+        "confidence": 0.9737,
+        "words": [
+          {
+            "text": "this",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "twenty",
+            "confidence": 1.0
+          },
+          {
+            "text": "three",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "year",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "old",
+            "confidence": 1.0
+          },
+          {
+            "text": "white",
+            "confidence": 0.9790039
+          },
+          {
+            "text": "female",
+            "confidence": 1.0
+          },
+          {
+            "text": "presents",
+            "confidence": 1.0
+          },
+          {
+            "text": "with",
+            "confidence": 1.0
+          },
+          {
+            "text": "the",
+            "confidence": 0.6870117
+          },
+          {
+            "text": "complaint",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "of",
+            "confidence": 1.0
+          },
+          {
+            "text": "allergies",
+            "confidence": 0.9995117
+          }
+        ]
+      },
+      "agreement": 0.9167,
+      "diff": [
+        {
+          "text": "this",
+          "op": "match"
+        },
+        {
+          "text": "23",
+          "op": "match"
+        },
+        {
+          "text": "year",
+          "op": "match"
+        },
+        {
+          "text": "old",
+          "op": "match"
+        },
+        {
+          "text": "white",
+          "op": "match"
+        },
+        {
+          "text": "female",
+          "op": "match"
+        },
+        {
+          "text": "presents",
+          "op": "match"
+        },
+        {
+          "text": "with",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "substitute"
+        },
+        {
+          "text": "complaint",
+          "op": "match"
+        },
+        {
+          "text": "of",
+          "op": "match"
+        },
+        {
+          "text": "allergies",
+          "op": "match"
+        }
+      ],
+      "confidence": 92.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 1,
+      "start": 6.48,
+      "end": 12.16,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 6.58,
+        "end": 11.76,
+        "text": "She used to have allergies when she lived in Seattle, but she thinks they are worse here.",
+        "confidence": 0.9143,
+        "words": [
+          {
+            "text": " She",
+            "confidence": 0.9516701698303223
+          },
+          {
+            "text": " used",
+            "confidence": 0.9898029565811157
+          },
+          {
+            "text": " to",
+            "confidence": 0.9976906776428223
+          },
+          {
+            "text": " have",
+            "confidence": 0.997527539730072
+          },
+          {
+            "text": " allergies",
+            "confidence": 0.9803258180618286
+          },
+          {
+            "text": " when",
+            "confidence": 0.9695925116539001
+          },
+          {
+            "text": " she",
+            "confidence": 0.9934484362602234
+          },
+          {
+            "text": " lived",
+            "confidence": 0.992953360080719
+          },
+          {
+            "text": " in",
+            "confidence": 0.9947596192359924
+          },
+          {
+            "text": " Seattle,",
+            "confidence": 0.14709018170833588
+          },
+          {
+            "text": " but",
+            "confidence": 0.9359623789787292
+          },
+          {
+            "text": " she",
+            "confidence": 0.9854052662849426
+          },
+          {
+            "text": " thinks",
+            "confidence": 0.9794121384620667
+          },
+          {
+            "text": " they",
+            "confidence": 0.9521399140357971
+          },
+          {
+            "text": " are",
+            "confidence": 0.7115035057067871
+          },
+          {
+            "text": " worse",
+            "confidence": 0.9907580614089966
+          },
+          {
+            "text": " here.",
+            "confidence": 0.9738399982452393
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 6.48,
+        "end": 12.16,
+        "text": "she used to have allergies when she lived in seatl but she thinks they are worse here",
+        "confidence": 0.9426,
+        "words": [
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "used",
+            "confidence": 1.0
+          },
+          {
+            "text": "to",
+            "confidence": 1.0
+          },
+          {
+            "text": "have",
+            "confidence": 1.0
+          },
+          {
+            "text": "allergies",
+            "confidence": 1.0
+          },
+          {
+            "text": "when",
+            "confidence": 1.0
+          },
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "lived",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "in",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "seatl",
+            "confidence": 0.4809265
+          },
+          {
+            "text": "but",
+            "confidence": 1.0
+          },
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "thinks",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "they",
+            "confidence": 0.88134766
+          },
+          {
+            "text": "are",
+            "confidence": 0.68066406
+          },
+          {
+            "text": "worse",
+            "confidence": 0.98828125
+          },
+          {
+            "text": "here",
+            "confidence": 0.9995117
+          }
+        ]
+      },
+      "agreement": 0.9412,
+      "diff": [
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "used",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "have",
+          "op": "match"
+        },
+        {
+          "text": "allergies",
+          "op": "match"
+        },
+        {
+          "text": "when",
+          "op": "match"
+        },
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "lived",
+          "op": "match"
+        },
+        {
+          "text": "in",
+          "op": "match"
+        },
+        {
+          "text": "seatl",
+          "op": "substitute"
+        },
+        {
+          "text": "but",
+          "op": "match"
+        },
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "thinks",
+          "op": "match"
+        },
+        {
+          "text": "they",
+          "op": "match"
+        },
+        {
+          "text": "are",
+          "op": "match"
+        },
+        {
+          "text": "worse",
+          "op": "match"
+        },
+        {
+          "text": "here",
+          "op": "match"
+        }
+      ],
+      "confidence": 94.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 2,
+      "start": 12.24,
+      "end": 15.5,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 12.28,
+        "end": 15.5,
+        "text": "In the past, she has tried Claritin and Zyrtec.",
+        "confidence": 0.9066,
+        "words": [
+          {
+            "text": " In",
+            "confidence": 0.9797409772872925
+          },
+          {
+            "text": " the",
+            "confidence": 0.9900017976760864
+          },
+          {
+            "text": " past,",
+            "confidence": 0.9982142448425293
+          },
+          {
+            "text": " she",
+            "confidence": 0.9670005440711975
+          },
+          {
+            "text": " has",
+            "confidence": 0.9559164047241211
+          },
+          {
+            "text": " tried",
+            "confidence": 0.9045112133026123
+          },
+          {
+            "text": " Claritin",
+            "confidence": 0.7234099308649699
+          },
+          {
+            "text": " and",
+            "confidence": 0.9776669144630432
+          },
+          {
+            "text": " Zyrtec.",
+            "confidence": 0.6624961867928505
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 12.24,
+        "end": 15.44,
+        "text": "in the past she has tried claritin and zyrtec",
+        "confidence": 0.9941,
+        "words": [
+          {
+            "text": "in",
+            "confidence": 1.0
+          },
+          {
+            "text": "the",
+            "confidence": 1.0
+          },
+          {
+            "text": "past",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "she",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "has",
+            "confidence": 1.0
+          },
+          {
+            "text": "tried",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "claritin",
+            "confidence": 0.96207684
+          },
+          {
+            "text": "and",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "zyrtec",
+            "confidence": 0.9906006
+          }
+        ]
+      },
+      "agreement": 1.0,
+      "diff": [
+        {
+          "text": "in",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "past",
+          "op": "match"
+        },
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "tried",
+          "op": "match"
+        },
+        {
+          "text": "claritin",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "zyrtec",
+          "op": "match"
+        }
+      ],
+      "confidence": 98.0,
+      "tier": "auto_accept",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 3,
+      "start": 16.06,
+      "end": 20.055,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 16.06,
+        "end": 19.5,
+        "text": "Both worked for a short time, but then seemed to lose effectiveness.",
+        "confidence": 0.8894,
+        "words": [
+          {
+            "text": " Both",
+            "confidence": 0.977744996547699
+          },
+          {
+            "text": " worked",
+            "confidence": 0.9927685260772705
+          },
+          {
+            "text": " for",
+            "confidence": 0.9939286708831787
+          },
+          {
+            "text": " a",
+            "confidence": 0.5557495951652527
+          },
+          {
+            "text": " short",
+            "confidence": 0.9864046573638916
+          },
+          {
+            "text": " time,",
+            "confidence": 0.9801115393638611
+          },
+          {
+            "text": " but",
+            "confidence": 0.9829120635986328
+          },
+          {
+            "text": " then",
+            "confidence": 0.9096841812133789
+          },
+          {
+            "text": " seemed",
+            "confidence": 0.3283940851688385
+          },
+          {
+            "text": " to",
+            "confidence": 0.9943419694900513
+          },
+          {
+            "text": " lose",
+            "confidence": 0.9757438898086548
+          },
+          {
+            "text": " effectiveness.",
+            "confidence": 0.9946129322052002
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 16.135,
+        "end": 20.055,
+        "text": "both worked for short time but didn't seem to lose effectiveness",
+        "confidence": 0.9133,
+        "words": [
+          {
+            "text": "both",
+            "confidence": 1.0
+          },
+          {
+            "text": "worked",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "for",
+            "confidence": 1.0
+          },
+          {
+            "text": "short",
+            "confidence": 0.5991211
+          },
+          {
+            "text": "time",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "but",
+            "confidence": 0.5703125
+          },
+          {
+            "text": "didn't",
+            "confidence": 0.9301758
+          },
+          {
+            "text": "seem",
+            "confidence": 0.98828125
+          },
+          {
+            "text": "to",
+            "confidence": 0.96533203
+          },
+          {
+            "text": "lose",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "effectiveness",
+            "confidence": 0.9975586
+          }
+        ]
+      },
+      "agreement": 0.6667,
+      "diff": [
+        {
+          "text": "both",
+          "op": "match"
+        },
+        {
+          "text": "worked",
+          "op": "match"
+        },
+        {
+          "text": "for",
+          "op": "match"
+        },
+        {
+          "text": "a",
+          "op": "delete"
+        },
+        {
+          "text": "short",
+          "op": "match"
+        },
+        {
+          "text": "time",
+          "op": "match"
+        },
+        {
+          "text": "but",
+          "op": "match"
+        },
+        {
+          "text": "didn",
+          "op": "insert"
+        },
+        {
+          "text": "t",
+          "op": "substitute"
+        },
+        {
+          "text": "seem",
+          "op": "substitute"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "lose",
+          "op": "match"
+        },
+        {
+          "text": "effectiveness",
+          "op": "match"
+        }
+      ],
+      "confidence": 78.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 4,
+      "start": 20.38,
+      "end": 23.015,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 20.38,
+        "end": 22.7,
+        "text": "She had also used Allegra also.",
+        "confidence": 0.9196,
+        "words": [
+          {
+            "text": " She",
+            "confidence": 0.9799091219902039
+          },
+          {
+            "text": " had",
+            "confidence": 0.7984163761138916
+          },
+          {
+            "text": " also",
+            "confidence": 0.9914208650588989
+          },
+          {
+            "text": " used",
+            "confidence": 0.9938967823982239
+          },
+          {
+            "text": " Allegra",
+            "confidence": 0.9350178837776184
+          },
+          {
+            "text": " also.",
+            "confidence": 0.8187670111656189
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 20.535,
+        "end": 23.015,
+        "text": "she had also used allegra also",
+        "confidence": 0.9852,
+        "words": [
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "had",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "also",
+            "confidence": 1.0
+          },
+          {
+            "text": "used",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "allegra",
+            "confidence": 0.9539388
+          },
+          {
+            "text": "also",
+            "confidence": 0.9609375
+          }
+        ]
+      },
+      "agreement": 1.0,
+      "diff": [
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "had",
+          "op": "match"
+        },
+        {
+          "text": "also",
+          "op": "match"
+        },
+        {
+          "text": "used",
+          "op": "match"
+        },
+        {
+          "text": "allegra",
+          "op": "match"
+        },
+        {
+          "text": "also",
+          "op": "match"
+        }
+      ],
+      "confidence": 98.0,
+      "tier": "auto_accept",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 5,
+      "start": 23.6,
+      "end": 28.535,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 23.6,
+        "end": 28.2,
+        "text": "She used the Plasmur and she began using it again two weeks ago.",
+        "confidence": 0.8699,
+        "words": [
+          {
+            "text": " She",
+            "confidence": 0.9705986976623535
+          },
+          {
+            "text": " used",
+            "confidence": 0.9762881994247437
+          },
+          {
+            "text": " the",
+            "confidence": 0.7093170285224915
+          },
+          {
+            "text": " Plasmur",
+            "confidence": 0.4195193399985631
+          },
+          {
+            "text": " and",
+            "confidence": 0.8421539664268494
+          },
+          {
+            "text": " she",
+            "confidence": 0.8316200375556946
+          },
+          {
+            "text": " began",
+            "confidence": 0.9875164031982422
+          },
+          {
+            "text": " using",
+            "confidence": 0.994976282119751
+          },
+          {
+            "text": " it",
+            "confidence": 0.9906060099601746
+          },
+          {
+            "text": " again",
+            "confidence": 0.9889615178108215
+          },
+          {
+            "text": " two",
+            "confidence": 0.6042189598083496
+          },
+          {
+            "text": " weeks",
+            "confidence": 0.9986068606376648
+          },
+          {
+            "text": " ago.",
+            "confidence": 0.9948496222496033
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 23.654999,
+        "end": 28.535,
+        "text": "she used that last summer and she began using it again two weeks ago",
+        "confidence": 0.9764,
+        "words": [
+          {
+            "text": "she",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "used",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "that",
+            "confidence": 0.81591797
+          },
+          {
+            "text": "last",
+            "confidence": 0.95410156
+          },
+          {
+            "text": "summer",
+            "confidence": 0.9147949
+          },
+          {
+            "text": "and",
+            "confidence": 1.0
+          },
+          {
+            "text": "she",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "began",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "using",
+            "confidence": 1.0
+          },
+          {
+            "text": "it",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "again",
+            "confidence": 0.99609375
+          },
+          {
+            "text": "two",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "weeks",
+            "confidence": 1.0
+          },
+          {
+            "text": "ago",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "agreement": 0.7857,
+      "diff": [
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "used",
+          "op": "match"
+        },
+        {
+          "text": "that",
+          "op": "insert"
+        },
+        {
+          "text": "last",
+          "op": "substitute"
+        },
+        {
+          "text": "summer",
+          "op": "substitute"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "began",
+          "op": "match"
+        },
+        {
+          "text": "using",
+          "op": "match"
+        },
+        {
+          "text": "it",
+          "op": "match"
+        },
+        {
+          "text": "again",
+          "op": "match"
+        },
+        {
+          "text": "2",
+          "op": "match"
+        },
+        {
+          "text": "weeks",
+          "op": "match"
+        },
+        {
+          "text": "ago",
+          "op": "match"
+        }
+      ],
+      "confidence": 87.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 6,
+      "start": 28.2,
+      "end": 36.84,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 28.2,
+        "end": 36.32,
+        "text": "It doesn't appear to be working very well. She has used over-the-counter sprays, but no prescription nasal sprays.",
+        "confidence": 0.913,
+        "words": [
+          {
+            "text": " It",
+            "confidence": 0.6415138244628906
+          },
+          {
+            "text": " doesn't",
+            "confidence": 0.8683547675609589
+          },
+          {
+            "text": " appear",
+            "confidence": 0.9672371745109558
+          },
+          {
+            "text": " to",
+            "confidence": 0.9968506693840027
+          },
+          {
+            "text": " be",
+            "confidence": 0.9935344457626343
+          },
+          {
+            "text": " working",
+            "confidence": 0.9920069575309753
+          },
+          {
+            "text": " very",
+            "confidence": 0.9701195359230042
+          },
+          {
+            "text": " well.",
+            "confidence": 0.9959270358085632
+          },
+          {
+            "text": " She",
+            "confidence": 0.9567659497261047
+          },
+          {
+            "text": " has",
+            "confidence": 0.98064124584198
+          },
+          {
+            "text": " used",
+            "confidence": 0.9874629974365234
+          },
+          {
+            "text": " over",
+            "confidence": 0.8011592030525208
+          },
+          {
+            "text": "-the",
+            "confidence": 0.6218608915805817
+          },
+          {
+            "text": "-counter",
+            "confidence": 0.9541047612826029
+          },
+          {
+            "text": " sprays,",
+            "confidence": 0.7310343682765961
+          },
+          {
+            "text": " but",
+            "confidence": 0.9693955183029175
+          },
+          {
+            "text": " no",
+            "confidence": 0.983128547668457
+          },
+          {
+            "text": " prescription",
+            "confidence": 0.9356112480163574
+          },
+          {
+            "text": " nasal",
+            "confidence": 0.9454370737075806
+          },
+          {
+            "text": " sprays.",
+            "confidence": 0.9677006602287292
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 28.855,
+        "end": 36.84,
+        "text": "it doesn't appear to be working very well she has used over the counter spray but no prescription nasal spray",
+        "confidence": 0.966,
+        "words": [
+          {
+            "text": "it",
+            "confidence": 1.0
+          },
+          {
+            "text": "doesn't",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "appear",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "to",
+            "confidence": 1.0
+          },
+          {
+            "text": "be",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "working",
+            "confidence": 1.0
+          },
+          {
+            "text": "very",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "well",
+            "confidence": 1.0
+          },
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "has",
+            "confidence": 1.0
+          },
+          {
+            "text": "used",
+            "confidence": 1.0
+          },
+          {
+            "text": "over",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "the",
+            "confidence": 1.0
+          },
+          {
+            "text": "counter",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "spray",
+            "confidence": 0.5566406
+          },
+          {
+            "text": "but",
+            "confidence": 1.0
+          },
+          {
+            "text": "no",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "prescription",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "nasal",
+            "confidence": 0.96777344
+          },
+          {
+            "text": "spray",
+            "confidence": 0.80566406
+          }
+        ]
+      },
+      "agreement": 0.9048,
+      "diff": [
+        {
+          "text": "it",
+          "op": "match"
+        },
+        {
+          "text": "doesn",
+          "op": "match"
+        },
+        {
+          "text": "t",
+          "op": "match"
+        },
+        {
+          "text": "appear",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "be",
+          "op": "match"
+        },
+        {
+          "text": "working",
+          "op": "match"
+        },
+        {
+          "text": "very",
+          "op": "match"
+        },
+        {
+          "text": "well",
+          "op": "match"
+        },
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "used",
+          "op": "match"
+        },
+        {
+          "text": "over",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "counter",
+          "op": "match"
+        },
+        {
+          "text": "spray",
+          "op": "substitute"
+        },
+        {
+          "text": "but",
+          "op": "match"
+        },
+        {
+          "text": "no",
+          "op": "match"
+        },
+        {
+          "text": "prescription",
+          "op": "match"
+        },
+        {
+          "text": "nasal",
+          "op": "match"
+        },
+        {
+          "text": "spray",
+          "op": "substitute"
+        }
+      ],
+      "confidence": 93.0,
+      "tier": "review_technical",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 7,
+      "start": 37.239998,
+      "end": 42.32,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 37.28,
+        "end": 42.32,
+        "text": "She does have asthma, but doesn't require daily medication for this",
+        "confidence": 0.9614,
+        "words": [
+          {
+            "text": " She",
+            "confidence": 0.9866804480552673
+          },
+          {
+            "text": " does",
+            "confidence": 0.9223031401634216
+          },
+          {
+            "text": " have",
+            "confidence": 0.9892936944961548
+          },
+          {
+            "text": " asthma,",
+            "confidence": 0.8347992300987244
+          },
+          {
+            "text": " but",
+            "confidence": 0.9839795827865601
+          },
+          {
+            "text": " doesn't",
+            "confidence": 0.9714183807373047
+          },
+          {
+            "text": " require",
+            "confidence": 0.9926199316978455
+          },
+          {
+            "text": " daily",
+            "confidence": 0.9885501265525818
+          },
+          {
+            "text": " medication",
+            "confidence": 0.9375056028366089
+          },
+          {
+            "text": " for",
+            "confidence": 0.9796949028968811
+          },
+          {
+            "text": " this",
+            "confidence": 0.9889832139015198
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 37.239998,
+        "end": 39.16,
+        "text": "she does have asthma",
+        "confidence": 0.948,
+        "words": [
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "does",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "have",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "asthma",
+            "confidence": 0.7949219
+          }
+        ]
+      },
+      "agreement": 0.3333,
+      "diff": [
+        {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "does",
+          "op": "match"
+        },
+        {
+          "text": "have",
+          "op": "match"
+        },
+        {
+          "text": "asthma",
+          "op": "match"
+        },
+        {
+          "text": "but",
+          "op": "delete"
+        },
+        {
+          "text": "doesn",
+          "op": "delete"
+        },
+        {
+          "text": "t",
+          "op": "delete"
+        },
+        {
+          "text": "require",
+          "op": "delete"
+        },
+        {
+          "text": "daily",
+          "op": "delete"
+        },
+        {
+          "text": "medication",
+          "op": "delete"
+        },
+        {
+          "text": "for",
+          "op": "delete"
+        },
+        {
+          "text": "this",
+          "op": "delete"
+        }
+      ],
+      "confidence": 68.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 8,
+      "start": 39.399998,
+      "end": 48.42494,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 42.32,
+        "end": 45.02,
+        "text": "and does not think it is plaring up.",
+        "confidence": 0.8615,
+        "words": [
+          {
+            "text": " and",
+            "confidence": 0.5152854919433594
+          },
+          {
+            "text": " does",
+            "confidence": 0.9401493668556213
+          },
+          {
+            "text": " not",
+            "confidence": 0.9971502423286438
+          },
+          {
+            "text": " think",
+            "confidence": 0.9950359463691711
+          },
+          {
+            "text": " it",
+            "confidence": 0.9714593887329102
+          },
+          {
+            "text": " is",
+            "confidence": 0.9632977843284607
+          },
+          {
+            "text": " plaring",
+            "confidence": 0.5617584437131882
+          },
+          {
+            "text": " up.",
+            "confidence": 0.9480272531509399
+          }
+        ]
+      },
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 39.399998,
+        "end": 48.42494,
+        "text": "but doesn't require daily medication for this and does not think it is flaring up her only medication currently is orthotracycline",
+        "confidence": 0.9845,
+        "words": [
+          {
+            "text": "but",
+            "confidence": 1.0
+          },
+          {
+            "text": "doesn't",
+            "confidence": 0.99365234
+          },
+          {
+            "text": "require",
+            "confidence": 0.99609375
+          },
+          {
+            "text": "daily",
+            "confidence": 0.9892578
+          },
+          {
+            "text": "medication",
+            "confidence": 0.99609375
+          },
+          {
+            "text": "for",
+            "confidence": 1.0
+          },
+          {
+            "text": "this",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "and",
+            "confidence": 0.93408203
+          },
+          {
+            "text": "does",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "not",
+            "confidence": 1.0
+          },
+          {
+            "text": "think",
+            "confidence": 1.0
+          },
+          {
+            "text": "it",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "is",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "flaring",
+            "confidence": 0.9951172
+          },
+          {
+            "text": "up",
+            "confidence": 0.9995117
+          },
+          {
+            "text": "her",
+            "confidence": 1.0
+          },
+          {
+            "text": "only",
+            "confidence": 1.0
+          },
+          {
+            "text": "medication",
+            "confidence": 1.0
+          },
+          {
+            "text": "currently",
+            "confidence": 0.99316406
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "orthotracycline",
+            "confidence": 0.7807617
+          }
+        ]
+      },
+      "agreement": 0.3182,
+      "diff": [
+        {
+          "text": "but",
+          "op": "insert"
+        },
+        {
+          "text": "doesn",
+          "op": "insert"
+        },
+        {
+          "text": "t",
+          "op": "insert"
+        },
+        {
+          "text": "require",
+          "op": "insert"
+        },
+        {
+          "text": "daily",
+          "op": "insert"
+        },
+        {
+          "text": "medication",
+          "op": "insert"
+        },
+        {
+          "text": "for",
+          "op": "insert"
+        },
+        {
+          "text": "this",
+          "op": "insert"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "does",
+          "op": "match"
+        },
+        {
+          "text": "not",
+          "op": "match"
+        },
+        {
+          "text": "think",
+          "op": "match"
+        },
+        {
+          "text": "it",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "flaring",
+          "op": "substitute"
+        },
+        {
+          "text": "up",
+          "op": "match"
+        },
+        {
+          "text": "her",
+          "op": "insert"
+        },
+        {
+          "text": "only",
+          "op": "insert"
+        },
+        {
+          "text": "medication",
+          "op": "insert"
+        },
+        {
+          "text": "currently",
+          "op": "insert"
+        },
+        {
+          "text": "is",
+          "op": "insert"
+        },
+        {
+          "text": "orthotracycline",
+          "op": "insert"
+        }
+      ],
+      "confidence": 66.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 9,
+      "start": 45.58,
+      "end": 49.36,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 45.58,
+        "end": 49.36,
+        "text": "Her only medication currently is Orthoticycline and Allegra.",
+        "confidence": 0.8791748053262899,
+        "words": [
+          {
+            "text": " Her",
+            "confidence": 0.9872368574142456
+          },
+          {
+            "text": " only",
+            "confidence": 0.9950670003890991
+          },
+          {
+            "text": " medication",
+            "confidence": 0.9580850005149841
+          },
+          {
+            "text": " currently",
+            "confidence": 0.9219696521759033
+          },
+          {
+            "text": " is",
+            "confidence": 0.9920439124107361
+          },
+          {
+            "text": " Orthoticycline",
+            "confidence": 0.5969265818595886
+          },
+          {
+            "text": " and",
+            "confidence": 0.9699460864067078
+          },
+          {
+            "text": " Allegra.",
+            "confidence": 0.9271662533283234
+          }
+        ]
+      },
+      "engine_b": null,
+      "agreement": 0.0,
+      "diff": [],
+      "confidence": 50.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
+      "idx": 10,
+      "start": 48.42494,
+      "end": 49.544937,
+      "engine_a": null,
+      "engine_b": {
+        "engine": "deepgram",
+        "start": 48.42494,
+        "end": 49.544937,
+        "text": "and allegra",
+        "confidence": 0.98846436,
+        "words": [
+          {
+            "text": "and",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "allegra",
+            "confidence": 0.9779053
+          }
+        ]
+      },
+      "agreement": 0.0,
+      "diff": [],
+      "confidence": 55.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    }
+  ],
+  "spot_check": {
+    "seed": 42,
+    "sample_ids": [
+      3,
+      5,
+      7,
+      8,
+      9,
+      10,
+      0
+    ],
+    "accuracy": null,
+    "accepted": null,
+    "expanded": false,
+    "full_review": false
+  },
+  "generated_at": "2026-08-06T13:15:49+00:00"
+}
