@@ -1,14 +1,14 @@
 [
   {
     "engine": "deepgram",
-    "start": 1.1999999,
-    "end": 6.02,
+    "start": 1.28,
+    "end": 6.32,
     "text": "this twenty three year old white female presents with the complaint of allergies",
-    "confidence": 0.98726714,
+    "confidence": 0.97374547,
     "words": [
       {
         "text": "this",
-        "confidence": 0.99316406
+        "confidence": 0.99902344
       },
       {
         "text": "twenty",
@@ -20,15 +20,15 @@
       },
       {
         "text": "year",
-        "confidence": 0.9892578
-      },
-      {
-        "text": "old",
         "confidence": 0.99902344
       },
       {
+        "text": "old",
+        "confidence": 1.0
+      },
+      {
         "text": "white",
-        "confidence": 0.94628906
+        "confidence": 0.9790039
       },
       {
         "text": "female",
@@ -36,19 +36,19 @@
       },
       {
         "text": "presents",
-        "confidence": 0.9902344
+        "confidence": 1.0
       },
       {
         "text": "with",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "the",
-        "confidence": 0.9316406
+        "confidence": 0.6870117
       },
       {
         "text": "complaint",
-        "confidence": 0.99121094
+        "confidence": 0.9980469
       },
       {
         "text": "of",
@@ -56,16 +56,16 @@
       },
       {
         "text": "allergies",
-        "confidence": 0.99853516
+        "confidence": 0.9995117
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 6.48,
-    "end": 9.46,
-    "text": "she used to have allergies when she lived in seathil",
-    "confidence": 0.9666748,
+    "end": 9.759999,
+    "text": "she used to have allergies when she lived in seatl",
+    "confidence": 0.94770205,
     "words": [
       {
         "text": "she",
@@ -73,7 +73,7 @@
       },
       {
         "text": "used",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "to",
@@ -97,56 +97,65 @@
       },
       {
         "text": "lived",
-        "confidence": 0.99609375
+        "confidence": 0.9970703
       },
       {
         "text": "in",
-        "confidence": 1.0
+        "confidence": 0.99902344
       },
       {
-        "text": "seathil",
-        "confidence": 0.67163086
+        "text": "seatl",
+        "confidence": 0.4809265
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 10.0,
-    "end": 15.38,
-    "text": "but she thinks they are worse here in the past she has tried claritin and xyrotec",
-    "confidence": 0.9463013,
+    "end": 12.16,
+    "text": "but she thinks they are worse here",
+    "confidence": 0.93540734,
     "words": [
       {
         "text": "but",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "she",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "thinks",
-        "confidence": 0.99902344
-      },
-      {
-        "text": "they",
-        "confidence": 0.97265625
-      },
-      {
-        "text": "are",
-        "confidence": 0.5419922
-      },
-      {
-        "text": "worse",
-        "confidence": 0.97802734
-      },
-      {
-        "text": "here",
         "confidence": 0.9980469
       },
       {
+        "text": "they",
+        "confidence": 0.88134766
+      },
+      {
+        "text": "are",
+        "confidence": 0.68066406
+      },
+      {
+        "text": "worse",
+        "confidence": 0.98828125
+      },
+      {
+        "text": "here",
+        "confidence": 0.9995117
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 12.24,
+    "end": 15.44,
+    "text": "in the past she has tried claritin and zyrtec",
+    "confidence": 0.9940908,
+    "words": [
+      {
         "text": "in",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "the",
@@ -154,15 +163,15 @@
       },
       {
         "text": "past",
-        "confidence": 0.9951172
+        "confidence": 0.9980469
       },
       {
         "text": "she",
-        "confidence": 1.0
+        "confidence": 0.99902344
       },
       {
         "text": "has",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "tried",
@@ -170,24 +179,24 @@
       },
       {
         "text": "claritin",
-        "confidence": 0.93896484
+        "confidence": 0.96207684
       },
       {
         "text": "and",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
-        "text": "xyrotec",
-        "confidence": 0.72382814
+        "text": "zyrtec",
+        "confidence": 0.9906006
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 16.135,
-    "end": 19.675,
-    "text": "both worked for a short time but didn't seem to lose effectiveness",
-    "confidence": 0.93534344,
+    "end": 20.055,
+    "text": "both worked for short time but didn't seem to lose effectiveness",
+    "confidence": 0.9132635,
     "words": [
       {
         "text": "both",
@@ -195,68 +204,64 @@
       },
       {
         "text": "worked",
-        "confidence": 0.9980469
+        "confidence": 0.99902344
       },
       {
         "text": "for",
-        "confidence": 0.99902344
-      },
-      {
-        "text": "a",
-        "confidence": 0.7319336
+        "confidence": 1.0
       },
       {
         "text": "short",
-        "confidence": 1.0
+        "confidence": 0.5991211
       },
       {
         "text": "time",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "but",
-        "confidence": 0.56884766
+        "confidence": 0.5703125
       },
       {
         "text": "didn't",
-        "confidence": 0.9770508
+        "confidence": 0.9301758
       },
       {
         "text": "seem",
-        "confidence": 0.9560547
+        "confidence": 0.98828125
       },
       {
         "text": "to",
-        "confidence": 1.0
+        "confidence": 0.96533203
       },
       {
         "text": "lose",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "effectiveness",
-        "confidence": 0.9951172
+        "confidence": 0.9975586
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 20.455,
-    "end": 22.795,
+    "start": 20.535,
+    "end": 23.015,
     "text": "she had also used allegra also",
-    "confidence": 0.9851074,
+    "confidence": 0.9851617,
     "words": [
       {
         "text": "she",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "had",
-        "confidence": 0.9980469
+        "confidence": 0.9970703
       },
       {
         "text": "also",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "used",
@@ -264,24 +269,24 @@
       },
       {
         "text": "allegra",
-        "confidence": 0.9406738
+        "confidence": 0.9539388
       },
       {
         "text": "also",
-        "confidence": 0.9758301
+        "confidence": 0.9609375
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 23.735,
-    "end": 28.474998,
+    "start": 23.654999,
+    "end": 28.535,
     "text": "she used that last summer and she began using it again two weeks ago",
-    "confidence": 0.9805385,
+    "confidence": 0.9763707,
     "words": [
       {
         "text": "she",
-        "confidence": 0.99609375
+        "confidence": 0.99902344
       },
       {
         "text": "used",
@@ -289,15 +294,15 @@
       },
       {
         "text": "that",
-        "confidence": 0.8774414
+        "confidence": 0.81591797
       },
       {
         "text": "last",
-        "confidence": 0.9980469
+        "confidence": 0.95410156
       },
       {
         "text": "summer",
-        "confidence": 0.86376953
+        "confidence": 0.9147949
       },
       {
         "text": "and",
@@ -305,11 +310,11 @@
       },
       {
         "text": "she",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "began",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "using",
@@ -317,15 +322,15 @@
       },
       {
         "text": "it",
-        "confidence": 1.0
-      },
-      {
-        "text": "again",
         "confidence": 0.99902344
       },
       {
+        "text": "again",
+        "confidence": 0.99609375
+      },
+      {
         "text": "two",
-        "confidence": 0.9980469
+        "confidence": 0.9970703
       },
       {
         "text": "weeks",
@@ -339,22 +344,22 @@
   },
   {
     "engine": "deepgram",
-    "start": 28.775,
-    "end": 36.7,
-    "text": "it doesn't appear to be working very well she has used over the counter sprays but no prescription nasal sprays",
-    "confidence": 0.9920572,
+    "start": 28.855,
+    "end": 36.84,
+    "text": "it doesn't appear to be working very well she has used over the counter spray but no prescription nasal spray",
+    "confidence": 0.96601564,
     "words": [
       {
         "text": "it",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "doesn't",
-        "confidence": 0.99853516
+        "confidence": 0.9980469
       },
       {
         "text": "appear",
-        "confidence": 0.9970703
+        "confidence": 0.99902344
       },
       {
         "text": "to",
@@ -362,7 +367,7 @@
       },
       {
         "text": "be",
-        "confidence": 1.0
+        "confidence": 0.99902344
       },
       {
         "text": "working",
@@ -370,11 +375,11 @@
       },
       {
         "text": "very",
-        "confidence": 0.9970703
+        "confidence": 0.99902344
       },
       {
         "text": "well",
-        "confidence": 0.9995117
+        "confidence": 1.0
       },
       {
         "text": "she",
@@ -390,27 +395,27 @@
       },
       {
         "text": "over",
-        "confidence": 0.99609375
+        "confidence": 0.99902344
       },
       {
         "text": "the",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "counter",
         "confidence": 0.9980469
       },
       {
-        "text": "sprays",
-        "confidence": 0.86848956
+        "text": "spray",
+        "confidence": 0.5566406
       },
       {
         "text": "but",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "no",
-        "confidence": 0.9951172
+        "confidence": 0.99902344
       },
       {
         "text": "prescription",
@@ -418,109 +423,109 @@
       },
       {
         "text": "nasal",
-        "confidence": 0.99902344
+        "confidence": 0.96777344
       },
       {
-        "text": "sprays",
-        "confidence": 0.99609375
+        "text": "spray",
+        "confidence": 0.80566406
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 37.399998,
-    "end": 38.78,
+    "start": 37.239998,
+    "end": 39.16,
     "text": "she does have asthma",
-    "confidence": 0.9537964,
+    "confidence": 0.94799805,
     "words": [
       {
         "text": "she",
-        "confidence": 0.99902344
-      },
-      {
-        "text": "does",
-        "confidence": 0.9970703
-      },
-      {
-        "text": "have",
         "confidence": 1.0
       },
       {
+        "text": "does",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "have",
+        "confidence": 0.99902344
+      },
+      {
         "text": "asthma",
-        "confidence": 0.8190918
+        "confidence": 0.7949219
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 39.399998,
-    "end": 49.324936,
-    "text": "but doesn't require daily medication for this and does not think it is blaring up her only medication currently is ortho tri cycline and allegra",
-    "confidence": 0.91004235,
+    "end": 48.42494,
+    "text": "but doesn't require daily medication for this and does not think it is flaring up her only medication currently is orthotracycline",
+    "confidence": 0.984468,
     "words": [
       {
         "text": "but",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "doesn't",
-        "confidence": 0.98339844
+        "confidence": 0.99365234
       },
       {
         "text": "require",
-        "confidence": 0.9980469
-      },
-      {
-        "text": "daily",
-        "confidence": 0.9902344
-      },
-      {
-        "text": "medication",
-        "confidence": 0.9819336
-      },
-      {
-        "text": "for",
-        "confidence": 0.99902344
-      },
-      {
-        "text": "this",
-        "confidence": 0.9980469
-      },
-      {
-        "text": "and",
-        "confidence": 0.57421875
-      },
-      {
-        "text": "does",
-        "confidence": 0.9902344
-      },
-      {
-        "text": "not",
-        "confidence": 0.99902344
-      },
-      {
-        "text": "think",
-        "confidence": 0.9951172
-      },
-      {
-        "text": "it",
-        "confidence": 0.9941406
-      },
-      {
-        "text": "is",
-        "confidence": 0.9921875
-      },
-      {
-        "text": "blaring",
-        "confidence": 0.78100586
-      },
-      {
-        "text": "up",
         "confidence": 0.99609375
       },
       {
+        "text": "daily",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "medication",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "for",
+        "confidence": 1.0
+      },
+      {
+        "text": "this",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "and",
+        "confidence": 0.93408203
+      },
+      {
+        "text": "does",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "not",
+        "confidence": 1.0
+      },
+      {
+        "text": "think",
+        "confidence": 1.0
+      },
+      {
+        "text": "it",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "is",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "flaring",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "up",
+        "confidence": 0.9995117
+      },
+      {
         "text": "her",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "only",
@@ -528,35 +533,36 @@
       },
       {
         "text": "medication",
-        "confidence": 0.9941406
+        "confidence": 1.0
       },
       {
         "text": "currently",
-        "confidence": 0.98535156
+        "confidence": 0.99316406
       },
       {
         "text": "is",
-        "confidence": 0.9951172
+        "confidence": 1.0
       },
       {
-        "text": "ortho",
-        "confidence": 0.50219727
-      },
-      {
-        "text": "tri",
-        "confidence": 0.43725586
-      },
-      {
-        "text": "cycline",
-        "confidence": 0.6015625
-      },
+        "text": "orthotracycline",
+        "confidence": 0.7807617
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 48.42494,
+    "end": 49.544937,
+    "text": "and allegra",
+    "confidence": 0.98846436,
+    "words": [
       {
         "text": "and",
-        "confidence": 0.9902344
+        "confidence": 0.99902344
       },
       {
         "text": "allegra",
-        "confidence": 0.9763997
+        "confidence": 0.9779053
       }
     ]
   }

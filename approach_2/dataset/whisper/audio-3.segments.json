@@ -2,551 +2,565 @@
   {
     "engine": "whisper",
     "start": 1.65,
-    "end": 8.29,
-    "text": "Multiple use of heart and grade vessels, it will normal intercardic and grade vessel relationships.",
-    "confidence": 0.7680380463153296,
+    "end": 8.35,
+    "text": "Multiple use of heart and great vessels reveal normal intracardic and great vessel relationships.",
+    "confidence": 0.7610490379509784,
     "words": [
       {
         "text": " Multiple",
-        "confidence": 0.35352402925491333
+        "confidence": 0.2891788184642792
       },
       {
         "text": " use",
-        "confidence": 0.7550860643386841
+        "confidence": 0.5131790041923523
       },
       {
         "text": " of",
-        "confidence": 0.9717313647270203
+        "confidence": 0.9973047971725464
       },
       {
         "text": " heart",
-        "confidence": 0.8711036443710327
+        "confidence": 0.9808467030525208
       },
       {
         "text": " and",
-        "confidence": 0.9613463282585144
+        "confidence": 0.9137170910835266
       },
       {
-        "text": " grade",
-        "confidence": 0.594961404800415
+        "text": " great",
+        "confidence": 0.8697230219841003
       },
       {
-        "text": " vessels,",
-        "confidence": 0.9575942754745483
+        "text": " vessels",
+        "confidence": 0.950165331363678
       },
       {
-        "text": " it",
-        "confidence": 0.46607837080955505
-      },
-      {
-        "text": " will",
-        "confidence": 0.9163557291030884
+        "text": " reveal",
+        "confidence": 0.6627723574638367
       },
       {
         "text": " normal",
-        "confidence": 0.9265127182006836
+        "confidence": 0.9550930261611938
       },
       {
-        "text": " intercardic",
-        "confidence": 0.7740931113560995
+        "text": " intracardic",
+        "confidence": 0.8474898189306259
       },
       {
         "text": " and",
-        "confidence": 0.9820231795310974
+        "confidence": 0.9910750389099121
       },
       {
-        "text": " grade",
-        "confidence": 0.874934732913971
+        "text": " great",
+        "confidence": 0.9728828072547913
       },
       {
         "text": " vessel",
-        "confidence": 0.8845974206924438
+        "confidence": 0.9703468680381775
       },
       {
         "text": " relationships.",
-        "confidence": 0.9583895206451416
+        "confidence": 0.9610708355903625
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 8.93,
-    "end": 15.35,
-    "text": "Cardic function is normal, there is no significant chamber, enlargement or hypertrophy.",
-    "confidence": 0.7680380463153296,
+    "start": 8.97,
+    "end": 10.57,
+    "text": "Cardiac function is normal.",
+    "confidence": 0.7610490379509784,
     "words": [
       {
-        "text": " Cardic",
-        "confidence": 0.8779483139514923
+        "text": " Cardiac",
+        "confidence": 0.7348179817199707
       },
       {
         "text": " function",
-        "confidence": 0.9642533659934998
+        "confidence": 0.977382242679596
       },
       {
         "text": " is",
-        "confidence": 0.9904085397720337
+        "confidence": 0.9934444427490234
       },
       {
-        "text": " normal,",
-        "confidence": 0.9892493486404419
-      },
-      {
-        "text": " there",
-        "confidence": 0.9670624136924744
-      },
-      {
-        "text": " is",
-        "confidence": 0.9930747747421265
-      },
-      {
-        "text": " no",
-        "confidence": 0.9987322688102722
-      },
-      {
-        "text": " significant",
-        "confidence": 0.9619689583778381
-      },
-      {
-        "text": " chamber,",
-        "confidence": 0.9504079222679138
-      },
-      {
-        "text": " enlargement",
-        "confidence": 0.9572817087173462
-      },
-      {
-        "text": " or",
-        "confidence": 0.8274107575416565
-      },
-      {
-        "text": " hypertrophy.",
-        "confidence": 0.9484136700630188
+        "text": " normal.",
+        "confidence": 0.9759358763694763
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 16.01,
-    "end": 19.43,
-    "text": "There is no pre-cardial effusion or visitation seen.",
-    "confidence": 0.7680380463153296,
+    "start": 11.13,
+    "end": 15.29,
+    "text": "There is no significant chamber, enlargement or hypertrophy.",
+    "confidence": 0.7610490379509784,
     "words": [
       {
         "text": " There",
-        "confidence": 0.9748859405517578
+        "confidence": 0.9718310832977295
       },
       {
         "text": " is",
-        "confidence": 0.9909948706626892
+        "confidence": 0.9915245175361633
       },
       {
         "text": " no",
-        "confidence": 0.9986899495124817
+        "confidence": 0.9962461590766907
       },
       {
-        "text": " pre",
-        "confidence": 0.806830883026123
+        "text": " significant",
+        "confidence": 0.9664483070373535
       },
       {
-        "text": "-cardial",
-        "confidence": 0.8609031438827515
+        "text": " chamber,",
+        "confidence": 0.9456990957260132
       },
       {
-        "text": " effusion",
-        "confidence": 0.7582302093505859
+        "text": " enlargement",
+        "confidence": 0.993848443031311
       },
       {
         "text": " or",
-        "confidence": 0.976356029510498
+        "confidence": 0.8385276794433594
+      },
+      {
+        "text": " hypertrophy.",
+        "confidence": 0.9855899810791016
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 15.87,
+    "end": 19.47,
+    "text": "There is no pre-cardial effusion or visitation seen.",
+    "confidence": 0.7610490379509784,
+    "words": [
+      {
+        "text": " There",
+        "confidence": 0.9864257574081421
+      },
+      {
+        "text": " is",
+        "confidence": 0.994082510471344
+      },
+      {
+        "text": " no",
+        "confidence": 0.9966253042221069
+      },
+      {
+        "text": " pre",
+        "confidence": 0.7099544405937195
+      },
+      {
+        "text": "-cardial",
+        "confidence": 0.7860209147135416
+      },
+      {
+        "text": " effusion",
+        "confidence": 0.9811730980873108
+      },
+      {
+        "text": " or",
+        "confidence": 0.9859436750411987
       },
       {
         "text": " visitation",
-        "confidence": 0.7445347309112549
+        "confidence": 0.631688579916954
       },
       {
         "text": " seen.",
-        "confidence": 0.6276999115943909
+        "confidence": 0.6672993898391724
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 20.37,
-    "end": 30.37,
-    "text": "Doppler interrogation, including colour flow imaging, will systemic venues return to the written right atom with normal tricuspid inflow.",
-    "confidence": 0.7680380463153296,
+    "start": 20.39,
+    "end": 25.65,
+    "text": "Doppler interrogation including colour flow imaging reveals systemic venous return to",
+    "confidence": 0.7610490379509784,
     "words": [
       {
         "text": " Doppler",
-        "confidence": 0.9034692347049713
+        "confidence": 0.9704842567443848
       },
       {
-        "text": " interrogation,",
-        "confidence": 0.8930632174015045
+        "text": " interrogation",
+        "confidence": 0.9447913467884064
       },
       {
         "text": " including",
-        "confidence": 0.9955202341079712
+        "confidence": 0.7571521997451782
       },
       {
         "text": " colour",
-        "confidence": 0.4411241412162781
+        "confidence": 0.6505551338195801
       },
       {
         "text": " flow",
-        "confidence": 0.8419622778892517
+        "confidence": 0.6941301226615906
       },
       {
-        "text": " imaging,",
-        "confidence": 0.9891121983528137
+        "text": " imaging",
+        "confidence": 0.9934079647064209
       },
       {
-        "text": " will",
-        "confidence": 0.46409642696380615
+        "text": " reveals",
+        "confidence": 0.9568315148353577
       },
       {
         "text": " systemic",
-        "confidence": 0.9016076326370239
+        "confidence": 0.9868624210357666
       },
       {
-        "text": " venues",
-        "confidence": 0.14554885029792786
+        "text": " venous",
+        "confidence": 0.7274249494075775
       },
       {
         "text": " return",
-        "confidence": 0.8256314396858215
+        "confidence": 0.9724000096321106
       },
       {
         "text": " to",
-        "confidence": 0.9711635708808899
-      },
+        "confidence": 0.9923876523971558
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 25.65,
+    "end": 30.35,
+    "text": "the written right atom with normal tricuspid inflow.",
+    "confidence": 0.7610490379509784,
+    "words": [
       {
         "text": " the",
-        "confidence": 0.981000542640686
+        "confidence": 0.9883673787117004
       },
       {
         "text": " written",
-        "confidence": 0.5493084788322449
+        "confidence": 0.37237676978111267
       },
       {
         "text": " right",
-        "confidence": 0.36710771918296814
+        "confidence": 0.8469604253768921
       },
       {
         "text": " atom",
-        "confidence": 0.7588858008384705
+        "confidence": 0.5460100173950195
       },
       {
         "text": " with",
-        "confidence": 0.8051818013191223
+        "confidence": 0.9609941244125366
       },
       {
         "text": " normal",
-        "confidence": 0.9916850328445435
+        "confidence": 0.9898926615715027
       },
       {
         "text": " tricuspid",
-        "confidence": 0.8366948366165161
+        "confidence": 0.9304516911506653
       },
       {
         "text": " inflow.",
-        "confidence": 0.8946038782596588
+        "confidence": 0.9637892842292786
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 30.37,
+    "start": 30.35,
     "end": 33.57,
     "text": "Pulmonary outflow is normal at the wall.",
-    "confidence": 0.782726867106226,
+    "confidence": 0.757869526178871,
     "words": [
       {
         "text": " Pulmonary",
-        "confidence": 0.5114738084375858
+        "confidence": 0.48766033351421356
       },
       {
         "text": " outflow",
-        "confidence": 0.9352859556674957
+        "confidence": 0.8667817711830139
       },
       {
         "text": " is",
-        "confidence": 0.9923449158668518
+        "confidence": 0.9883272051811218
       },
       {
         "text": " normal",
-        "confidence": 0.9856905341148376
+        "confidence": 0.980678379535675
       },
       {
         "text": " at",
-        "confidence": 0.9281273484230042
+        "confidence": 0.9423105716705322
       },
       {
         "text": " the",
-        "confidence": 0.9920793175697327
+        "confidence": 0.9916821122169495
       },
       {
         "text": " wall.",
-        "confidence": 0.653597891330719
+        "confidence": 0.37094131112098694
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 34.23,
-    "end": 37.25,
-    "text": "Pulmonary venue's written is to the left atom.",
-    "confidence": 0.782726867106226,
+    "start": 34.07,
+    "end": 37.29,
+    "text": "Pulmonary venous return is to the left atom.",
+    "confidence": 0.757869526178871,
     "words": [
       {
         "text": " Pulmonary",
-        "confidence": 0.949647068977356
+        "confidence": 0.7615187466144562
       },
       {
-        "text": " venue's",
-        "confidence": 0.33917349576950073
+        "text": " venous",
+        "confidence": 0.5564384907484055
       },
       {
-        "text": " written",
-        "confidence": 0.27420178055763245
+        "text": " return",
+        "confidence": 0.9008018970489502
       },
       {
         "text": " is",
-        "confidence": 0.9566382765769958
+        "confidence": 0.9717166423797607
       },
       {
         "text": " to",
-        "confidence": 0.9527097940444946
+        "confidence": 0.9859731197357178
       },
       {
         "text": " the",
-        "confidence": 0.9902847409248352
+        "confidence": 0.974090576171875
       },
       {
         "text": " left",
-        "confidence": 0.9901630878448486
+        "confidence": 0.989423930644989
       },
       {
         "text": " atom.",
-        "confidence": 0.22178395092487335
+        "confidence": 0.04780924320220947
       }
     ]
   },
   {
     "engine": "whisper",
     "start": 37.95,
-    "end": 40.45,
+    "end": 40.43,
     "text": "The left arterial spectrum is intact.",
-    "confidence": 0.782726867106226,
+    "confidence": 0.757869526178871,
     "words": [
       {
         "text": " The",
-        "confidence": 0.9822534918785095
+        "confidence": 0.9683522582054138
       },
       {
         "text": " left",
-        "confidence": 0.9909392595291138
+        "confidence": 0.9971842169761658
       },
       {
         "text": " arterial",
-        "confidence": 0.7585730254650116
+        "confidence": 0.9841468334197998
       },
       {
         "text": " spectrum",
-        "confidence": 0.9595611095428467
+        "confidence": 0.9549694061279297
       },
       {
         "text": " is",
-        "confidence": 0.9928134083747864
+        "confidence": 0.9953456521034241
       },
       {
         "text": " intact.",
-        "confidence": 0.9524919390678406
+        "confidence": 0.9957822561264038
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 41.23,
+    "start": 41.19,
     "end": 44.59,
-    "text": "Mitral inflow and ascending outflow are normal.",
-    "confidence": 0.782726867106226,
+    "text": "Material inflow and ascending autra flow are normal.",
+    "confidence": 0.757869526178871,
     "words": [
       {
-        "text": " Mitral",
-        "confidence": 0.5320561528205872
+        "text": " Material",
+        "confidence": 0.1678583174943924
       },
       {
         "text": " inflow",
-        "confidence": 0.7517499029636383
+        "confidence": 0.9877102971076965
       },
       {
         "text": " and",
-        "confidence": 0.9525622725486755
+        "confidence": 0.991134524345398
       },
       {
         "text": " ascending",
-        "confidence": 0.9760213196277618
+        "confidence": 0.9879572987556458
       },
       {
-        "text": " outflow",
-        "confidence": 0.33270057290792465
+        "text": " autra",
+        "confidence": 0.4297766759991646
+      },
+      {
+        "text": " flow",
+        "confidence": 0.8422964215278625
       },
       {
         "text": " are",
-        "confidence": 0.9691752195358276
+        "confidence": 0.9386267066001892
       },
       {
         "text": " normal.",
-        "confidence": 0.9947417974472046
+        "confidence": 0.9976008534431458
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 45.37,
-    "end": 47.63,
-    "text": "The optic valve is tri-liftlet.",
-    "confidence": 0.782726867106226,
+    "start": 45.33,
+    "end": 47.67,
+    "text": "The aortic valve is tri-lifted.",
+    "confidence": 0.757869526178871,
     "words": [
       {
         "text": " The",
-        "confidence": 0.9850353002548218
+        "confidence": 0.9854652285575867
       },
       {
-        "text": " optic",
-        "confidence": 0.41903847455978394
+        "text": " aortic",
+        "confidence": 0.5675051286816597
       },
       {
         "text": " valve",
-        "confidence": 0.8155339956283569
+        "confidence": 0.9038136601448059
       },
       {
         "text": " is",
-        "confidence": 0.997387707233429
+        "confidence": 0.9982494711875916
       },
       {
         "text": " tri",
-        "confidence": 0.40381643176078796
+        "confidence": 0.717957615852356
       },
       {
-        "text": "-liftlet.",
-        "confidence": 0.6445566813151041
+        "text": "-lifted.",
+        "confidence": 0.7325192391872406
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 48.31,
-    "end": 51.67,
+    "start": 48.33,
+    "end": 51.71,
     "text": "The coronary arteries appear to be normal in their origins.",
-    "confidence": 0.782726867106226,
+    "confidence": 0.757869526178871,
     "words": [
       {
         "text": " The",
-        "confidence": 0.6107691526412964
+        "confidence": 0.18040302395820618
       },
       {
         "text": " coronary",
-        "confidence": 0.9352412521839142
+        "confidence": 0.9771268665790558
       },
       {
         "text": " arteries",
-        "confidence": 0.9928050637245178
+        "confidence": 0.9918741583824158
       },
       {
         "text": " appear",
-        "confidence": 0.9797655940055847
+        "confidence": 0.9855263233184814
       },
       {
         "text": " to",
-        "confidence": 0.9965000152587891
+        "confidence": 0.9962822794914246
       },
       {
         "text": " be",
-        "confidence": 0.9969990253448486
+        "confidence": 0.9968493580818176
       },
       {
         "text": " normal",
-        "confidence": 0.9967266321182251
+        "confidence": 0.9974119067192078
       },
       {
         "text": " in",
-        "confidence": 0.99714595079422
+        "confidence": 0.9947415590286255
       },
       {
         "text": " their",
-        "confidence": 0.9798370003700256
+        "confidence": 0.9851020574569702
       },
       {
         "text": " origins.",
-        "confidence": 0.9714016318321228
+        "confidence": 0.9671443700790405
       }
     ]
   },
   {
     "engine": "whisper",
-    "start": 51.67,
-    "end": 58.81,
-    "text": "The optic arch is left sided and patent with normal descending auto pulls pulsality.",
-    "confidence": 0.6449127476708144,
+    "start": 52.51,
+    "end": 58.97,
+    "text": "The aortic arch is left-sided and patent with normal descending autra pulsatility.",
+    "confidence": 0.757869526178871,
     "words": [
       {
         "text": " The",
-        "confidence": 0.253858357667923
+        "confidence": 0.9917793869972229
       },
       {
-        "text": " optic",
-        "confidence": 0.028855688869953156
+        "text": " aortic",
+        "confidence": 0.8960885107517242
       },
       {
         "text": " arch",
-        "confidence": 0.8608936667442322
+        "confidence": 0.9687974452972412
       },
       {
         "text": " is",
-        "confidence": 0.9853906631469727
+        "confidence": 0.9973753690719604
       },
       {
         "text": " left",
-        "confidence": 0.9681410193443298
+        "confidence": 0.9940470457077026
       },
       {
-        "text": " sided",
-        "confidence": 0.6942993402481079
+        "text": "-sided",
+        "confidence": 0.7398070245981216
       },
       {
         "text": " and",
-        "confidence": 0.9330439567565918
+        "confidence": 0.9532694220542908
       },
       {
         "text": " patent",
-        "confidence": 0.7689390778541565
+        "confidence": 0.8348731994628906
       },
       {
         "text": " with",
-        "confidence": 0.8971489071846008
+        "confidence": 0.983511209487915
       },
       {
         "text": " normal",
-        "confidence": 0.9211972951889038
+        "confidence": 0.986230194568634
       },
       {
         "text": " descending",
-        "confidence": 0.94807368516922
+        "confidence": 0.9884713888168335
       },
       {
-        "text": " auto",
-        "confidence": 0.07270856201648712
+        "text": " autra",
+        "confidence": 0.9568113386631012
       },
       {
-        "text": " pulls",
-        "confidence": 0.2356206774711609
-      },
-      {
-        "text": " pulsality.",
-        "confidence": 0.5856015235185623
+        "text": " pulsatility.",
+        "confidence": 0.8759064277013143
       }
     ]
   }

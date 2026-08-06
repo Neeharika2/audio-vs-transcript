@@ -1,39 +1,39 @@
 [
   {
     "engine": "deepgram",
-    "start": 0.56,
-    "end": 2.34,
-    "text": "i have seen apc today",
-    "confidence": 0.98583984,
+    "start": 0.48,
+    "end": 2.6399999,
+    "text": "i have seen abc today",
+    "confidence": 0.8841797,
     "words": [
       {
         "text": "i",
-        "confidence": 0.99609375
-      },
-      {
-        "text": "have",
-        "confidence": 0.9892578
-      },
-      {
-        "text": "seen",
         "confidence": 1.0
       },
       {
-        "text": "apc",
-        "confidence": 0.9526367
+        "text": "have",
+        "confidence": 1.0
+      },
+      {
+        "text": "seen",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "abc",
+        "confidence": 0.42773438
       },
       {
         "text": "today",
-        "confidence": 0.99121094
+        "confidence": 0.9941406
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 2.8,
-    "end": 8.34,
-    "text": "he is a very pleasant gentleman who is forty two years old three forty four pounds",
-    "confidence": 0.9673462,
+    "end": 7.04,
+    "text": "he is a very pleasant gentleman who is forty two years old",
+    "confidence": 0.9711507,
     "words": [
       {
         "text": "he",
@@ -41,55 +41,64 @@
       },
       {
         "text": "is",
-        "confidence": 0.8198242
+        "confidence": 0.7260742
       },
       {
         "text": "a",
-        "confidence": 0.9980469
+        "confidence": 0.99902344
       },
       {
         "text": "very",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "pleasant",
-        "confidence": 0.99902344
+        "confidence": 0.9970703
       },
       {
         "text": "gentleman",
-        "confidence": 0.9760742
+        "confidence": 0.9921875
       },
       {
         "text": "who",
-        "confidence": 0.8510742
+        "confidence": 0.9667969
       },
       {
         "text": "is",
-        "confidence": 0.98828125
+        "confidence": 1.0
       },
       {
         "text": "forty",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "two",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "years",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "old",
-        "confidence": 0.8769531
-      },
+        "confidence": 0.97265625
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 7.12,
+    "end": 8.559999,
+    "text": "three forty four pounds",
+    "confidence": 0.9923096,
+    "words": [
       {
         "text": "three",
-        "confidence": 0.9941406
+        "confidence": 0.9970703
       },
       {
         "text": "forty",
-        "confidence": 0.9838867
+        "confidence": 0.9760742
       },
       {
         "text": "four",
@@ -97,33 +106,42 @@
       },
       {
         "text": "pounds",
-        "confidence": 0.9951172
+        "confidence": 0.9970703
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 8.8,
-    "end": 12.5,
-    "text": "he is five nine he has bmi of fifty one",
-    "confidence": 0.9529541,
+    "start": 8.72,
+    "end": 10.32,
+    "text": "he is five nine",
+    "confidence": 0.9869385,
     "words": [
       {
         "text": "he",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "is",
-        "confidence": 0.9589844
+        "confidence": 0.9580078
       },
       {
         "text": "five",
-        "confidence": 0.9970703
+        "confidence": 0.9980469
       },
       {
         "text": "nine",
-        "confidence": 0.96850586
-      },
+        "confidence": 0.9916992
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 10.4,
+    "end": 12.32,
+    "text": "he has bmi of fifty one",
+    "confidence": 0.95963544,
+    "words": [
       {
         "text": "he",
         "confidence": 1.0
@@ -134,11 +152,11 @@
       },
       {
         "text": "bmi",
-        "confidence": 0.6074219
+        "confidence": 0.7651367
       },
       {
         "text": "of",
-        "confidence": 0.99902344
+        "confidence": 0.99316406
       },
       {
         "text": "fifty",
@@ -152,18 +170,14 @@
   },
   {
     "engine": "deepgram",
-    "start": 12.885,
-    "end": 17.065,
-    "text": "he has been overweight for ten years since the age of thirty three",
-    "confidence": 0.98366135,
+    "start": 12.965,
+    "end": 17.125,
+    "text": "has been overweight for ten years since the age of thirty three",
+    "confidence": 0.98295087,
     "words": [
       {
-        "text": "he",
-        "confidence": 1.0
-      },
-      {
         "text": "has",
-        "confidence": 1.0
+        "confidence": 0.99609375
       },
       {
         "text": "been",
@@ -175,7 +189,7 @@
       },
       {
         "text": "for",
-        "confidence": 1.0
+        "confidence": 0.99902344
       },
       {
         "text": "ten",
@@ -187,11 +201,11 @@
       },
       {
         "text": "since",
-        "confidence": 0.93847656
+        "confidence": 0.92333984
       },
       {
         "text": "the",
-        "confidence": 0.8520508
+        "confidence": 0.8803711
       },
       {
         "text": "age",
@@ -199,24 +213,24 @@
       },
       {
         "text": "of",
-        "confidence": 0.9980469
+        "confidence": 0.99902344
       },
       {
         "text": "thirty",
-        "confidence": 1.0
+        "confidence": 0.99902344
       },
       {
         "text": "three",
-        "confidence": 1.0
+        "confidence": 0.9995117
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 17.605,
-    "end": 20.425,
+    "start": 17.525,
+    "end": 20.564999,
     "text": "at his highest he was three fifty eight pounds",
-    "confidence": 0.9901259,
+    "confidence": 0.9869792,
     "words": [
       {
         "text": "at",
@@ -224,11 +238,11 @@
       },
       {
         "text": "his",
-        "confidence": 1.0
+        "confidence": 0.99902344
       },
       {
         "text": "highest",
-        "confidence": 0.99853516
+        "confidence": 0.99560547
       },
       {
         "text": "he",
@@ -248,20 +262,20 @@
       },
       {
         "text": "eight",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "pounds",
-        "confidence": 0.9165039
+        "confidence": 0.8911133
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 20.725,
-    "end": 22.425,
+    "end": 22.645,
     "text": "at his lowest two sixty",
-    "confidence": 0.9984375,
+    "confidence": 0.9963867,
     "words": [
       {
         "text": "at",
@@ -273,11 +287,11 @@
       },
       {
         "text": "lowest",
-        "confidence": 0.9941406
+        "confidence": 0.98583984
       },
       {
         "text": "two",
-        "confidence": 1.0
+        "confidence": 0.9980469
       },
       {
         "text": "sixty",
@@ -287,10 +301,10 @@
   },
   {
     "engine": "deepgram",
-    "start": 22.885,
-    "end": 26.744999,
+    "start": 22.805,
+    "end": 26.805,
     "text": "he is pursuing surgical attempts of weight loss to feel good",
-    "confidence": 0.9631126,
+    "confidence": 0.9849077,
     "words": [
       {
         "text": "he",
@@ -298,11 +312,11 @@
       },
       {
         "text": "is",
-        "confidence": 0.61083984
+        "confidence": 0.8442383
       },
       {
         "text": "pursuing",
-        "confidence": 0.99902344
+        "confidence": 0.99609375
       },
       {
         "text": "surgical",
@@ -310,7 +324,7 @@
       },
       {
         "text": "attempts",
-        "confidence": 0.99609375
+        "confidence": 0.9980469
       },
       {
         "text": "of",
@@ -326,7 +340,7 @@
       },
       {
         "text": "to",
-        "confidence": 0.99121094
+        "confidence": 0.9980469
       },
       {
         "text": "feel",
@@ -334,61 +348,61 @@
       },
       {
         "text": "good",
-        "confidence": 0.99902344
+        "confidence": 0.9995117
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 27.045,
-    "end": 28.98,
-    "text": "get healthy and begin to exercise",
-    "confidence": 0.99296063,
+    "end": 29.76,
+    "text": "get healthy and begin to exercise again",
+    "confidence": 0.9975237,
     "words": [
       {
         "text": "get",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "healthy",
-        "confidence": 0.970459
+        "confidence": 0.98950195
       },
       {
         "text": "and",
-        "confidence": 0.9941406
+        "confidence": 1.0
       },
       {
         "text": "begin",
-        "confidence": 0.99609375
+        "confidence": 0.99902344
       },
       {
         "text": "to",
-        "confidence": 1.0
+        "confidence": 0.9980469
       },
       {
         "text": "exercise",
         "confidence": 0.99902344
+      },
+      {
+        "text": "again",
+        "confidence": 0.9970703
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 29.44,
-    "end": 33.14,
-    "text": "again he wants to be able to exercise and play volleyball",
-    "confidence": 0.9971147,
+    "start": 29.92,
+    "end": 33.6,
+    "text": "he wants to be able to exercise and play volleyball",
+    "confidence": 0.9981934,
     "words": [
-      {
-        "text": "again",
-        "confidence": 0.9980469
-      },
       {
         "text": "he",
         "confidence": 0.99902344
       },
       {
         "text": "wants",
-        "confidence": 1.0
+        "confidence": 0.9980469
       },
       {
         "text": "to",
@@ -396,7 +410,7 @@
       },
       {
         "text": "be",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "able",
@@ -404,7 +418,7 @@
       },
       {
         "text": "to",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "exercise",
@@ -412,7 +426,7 @@
       },
       {
         "text": "and",
-        "confidence": 0.9980469
+        "confidence": 0.99609375
       },
       {
         "text": "play",
@@ -420,20 +434,20 @@
       },
       {
         "text": "volleyball",
-        "confidence": 0.97802734
+        "confidence": 0.99560547
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 34.0,
-    "end": 35.38,
+    "start": 33.92,
+    "end": 35.68,
     "text": "physically he is sluggish",
-    "confidence": 0.9784139,
+    "confidence": 0.9730632,
     "words": [
       {
         "text": "physically",
-        "confidence": 0.9920247
+        "confidence": 0.9894206
       },
       {
         "text": "he",
@@ -441,53 +455,53 @@
       },
       {
         "text": "is",
-        "confidence": 0.94189453
+        "confidence": 0.9091797
       },
       {
         "text": "sluggish",
-        "confidence": 0.9807129
+        "confidence": 0.9946289
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 35.92,
-    "end": 37.379997,
+    "end": 37.52,
     "text": "he gets tired quickly",
-    "confidence": 0.9959717,
+    "confidence": 0.99450684,
     "words": [
       {
         "text": "he",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "gets",
-        "confidence": 0.9980469
+        "confidence": 0.9951172
       },
       {
         "text": "tired",
-        "confidence": 0.99121094
+        "confidence": 0.9873047
       },
       {
         "text": "quickly",
-        "confidence": 0.99658203
+        "confidence": 0.99560547
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 37.68,
-    "end": 45.035004,
-    "text": "he doesn't go out often when he loses weight he always regains it and he gains back more than he lost",
-    "confidence": 0.9585426,
+    "start": 37.76,
+    "end": 39.52,
+    "text": "he doesn't go out often",
+    "confidence": 0.9971191,
     "words": [
       {
         "text": "he",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "doesn't",
-        "confidence": 0.99902344
+        "confidence": 0.98999023
       },
       {
         "text": "go",
@@ -495,43 +509,52 @@
       },
       {
         "text": "out",
-        "confidence": 0.9921875
-      },
-      {
-        "text": "often",
-        "confidence": 0.9970703
-      },
-      {
-        "text": "when",
-        "confidence": 0.98828125
-      },
-      {
-        "text": "he",
-        "confidence": 0.9892578
-      },
-      {
-        "text": "loses",
-        "confidence": 0.5175781
-      },
-      {
-        "text": "weight",
-        "confidence": 0.85717773
-      },
-      {
-        "text": "he",
         "confidence": 0.99902344
       },
       {
-        "text": "always",
+        "text": "often",
+        "confidence": 0.99853516
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 39.84,
+    "end": 45.175003,
+    "text": "when he lose weight he always regains it and he gains back more than he lost",
+    "confidence": 0.97380066,
+    "words": [
+      {
+        "text": "when",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "he",
         "confidence": 0.9980469
       },
       {
+        "text": "lose",
+        "confidence": 0.63134766
+      },
+      {
+        "text": "weight",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "he",
+        "confidence": 1.0
+      },
+      {
+        "text": "always",
+        "confidence": 1.0
+      },
+      {
         "text": "regains",
-        "confidence": 0.9863281
+        "confidence": 0.9970703
       },
       {
         "text": "it",
-        "confidence": 0.8244629
+        "confidence": 0.9641113
       },
       {
         "text": "and",
@@ -539,15 +562,15 @@
       },
       {
         "text": "he",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "gains",
-        "confidence": 0.99121094
+        "confidence": 0.99609375
       },
       {
         "text": "back",
-        "confidence": 0.99902344
+        "confidence": 0.9970703
       },
       {
         "text": "more",
@@ -555,7 +578,7 @@
       },
       {
         "text": "than",
-        "confidence": 0.9970703
+        "confidence": 1.0
       },
       {
         "text": "he",
@@ -563,20 +586,20 @@
       },
       {
         "text": "lost",
-        "confidence": 0.99853516
+        "confidence": 1.0
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 45.415,
-    "end": 51.915,
-    "text": "his biggest weight loss is twenty five pounds and it was three months before he gained it back",
-    "confidence": 0.9895833,
+    "end": 48.775,
+    "text": "his biggest weight loss is twenty five pounds",
+    "confidence": 0.99890137,
     "words": [
       {
         "text": "his",
-        "confidence": 0.9951172
+        "confidence": 1.0
       },
       {
         "text": "biggest",
@@ -588,31 +611,40 @@
       },
       {
         "text": "loss",
-        "confidence": 0.99609375
+        "confidence": 0.99902344
       },
       {
         "text": "is",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "twenty",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "five",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "pounds",
-        "confidence": 0.90283203
-      },
+        "confidence": 0.9921875
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 49.015,
+    "end": 51.655003,
+    "text": "and it was three months before he gained it back",
+    "confidence": 0.990918,
+    "words": [
       {
         "text": "and",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "it",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "was",
@@ -632,32 +664,32 @@
       },
       {
         "text": "he",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "gained",
-        "confidence": 0.98535156
+        "confidence": 0.99902344
       },
       {
         "text": "it",
-        "confidence": 0.9428711
+        "confidence": 0.91015625
       },
       {
         "text": "back",
-        "confidence": 0.99902344
+        "confidence": 1.0
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 53.11,
-    "end": 55.690002,
+    "start": 52.95,
+    "end": 56.07,
     "text": "he did six months of not drinking alcohol",
-    "confidence": 0.99005127,
+    "confidence": 0.9992676,
     "words": [
       {
         "text": "he",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "did",
@@ -677,7 +709,7 @@
       },
       {
         "text": "not",
-        "confidence": 0.92333984
+        "confidence": 0.9941406
       },
       {
         "text": "drinking",
@@ -685,20 +717,20 @@
       },
       {
         "text": "alcohol",
-        "confidence": 0.99902344
+        "confidence": 1.0
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 56.23,
-    "end": 58.25,
+    "start": 56.15,
+    "end": 58.55,
     "text": "and not taking in many calories",
-    "confidence": 0.99153644,
+    "confidence": 0.9975586,
     "words": [
       {
         "text": "and",
-        "confidence": 0.9536133
+        "confidence": 0.9902344
       },
       {
         "text": "not",
@@ -714,28 +746,28 @@
       },
       {
         "text": "many",
-        "confidence": 1.0
+        "confidence": 0.9980469
       },
       {
         "text": "calories",
-        "confidence": 0.99853516
+        "confidence": 1.0
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 58.79,
-    "end": 62.010002,
+    "end": 62.31,
     "text": "he has been on multiple commercial weight loss programs",
-    "confidence": 0.97596574,
+    "confidence": 0.98999023,
     "words": [
       {
         "text": "he",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "has",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "been",
@@ -747,57 +779,57 @@
       },
       {
         "text": "multiple",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "commercial",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "weight",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "loss",
-        "confidence": 0.9941406
+        "confidence": 0.99902344
       },
       {
         "text": "programs",
-        "confidence": 0.79541016
+        "confidence": 0.91186523
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 62.39,
-    "end": 62.89,
-    "text": "including",
-    "confidence": 0.99902344,
+    "start": 62.550003,
+    "end": 63.99,
+    "text": "including slimfast",
+    "confidence": 0.9614868,
     "words": [
       {
         "text": "including",
-        "confidence": 0.99902344
+        "confidence": 1.0
+      },
+      {
+        "text": "slimfast",
+        "confidence": 0.92297363
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 63.190002,
-    "end": 66.25,
-    "text": "slimfast for one month one year ago",
-    "confidence": 0.8620257,
+    "start": 63.99,
+    "end": 66.07,
+    "text": "for one month one year ago",
+    "confidence": 0.9231364,
     "words": [
       {
-        "text": "slimfast",
-        "confidence": 0.673584
-      },
-      {
         "text": "for",
-        "confidence": 0.97265625
+        "confidence": 0.98535156
       },
       {
         "text": "one",
-        "confidence": 0.9921875
+        "confidence": 0.9980469
       },
       {
         "text": "month",
@@ -805,105 +837,105 @@
       },
       {
         "text": "one",
-        "confidence": 0.49316406
+        "confidence": 0.7006836
       },
       {
         "text": "year",
-        "confidence": 0.9970703
+        "confidence": 0.9902344
       },
       {
         "text": "ago",
-        "confidence": 0.9074707
+        "confidence": 0.8664551
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 66.630005,
-    "end": 69.775,
+    "start": 66.795,
+    "end": 69.835,
     "text": "and atkins died for one month two years ago",
-    "confidence": 0.9557834,
+    "confidence": 0.9694553,
     "words": [
       {
         "text": "and",
-        "confidence": 0.9560547
+        "confidence": 0.9873047
       },
       {
         "text": "atkins",
-        "confidence": 0.71875
+        "confidence": 0.8828125
       },
       {
         "text": "died",
-        "confidence": 0.9921875
+        "confidence": 0.8886719
       },
       {
         "text": "for",
-        "confidence": 0.98828125
+        "confidence": 0.99902344
       },
       {
         "text": "one",
-        "confidence": 0.9970703
+        "confidence": 1.0
       },
       {
         "text": "month",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "two",
-        "confidence": 0.9580078
+        "confidence": 0.96875
       },
       {
         "text": "years",
-        "confidence": 0.99609375
+        "confidence": 0.99902344
       },
       {
         "text": "ago",
-        "confidence": 0.9975586
+        "confidence": 0.9995117
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 70.395,
-    "end": 75.695,
+    "end": 75.915,
     "text": "past medical history he has difficulty climbing stairs difficulty with airline seats",
-    "confidence": 0.960022,
+    "confidence": 0.994751,
     "words": [
       {
         "text": "past",
-        "confidence": 0.94140625
+        "confidence": 0.99902344
       },
       {
         "text": "medical",
-        "confidence": 0.8442383
+        "confidence": 0.99902344
       },
       {
         "text": "history",
-        "confidence": 0.7741699
+        "confidence": 0.953125
       },
       {
         "text": "he",
-        "confidence": 0.99609375
+        "confidence": 1.0
       },
       {
         "text": "has",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "difficulty",
-        "confidence": 0.9970703
+        "confidence": 0.99902344
       },
       {
         "text": "climbing",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "stairs",
-        "confidence": 0.99560547
+        "confidence": 0.99658203
       },
       {
         "text": "difficulty",
-        "confidence": 0.9970703
+        "confidence": 1.0
       },
       {
         "text": "with",
@@ -911,61 +943,61 @@
       },
       {
         "text": "airline",
-        "confidence": 0.98291016
+        "confidence": 0.99316406
       },
       {
         "text": "seats",
-        "confidence": 0.99560547
+        "confidence": 0.9970703
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 76.075,
-    "end": 79.34,
-    "text": "tying shoes used to public seating difficulty",
-    "confidence": 0.93303573,
+    "start": 76.155,
+    "end": 78.715,
+    "text": "tying shoes used to public seating",
+    "confidence": 0.9338786,
     "words": [
       {
         "text": "tying",
-        "confidence": 0.9760742
+        "confidence": 0.99316406
       },
       {
         "text": "shoes",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "used",
-        "confidence": 0.6591797
+        "confidence": 0.64208984
       },
       {
         "text": "to",
-        "confidence": 0.94189453
+        "confidence": 0.9819336
       },
       {
         "text": "public",
-        "confidence": 0.9892578
+        "confidence": 1.0
       },
       {
         "text": "seating",
-        "confidence": 0.9707031
-      },
-      {
-        "text": "difficulty",
-        "confidence": 0.9951172
+        "confidence": 0.986084
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 79.96,
-    "end": 81.17999,
-    "text": "walking high cholesterol",
-    "confidence": 0.9906413,
+    "start": 79.159996,
+    "end": 82.84,
+    "text": "difficulty walking high cholesterol and high blood pressure",
+    "confidence": 0.9967041,
     "words": [
       {
+        "text": "difficulty",
+        "confidence": 1.0
+      },
+      {
         "text": "walking",
-        "confidence": 0.9995117
+        "confidence": 0.99902344
       },
       {
         "text": "high",
@@ -973,20 +1005,11 @@
       },
       {
         "text": "cholesterol",
-        "confidence": 0.9724121
-      }
-    ]
-  },
-  {
-    "engine": "deepgram",
-    "start": 81.479996,
-    "end": 82.7,
-    "text": "and high blood pressure",
-    "confidence": 1.0,
-    "words": [
+        "confidence": 0.97753906
+      },
       {
         "text": "and",
-        "confidence": 1.0
+        "confidence": 0.9980469
       },
       {
         "text": "high",
@@ -998,16 +1021,16 @@
       },
       {
         "text": "pressure",
-        "confidence": 1.0
+        "confidence": 0.99902344
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 83.24,
-    "end": 87.81999,
-    "text": "he has asthma and difficulty walking two blocks are going eight to ten steps",
-    "confidence": 0.90365165,
+    "end": 89.96,
+    "text": "he has asthma and difficulty walking two blocks are going eight to ten steps he has sleep apnea",
+    "confidence": 0.9826389,
     "words": [
       {
         "text": "he",
@@ -1023,198 +1046,182 @@
       },
       {
         "text": "and",
-        "confidence": 0.8925781
+        "confidence": 0.96240234
       },
       {
         "text": "difficulty",
-        "confidence": 0.9980469
+        "confidence": 1.0
       },
       {
         "text": "walking",
-        "confidence": 1.0
+        "confidence": 0.84814453
       },
       {
         "text": "two",
-        "confidence": 0.37719727
+        "confidence": 0.9970703
       },
       {
         "text": "blocks",
-        "confidence": 0.9970703
+        "confidence": 0.99902344
       },
       {
         "text": "are",
-        "confidence": 0.42041016
+        "confidence": 0.9614258
       },
       {
         "text": "going",
-        "confidence": 0.99902344
+        "confidence": 0.9980469
       },
       {
         "text": "eight",
-        "confidence": 0.96875
+        "confidence": 0.94921875
       },
       {
         "text": "to",
-        "confidence": 1.0
+        "confidence": 0.9980469
       },
       {
         "text": "ten",
-        "confidence": 0.99902344
+        "confidence": 1.0
       },
       {
         "text": "steps",
-        "confidence": 1.0
-      }
-    ]
-  },
-  {
-    "engine": "deepgram",
-    "start": 88.119995,
-    "end": 89.579994,
-    "text": "he has sleep apnea",
-    "confidence": 0.9942627,
-    "words": [
+        "confidence": 0.99902344
+      },
       {
         "text": "he",
-        "confidence": 0.984375
+        "confidence": 1.0
       },
       {
         "text": "has",
-        "confidence": 0.99609375
+        "confidence": 0.99902344
       },
       {
         "text": "sleep",
-        "confidence": 0.9970703
+        "confidence": 0.9980469
       },
       {
         "text": "apnea",
-        "confidence": 0.9995117
+        "confidence": 0.9790039
       }
     ]
   },
   {
     "engine": "deepgram",
-    "start": 90.119995,
-    "end": 91.899994,
-    "text": "and snoring he's diabetic",
-    "confidence": 0.9258016,
+    "start": 90.03999,
+    "end": 93.0,
+    "text": "and snoring he is diabetic on medication",
+    "confidence": 0.89686805,
     "words": [
       {
         "text": "and",
-        "confidence": 0.8769531
+        "confidence": 0.76464844
       },
       {
         "text": "snoring",
-        "confidence": 0.99934894
+        "confidence": 0.9980469
       },
       {
-        "text": "he's",
-        "confidence": 0.82788086
+        "text": "he",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "is",
+        "confidence": 0.81933594
       },
       {
         "text": "diabetic",
         "confidence": 0.99902344
-      }
-    ]
-  },
-  {
-    "engine": "deepgram",
-    "start": 92.28,
-    "end": 92.939995,
-    "text": "on medication",
-    "confidence": 0.9107666,
-    "words": [
+      },
       {
         "text": "on",
-        "confidence": 0.86328125
+        "confidence": 0.73339844
       },
       {
         "text": "medication",
-        "confidence": 0.95825195
+        "confidence": 0.970459
       }
     ]
   },
   {
     "engine": "deepgram",
     "start": 93.928314,
-    "end": 95.30831,
-    "text": "he has joint pain,knee",
-    "confidence": 0.9696655,
+    "end": 98.48831,
+    "text": "he has joint pain knee pain back pain foot and ankle pain",
+    "confidence": 0.9940389,
     "words": [
       {
         "text": "he",
-        "confidence": 0.98291016
+        "confidence": 1.0
       },
       {
         "text": "has",
-        "confidence": 0.9970703
+        "confidence": 1.0
       },
       {
         "text": "joint",
-        "confidence": 0.97998047
+        "confidence": 0.9980469
       },
       {
-        "text": "pain,knee",
-        "confidence": 0.9187012
-      }
-    ]
-  },
-  {
-    "engine": "deepgram",
-    "start": 95.608315,
-    "end": 96.828316,
-    "text": "pain,back pain,foot",
-    "confidence": 0.9801432,
-    "words": [
-      {
-        "text": "pain,back",
-        "confidence": 0.97298175
+        "text": "pain",
+        "confidence": 1.0
       },
       {
-        "text": "pain,foot",
-        "confidence": 0.9873047
-      }
-    ]
-  },
-  {
-    "engine": "deepgram",
-    "start": 97.20831,
-    "end": 98.34831,
-    "text": "and ankle pain,leg",
-    "confidence": 0.9691298,
-    "words": [
-      {
-        "text": "and",
-        "confidence": 0.97998047
+        "text": "knee",
+        "confidence": 0.99902344
       },
       {
-        "text": "ankle",
-        "confidence": 0.9760742
+        "text": "pain",
+        "confidence": 0.9995117
       },
       {
-        "text": "pain,leg",
-        "confidence": 0.95133466
-      }
-    ]
-  },
-  {
-    "engine": "deepgram",
-    "start": 99.288315,
-    "end": 100.26832,
-    "text": "and foot swelling",
-    "confidence": 0.9532878,
-    "words": [
+        "text": "back",
+        "confidence": 0.99902344
+      },
       {
-        "text": "and",
-        "confidence": 0.98291016
+        "text": "pain",
+        "confidence": 1.0
       },
       {
         "text": "foot",
-        "confidence": 0.8984375
+        "confidence": 0.9941406
+      },
+      {
+        "text": "and",
+        "confidence": 0.94921875
+      },
+      {
+        "text": "ankle",
+        "confidence": 1.0
+      },
+      {
+        "text": "pain",
+        "confidence": 0.98950195
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 98.968315,
+    "end": 100.248314,
+    "text": "leg and foot swelling",
+    "confidence": 0.904541,
+    "words": [
+      {
+        "text": "leg",
+        "confidence": 0.90283203
+      },
+      {
+        "text": "and",
+        "confidence": 0.73291016
+      },
+      {
+        "text": "foot",
+        "confidence": 0.9980469
       },
       {
         "text": "swelling",
-        "confidence": 0.9785156
+        "confidence": 0.984375
       }
     ]
   }

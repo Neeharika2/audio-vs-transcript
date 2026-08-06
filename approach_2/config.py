@@ -10,8 +10,8 @@ OUTPUT_DIRS = {
     "deepgram": DATASET_DIR / "deepgram",
 }
 
-WHISPER_MODEL = "base"
+WHISPER_MODEL = "small"
 
 # Deepgram Nova is a cloud API; the key must be provided via the environment.
 DEEPGRAM_API_KEY = os.environ.get("DEEPGRAM_API_KEY", "")
-DEEPGRAM_MODEL = "nova-2"
+DEEPGRAM_MODEL = "nova-3"
