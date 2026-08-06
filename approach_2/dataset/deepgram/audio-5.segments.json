@@ -1,0 +1,1376 @@
+[
+  {
+    "engine": "deepgram",
+    "start": 0.88,
+    "end": 10.26,
+    "text": "i have seen abc today for her pre operator visit for weight management i have explained to her the need for optifast for weight loss prior to these procedures",
+    "confidence": 0.9770143,
+    "words": [
+      {
+        "text": "i",
+        "confidence": 0.9770508
+      },
+      {
+        "text": "have",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "seen",
+        "confidence": 1.0
+      },
+      {
+        "text": "abc",
+        "confidence": 0.90771484
+      },
+      {
+        "text": "today",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "for",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "her",
+        "confidence": 0.9716797
+      },
+      {
+        "text": "pre",
+        "confidence": 0.98535156
+      },
+      {
+        "text": "operator",
+        "confidence": 0.90283203
+      },
+      {
+        "text": "visit",
+        "confidence": 0.99121094
+      },
+      {
+        "text": "for",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "weight",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "management",
+        "confidence": 0.98583984
+      },
+      {
+        "text": "i",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "have",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "explained",
+        "confidence": 0.99121094
+      },
+      {
+        "text": "to",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "her",
+        "confidence": 0.98828125
+      },
+      {
+        "text": "the",
+        "confidence": 0.97802734
+      },
+      {
+        "text": "need",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "for",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "optifast",
+        "confidence": 0.79386395
+      },
+      {
+        "text": "for",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "weight",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "loss",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "prior",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "to",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "these",
+        "confidence": 0.9140625
+      },
+      {
+        "text": "procedures",
+        "confidence": 0.99609375
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 10.639999,
+    "end": 14.415,
+    "text": "to make it safer because of the large size of her liver she understands",
+    "confidence": 0.9596296,
+    "words": [
+      {
+        "text": "to",
+        "confidence": 0.9536133
+      },
+      {
+        "text": "make",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "it",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "safer",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "because",
+        "confidence": 0.96875
+      },
+      {
+        "text": "of",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "the",
+        "confidence": 0.9760742
+      },
+      {
+        "text": "large",
+        "confidence": 0.98828125
+      },
+      {
+        "text": "size",
+        "confidence": 0.9863281
+      },
+      {
+        "text": "of",
+        "confidence": 0.9472656
+      },
+      {
+        "text": "her",
+        "confidence": 0.93115234
+      },
+      {
+        "text": "liver",
+        "confidence": 0.92944336
+      },
+      {
+        "text": "she",
+        "confidence": 0.90283203
+      },
+      {
+        "text": "understands",
+        "confidence": 0.8803711
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 14.815,
+    "end": 25.154999,
+    "text": "this impression plan we are going to put her on two weeks of optifast at around nine hundred calories i have also explained the risks and potential complications of laparoscopic",
+    "confidence": 0.9684937,
+    "words": [
+      {
+        "text": "this",
+        "confidence": 0.88183594
+      },
+      {
+        "text": "impression",
+        "confidence": 0.95996094
+      },
+      {
+        "text": "plan",
+        "confidence": 0.7286377
+      },
+      {
+        "text": "we",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "are",
+        "confidence": 0.6611328
+      },
+      {
+        "text": "going",
+        "confidence": 1.0
+      },
+      {
+        "text": "to",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "put",
+        "confidence": 1.0
+      },
+      {
+        "text": "her",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "on",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "two",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "weeks",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "of",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "optifast",
+        "confidence": 0.88639325
+      },
+      {
+        "text": "at",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "around",
+        "confidence": 1.0
+      },
+      {
+        "text": "nine",
+        "confidence": 1.0
+      },
+      {
+        "text": "hundred",
+        "confidence": 1.0
+      },
+      {
+        "text": "calories",
+        "confidence": 0.99365234
+      },
+      {
+        "text": "i",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "have",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "also",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "explained",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "the",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "risks",
+        "confidence": 0.98291016
+      },
+      {
+        "text": "and",
+        "confidence": 1.0
+      },
+      {
+        "text": "potential",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "complications",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "of",
+        "confidence": 1.0
+      },
+      {
+        "text": "laparoscopic",
+        "confidence": 0.99934894
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 26.095,
+    "end": 26.595,
+    "text": "cholecystectomy",
+    "confidence": 0.9754883,
+    "words": [
+      {
+        "text": "cholecystectomy",
+        "confidence": 0.9754883
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 27.215,
+    "end": 31.07,
+    "text": "to her in detail including bleeding infection deep venous thrombosis",
+    "confidence": 0.9358301,
+    "words": [
+      {
+        "text": "to",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "her",
+        "confidence": 1.0
+      },
+      {
+        "text": "in",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "detail",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "including",
+        "confidence": 0.5263672
+      },
+      {
+        "text": "bleeding",
+        "confidence": 0.9067383
+      },
+      {
+        "text": "infection",
+        "confidence": 0.9975586
+      },
+      {
+        "text": "deep",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "venous",
+        "confidence": 0.98339844
+      },
+      {
+        "text": "thrombosis",
+        "confidence": 0.95595706
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 31.45,
+    "end": 32.59,
+    "text": "pulmonary embolism",
+    "confidence": 0.9963379,
+    "words": [
+      {
+        "text": "pulmonary",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "embolism",
+        "confidence": 0.99658203
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 33.21,
+    "end": 36.83,
+    "text": "injury to the small intestine stomach liver leak from the cystic",
+    "confidence": 0.9463224,
+    "words": [
+      {
+        "text": "injury",
+        "confidence": 0.98828125
+      },
+      {
+        "text": "to",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "the",
+        "confidence": 0.9633789
+      },
+      {
+        "text": "small",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "intestine",
+        "confidence": 0.9416504
+      },
+      {
+        "text": "stomach",
+        "confidence": 0.9873047
+      },
+      {
+        "text": "liver",
+        "confidence": 0.64172363
+      },
+      {
+        "text": "leak",
+        "confidence": 0.9873047
+      },
+      {
+        "text": "from",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "the",
+        "confidence": 0.9086914
+      },
+      {
+        "text": "cystic",
+        "confidence": 0.9980469
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 37.29,
+    "end": 40.35,
+    "text": "duct common bile duct and possible need for ercp",
+    "confidence": 0.96919304,
+    "words": [
+      {
+        "text": "duct",
+        "confidence": 0.99560547
+      },
+      {
+        "text": "common",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "bile",
+        "confidence": 0.9975586
+      },
+      {
+        "text": "duct",
+        "confidence": 0.80444336
+      },
+      {
+        "text": "and",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "possible",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "need",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "for",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "ercp",
+        "confidence": 0.9554036
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 40.73,
+    "end": 44.665,
+    "text": "and further surgery this surgery is going to be planned for october six",
+    "confidence": 0.92980015,
+    "words": [
+      {
+        "text": "and",
+        "confidence": 0.921875
+      },
+      {
+        "text": "further",
+        "confidence": 0.5839844
+      },
+      {
+        "text": "surgery",
+        "confidence": 0.9760742
+      },
+      {
+        "text": "this",
+        "confidence": 0.95703125
+      },
+      {
+        "text": "surgery",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "is",
+        "confidence": 0.9838867
+      },
+      {
+        "text": "going",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "to",
+        "confidence": 0.99121094
+      },
+      {
+        "text": "be",
+        "confidence": 0.9819336
+      },
+      {
+        "text": "planned",
+        "confidence": 0.9707031
+      },
+      {
+        "text": "for",
+        "confidence": 0.94921875
+      },
+      {
+        "text": "october",
+        "confidence": 0.93603516
+      },
+      {
+        "text": "six",
+        "confidence": 0.84716797
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 45.045002,
+    "end": 54.905,
+    "text": "this is for cholera cholera thiazis prior to her lab banding procedure i have also reviewed with her the risks and potential complications of laparoscopic gastric banding",
+    "confidence": 0.9491765,
+    "words": [
+      {
+        "text": "this",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "is",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "for",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "cholera",
+        "confidence": 0.77945966
+      },
+      {
+        "text": "cholera",
+        "confidence": 0.95247394
+      },
+      {
+        "text": "thiazis",
+        "confidence": 0.53434247
+      },
+      {
+        "text": "prior",
+        "confidence": 0.9707031
+      },
+      {
+        "text": "to",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "her",
+        "confidence": 0.9716797
+      },
+      {
+        "text": "lab",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "banding",
+        "confidence": 0.99560547
+      },
+      {
+        "text": "procedure",
+        "confidence": 0.99853516
+      },
+      {
+        "text": "i",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "have",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "also",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "reviewed",
+        "confidence": 0.97802734
+      },
+      {
+        "text": "with",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "her",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "the",
+        "confidence": 0.9873047
+      },
+      {
+        "text": "risks",
+        "confidence": 0.58691406
+      },
+      {
+        "text": "and",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "potential",
+        "confidence": 0.99121094
+      },
+      {
+        "text": "complications",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "of",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "laparoscopic",
+        "confidence": 0.99869794
+      },
+      {
+        "text": "gastric",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "banding",
+        "confidence": 0.93066406
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 55.285,
+    "end": 62.53,
+    "text": "including bleeding infection deep venous thrombosis pulmonary embolism slippage of band erosion of the band injury to the esophagus",
+    "confidence": 0.9609683,
+    "words": [
+      {
+        "text": "including",
+        "confidence": 1.0
+      },
+      {
+        "text": "bleeding",
+        "confidence": 0.876709
+      },
+      {
+        "text": "infection",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "deep",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "venous",
+        "confidence": 0.9995117
+      },
+      {
+        "text": "thrombosis",
+        "confidence": 0.9986328
+      },
+      {
+        "text": "pulmonary",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "embolism",
+        "confidence": 0.97924805
+      },
+      {
+        "text": "slippage",
+        "confidence": 0.87939453
+      },
+      {
+        "text": "of",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "band",
+        "confidence": 0.8166504
+      },
+      {
+        "text": "erosion",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "of",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "the",
+        "confidence": 0.8076172
+      },
+      {
+        "text": "band",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "injury",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "to",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "the",
+        "confidence": 0.9760742
+      },
+      {
+        "text": "esophagus",
+        "confidence": 0.9675293
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 63.39,
+    "end": 69.41,
+    "text": "stomach and small intestine large intestine spleen liver injury to the band port or tubing necessitating",
+    "confidence": 0.9582418,
+    "words": [
+      {
+        "text": "stomach",
+        "confidence": 0.7873535
+      },
+      {
+        "text": "and",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "small",
+        "confidence": 0.98291016
+      },
+      {
+        "text": "intestine",
+        "confidence": 0.9926758
+      },
+      {
+        "text": "large",
+        "confidence": 0.9819336
+      },
+      {
+        "text": "intestine",
+        "confidence": 0.9909668
+      },
+      {
+        "text": "spleen",
+        "confidence": 0.9920247
+      },
+      {
+        "text": "liver",
+        "confidence": 0.97753906
+      },
+      {
+        "text": "injury",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "to",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "the",
+        "confidence": 0.97802734
+      },
+      {
+        "text": "band",
+        "confidence": 0.8198242
+      },
+      {
+        "text": "port",
+        "confidence": 0.93774414
+      },
+      {
+        "text": "or",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "tubing",
+        "confidence": 0.97265625
+      },
+      {
+        "text": "necessitating",
+        "confidence": 0.9406738
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 70.11,
+    "end": 86.235,
+    "text": "replacement of the band or coating or tubing among other potential complications and she understands we are going to proceed for laparoscopic gastric banding i have reviewed her entire chart in detail i have also gone over with her the fairfield country bariatric",
+    "confidence": 0.9336297,
+    "words": [
+      {
+        "text": "replacement",
+        "confidence": 0.9316406
+      },
+      {
+        "text": "of",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "the",
+        "confidence": 0.984375
+      },
+      {
+        "text": "band",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "or",
+        "confidence": 0.7104492
+      },
+      {
+        "text": "coating",
+        "confidence": 0.6386719
+      },
+      {
+        "text": "or",
+        "confidence": 0.68066406
+      },
+      {
+        "text": "tubing",
+        "confidence": 0.9223633
+      },
+      {
+        "text": "among",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "other",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "potential",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "complications",
+        "confidence": 0.89697266
+      },
+      {
+        "text": "and",
+        "confidence": 0.98095703
+      },
+      {
+        "text": "she",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "understands",
+        "confidence": 0.9641113
+      },
+      {
+        "text": "we",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "are",
+        "confidence": 0.5996094
+      },
+      {
+        "text": "going",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "to",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "proceed",
+        "confidence": 1.0
+      },
+      {
+        "text": "for",
+        "confidence": 0.9165039
+      },
+      {
+        "text": "laparoscopic",
+        "confidence": 0.99332684
+      },
+      {
+        "text": "gastric",
+        "confidence": 0.99560547
+      },
+      {
+        "text": "banding",
+        "confidence": 0.9967448
+      },
+      {
+        "text": "i",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "have",
+        "confidence": 0.921875
+      },
+      {
+        "text": "reviewed",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "her",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "entire",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "chart",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "in",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "detail",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "i",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "have",
+        "confidence": 0.9790039
+      },
+      {
+        "text": "also",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "gone",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "over",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "with",
+        "confidence": 0.9838867
+      },
+      {
+        "text": "her",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "the",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "fairfield",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "country",
+        "confidence": 0.52197266
+      },
+      {
+        "text": "bariatric",
+        "confidence": 0.6152344
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 86.729996,
+    "end": 89.63,
+    "text": "concern form for banding and all the all the risks",
+    "confidence": 0.92705077,
+    "words": [
+      {
+        "text": "concern",
+        "confidence": 0.85595703
+      },
+      {
+        "text": "form",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "for",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "banding",
+        "confidence": 0.94628906
+      },
+      {
+        "text": "and",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "all",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "the",
+        "confidence": 0.63720703
+      },
+      {
+        "text": "all",
+        "confidence": 0.88671875
+      },
+      {
+        "text": "the",
+        "confidence": 0.9838867
+      },
+      {
+        "text": "risks",
+        "confidence": 0.9926758
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 89.93,
+    "end": 91.869995,
+    "text": "she has also signed the saint",
+    "confidence": 0.91097003,
+    "words": [
+      {
+        "text": "she",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "has",
+        "confidence": 0.9863281
+      },
+      {
+        "text": "also",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "signed",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "the",
+        "confidence": 0.9370117
+      },
+      {
+        "text": "saint",
+        "confidence": 0.5541992
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 92.17,
+    "end": 93.869995,
+    "text": "vincent's hospital concern",
+    "confidence": 0.75390625,
+    "words": [
+      {
+        "text": "vincent's",
+        "confidence": 0.8178711
+      },
+      {
+        "text": "hospital",
+        "confidence": 0.5732422
+      },
+      {
+        "text": "concern",
+        "confidence": 0.87060547
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 94.329994,
+    "end": 111.44499,
+    "text": "form for lab banding she has taken the preoperative quiz for banding she has assigned the pre op and post op instructions and understands them and we reviewed them she has taken the quiz and done fairly well we have reviewed with her any potential other issues and i have answered her questions",
+    "confidence": 0.96462727,
+    "words": [
+      {
+        "text": "form",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "for",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "lab",
+        "confidence": 0.9370117
+      },
+      {
+        "text": "banding",
+        "confidence": 0.99934894
+      },
+      {
+        "text": "she",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "has",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "taken",
+        "confidence": 0.98095703
+      },
+      {
+        "text": "the",
+        "confidence": 0.99121094
+      },
+      {
+        "text": "preoperative",
+        "confidence": 0.9255371
+      },
+      {
+        "text": "quiz",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "for",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "banding",
+        "confidence": 0.99869794
+      },
+      {
+        "text": "she",
+        "confidence": 0.96972656
+      },
+      {
+        "text": "has",
+        "confidence": 0.98291016
+      },
+      {
+        "text": "assigned",
+        "confidence": 0.984375
+      },
+      {
+        "text": "the",
+        "confidence": 0.9589844
+      },
+      {
+        "text": "pre",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "op",
+        "confidence": 0.78808594
+      },
+      {
+        "text": "and",
+        "confidence": 0.9707031
+      },
+      {
+        "text": "post",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "op",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "instructions",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "and",
+        "confidence": 0.70751953
+      },
+      {
+        "text": "understands",
+        "confidence": 0.8461914
+      },
+      {
+        "text": "them",
+        "confidence": 0.8034668
+      },
+      {
+        "text": "and",
+        "confidence": 1.0
+      },
+      {
+        "text": "we",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "reviewed",
+        "confidence": 0.97265625
+      },
+      {
+        "text": "them",
+        "confidence": 0.99853516
+      },
+      {
+        "text": "she",
+        "confidence": 1.0
+      },
+      {
+        "text": "has",
+        "confidence": 1.0
+      },
+      {
+        "text": "taken",
+        "confidence": 1.0
+      },
+      {
+        "text": "the",
+        "confidence": 0.94921875
+      },
+      {
+        "text": "quiz",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "and",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "done",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "fairly",
+        "confidence": 0.98828125
+      },
+      {
+        "text": "well",
+        "confidence": 0.9995117
+      },
+      {
+        "text": "we",
+        "confidence": 0.57666016
+      },
+      {
+        "text": "have",
+        "confidence": 0.95410156
+      },
+      {
+        "text": "reviewed",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "with",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "her",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "any",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "potential",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "other",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "issues",
+        "confidence": 0.94873047
+      },
+      {
+        "text": "and",
+        "confidence": 1.0
+      },
+      {
+        "text": "i",
+        "confidence": 1.0
+      },
+      {
+        "text": "have",
+        "confidence": 1.0
+      },
+      {
+        "text": "answered",
+        "confidence": 1.0
+      },
+      {
+        "text": "her",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "questions",
+        "confidence": 0.9885254
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 111.744995,
+    "end": 114.16499,
+    "text": "she is also planned for surgical intervention",
+    "confidence": 0.9050293,
+    "words": [
+      {
+        "text": "she",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "is",
+        "confidence": 0.4025879
+      },
+      {
+        "text": "also",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "planned",
+        "confidence": 0.94189453
+      },
+      {
+        "text": "for",
+        "confidence": 1.0
+      },
+      {
+        "text": "surgical",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "intervention",
+        "confidence": 0.99658203
+      }
+    ]
+  }
+]

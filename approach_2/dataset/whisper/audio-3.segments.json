@@ -1,0 +1,553 @@
+[
+  {
+    "engine": "whisper",
+    "start": 1.65,
+    "end": 8.29,
+    "text": "Multiple use of heart and grade vessels, it will normal intercardic and grade vessel relationships.",
+    "confidence": 0.7680380463153296,
+    "words": [
+      {
+        "text": " Multiple",
+        "confidence": 0.35352402925491333
+      },
+      {
+        "text": " use",
+        "confidence": 0.7550860643386841
+      },
+      {
+        "text": " of",
+        "confidence": 0.9717313647270203
+      },
+      {
+        "text": " heart",
+        "confidence": 0.8711036443710327
+      },
+      {
+        "text": " and",
+        "confidence": 0.9613463282585144
+      },
+      {
+        "text": " grade",
+        "confidence": 0.594961404800415
+      },
+      {
+        "text": " vessels,",
+        "confidence": 0.9575942754745483
+      },
+      {
+        "text": " it",
+        "confidence": 0.46607837080955505
+      },
+      {
+        "text": " will",
+        "confidence": 0.9163557291030884
+      },
+      {
+        "text": " normal",
+        "confidence": 0.9265127182006836
+      },
+      {
+        "text": " intercardic",
+        "confidence": 0.7740931113560995
+      },
+      {
+        "text": " and",
+        "confidence": 0.9820231795310974
+      },
+      {
+        "text": " grade",
+        "confidence": 0.874934732913971
+      },
+      {
+        "text": " vessel",
+        "confidence": 0.8845974206924438
+      },
+      {
+        "text": " relationships.",
+        "confidence": 0.9583895206451416
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 8.93,
+    "end": 15.35,
+    "text": "Cardic function is normal, there is no significant chamber, enlargement or hypertrophy.",
+    "confidence": 0.7680380463153296,
+    "words": [
+      {
+        "text": " Cardic",
+        "confidence": 0.8779483139514923
+      },
+      {
+        "text": " function",
+        "confidence": 0.9642533659934998
+      },
+      {
+        "text": " is",
+        "confidence": 0.9904085397720337
+      },
+      {
+        "text": " normal,",
+        "confidence": 0.9892493486404419
+      },
+      {
+        "text": " there",
+        "confidence": 0.9670624136924744
+      },
+      {
+        "text": " is",
+        "confidence": 0.9930747747421265
+      },
+      {
+        "text": " no",
+        "confidence": 0.9987322688102722
+      },
+      {
+        "text": " significant",
+        "confidence": 0.9619689583778381
+      },
+      {
+        "text": " chamber,",
+        "confidence": 0.9504079222679138
+      },
+      {
+        "text": " enlargement",
+        "confidence": 0.9572817087173462
+      },
+      {
+        "text": " or",
+        "confidence": 0.8274107575416565
+      },
+      {
+        "text": " hypertrophy.",
+        "confidence": 0.9484136700630188
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 16.01,
+    "end": 19.43,
+    "text": "There is no pre-cardial effusion or visitation seen.",
+    "confidence": 0.7680380463153296,
+    "words": [
+      {
+        "text": " There",
+        "confidence": 0.9748859405517578
+      },
+      {
+        "text": " is",
+        "confidence": 0.9909948706626892
+      },
+      {
+        "text": " no",
+        "confidence": 0.9986899495124817
+      },
+      {
+        "text": " pre",
+        "confidence": 0.806830883026123
+      },
+      {
+        "text": "-cardial",
+        "confidence": 0.8609031438827515
+      },
+      {
+        "text": " effusion",
+        "confidence": 0.7582302093505859
+      },
+      {
+        "text": " or",
+        "confidence": 0.976356029510498
+      },
+      {
+        "text": " visitation",
+        "confidence": 0.7445347309112549
+      },
+      {
+        "text": " seen.",
+        "confidence": 0.6276999115943909
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 20.37,
+    "end": 30.37,
+    "text": "Doppler interrogation, including colour flow imaging, will systemic venues return to the written right atom with normal tricuspid inflow.",
+    "confidence": 0.7680380463153296,
+    "words": [
+      {
+        "text": " Doppler",
+        "confidence": 0.9034692347049713
+      },
+      {
+        "text": " interrogation,",
+        "confidence": 0.8930632174015045
+      },
+      {
+        "text": " including",
+        "confidence": 0.9955202341079712
+      },
+      {
+        "text": " colour",
+        "confidence": 0.4411241412162781
+      },
+      {
+        "text": " flow",
+        "confidence": 0.8419622778892517
+      },
+      {
+        "text": " imaging,",
+        "confidence": 0.9891121983528137
+      },
+      {
+        "text": " will",
+        "confidence": 0.46409642696380615
+      },
+      {
+        "text": " systemic",
+        "confidence": 0.9016076326370239
+      },
+      {
+        "text": " venues",
+        "confidence": 0.14554885029792786
+      },
+      {
+        "text": " return",
+        "confidence": 0.8256314396858215
+      },
+      {
+        "text": " to",
+        "confidence": 0.9711635708808899
+      },
+      {
+        "text": " the",
+        "confidence": 0.981000542640686
+      },
+      {
+        "text": " written",
+        "confidence": 0.5493084788322449
+      },
+      {
+        "text": " right",
+        "confidence": 0.36710771918296814
+      },
+      {
+        "text": " atom",
+        "confidence": 0.7588858008384705
+      },
+      {
+        "text": " with",
+        "confidence": 0.8051818013191223
+      },
+      {
+        "text": " normal",
+        "confidence": 0.9916850328445435
+      },
+      {
+        "text": " tricuspid",
+        "confidence": 0.8366948366165161
+      },
+      {
+        "text": " inflow.",
+        "confidence": 0.8946038782596588
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 30.37,
+    "end": 33.57,
+    "text": "Pulmonary outflow is normal at the wall.",
+    "confidence": 0.782726867106226,
+    "words": [
+      {
+        "text": " Pulmonary",
+        "confidence": 0.5114738084375858
+      },
+      {
+        "text": " outflow",
+        "confidence": 0.9352859556674957
+      },
+      {
+        "text": " is",
+        "confidence": 0.9923449158668518
+      },
+      {
+        "text": " normal",
+        "confidence": 0.9856905341148376
+      },
+      {
+        "text": " at",
+        "confidence": 0.9281273484230042
+      },
+      {
+        "text": " the",
+        "confidence": 0.9920793175697327
+      },
+      {
+        "text": " wall.",
+        "confidence": 0.653597891330719
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 34.23,
+    "end": 37.25,
+    "text": "Pulmonary venue's written is to the left atom.",
+    "confidence": 0.782726867106226,
+    "words": [
+      {
+        "text": " Pulmonary",
+        "confidence": 0.949647068977356
+      },
+      {
+        "text": " venue's",
+        "confidence": 0.33917349576950073
+      },
+      {
+        "text": " written",
+        "confidence": 0.27420178055763245
+      },
+      {
+        "text": " is",
+        "confidence": 0.9566382765769958
+      },
+      {
+        "text": " to",
+        "confidence": 0.9527097940444946
+      },
+      {
+        "text": " the",
+        "confidence": 0.9902847409248352
+      },
+      {
+        "text": " left",
+        "confidence": 0.9901630878448486
+      },
+      {
+        "text": " atom.",
+        "confidence": 0.22178395092487335
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 37.95,
+    "end": 40.45,
+    "text": "The left arterial spectrum is intact.",
+    "confidence": 0.782726867106226,
+    "words": [
+      {
+        "text": " The",
+        "confidence": 0.9822534918785095
+      },
+      {
+        "text": " left",
+        "confidence": 0.9909392595291138
+      },
+      {
+        "text": " arterial",
+        "confidence": 0.7585730254650116
+      },
+      {
+        "text": " spectrum",
+        "confidence": 0.9595611095428467
+      },
+      {
+        "text": " is",
+        "confidence": 0.9928134083747864
+      },
+      {
+        "text": " intact.",
+        "confidence": 0.9524919390678406
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 41.23,
+    "end": 44.59,
+    "text": "Mitral inflow and ascending outflow are normal.",
+    "confidence": 0.782726867106226,
+    "words": [
+      {
+        "text": " Mitral",
+        "confidence": 0.5320561528205872
+      },
+      {
+        "text": " inflow",
+        "confidence": 0.7517499029636383
+      },
+      {
+        "text": " and",
+        "confidence": 0.9525622725486755
+      },
+      {
+        "text": " ascending",
+        "confidence": 0.9760213196277618
+      },
+      {
+        "text": " outflow",
+        "confidence": 0.33270057290792465
+      },
+      {
+        "text": " are",
+        "confidence": 0.9691752195358276
+      },
+      {
+        "text": " normal.",
+        "confidence": 0.9947417974472046
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 45.37,
+    "end": 47.63,
+    "text": "The optic valve is tri-liftlet.",
+    "confidence": 0.782726867106226,
+    "words": [
+      {
+        "text": " The",
+        "confidence": 0.9850353002548218
+      },
+      {
+        "text": " optic",
+        "confidence": 0.41903847455978394
+      },
+      {
+        "text": " valve",
+        "confidence": 0.8155339956283569
+      },
+      {
+        "text": " is",
+        "confidence": 0.997387707233429
+      },
+      {
+        "text": " tri",
+        "confidence": 0.40381643176078796
+      },
+      {
+        "text": "-liftlet.",
+        "confidence": 0.6445566813151041
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 48.31,
+    "end": 51.67,
+    "text": "The coronary arteries appear to be normal in their origins.",
+    "confidence": 0.782726867106226,
+    "words": [
+      {
+        "text": " The",
+        "confidence": 0.6107691526412964
+      },
+      {
+        "text": " coronary",
+        "confidence": 0.9352412521839142
+      },
+      {
+        "text": " arteries",
+        "confidence": 0.9928050637245178
+      },
+      {
+        "text": " appear",
+        "confidence": 0.9797655940055847
+      },
+      {
+        "text": " to",
+        "confidence": 0.9965000152587891
+      },
+      {
+        "text": " be",
+        "confidence": 0.9969990253448486
+      },
+      {
+        "text": " normal",
+        "confidence": 0.9967266321182251
+      },
+      {
+        "text": " in",
+        "confidence": 0.99714595079422
+      },
+      {
+        "text": " their",
+        "confidence": 0.9798370003700256
+      },
+      {
+        "text": " origins.",
+        "confidence": 0.9714016318321228
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 51.67,
+    "end": 58.81,
+    "text": "The optic arch is left sided and patent with normal descending auto pulls pulsality.",
+    "confidence": 0.6449127476708144,
+    "words": [
+      {
+        "text": " The",
+        "confidence": 0.253858357667923
+      },
+      {
+        "text": " optic",
+        "confidence": 0.028855688869953156
+      },
+      {
+        "text": " arch",
+        "confidence": 0.8608936667442322
+      },
+      {
+        "text": " is",
+        "confidence": 0.9853906631469727
+      },
+      {
+        "text": " left",
+        "confidence": 0.9681410193443298
+      },
+      {
+        "text": " sided",
+        "confidence": 0.6942993402481079
+      },
+      {
+        "text": " and",
+        "confidence": 0.9330439567565918
+      },
+      {
+        "text": " patent",
+        "confidence": 0.7689390778541565
+      },
+      {
+        "text": " with",
+        "confidence": 0.8971489071846008
+      },
+      {
+        "text": " normal",
+        "confidence": 0.9211972951889038
+      },
+      {
+        "text": " descending",
+        "confidence": 0.94807368516922
+      },
+      {
+        "text": " auto",
+        "confidence": 0.07270856201648712
+      },
+      {
+        "text": " pulls",
+        "confidence": 0.2356206774711609
+      },
+      {
+        "text": " pulsality.",
+        "confidence": 0.5856015235185623
+      }
+    ]
+  }
+]

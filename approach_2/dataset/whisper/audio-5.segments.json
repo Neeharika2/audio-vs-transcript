@@ -1,0 +1,1444 @@
+[
+  {
+    "engine": "whisper",
+    "start": 0.66,
+    "end": 4.88,
+    "text": "I have seen ABC today for her pre-operator visit for weight management.",
+    "confidence": 0.7585057488120756,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.6520169973373413
+      },
+      {
+        "text": " have",
+        "confidence": 0.960230827331543
+      },
+      {
+        "text": " seen",
+        "confidence": 0.972597062587738
+      },
+      {
+        "text": " ABC",
+        "confidence": 0.9348671436309814
+      },
+      {
+        "text": " today",
+        "confidence": 0.8769730925559998
+      },
+      {
+        "text": " for",
+        "confidence": 0.9755227565765381
+      },
+      {
+        "text": " her",
+        "confidence": 0.9669229984283447
+      },
+      {
+        "text": " pre",
+        "confidence": 0.8495892286300659
+      },
+      {
+        "text": "-operator",
+        "confidence": 0.9234403173128763
+      },
+      {
+        "text": " visit",
+        "confidence": 0.5808497071266174
+      },
+      {
+        "text": " for",
+        "confidence": 0.9778861999511719
+      },
+      {
+        "text": " weight",
+        "confidence": 0.7169607281684875
+      },
+      {
+        "text": " management.",
+        "confidence": 0.9953356385231018
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 5.26,
+    "end": 10.72,
+    "text": "I have explained to her the need for optifers for weight loss prior to these procedures to",
+    "confidence": 0.7585057488120756,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.9415584802627563
+      },
+      {
+        "text": " have",
+        "confidence": 0.9856494069099426
+      },
+      {
+        "text": " explained",
+        "confidence": 0.9670153856277466
+      },
+      {
+        "text": " to",
+        "confidence": 0.8769873976707458
+      },
+      {
+        "text": " her",
+        "confidence": 0.9010202288627625
+      },
+      {
+        "text": " the",
+        "confidence": 0.9360124468803406
+      },
+      {
+        "text": " need",
+        "confidence": 0.9947075843811035
+      },
+      {
+        "text": " for",
+        "confidence": 0.9666874408721924
+      },
+      {
+        "text": " optifers",
+        "confidence": 0.5393526454766592
+      },
+      {
+        "text": " for",
+        "confidence": 0.9108018279075623
+      },
+      {
+        "text": " weight",
+        "confidence": 0.9944779872894287
+      },
+      {
+        "text": " loss",
+        "confidence": 0.97339928150177
+      },
+      {
+        "text": " prior",
+        "confidence": 0.9336999654769897
+      },
+      {
+        "text": " to",
+        "confidence": 0.9698166847229004
+      },
+      {
+        "text": " these",
+        "confidence": 0.9366939067840576
+      },
+      {
+        "text": " procedures",
+        "confidence": 0.9925069212913513
+      },
+      {
+        "text": " to",
+        "confidence": 0.8929429650306702
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 10.72,
+    "end": 13.4,
+    "text": "make it safer because of the large size of her liver.",
+    "confidence": 0.7585057488120756,
+    "words": [
+      {
+        "text": " make",
+        "confidence": 0.9955440163612366
+      },
+      {
+        "text": " it",
+        "confidence": 0.9918963313102722
+      },
+      {
+        "text": " safer",
+        "confidence": 0.9809662103652954
+      },
+      {
+        "text": " because",
+        "confidence": 0.9315882921218872
+      },
+      {
+        "text": " of",
+        "confidence": 0.9696849584579468
+      },
+      {
+        "text": " the",
+        "confidence": 0.9880274534225464
+      },
+      {
+        "text": " large",
+        "confidence": 0.9698343276977539
+      },
+      {
+        "text": " size",
+        "confidence": 0.996616780757904
+      },
+      {
+        "text": " of",
+        "confidence": 0.9880654811859131
+      },
+      {
+        "text": " her",
+        "confidence": 0.9532116055488586
+      },
+      {
+        "text": " liver.",
+        "confidence": 0.3640347719192505
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 13.84,
+    "end": 15.9,
+    "text": "She understands this, Impression Plan.",
+    "confidence": 0.7585057488120756,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9792266488075256
+      },
+      {
+        "text": " understands",
+        "confidence": 0.9952869415283203
+      },
+      {
+        "text": " this,",
+        "confidence": 0.9858236312866211
+      },
+      {
+        "text": " Impression",
+        "confidence": 0.6168002411723137
+      },
+      {
+        "text": " Plan.",
+        "confidence": 0.6465668082237244
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 16.56,
+    "end": 20.94,
+    "text": "We are going to put her on two weeks of optifers at around 900 calories.",
+    "confidence": 0.7585057488120756,
+    "words": [
+      {
+        "text": " We",
+        "confidence": 0.9389430284500122
+      },
+      {
+        "text": " are",
+        "confidence": 0.8738937973976135
+      },
+      {
+        "text": " going",
+        "confidence": 0.9954212307929993
+      },
+      {
+        "text": " to",
+        "confidence": 0.9962936043739319
+      },
+      {
+        "text": " put",
+        "confidence": 0.9476373195648193
+      },
+      {
+        "text": " her",
+        "confidence": 0.9948871731758118
+      },
+      {
+        "text": " on",
+        "confidence": 0.991637647151947
+      },
+      {
+        "text": " two",
+        "confidence": 0.7667434215545654
+      },
+      {
+        "text": " weeks",
+        "confidence": 0.9953038692474365
+      },
+      {
+        "text": " of",
+        "confidence": 0.9776516556739807
+      },
+      {
+        "text": " optifers",
+        "confidence": 0.9823776682217916
+      },
+      {
+        "text": " at",
+        "confidence": 0.9401309490203857
+      },
+      {
+        "text": " around",
+        "confidence": 0.9876049757003784
+      },
+      {
+        "text": " 900",
+        "confidence": 0.978674054145813
+      },
+      {
+        "text": " calories.",
+        "confidence": 0.968438982963562
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 21.14,
+    "end": 26.48,
+    "text": "I have also explained the risks and potential complications of laparoscopic colossal",
+    "confidence": 0.7585057488120756,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.9893736243247986
+      },
+      {
+        "text": " have",
+        "confidence": 0.9866113662719727
+      },
+      {
+        "text": " also",
+        "confidence": 0.9630763530731201
+      },
+      {
+        "text": " explained",
+        "confidence": 0.9879889488220215
+      },
+      {
+        "text": " the",
+        "confidence": 0.8858915567398071
+      },
+      {
+        "text": " risks",
+        "confidence": 0.9387173056602478
+      },
+      {
+        "text": " and",
+        "confidence": 0.9730849266052246
+      },
+      {
+        "text": " potential",
+        "confidence": 0.9804193377494812
+      },
+      {
+        "text": " complications",
+        "confidence": 0.9953747391700745
+      },
+      {
+        "text": " of",
+        "confidence": 0.9906343221664429
+      },
+      {
+        "text": " laparoscopic",
+        "confidence": 0.8066754341125488
+      },
+      {
+        "text": " colossal",
+        "confidence": 0.3100641258060932
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 26.48,
+    "end": 31.86,
+    "text": "mastectomy to her in detail including bleeding, infection, deep venous, thrombosis, pulmonary",
+    "confidence": 0.6955059611984741,
+    "words": [
+      {
+        "text": " mastectomy",
+        "confidence": 0.6131814567294592
+      },
+      {
+        "text": " to",
+        "confidence": 0.763681948184967
+      },
+      {
+        "text": " her",
+        "confidence": 0.9503418803215027
+      },
+      {
+        "text": " in",
+        "confidence": 0.9446253180503845
+      },
+      {
+        "text": " detail",
+        "confidence": 0.8418115377426147
+      },
+      {
+        "text": " including",
+        "confidence": 0.7919742465019226
+      },
+      {
+        "text": " bleeding,",
+        "confidence": 0.6670443415641785
+      },
+      {
+        "text": " infection,",
+        "confidence": 0.9778292179107666
+      },
+      {
+        "text": " deep",
+        "confidence": 0.9486240148544312
+      },
+      {
+        "text": " venous,",
+        "confidence": 0.5587271600961685
+      },
+      {
+        "text": " thrombosis,",
+        "confidence": 0.7987826665242513
+      },
+      {
+        "text": " pulmonary",
+        "confidence": 0.9675072431564331
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 31.86,
+    "end": 37.9,
+    "text": "embolism, injury to the small intestine, stomach, liver, knee from the cystic duct, common",
+    "confidence": 0.6955059611984741,
+    "words": [
+      {
+        "text": " embolism,",
+        "confidence": 0.9391308029492696
+      },
+      {
+        "text": " injury",
+        "confidence": 0.9859794974327087
+      },
+      {
+        "text": " to",
+        "confidence": 0.9964621663093567
+      },
+      {
+        "text": " the",
+        "confidence": 0.48758623003959656
+      },
+      {
+        "text": " small",
+        "confidence": 0.9539262652397156
+      },
+      {
+        "text": " intestine,",
+        "confidence": 0.4083612859249115
+      },
+      {
+        "text": " stomach,",
+        "confidence": 0.9521070718765259
+      },
+      {
+        "text": " liver,",
+        "confidence": 0.5917242765426636
+      },
+      {
+        "text": " knee",
+        "confidence": 0.17568352818489075
+      },
+      {
+        "text": " from",
+        "confidence": 0.8505652546882629
+      },
+      {
+        "text": " the",
+        "confidence": 0.8999138474464417
+      },
+      {
+        "text": " cystic",
+        "confidence": 0.9674018621444702
+      },
+      {
+        "text": " duct,",
+        "confidence": 0.7603674530982971
+      },
+      {
+        "text": " common",
+        "confidence": 0.9293750524520874
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 37.9,
+    "end": 41.56,
+    "text": "bile duct and possible lead for ERCPA and further surgery.",
+    "confidence": 0.6955059611984741,
+    "words": [
+      {
+        "text": " bile",
+        "confidence": 0.4119073152542114
+      },
+      {
+        "text": " duct",
+        "confidence": 0.998314380645752
+      },
+      {
+        "text": " and",
+        "confidence": 0.8250992298126221
+      },
+      {
+        "text": " possible",
+        "confidence": 0.921943187713623
+      },
+      {
+        "text": " lead",
+        "confidence": 0.5228726863861084
+      },
+      {
+        "text": " for",
+        "confidence": 0.9735705256462097
+      },
+      {
+        "text": " ERCPA",
+        "confidence": 0.5614603360493978
+      },
+      {
+        "text": " and",
+        "confidence": 0.9658949375152588
+      },
+      {
+        "text": " further",
+        "confidence": 0.9130129814147949
+      },
+      {
+        "text": " surgery.",
+        "confidence": 0.9951725602149963
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 41.9,
+    "end": 45.14,
+    "text": "This surgery is going to be planned for October 6th.",
+    "confidence": 0.6955059611984741,
+    "words": [
+      {
+        "text": " This",
+        "confidence": 0.8899135589599609
+      },
+      {
+        "text": " surgery",
+        "confidence": 0.9923058152198792
+      },
+      {
+        "text": " is",
+        "confidence": 0.9761108756065369
+      },
+      {
+        "text": " going",
+        "confidence": 0.9601359367370605
+      },
+      {
+        "text": " to",
+        "confidence": 0.9950178265571594
+      },
+      {
+        "text": " be",
+        "confidence": 0.9856084585189819
+      },
+      {
+        "text": " planned",
+        "confidence": 0.9958309531211853
+      },
+      {
+        "text": " for",
+        "confidence": 0.996024489402771
+      },
+      {
+        "text": " October",
+        "confidence": 0.6347165703773499
+      },
+      {
+        "text": " 6th.",
+        "confidence": 0.7012254297733307
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 45.14,
+    "end": 49.2,
+    "text": "This is for Cololateosis prior to her lab banning procedure.",
+    "confidence": 0.6955059611984741,
+    "words": [
+      {
+        "text": " This",
+        "confidence": 0.9836636781692505
+      },
+      {
+        "text": " is",
+        "confidence": 0.9901174902915955
+      },
+      {
+        "text": " for",
+        "confidence": 0.9348142743110657
+      },
+      {
+        "text": " Cololateosis",
+        "confidence": 0.27443723380565643
+      },
+      {
+        "text": " prior",
+        "confidence": 0.8686603903770447
+      },
+      {
+        "text": " to",
+        "confidence": 0.9973644614219666
+      },
+      {
+        "text": " her",
+        "confidence": 0.7132532000541687
+      },
+      {
+        "text": " lab",
+        "confidence": 0.9775440096855164
+      },
+      {
+        "text": " banning",
+        "confidence": 0.6148160919547081
+      },
+      {
+        "text": " procedure.",
+        "confidence": 0.9956507086753845
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 49.54,
+    "end": 54.36,
+    "text": "I have also reviewed with her the risk and potential complications of laparoscopic gastric",
+    "confidence": 0.6955059611984741,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.989294171333313
+      },
+      {
+        "text": " have",
+        "confidence": 0.9713645577430725
+      },
+      {
+        "text": " also",
+        "confidence": 0.9900251626968384
+      },
+      {
+        "text": " reviewed",
+        "confidence": 0.9694584012031555
+      },
+      {
+        "text": " with",
+        "confidence": 0.9708045125007629
+      },
+      {
+        "text": " her",
+        "confidence": 0.649281919002533
+      },
+      {
+        "text": " the",
+        "confidence": 0.8102754354476929
+      },
+      {
+        "text": " risk",
+        "confidence": 0.4142225384712219
+      },
+      {
+        "text": " and",
+        "confidence": 0.9875407814979553
+      },
+      {
+        "text": " potential",
+        "confidence": 0.9901240468025208
+      },
+      {
+        "text": " complications",
+        "confidence": 0.9923944473266602
+      },
+      {
+        "text": " of",
+        "confidence": 0.9869385957717896
+      },
+      {
+        "text": " laparoscopic",
+        "confidence": 0.7431948930025101
+      },
+      {
+        "text": " gastric",
+        "confidence": 0.9891782402992249
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 54.36,
+    "end": 58.98,
+    "text": "banning including bleeding, infection, deep venous, thrombosis, pulmonary embolism,",
+    "confidence": 0.7799567486654156,
+    "words": [
+      {
+        "text": " banning",
+        "confidence": 0.48706687428057194
+      },
+      {
+        "text": " including",
+        "confidence": 0.750054657459259
+      },
+      {
+        "text": " bleeding,",
+        "confidence": 0.47156819701194763
+      },
+      {
+        "text": " infection,",
+        "confidence": 0.9526461958885193
+      },
+      {
+        "text": " deep",
+        "confidence": 0.956816554069519
+      },
+      {
+        "text": " venous,",
+        "confidence": 0.1817431002855301
+      },
+      {
+        "text": " thrombosis,",
+        "confidence": 0.5116184403498968
+      },
+      {
+        "text": " pulmonary",
+        "confidence": 0.9842487871646881
+      },
+      {
+        "text": " embolism,",
+        "confidence": 0.756148229042689
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 59.32,
+    "end": 65.06,
+    "text": "slippage of band, erosion of the band, injury to the esophagus, stomach and small intestine,",
+    "confidence": 0.7799567486654156,
+    "words": [
+      {
+        "text": " slippage",
+        "confidence": 0.8727528750896454
+      },
+      {
+        "text": " of",
+        "confidence": 0.9700138568878174
+      },
+      {
+        "text": " band,",
+        "confidence": 0.26624929904937744
+      },
+      {
+        "text": " erosion",
+        "confidence": 0.9293627738952637
+      },
+      {
+        "text": " of",
+        "confidence": 0.9955997467041016
+      },
+      {
+        "text": " the",
+        "confidence": 0.9068694114685059
+      },
+      {
+        "text": " band,",
+        "confidence": 0.9892317652702332
+      },
+      {
+        "text": " injury",
+        "confidence": 0.993294894695282
+      },
+      {
+        "text": " to",
+        "confidence": 0.9890221357345581
+      },
+      {
+        "text": " the",
+        "confidence": 0.971626341342926
+      },
+      {
+        "text": " esophagus,",
+        "confidence": 0.8103989164034525
+      },
+      {
+        "text": " stomach",
+        "confidence": 0.9117259383201599
+      },
+      {
+        "text": " and",
+        "confidence": 0.7274907827377319
+      },
+      {
+        "text": " small",
+        "confidence": 0.9532467126846313
+      },
+      {
+        "text": " intestine,",
+        "confidence": 0.9550907611846924
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 65.3,
+    "end": 70.56,
+    "text": "large intestine, spleen, liver, injury to the band, port or tubing, necessitating replacement",
+    "confidence": 0.7799567486654156,
+    "words": [
+      {
+        "text": " large",
+        "confidence": 0.893638014793396
+      },
+      {
+        "text": " intestine,",
+        "confidence": 0.6434893608093262
+      },
+      {
+        "text": " spleen,",
+        "confidence": 0.7107794135808945
+      },
+      {
+        "text": " liver,",
+        "confidence": 0.9796860814094543
+      },
+      {
+        "text": " injury",
+        "confidence": 0.9987642765045166
+      },
+      {
+        "text": " to",
+        "confidence": 0.9968175888061523
+      },
+      {
+        "text": " the",
+        "confidence": 0.9934955835342407
+      },
+      {
+        "text": " band,",
+        "confidence": 0.9892093539237976
+      },
+      {
+        "text": " port",
+        "confidence": 0.5052341222763062
+      },
+      {
+        "text": " or",
+        "confidence": 0.6661015152931213
+      },
+      {
+        "text": " tubing,",
+        "confidence": 0.8419042229652405
+      },
+      {
+        "text": " necessitating",
+        "confidence": 0.639799952507019
+      },
+      {
+        "text": " replacement",
+        "confidence": 0.8909158706665039
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 70.56,
+    "end": 75.64,
+    "text": "of the band or porting a tubing among other potential complications and she understands.",
+    "confidence": 0.7799567486654156,
+    "words": [
+      {
+        "text": " of",
+        "confidence": 0.9839224815368652
+      },
+      {
+        "text": " the",
+        "confidence": 0.9650596380233765
+      },
+      {
+        "text": " band",
+        "confidence": 0.9952059388160706
+      },
+      {
+        "text": " or",
+        "confidence": 0.7995046377182007
+      },
+      {
+        "text": " porting",
+        "confidence": 0.960660994052887
+      },
+      {
+        "text": " a",
+        "confidence": 0.17240117490291595
+      },
+      {
+        "text": " tubing",
+        "confidence": 0.9874103665351868
+      },
+      {
+        "text": " among",
+        "confidence": 0.738105833530426
+      },
+      {
+        "text": " other",
+        "confidence": 0.9903315305709839
+      },
+      {
+        "text": " potential",
+        "confidence": 0.9895732998847961
+      },
+      {
+        "text": " complications",
+        "confidence": 0.9915560483932495
+      },
+      {
+        "text": " and",
+        "confidence": 0.8212091326713562
+      },
+      {
+        "text": " she",
+        "confidence": 0.9802062511444092
+      },
+      {
+        "text": " understands.",
+        "confidence": 0.9947823882102966
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 76.06,
+    "end": 79.4,
+    "text": "We are going to proceed for laparoscopic gastric banning.",
+    "confidence": 0.7799567486654156,
+    "words": [
+      {
+        "text": " We",
+        "confidence": 0.9616929292678833
+      },
+      {
+        "text": " are",
+        "confidence": 0.9744704365730286
+      },
+      {
+        "text": " going",
+        "confidence": 0.9942927360534668
+      },
+      {
+        "text": " to",
+        "confidence": 0.9987257122993469
+      },
+      {
+        "text": " proceed",
+        "confidence": 0.9990854263305664
+      },
+      {
+        "text": " for",
+        "confidence": 0.9355531930923462
+      },
+      {
+        "text": " laparoscopic",
+        "confidence": 0.7526574432849884
+      },
+      {
+        "text": " gastric",
+        "confidence": 0.9936166405677795
+      },
+      {
+        "text": " banning.",
+        "confidence": 0.4962980421259999
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 79.72,
+    "end": 81.94,
+    "text": "I have reviewed her entire chart in detail.",
+    "confidence": 0.7799567486654156,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.9862711429595947
+      },
+      {
+        "text": " have",
+        "confidence": 0.996253490447998
+      },
+      {
+        "text": " reviewed",
+        "confidence": 0.9530541300773621
+      },
+      {
+        "text": " her",
+        "confidence": 0.9955050349235535
+      },
+      {
+        "text": " entire",
+        "confidence": 0.9914634823799133
+      },
+      {
+        "text": " chart",
+        "confidence": 0.9833998084068298
+      },
+      {
+        "text": " in",
+        "confidence": 0.9751877784729004
+      },
+      {
+        "text": " detail.",
+        "confidence": 0.9816151261329651
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 81.94,
+    "end": 87.72,
+    "text": "I have also gone over with her the Fairfield Country Barrier Tricks Concern form for",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.3652486801147461
+      },
+      {
+        "text": " have",
+        "confidence": 0.8262813091278076
+      },
+      {
+        "text": " also",
+        "confidence": 0.9475831985473633
+      },
+      {
+        "text": " gone",
+        "confidence": 0.9744764566421509
+      },
+      {
+        "text": " over",
+        "confidence": 0.9069713354110718
+      },
+      {
+        "text": " with",
+        "confidence": 0.5902577638626099
+      },
+      {
+        "text": " her",
+        "confidence": 0.9590003490447998
+      },
+      {
+        "text": " the",
+        "confidence": 0.8148191571235657
+      },
+      {
+        "text": " Fairfield",
+        "confidence": 0.790701687335968
+      },
+      {
+        "text": " Country",
+        "confidence": 0.5992087721824646
+      },
+      {
+        "text": " Barrier",
+        "confidence": 0.5569604486227036
+      },
+      {
+        "text": " Tricks",
+        "confidence": 0.5977736264467239
+      },
+      {
+        "text": " Concern",
+        "confidence": 0.5374089926481247
+      },
+      {
+        "text": " form",
+        "confidence": 0.12344513088464737
+      },
+      {
+        "text": " for",
+        "confidence": 0.948128342628479
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 87.72,
+    "end": 89.3,
+    "text": "banning and all the risk.",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " banning",
+        "confidence": 0.5698202699422836
+      },
+      {
+        "text": " and",
+        "confidence": 0.79056316614151
+      },
+      {
+        "text": " all",
+        "confidence": 0.7551055550575256
+      },
+      {
+        "text": " the",
+        "confidence": 0.704020082950592
+      },
+      {
+        "text": " risk.",
+        "confidence": 0.4352349638938904
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 89.84,
+    "end": 95.6,
+    "text": "She has also signed this signed, trained Vincent Hospital Concern form for lap banning.",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9731194376945496
+      },
+      {
+        "text": " has",
+        "confidence": 0.9643972516059875
+      },
+      {
+        "text": " also",
+        "confidence": 0.9946434497833252
+      },
+      {
+        "text": " signed",
+        "confidence": 0.9579073190689087
+      },
+      {
+        "text": " this",
+        "confidence": 0.47378164529800415
+      },
+      {
+        "text": " signed,",
+        "confidence": 0.6181312799453735
+      },
+      {
+        "text": " trained",
+        "confidence": 0.7033986449241638
+      },
+      {
+        "text": " Vincent",
+        "confidence": 0.3028739392757416
+      },
+      {
+        "text": " Hospital",
+        "confidence": 0.5857930779457092
+      },
+      {
+        "text": " Concern",
+        "confidence": 0.8497496843338013
+      },
+      {
+        "text": " form",
+        "confidence": 0.6456769704818726
+      },
+      {
+        "text": " for",
+        "confidence": 0.995418906211853
+      },
+      {
+        "text": " lap",
+        "confidence": 0.011796150356531143
+      },
+      {
+        "text": " banning.",
+        "confidence": 0.9669663906097412
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 96.04,
+    "end": 98.42,
+    "text": "She has taken the pre-operator quiz for banning.",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9817801117897034
+      },
+      {
+        "text": " has",
+        "confidence": 0.9938837885856628
+      },
+      {
+        "text": " taken",
+        "confidence": 0.992789089679718
+      },
+      {
+        "text": " the",
+        "confidence": 0.9936656355857849
+      },
+      {
+        "text": " pre",
+        "confidence": 0.9283934831619263
+      },
+      {
+        "text": "-operator",
+        "confidence": 0.8229716420173645
+      },
+      {
+        "text": " quiz",
+        "confidence": 0.9811062812805176
+      },
+      {
+        "text": " for",
+        "confidence": 0.9829292297363281
+      },
+      {
+        "text": " banning.",
+        "confidence": 0.9737303555011749
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 98.64,
+    "end": 103.86,
+    "text": "She has assigned the pre-op and post-op instructions and understands them and we reviewed them.",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9860765933990479
+      },
+      {
+        "text": " has",
+        "confidence": 0.9948493838310242
+      },
+      {
+        "text": " assigned",
+        "confidence": 0.8851632475852966
+      },
+      {
+        "text": " the",
+        "confidence": 0.9595181941986084
+      },
+      {
+        "text": " pre",
+        "confidence": 0.9597745537757874
+      },
+      {
+        "text": "-op",
+        "confidence": 0.8000256717205048
+      },
+      {
+        "text": " and",
+        "confidence": 0.9258136749267578
+      },
+      {
+        "text": " post",
+        "confidence": 0.9953800439834595
+      },
+      {
+        "text": "-op",
+        "confidence": 0.9143142402172089
+      },
+      {
+        "text": " instructions",
+        "confidence": 0.9755328297615051
+      },
+      {
+        "text": " and",
+        "confidence": 0.9555771946907043
+      },
+      {
+        "text": " understands",
+        "confidence": 0.9829886555671692
+      },
+      {
+        "text": " them",
+        "confidence": 0.9912057518959045
+      },
+      {
+        "text": " and",
+        "confidence": 0.8016105890274048
+      },
+      {
+        "text": " we",
+        "confidence": 0.8488471508026123
+      },
+      {
+        "text": " reviewed",
+        "confidence": 0.8992623686790466
+      },
+      {
+        "text": " them.",
+        "confidence": 0.9981738328933716
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 104.28,
+    "end": 106.32,
+    "text": "She has taken the quiz and done fairly well.",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9850959181785583
+      },
+      {
+        "text": " has",
+        "confidence": 0.9937211275100708
+      },
+      {
+        "text": " taken",
+        "confidence": 0.9968787431716919
+      },
+      {
+        "text": " the",
+        "confidence": 0.9900621175765991
+      },
+      {
+        "text": " quiz",
+        "confidence": 0.9987226128578186
+      },
+      {
+        "text": " and",
+        "confidence": 0.9920669794082642
+      },
+      {
+        "text": " done",
+        "confidence": 0.9952754974365234
+      },
+      {
+        "text": " fairly",
+        "confidence": 0.6246958374977112
+      },
+      {
+        "text": " well.",
+        "confidence": 0.9969853758811951
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 106.58,
+    "end": 111.3,
+    "text": "We have reviewed with her any potential other issues and I have answered her questions.",
+    "confidence": 0.7708208847913843,
+    "words": [
+      {
+        "text": " We",
+        "confidence": 0.955578625202179
+      },
+      {
+        "text": " have",
+        "confidence": 0.9903286099433899
+      },
+      {
+        "text": " reviewed",
+        "confidence": 0.9782976508140564
+      },
+      {
+        "text": " with",
+        "confidence": 0.8388452529907227
+      },
+      {
+        "text": " her",
+        "confidence": 0.9862740635871887
+      },
+      {
+        "text": " any",
+        "confidence": 0.9751873016357422
+      },
+      {
+        "text": " potential",
+        "confidence": 0.995118260383606
+      },
+      {
+        "text": " other",
+        "confidence": 0.9601097106933594
+      },
+      {
+        "text": " issues",
+        "confidence": 0.9888202548027039
+      },
+      {
+        "text": " and",
+        "confidence": 0.7379937767982483
+      },
+      {
+        "text": " I",
+        "confidence": 0.9424372911453247
+      },
+      {
+        "text": " have",
+        "confidence": 0.9885867238044739
+      },
+      {
+        "text": " answered",
+        "confidence": 0.9969485402107239
+      },
+      {
+        "text": " her",
+        "confidence": 0.9785410761833191
+      },
+      {
+        "text": " questions.",
+        "confidence": 0.9141426682472229
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 111.3,
+    "end": 114.16,
+    "text": "She is also planned for surgical intervention.",
+    "confidence": 0.6386118180061895,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.6614037752151489
+      },
+      {
+        "text": " is",
+        "confidence": 0.8285610675811768
+      },
+      {
+        "text": " also",
+        "confidence": 0.9849801659584045
+      },
+      {
+        "text": " planned",
+        "confidence": 0.3506191372871399
+      },
+      {
+        "text": " for",
+        "confidence": 0.9960136413574219
+      },
+      {
+        "text": " surgical",
+        "confidence": 0.8605811595916748
+      },
+      {
+        "text": " intervention.",
+        "confidence": 0.9906038641929626
+      }
+    ]
+  }
+]

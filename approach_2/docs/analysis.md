@@ -70,7 +70,7 @@ aligned segment pair). From that diff:
 
 "Combine engine confidence + agreement + low-confidence words + domain terms" is
 not implementable as written. The plan locks a deterministic formula with
-explicit inputs and weights (see `plan.md §7`), all configurable.
+explicit inputs and fixed weights (see `plan.md §5.5`).
 
 ### 2.4 Engine confidence signals are not directly comparable
 
@@ -105,10 +105,10 @@ audio and is hard to tune.
 | Decision | Value | Rationale |
 |---|---|---|
 | Primary engine | Faster-Whisper (local) | Already a dependency; configurable model size |
-| Secondary engine | Google Cloud Speech-to-Text | Google ecosystem in use; `MockSTT` fallback for offline tests |
+| Secondary engine | Google Cloud Speech-to-Text | Google ecosystem in use; tests use synthetic fixtures, no mock engine |
 | Alignment | Time-overlap + text-similarity score matrix → Needleman–Wunsch → 1:N merge post-pass | Handles split/merge/timestamp drift |
 | Agreement metric | `1 - WER` over normalized words | Deterministic, matches word diff output |
-| Confidence formula | `0.40·engine_conf + 0.45·agreement + 0.15·(1 − low_conf_ratio)`, glossary escalation | Explicit, weighted, configurable |
+| Confidence formula | `0.40·engine_conf + 0.45·agreement + 0.15·(1 − low_conf_ratio)`; glossary escalation handled by the tier rule | Explicit, weighted, fixed weights |
 | Review tiers | `≥98` auto-accept · `90–97` review-if-technical · `<90` mandatory | Matches the user's thresholds |
 | Spot check | tier 0 + tier 1 mandatory; seeded 10% of remainder; acceptance ≥99% | Statistically grounded, reproducible |
 | Exports | JSON, TXT, MD, SRT, VTT (v1); DOCX, PDF (v2) | Text formats need no extra deps |
@@ -119,14 +119,14 @@ audio and is hard to tune.
 
 1. **Google credentials differ from the existing key.** The repo's `.env` holds
    `GEMINI_API_KEY`. Google Speech-to-Text needs a service-account JSON /
-   `GOOGLE_APPLICATION_CREDENTIALS`. Must be documented; `MockSTT` keeps tests
-   offline.
+   `GOOGLE_APPLICATION_CREDENTIALS`. Must be documented; tests never call Google
+   (they use synthetic `EngineSegment` fixtures).
 2. **Whisper confidence calibration.** Mapping `avg_logprob` to `[0,1]` is a
    heuristic. Plan: logistic mapping as the default, documented as needing
    calibration on a small labeled set. If uncalibrated, the confidence *formula*
    is still meaningful because agreement dominates (0.45 weight).
 3. **Filler-word list is domain/language dependent.** Start with a common English
-   list, keep it configurable. Filler words are stripped only for alignment and
+   list as a module constant. Filler words are stripped only for alignment and
    agreement, never removed from the stored transcript.
 4. **Domain glossary source is undefined.** v1 accepts a plain wordlist file
    (optional, empty by default). If absent, no terminology escalation happens.

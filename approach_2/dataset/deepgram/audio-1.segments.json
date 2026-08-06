@@ -1,0 +1,563 @@
+[
+  {
+    "engine": "deepgram",
+    "start": 1.1999999,
+    "end": 6.02,
+    "text": "this twenty three year old white female presents with the complaint of allergies",
+    "confidence": 0.98726714,
+    "words": [
+      {
+        "text": "this",
+        "confidence": 0.99316406
+      },
+      {
+        "text": "twenty",
+        "confidence": 1.0
+      },
+      {
+        "text": "three",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "year",
+        "confidence": 0.9892578
+      },
+      {
+        "text": "old",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "white",
+        "confidence": 0.94628906
+      },
+      {
+        "text": "female",
+        "confidence": 1.0
+      },
+      {
+        "text": "presents",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "with",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "the",
+        "confidence": 0.9316406
+      },
+      {
+        "text": "complaint",
+        "confidence": 0.99121094
+      },
+      {
+        "text": "of",
+        "confidence": 1.0
+      },
+      {
+        "text": "allergies",
+        "confidence": 0.99853516
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 6.48,
+    "end": 9.46,
+    "text": "she used to have allergies when she lived in seathil",
+    "confidence": 0.9666748,
+    "words": [
+      {
+        "text": "she",
+        "confidence": 1.0
+      },
+      {
+        "text": "used",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "to",
+        "confidence": 1.0
+      },
+      {
+        "text": "have",
+        "confidence": 1.0
+      },
+      {
+        "text": "allergies",
+        "confidence": 1.0
+      },
+      {
+        "text": "when",
+        "confidence": 1.0
+      },
+      {
+        "text": "she",
+        "confidence": 1.0
+      },
+      {
+        "text": "lived",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "in",
+        "confidence": 1.0
+      },
+      {
+        "text": "seathil",
+        "confidence": 0.67163086
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 10.0,
+    "end": 15.38,
+    "text": "but she thinks they are worse here in the past she has tried claritin and xyrotec",
+    "confidence": 0.9463013,
+    "words": [
+      {
+        "text": "but",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "she",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "thinks",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "they",
+        "confidence": 0.97265625
+      },
+      {
+        "text": "are",
+        "confidence": 0.5419922
+      },
+      {
+        "text": "worse",
+        "confidence": 0.97802734
+      },
+      {
+        "text": "here",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "in",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "the",
+        "confidence": 1.0
+      },
+      {
+        "text": "past",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "she",
+        "confidence": 1.0
+      },
+      {
+        "text": "has",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "tried",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "claritin",
+        "confidence": 0.93896484
+      },
+      {
+        "text": "and",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "xyrotec",
+        "confidence": 0.72382814
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 16.135,
+    "end": 19.675,
+    "text": "both worked for a short time but didn't seem to lose effectiveness",
+    "confidence": 0.93534344,
+    "words": [
+      {
+        "text": "both",
+        "confidence": 1.0
+      },
+      {
+        "text": "worked",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "for",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "a",
+        "confidence": 0.7319336
+      },
+      {
+        "text": "short",
+        "confidence": 1.0
+      },
+      {
+        "text": "time",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "but",
+        "confidence": 0.56884766
+      },
+      {
+        "text": "didn't",
+        "confidence": 0.9770508
+      },
+      {
+        "text": "seem",
+        "confidence": 0.9560547
+      },
+      {
+        "text": "to",
+        "confidence": 1.0
+      },
+      {
+        "text": "lose",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "effectiveness",
+        "confidence": 0.9951172
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 20.455,
+    "end": 22.795,
+    "text": "she had also used allegra also",
+    "confidence": 0.9851074,
+    "words": [
+      {
+        "text": "she",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "had",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "also",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "used",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "allegra",
+        "confidence": 0.9406738
+      },
+      {
+        "text": "also",
+        "confidence": 0.9758301
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 23.735,
+    "end": 28.474998,
+    "text": "she used that last summer and she began using it again two weeks ago",
+    "confidence": 0.9805385,
+    "words": [
+      {
+        "text": "she",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "used",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "that",
+        "confidence": 0.8774414
+      },
+      {
+        "text": "last",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "summer",
+        "confidence": 0.86376953
+      },
+      {
+        "text": "and",
+        "confidence": 1.0
+      },
+      {
+        "text": "she",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "began",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "using",
+        "confidence": 1.0
+      },
+      {
+        "text": "it",
+        "confidence": 1.0
+      },
+      {
+        "text": "again",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "two",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "weeks",
+        "confidence": 1.0
+      },
+      {
+        "text": "ago",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 28.775,
+    "end": 36.7,
+    "text": "it doesn't appear to be working very well she has used over the counter sprays but no prescription nasal sprays",
+    "confidence": 0.9920572,
+    "words": [
+      {
+        "text": "it",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "doesn't",
+        "confidence": 0.99853516
+      },
+      {
+        "text": "appear",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "to",
+        "confidence": 1.0
+      },
+      {
+        "text": "be",
+        "confidence": 1.0
+      },
+      {
+        "text": "working",
+        "confidence": 1.0
+      },
+      {
+        "text": "very",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "well",
+        "confidence": 0.9995117
+      },
+      {
+        "text": "she",
+        "confidence": 1.0
+      },
+      {
+        "text": "has",
+        "confidence": 1.0
+      },
+      {
+        "text": "used",
+        "confidence": 1.0
+      },
+      {
+        "text": "over",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "the",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "counter",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "sprays",
+        "confidence": 0.86848956
+      },
+      {
+        "text": "but",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "no",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "prescription",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "nasal",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "sprays",
+        "confidence": 0.99609375
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 37.399998,
+    "end": 38.78,
+    "text": "she does have asthma",
+    "confidence": 0.9537964,
+    "words": [
+      {
+        "text": "she",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "does",
+        "confidence": 0.9970703
+      },
+      {
+        "text": "have",
+        "confidence": 1.0
+      },
+      {
+        "text": "asthma",
+        "confidence": 0.8190918
+      }
+    ]
+  },
+  {
+    "engine": "deepgram",
+    "start": 39.399998,
+    "end": 49.324936,
+    "text": "but doesn't require daily medication for this and does not think it is blaring up her only medication currently is ortho tri cycline and allegra",
+    "confidence": 0.91004235,
+    "words": [
+      {
+        "text": "but",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "doesn't",
+        "confidence": 0.98339844
+      },
+      {
+        "text": "require",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "daily",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "medication",
+        "confidence": 0.9819336
+      },
+      {
+        "text": "for",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "this",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "and",
+        "confidence": 0.57421875
+      },
+      {
+        "text": "does",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "not",
+        "confidence": 0.99902344
+      },
+      {
+        "text": "think",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "it",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "is",
+        "confidence": 0.9921875
+      },
+      {
+        "text": "blaring",
+        "confidence": 0.78100586
+      },
+      {
+        "text": "up",
+        "confidence": 0.99609375
+      },
+      {
+        "text": "her",
+        "confidence": 0.9980469
+      },
+      {
+        "text": "only",
+        "confidence": 1.0
+      },
+      {
+        "text": "medication",
+        "confidence": 0.9941406
+      },
+      {
+        "text": "currently",
+        "confidence": 0.98535156
+      },
+      {
+        "text": "is",
+        "confidence": 0.9951172
+      },
+      {
+        "text": "ortho",
+        "confidence": 0.50219727
+      },
+      {
+        "text": "tri",
+        "confidence": 0.43725586
+      },
+      {
+        "text": "cycline",
+        "confidence": 0.6015625
+      },
+      {
+        "text": "and",
+        "confidence": 0.9902344
+      },
+      {
+        "text": "allegra",
+        "confidence": 0.9763997
+      }
+    ]
+  }
+]

@@ -1,0 +1,1083 @@
+[
+  {
+    "engine": "whisper",
+    "start": 0.21,
+    "end": 8.17,
+    "text": "I have seen APC today, he is a very pleasant gentleman who is 42 years old, 344 pounds.",
+    "confidence": 0.7791582231542163,
+    "words": [
+      {
+        "text": " I",
+        "confidence": 0.3488551676273346
+      },
+      {
+        "text": " have",
+        "confidence": 0.867014467716217
+      },
+      {
+        "text": " seen",
+        "confidence": 0.9709687829017639
+      },
+      {
+        "text": " APC",
+        "confidence": 0.6539012342691422
+      },
+      {
+        "text": " today,",
+        "confidence": 0.9426608681678772
+      },
+      {
+        "text": " he",
+        "confidence": 0.8445244431495667
+      },
+      {
+        "text": " is",
+        "confidence": 0.8912737369537354
+      },
+      {
+        "text": " a",
+        "confidence": 0.9352783560752869
+      },
+      {
+        "text": " very",
+        "confidence": 0.97742760181427
+      },
+      {
+        "text": " pleasant",
+        "confidence": 0.9819905161857605
+      },
+      {
+        "text": " gentleman",
+        "confidence": 0.9713079929351807
+      },
+      {
+        "text": " who",
+        "confidence": 0.8167914152145386
+      },
+      {
+        "text": " is",
+        "confidence": 0.9706224203109741
+      },
+      {
+        "text": " 42",
+        "confidence": 0.9750041365623474
+      },
+      {
+        "text": " years",
+        "confidence": 0.8802543878555298
+      },
+      {
+        "text": " old,",
+        "confidence": 0.9884271025657654
+      },
+      {
+        "text": " 344",
+        "confidence": 0.945751816034317
+      },
+      {
+        "text": " pounds.",
+        "confidence": 0.8606539964675903
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 8.79,
+    "end": 16.69,
+    "text": "He is 59, he has BMA of 51, he has been overweight for 10 years since age of 33.",
+    "confidence": 0.7791582231542163,
+    "words": [
+      {
+        "text": " He",
+        "confidence": 0.9060291647911072
+      },
+      {
+        "text": " is",
+        "confidence": 0.8814981579780579
+      },
+      {
+        "text": " 59,",
+        "confidence": 0.6509850025177002
+      },
+      {
+        "text": " he",
+        "confidence": 0.9595710039138794
+      },
+      {
+        "text": " has",
+        "confidence": 0.9894706010818481
+      },
+      {
+        "text": " BMA",
+        "confidence": 0.6053374856710434
+      },
+      {
+        "text": " of",
+        "confidence": 0.685754120349884
+      },
+      {
+        "text": " 51,",
+        "confidence": 0.992330014705658
+      },
+      {
+        "text": " he",
+        "confidence": 0.9688760042190552
+      },
+      {
+        "text": " has",
+        "confidence": 0.9922382235527039
+      },
+      {
+        "text": " been",
+        "confidence": 0.9932520985603333
+      },
+      {
+        "text": " overweight",
+        "confidence": 0.9533495903015137
+      },
+      {
+        "text": " for",
+        "confidence": 0.9930698275566101
+      },
+      {
+        "text": " 10",
+        "confidence": 0.9729295372962952
+      },
+      {
+        "text": " years",
+        "confidence": 0.9886084794998169
+      },
+      {
+        "text": " since",
+        "confidence": 0.9391429424285889
+      },
+      {
+        "text": " age",
+        "confidence": 0.6557486653327942
+      },
+      {
+        "text": " of",
+        "confidence": 0.8568709492683411
+      },
+      {
+        "text": " 33.",
+        "confidence": 0.974890947341919
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 17.35,
+    "end": 24.57,
+    "text": "At his highest he was 358 pounds, at his lowest to 60, he is pursuing surgical attempts",
+    "confidence": 0.7791582231542163,
+    "words": [
+      {
+        "text": " At",
+        "confidence": 0.986049234867096
+      },
+      {
+        "text": " his",
+        "confidence": 0.9821904897689819
+      },
+      {
+        "text": " highest",
+        "confidence": 0.9899519085884094
+      },
+      {
+        "text": " he",
+        "confidence": 0.7234469056129456
+      },
+      {
+        "text": " was",
+        "confidence": 0.9908577799797058
+      },
+      {
+        "text": " 358",
+        "confidence": 0.8475085496902466
+      },
+      {
+        "text": " pounds,",
+        "confidence": 0.9838548302650452
+      },
+      {
+        "text": " at",
+        "confidence": 0.9780428409576416
+      },
+      {
+        "text": " his",
+        "confidence": 0.989831805229187
+      },
+      {
+        "text": " lowest",
+        "confidence": 0.9897252321243286
+      },
+      {
+        "text": " to",
+        "confidence": 0.6212868690490723
+      },
+      {
+        "text": " 60,",
+        "confidence": 0.865060567855835
+      },
+      {
+        "text": " he",
+        "confidence": 0.8609722852706909
+      },
+      {
+        "text": " is",
+        "confidence": 0.8566627502441406
+      },
+      {
+        "text": " pursuing",
+        "confidence": 0.9851289987564087
+      },
+      {
+        "text": " surgical",
+        "confidence": 0.9556966423988342
+      },
+      {
+        "text": " attempts",
+        "confidence": 0.9338885545730591
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 24.57,
+    "end": 29.35,
+    "text": "of weight loss to feel good, get healthy and begin to exercise again.",
+    "confidence": 0.7791582231542163,
+    "words": [
+      {
+        "text": " of",
+        "confidence": 0.9878277778625488
+      },
+      {
+        "text": " weight",
+        "confidence": 0.992192804813385
+      },
+      {
+        "text": " loss",
+        "confidence": 0.9946720004081726
+      },
+      {
+        "text": " to",
+        "confidence": 0.9857776761054993
+      },
+      {
+        "text": " feel",
+        "confidence": 0.9871951937675476
+      },
+      {
+        "text": " good,",
+        "confidence": 0.9974495768547058
+      },
+      {
+        "text": " get",
+        "confidence": 0.9940627217292786
+      },
+      {
+        "text": " healthy",
+        "confidence": 0.9917574524879456
+      },
+      {
+        "text": " and",
+        "confidence": 0.94694584608078
+      },
+      {
+        "text": " begin",
+        "confidence": 0.982178270816803
+      },
+      {
+        "text": " to",
+        "confidence": 0.9960145950317383
+      },
+      {
+        "text": " exercise",
+        "confidence": 0.5614518523216248
+      },
+      {
+        "text": " again.",
+        "confidence": 0.9932503700256348
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 29.35,
+    "end": 33.11,
+    "text": "He wants to be able to exercise and play volleyball.",
+    "confidence": 0.8440313150599013,
+    "words": [
+      {
+        "text": " He",
+        "confidence": 0.1561020165681839
+      },
+      {
+        "text": " wants",
+        "confidence": 0.440960556268692
+      },
+      {
+        "text": " to",
+        "confidence": 0.9835920333862305
+      },
+      {
+        "text": " be",
+        "confidence": 0.9142751693725586
+      },
+      {
+        "text": " able",
+        "confidence": 0.9903900623321533
+      },
+      {
+        "text": " to",
+        "confidence": 0.9915603995323181
+      },
+      {
+        "text": " exercise",
+        "confidence": 0.9427087306976318
+      },
+      {
+        "text": " and",
+        "confidence": 0.9405997395515442
+      },
+      {
+        "text": " play",
+        "confidence": 0.9945136308670044
+      },
+      {
+        "text": " volleyball.",
+        "confidence": 0.3531172275543213
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 33.85,
+    "end": 39.21,
+    "text": "Physically he is sluggish, he gets tired quickly, he doesn't go out often.",
+    "confidence": 0.8440313150599013,
+    "words": [
+      {
+        "text": " Physically",
+        "confidence": 0.5344345383346081
+      },
+      {
+        "text": " he",
+        "confidence": 0.7518430352210999
+      },
+      {
+        "text": " is",
+        "confidence": 0.7524588704109192
+      },
+      {
+        "text": " sluggish,",
+        "confidence": 0.7165525605281194
+      },
+      {
+        "text": " he",
+        "confidence": 0.9036262035369873
+      },
+      {
+        "text": " gets",
+        "confidence": 0.9778783321380615
+      },
+      {
+        "text": " tired",
+        "confidence": 0.28255462646484375
+      },
+      {
+        "text": " quickly,",
+        "confidence": 0.9160143136978149
+      },
+      {
+        "text": " he",
+        "confidence": 0.9509690403938293
+      },
+      {
+        "text": " doesn't",
+        "confidence": 0.929307758808136
+      },
+      {
+        "text": " go",
+        "confidence": 0.9746164083480835
+      },
+      {
+        "text": " out",
+        "confidence": 0.9973337650299072
+      },
+      {
+        "text": " often.",
+        "confidence": 0.9942222237586975
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 39.87,
+    "end": 44.73,
+    "text": "When he loses weight, he always regains it and he gains back more than he lost.",
+    "confidence": 0.8440313150599013,
+    "words": [
+      {
+        "text": " When",
+        "confidence": 0.9585250616073608
+      },
+      {
+        "text": " he",
+        "confidence": 0.994517982006073
+      },
+      {
+        "text": " loses",
+        "confidence": 0.9858590960502625
+      },
+      {
+        "text": " weight,",
+        "confidence": 0.9982106685638428
+      },
+      {
+        "text": " he",
+        "confidence": 0.9863198399543762
+      },
+      {
+        "text": " always",
+        "confidence": 0.9485686421394348
+      },
+      {
+        "text": " regains",
+        "confidence": 0.8698260188102722
+      },
+      {
+        "text": " it",
+        "confidence": 0.873206615447998
+      },
+      {
+        "text": " and",
+        "confidence": 0.7277659177780151
+      },
+      {
+        "text": " he",
+        "confidence": 0.9053341150283813
+      },
+      {
+        "text": " gains",
+        "confidence": 0.9950857758522034
+      },
+      {
+        "text": " back",
+        "confidence": 0.9330934286117554
+      },
+      {
+        "text": " more",
+        "confidence": 0.987037181854248
+      },
+      {
+        "text": " than",
+        "confidence": 0.9835628867149353
+      },
+      {
+        "text": " he",
+        "confidence": 0.966600775718689
+      },
+      {
+        "text": " lost.",
+        "confidence": 0.9897754192352295
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 45.33,
+    "end": 51.53,
+    "text": "His biggest weight loss is 25 pounds and it was 3 months before he gained back.",
+    "confidence": 0.8440313150599013,
+    "words": [
+      {
+        "text": " His",
+        "confidence": 0.9643266201019287
+      },
+      {
+        "text": " biggest",
+        "confidence": 0.9980625510215759
+      },
+      {
+        "text": " weight",
+        "confidence": 0.9985648989677429
+      },
+      {
+        "text": " loss",
+        "confidence": 0.997098445892334
+      },
+      {
+        "text": " is",
+        "confidence": 0.9841328859329224
+      },
+      {
+        "text": " 25",
+        "confidence": 0.9454489946365356
+      },
+      {
+        "text": " pounds",
+        "confidence": 0.763824999332428
+      },
+      {
+        "text": " and",
+        "confidence": 0.8041144013404846
+      },
+      {
+        "text": " it",
+        "confidence": 0.9815396666526794
+      },
+      {
+        "text": " was",
+        "confidence": 0.9961749315261841
+      },
+      {
+        "text": " 3",
+        "confidence": 0.6362423896789551
+      },
+      {
+        "text": " months",
+        "confidence": 0.9817812442779541
+      },
+      {
+        "text": " before",
+        "confidence": 0.9864981174468994
+      },
+      {
+        "text": " he",
+        "confidence": 0.9920005798339844
+      },
+      {
+        "text": " gained",
+        "confidence": 0.9817819595336914
+      },
+      {
+        "text": " back.",
+        "confidence": 0.9626645445823669
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 52.73,
+    "end": 58.17,
+    "text": "He did 6 months of not drinking alcohol and not taking in many calories.",
+    "confidence": 0.8440313150599013,
+    "words": [
+      {
+        "text": " He",
+        "confidence": 0.988106369972229
+      },
+      {
+        "text": " did",
+        "confidence": 0.9696007966995239
+      },
+      {
+        "text": " 6",
+        "confidence": 0.8789646029472351
+      },
+      {
+        "text": " months",
+        "confidence": 0.9927692413330078
+      },
+      {
+        "text": " of",
+        "confidence": 0.9768733978271484
+      },
+      {
+        "text": " not",
+        "confidence": 0.8306217789649963
+      },
+      {
+        "text": " drinking",
+        "confidence": 0.9411529302597046
+      },
+      {
+        "text": " alcohol",
+        "confidence": 0.997111439704895
+      },
+      {
+        "text": " and",
+        "confidence": 0.9493187665939331
+      },
+      {
+        "text": " not",
+        "confidence": 0.9939279556274414
+      },
+      {
+        "text": " taking",
+        "confidence": 0.9911331534385681
+      },
+      {
+        "text": " in",
+        "confidence": 0.9648259878158569
+      },
+      {
+        "text": " many",
+        "confidence": 0.9901012182235718
+      },
+      {
+        "text": " calories.",
+        "confidence": 0.9972193241119385
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 58.67,
+    "end": 61.85,
+    "text": "He has been on multiple commercial weight loss programs,",
+    "confidence": 0.809713540684883,
+    "words": [
+      {
+        "text": " He",
+        "confidence": 0.48255467414855957
+      },
+      {
+        "text": " has",
+        "confidence": 0.9569706916809082
+      },
+      {
+        "text": " been",
+        "confidence": 0.9847465753555298
+      },
+      {
+        "text": " on",
+        "confidence": 0.988799512386322
+      },
+      {
+        "text": " multiple",
+        "confidence": 0.9839353561401367
+      },
+      {
+        "text": " commercial",
+        "confidence": 0.987049400806427
+      },
+      {
+        "text": " weight",
+        "confidence": 0.895868182182312
+      },
+      {
+        "text": " loss",
+        "confidence": 0.9697931408882141
+      },
+      {
+        "text": " programs,",
+        "confidence": 0.901471734046936
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 62.31,
+    "end": 69.51,
+    "text": "including slim fast for 1 month, 1 year ago and atkins died for 1 month, 2 years ago.",
+    "confidence": 0.809713540684883,
+    "words": [
+      {
+        "text": " including",
+        "confidence": 0.9940134882926941
+      },
+      {
+        "text": " slim",
+        "confidence": 0.7759611010551453
+      },
+      {
+        "text": " fast",
+        "confidence": 0.48762035369873047
+      },
+      {
+        "text": " for",
+        "confidence": 0.9238412380218506
+      },
+      {
+        "text": " 1",
+        "confidence": 0.5854583978652954
+      },
+      {
+        "text": " month,",
+        "confidence": 0.9031947255134583
+      },
+      {
+        "text": " 1",
+        "confidence": 0.7506044507026672
+      },
+      {
+        "text": " year",
+        "confidence": 0.9864363074302673
+      },
+      {
+        "text": " ago",
+        "confidence": 0.5954620838165283
+      },
+      {
+        "text": " and",
+        "confidence": 0.5103812217712402
+      },
+      {
+        "text": " atkins",
+        "confidence": 0.5878455638885498
+      },
+      {
+        "text": " died",
+        "confidence": 0.5964901447296143
+      },
+      {
+        "text": " for",
+        "confidence": 0.9707798957824707
+      },
+      {
+        "text": " 1",
+        "confidence": 0.9248313903808594
+      },
+      {
+        "text": " month,",
+        "confidence": 0.9745819568634033
+      },
+      {
+        "text": " 2",
+        "confidence": 0.9237626194953918
+      },
+      {
+        "text": " years",
+        "confidence": 0.7617989778518677
+      },
+      {
+        "text": " ago.",
+        "confidence": 0.9579560160636902
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 70.25,
+    "end": 75.53,
+    "text": "Past medical history, he has difficulty climbing stairs, difficulty with airline seats,",
+    "confidence": 0.809713540684883,
+    "words": [
+      {
+        "text": " Past",
+        "confidence": 0.6502725481987
+      },
+      {
+        "text": " medical",
+        "confidence": 0.7752644419670105
+      },
+      {
+        "text": " history,",
+        "confidence": 0.9861277341842651
+      },
+      {
+        "text": " he",
+        "confidence": 0.7785761952400208
+      },
+      {
+        "text": " has",
+        "confidence": 0.99434494972229
+      },
+      {
+        "text": " difficulty",
+        "confidence": 0.990114688873291
+      },
+      {
+        "text": " climbing",
+        "confidence": 0.9874125719070435
+      },
+      {
+        "text": " stairs,",
+        "confidence": 0.9843899607658386
+      },
+      {
+        "text": " difficulty",
+        "confidence": 0.9922911524772644
+      },
+      {
+        "text": " with",
+        "confidence": 0.9838839173316956
+      },
+      {
+        "text": " airline",
+        "confidence": 0.6501930952072144
+      },
+      {
+        "text": " seats,",
+        "confidence": 0.9400206804275513
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 76.19,
+    "end": 82.49,
+    "text": "time shoes, use it to public seating, difficulty walking, high cholesterol and high blood pressure.",
+    "confidence": 0.809713540684883,
+    "words": [
+      {
+        "text": " time",
+        "confidence": 0.8536350727081299
+      },
+      {
+        "text": " shoes,",
+        "confidence": 0.8876404762268066
+      },
+      {
+        "text": " use",
+        "confidence": 0.5784075260162354
+      },
+      {
+        "text": " it",
+        "confidence": 0.7676699161529541
+      },
+      {
+        "text": " to",
+        "confidence": 0.9834253191947937
+      },
+      {
+        "text": " public",
+        "confidence": 0.9903931021690369
+      },
+      {
+        "text": " seating,",
+        "confidence": 0.9448111653327942
+      },
+      {
+        "text": " difficulty",
+        "confidence": 0.9965670108795166
+      },
+      {
+        "text": " walking,",
+        "confidence": 0.9917348623275757
+      },
+      {
+        "text": " high",
+        "confidence": 0.9797332286834717
+      },
+      {
+        "text": " cholesterol",
+        "confidence": 0.9633283019065857
+      },
+      {
+        "text": " and",
+        "confidence": 0.8315515518188477
+      },
+      {
+        "text": " high",
+        "confidence": 0.988861620426178
+      },
+      {
+        "text": " blood",
+        "confidence": 0.9982731342315674
+      },
+      {
+        "text": " pressure.",
+        "confidence": 0.9990378618240356
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 83.06,
+    "end": 87.63,
+    "text": "He has asthma and difficulty walking, two blocks are going 8 to 10 steps.",
+    "confidence": 0.7649263575589237,
+    "words": [
+      {
+        "text": " He",
+        "confidence": 0.6264796257019043
+      },
+      {
+        "text": " has",
+        "confidence": 0.9695265293121338
+      },
+      {
+        "text": " asthma",
+        "confidence": 0.69758540391922
+      },
+      {
+        "text": " and",
+        "confidence": 0.9094647169113159
+      },
+      {
+        "text": " difficulty",
+        "confidence": 0.9904388785362244
+      },
+      {
+        "text": " walking,",
+        "confidence": 0.9681762456893921
+      },
+      {
+        "text": " two",
+        "confidence": 0.4989299476146698
+      },
+      {
+        "text": " blocks",
+        "confidence": 0.959228515625
+      },
+      {
+        "text": " are",
+        "confidence": 0.9250786900520325
+      },
+      {
+        "text": " going",
+        "confidence": 0.9692325592041016
+      },
+      {
+        "text": " 8",
+        "confidence": 0.8408305048942566
+      },
+      {
+        "text": " to",
+        "confidence": 0.5683222413063049
+      },
+      {
+        "text": " 10",
+        "confidence": 0.9925958514213562
+      },
+      {
+        "text": " steps.",
+        "confidence": 0.9910175800323486
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 88.01,
+    "end": 92.95,
+    "text": "He has sleep, up near and snoring, he is diabetic on medication,",
+    "confidence": 0.7649263575589237,
+    "words": [
+      {
+        "text": " He",
+        "confidence": 0.9391781687736511
+      },
+      {
+        "text": " has",
+        "confidence": 0.9709925055503845
+      },
+      {
+        "text": " sleep,",
+        "confidence": 0.914024829864502
+      },
+      {
+        "text": " up",
+        "confidence": 0.7274467945098877
+      },
+      {
+        "text": " near",
+        "confidence": 0.29592421650886536
+      },
+      {
+        "text": " and",
+        "confidence": 0.8507784008979797
+      },
+      {
+        "text": " snoring,",
+        "confidence": 0.8917711079120636
+      },
+      {
+        "text": " he",
+        "confidence": 0.4704723060131073
+      },
+      {
+        "text": " is",
+        "confidence": 0.3847811818122864
+      },
+      {
+        "text": " diabetic",
+        "confidence": 0.9935420751571655
+      },
+      {
+        "text": " on",
+        "confidence": 0.9223799109458923
+      },
+      {
+        "text": " medication,",
+        "confidence": 0.9739555716514587
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 93.91,
+    "end": 98.15,
+    "text": "he has joint pain, knee pain, back pain, foot and ankle pain,",
+    "confidence": 0.7649263575589237,
+    "words": [
+      {
+        "text": " he",
+        "confidence": 0.9269009232521057
+      },
+      {
+        "text": " has",
+        "confidence": 0.9939395189285278
+      },
+      {
+        "text": " joint",
+        "confidence": 0.6454687714576721
+      },
+      {
+        "text": " pain,",
+        "confidence": 0.9478533267974854
+      },
+      {
+        "text": " knee",
+        "confidence": 0.9786699414253235
+      },
+      {
+        "text": " pain,",
+        "confidence": 0.9880119562149048
+      },
+      {
+        "text": " back",
+        "confidence": 0.9869920015335083
+      },
+      {
+        "text": " pain,",
+        "confidence": 0.9937607645988464
+      },
+      {
+        "text": " foot",
+        "confidence": 0.919255793094635
+      },
+      {
+        "text": " and",
+        "confidence": 0.8508298397064209
+      },
+      {
+        "text": " ankle",
+        "confidence": 0.9919105172157288
+      },
+      {
+        "text": " pain,",
+        "confidence": 0.9672996401786804
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 99.03,
+    "end": 100.07,
+    "text": "leg and foot swelling.",
+    "confidence": 0.7649263575589237,
+    "words": [
+      {
+        "text": " leg",
+        "confidence": 0.7923821806907654
+      },
+      {
+        "text": " and",
+        "confidence": 0.7292463183403015
+      },
+      {
+        "text": " foot",
+        "confidence": 0.8868074417114258
+      },
+      {
+        "text": " swelling.",
+        "confidence": 0.9944414496421814
+      }
+    ]
+  }
+]

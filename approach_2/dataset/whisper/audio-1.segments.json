@@ -1,0 +1,574 @@
+[
+  {
+    "engine": "whisper",
+    "start": 0.98,
+    "end": 5.82,
+    "text": "This 23-year-old white female presents with the complaint of allergies.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " This",
+        "confidence": 0.8755515813827515
+      },
+      {
+        "text": " 23",
+        "confidence": 0.8301356434822083
+      },
+      {
+        "text": "-year",
+        "confidence": 0.5704111382365227
+      },
+      {
+        "text": "-old",
+        "confidence": 0.8603965044021606
+      },
+      {
+        "text": " white",
+        "confidence": 0.7660915851593018
+      },
+      {
+        "text": " female",
+        "confidence": 0.9632038474082947
+      },
+      {
+        "text": " presents",
+        "confidence": 0.948387622833252
+      },
+      {
+        "text": " with",
+        "confidence": 0.9585042595863342
+      },
+      {
+        "text": " the",
+        "confidence": 0.6068671345710754
+      },
+      {
+        "text": " complaint",
+        "confidence": 0.9069727063179016
+      },
+      {
+        "text": " of",
+        "confidence": 0.9293137788772583
+      },
+      {
+        "text": " allergies.",
+        "confidence": 0.9514904618263245
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 6.42,
+    "end": 9.34,
+    "text": "She used to have allergies when she lived in Seetil.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.965877115726471
+      },
+      {
+        "text": " used",
+        "confidence": 0.9610973000526428
+      },
+      {
+        "text": " to",
+        "confidence": 0.9965555667877197
+      },
+      {
+        "text": " have",
+        "confidence": 0.9967684745788574
+      },
+      {
+        "text": " allergies",
+        "confidence": 0.9963473677635193
+      },
+      {
+        "text": " when",
+        "confidence": 0.976565420627594
+      },
+      {
+        "text": " she",
+        "confidence": 0.9963982105255127
+      },
+      {
+        "text": " lived",
+        "confidence": 0.9961846470832825
+      },
+      {
+        "text": " in",
+        "confidence": 0.9989939332008362
+      },
+      {
+        "text": " Seetil.",
+        "confidence": 0.32641459504763287
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 10.06,
+    "end": 11.7,
+    "text": "But she thinks they are worse here.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " But",
+        "confidence": 0.921343207359314
+      },
+      {
+        "text": " she",
+        "confidence": 0.9592434763908386
+      },
+      {
+        "text": " thinks",
+        "confidence": 0.9915327429771423
+      },
+      {
+        "text": " they",
+        "confidence": 0.9505167603492737
+      },
+      {
+        "text": " are",
+        "confidence": 0.8108702301979065
+      },
+      {
+        "text": " worse",
+        "confidence": 0.9269816279411316
+      },
+      {
+        "text": " here.",
+        "confidence": 0.9903233051300049
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 12.3,
+    "end": 15.28,
+    "text": "In the past, she has tried claritin and sciatic.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " In",
+        "confidence": 0.9725801944732666
+      },
+      {
+        "text": " the",
+        "confidence": 0.9885503649711609
+      },
+      {
+        "text": " past,",
+        "confidence": 0.998494029045105
+      },
+      {
+        "text": " she",
+        "confidence": 0.9873396158218384
+      },
+      {
+        "text": " has",
+        "confidence": 0.9693286418914795
+      },
+      {
+        "text": " tried",
+        "confidence": 0.3610658049583435
+      },
+      {
+        "text": " claritin",
+        "confidence": 0.5509410897890726
+      },
+      {
+        "text": " and",
+        "confidence": 0.9176719188690186
+      },
+      {
+        "text": " sciatic.",
+        "confidence": 0.3776514008641243
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 16.02,
+    "end": 19.5,
+    "text": "Both worked for short time, but didn't seem to lose effectiveness.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " Both",
+        "confidence": 0.9722434878349304
+      },
+      {
+        "text": " worked",
+        "confidence": 0.9198867082595825
+      },
+      {
+        "text": " for",
+        "confidence": 0.9938714504241943
+      },
+      {
+        "text": " short",
+        "confidence": 0.941196858882904
+      },
+      {
+        "text": " time,",
+        "confidence": 0.8904183506965637
+      },
+      {
+        "text": " but",
+        "confidence": 0.9922692775726318
+      },
+      {
+        "text": " didn't",
+        "confidence": 0.5851664245128632
+      },
+      {
+        "text": " seem",
+        "confidence": 0.5717859268188477
+      },
+      {
+        "text": " to",
+        "confidence": 0.7038835287094116
+      },
+      {
+        "text": " lose",
+        "confidence": 0.9741194248199463
+      },
+      {
+        "text": " effectiveness.",
+        "confidence": 0.9667218327522278
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 20.34,
+    "end": 22.7,
+    "text": "She had also used allegra also.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9885030388832092
+      },
+      {
+        "text": " had",
+        "confidence": 0.7616573572158813
+      },
+      {
+        "text": " also",
+        "confidence": 0.9938499927520752
+      },
+      {
+        "text": " used",
+        "confidence": 0.9940404295921326
+      },
+      {
+        "text": " allegra",
+        "confidence": 0.5772115737199783
+      },
+      {
+        "text": " also.",
+        "confidence": 0.9779481887817383
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 23.68,
+    "end": 28.22,
+    "text": "She used the last summer and she began using it again two weeks ago.",
+    "confidence": 0.7506104116226412,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9825902581214905
+      },
+      {
+        "text": " used",
+        "confidence": 0.9726040959358215
+      },
+      {
+        "text": " the",
+        "confidence": 0.7410420775413513
+      },
+      {
+        "text": " last",
+        "confidence": 0.46372905373573303
+      },
+      {
+        "text": " summer",
+        "confidence": 0.9766618013381958
+      },
+      {
+        "text": " and",
+        "confidence": 0.8010419011116028
+      },
+      {
+        "text": " she",
+        "confidence": 0.9487148523330688
+      },
+      {
+        "text": " began",
+        "confidence": 0.9858576059341431
+      },
+      {
+        "text": " using",
+        "confidence": 0.9970270991325378
+      },
+      {
+        "text": " it",
+        "confidence": 0.9927381873130798
+      },
+      {
+        "text": " again",
+        "confidence": 0.9878581762313843
+      },
+      {
+        "text": " two",
+        "confidence": 0.5077805519104004
+      },
+      {
+        "text": " weeks",
+        "confidence": 0.9951649904251099
+      },
+      {
+        "text": " ago.",
+        "confidence": 0.9941573143005371
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 28.22,
+    "end": 31.36,
+    "text": "It doesn't appear to be working very well.",
+    "confidence": 0.838943704382573,
+    "words": [
+      {
+        "text": " It",
+        "confidence": 0.3629099428653717
+      },
+      {
+        "text": " doesn't",
+        "confidence": 0.8530793190002441
+      },
+      {
+        "text": " appear",
+        "confidence": 0.9855896830558777
+      },
+      {
+        "text": " to",
+        "confidence": 0.9959063529968262
+      },
+      {
+        "text": " be",
+        "confidence": 0.9751619100570679
+      },
+      {
+        "text": " working",
+        "confidence": 0.9604012966156006
+      },
+      {
+        "text": " very",
+        "confidence": 0.9939371347427368
+      },
+      {
+        "text": " well.",
+        "confidence": 0.9975154399871826
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 31.84,
+    "end": 36.58,
+    "text": "She has used over-the-counter sprays, but no prescription nasal sprays.",
+    "confidence": 0.838943704382573,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9709270596504211
+      },
+      {
+        "text": " has",
+        "confidence": 0.9858816862106323
+      },
+      {
+        "text": " used",
+        "confidence": 0.9895361661911011
+      },
+      {
+        "text": " over",
+        "confidence": 0.9163992404937744
+      },
+      {
+        "text": "-the",
+        "confidence": 0.5385069511830807
+      },
+      {
+        "text": "-counter",
+        "confidence": 0.9242598414421082
+      },
+      {
+        "text": " sprays,",
+        "confidence": 0.7382243573665619
+      },
+      {
+        "text": " but",
+        "confidence": 0.9837766885757446
+      },
+      {
+        "text": " no",
+        "confidence": 0.9891650080680847
+      },
+      {
+        "text": " prescription",
+        "confidence": 0.8362829685211182
+      },
+      {
+        "text": " nasal",
+        "confidence": 0.5145217776298523
+      },
+      {
+        "text": " sprays.",
+        "confidence": 0.9783968031406403
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 37.24,
+    "end": 42.3,
+    "text": "She does have asthma, but doesn't require daily medication for this.",
+    "confidence": 0.838943704382573,
+    "words": [
+      {
+        "text": " She",
+        "confidence": 0.9723171591758728
+      },
+      {
+        "text": " does",
+        "confidence": 0.9425129294395447
+      },
+      {
+        "text": " have",
+        "confidence": 0.9785503149032593
+      },
+      {
+        "text": " asthma,",
+        "confidence": 0.9273865222930908
+      },
+      {
+        "text": " but",
+        "confidence": 0.9873394966125488
+      },
+      {
+        "text": " doesn't",
+        "confidence": 0.9226354360580444
+      },
+      {
+        "text": " require",
+        "confidence": 0.9885520935058594
+      },
+      {
+        "text": " daily",
+        "confidence": 0.9949721097946167
+      },
+      {
+        "text": " medication",
+        "confidence": 0.9744544625282288
+      },
+      {
+        "text": " for",
+        "confidence": 0.967227578163147
+      },
+      {
+        "text": " this.",
+        "confidence": 0.9941412806510925
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 43.04,
+    "end": 44.96,
+    "text": "And does not think it is playing up.",
+    "confidence": 0.838943704382573,
+    "words": [
+      {
+        "text": " And",
+        "confidence": 0.8838808536529541
+      },
+      {
+        "text": " does",
+        "confidence": 0.9390130043029785
+      },
+      {
+        "text": " not",
+        "confidence": 0.9948174357414246
+      },
+      {
+        "text": " think",
+        "confidence": 0.994924783706665
+      },
+      {
+        "text": " it",
+        "confidence": 0.9574716091156006
+      },
+      {
+        "text": " is",
+        "confidence": 0.9450181722640991
+      },
+      {
+        "text": " playing",
+        "confidence": 0.09415624290704727
+      },
+      {
+        "text": " up.",
+        "confidence": 0.9788503050804138
+      }
+    ]
+  },
+  {
+    "engine": "whisper",
+    "start": 45.58,
+    "end": 49.36,
+    "text": "Her only medication currently is orthoticycline and allegra.",
+    "confidence": 0.838943704382573,
+    "words": [
+      {
+        "text": " Her",
+        "confidence": 0.9757978320121765
+      },
+      {
+        "text": " only",
+        "confidence": 0.9639660716056824
+      },
+      {
+        "text": " medication",
+        "confidence": 0.9823182821273804
+      },
+      {
+        "text": " currently",
+        "confidence": 0.9928948283195496
+      },
+      {
+        "text": " is",
+        "confidence": 0.9874687194824219
+      },
+      {
+        "text": " orthoticycline",
+        "confidence": 0.6222503781318665
+      },
+      {
+        "text": " and",
+        "confidence": 0.9523491859436035
+      },
+      {
+        "text": " allegra.",
+        "confidence": 0.32914062961935997
+      }
+    ]
+  }
+]
