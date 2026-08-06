@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Protocol
+from typing import Protocol, TypeVar, cast
+
+from pydantic import BaseModel
 
 from approach_1.src.align import AlignmentResult, AlignedPair
 from approach_1.src.models import ErrorItem, FindingList, SegmentJudgement
@@ -24,8 +26,11 @@ CATEGORY_MAP = {
 }
 
 
+JudgementT = TypeVar("JudgementT", bound=BaseModel)
+
+
 class Judge(Protocol):
-    def judge(self, prompt: str, schema) -> object:
+    def judge(self, prompt: str, schema: type[JudgementT]) -> JudgementT:
         """Send a classification prompt and return a validated structured output."""
         ...
 
@@ -42,13 +47,13 @@ class MockJudge:
         self.relationship = relationship
         self.severity = severity
 
-    def judge(self, prompt: str, schema):
+    def judge(self, prompt: str, schema: type[JudgementT]) -> JudgementT:
         if schema is FindingList:
             match = re.search(r"\[.*\]", prompt, flags=re.S)
             if match:
-                return schema(findings=[ErrorItem(**item) for item in json.loads(match.group(0))])
-            return schema(findings=[])
-        return schema(relationship=self.relationship, explanation="mock judgement", severity=self.severity)
+                return cast(JudgementT, FindingList(findings=[ErrorItem(**item) for item in json.loads(match.group(0))]))
+            return cast(JudgementT, FindingList(findings=[]))
+        return cast(JudgementT, schema(relationship=self.relationship, explanation="mock judgement", severity=self.severity))
 
 
 _PAIR_PROMPT = """You are auditing a speech-to-text transcript against a reference (gold) transcript.

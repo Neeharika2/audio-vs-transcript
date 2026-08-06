@@ -57,11 +57,7 @@ class AlignmentResult:
             "covered_gold": len(self.covered_gold),
         }
 
-
-# ---------------------------------------------------------------------------
 # Segmentation
-# ---------------------------------------------------------------------------
-
 def segment_sentences(text: str) -> list[str]:
     """Split text into sentences, protecting common abbreviations."""
     protected = _ABBREVIATION_RE.sub(lambda m: m.group(0)[:-1] + _SENTINEL, text)
@@ -93,10 +89,7 @@ def segment(text: str, window: int = 40, overlap: int = 10) -> list[Segment]:
     return [Segment(text=c, norm=normalize_text(c)) for c in chunks]
 
 
-# ---------------------------------------------------------------------------
 # Similarity
-# ---------------------------------------------------------------------------
-
 def _char_similarity(a: str, b: str) -> float:
     if fuzz is None:
         return 1.0 if a == b else 0.0
@@ -120,9 +113,7 @@ def similarity(a: Segment, b: Segment, embedder=None) -> float:
     return max(char, emb)
 
 
-# ---------------------------------------------------------------------------
 # Alignment
-# ---------------------------------------------------------------------------
 
 def _greedy_match(gold: list[Segment], cand: list[Segment], embedder=None):
     """Greedy bipartite matching. Handles reordering; pairs are 1:1."""

@@ -1,10 +1,13 @@
-from typing import Protocol
+from typing import Protocol, TypeVar, cast
 
 from faster_whisper import WhisperModel
 from google import genai
 from google.genai import types
+from pydantic import BaseModel
 
-from approach_1.src.models import ErrorItem, EvaluationReport
+from approach_1.src.models import EvaluationReport
+
+StructuredT = TypeVar("StructuredT", bound=BaseModel)
 
 class STTModel(Protocol):
     def transcribe(self, audio_path: str) -> str:
@@ -82,7 +85,7 @@ class GeminiEvaluator:
                 response_schema=EvaluationReport,
             ),
         )
-        return response.parsed
+        return cast(EvaluationReport, response.parsed)
 
 class GeminiJudge:
     """Segment-level LLM judge for the V2 pipeline (implements Judge protocol)."""
@@ -93,7 +96,7 @@ class GeminiJudge:
         self.model_name = model_name
         self.client = genai.Client(api_key=api_key)
 
-    def judge(self, prompt: str, schema):
+    def judge(self, prompt: str, schema: type[StructuredT]) -> StructuredT:
         response = self.client.models.generate_content(
             model=self.model_name,
             contents=prompt,
@@ -102,7 +105,7 @@ class GeminiJudge:
                 response_schema=schema,
             ),
         )
-        return response.parsed
+        return cast(StructuredT, response.parsed)
 
 class MockEvaluator:
     def evaluate(self, gold_transcript: str, candidate_transcript: str) -> EvaluationReport:

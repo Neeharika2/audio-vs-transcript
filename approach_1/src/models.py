@@ -18,10 +18,7 @@ class EvaluationReport(BaseModel):
     overall_score: int = 100
     status: str = "Match"
 
-# ---------------------------------------------------------------------------
 # V2: structured evaluation pipeline
-# ---------------------------------------------------------------------------
-
 class SegmentJudgement(BaseModel):
     relationship: str  # match | incorrect | conflict | missing | hallucination
     explanation: Optional[str] = None

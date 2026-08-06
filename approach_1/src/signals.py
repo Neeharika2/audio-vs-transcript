@@ -10,10 +10,14 @@ formatting noise ("$50" vs "fifty dollars") does not count as an error.
 from __future__ import annotations
 
 import re
+from typing import TYPE_CHECKING, Optional
 
 from rapidfuzz.distance import Levenshtein
 
 from approach_1.src.normalize import normalize_number_words, normalize_text
+
+if TYPE_CHECKING:
+    from sentence_transformers import SentenceTransformer
 
 # ---------------------------------------------------------------------------
 # Lexical signals
@@ -140,7 +144,7 @@ def entity_precision(gold: str, candidate: str) -> float:
 class SentenceEmbedder:
     """Lazy singleton wrapper around a local sentence-transformers model."""
 
-    _model = None
+    _model: Optional[SentenceTransformer] = None
 
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
         self.model_name = model_name
@@ -153,16 +157,25 @@ class SentenceEmbedder:
 
     def similarity(self, a: str, b: str) -> float:
         """Cosine similarity of normalized sentence embeddings, in [0, 1]."""
-        import numpy as np
-
-        self._load()
-        emb = SentenceEmbedder._model.encode([normalize_text(a), normalize_text(b)])
-        a_vec, b_vec = emb[0], emb[1]
-        norm = float(np.linalg.norm(a_vec) * np.linalg.norm(b_vec))
-        if norm == 0:
+        if SentenceEmbedder._model is None:
+            self._load()
+        model = SentenceEmbedder._model
+        if model is None:
             return 0.0
-        cos = float(np.dot(a_vec, b_vec) / norm)
-        return max(0.0, min(1.0, cos))
+        return _cosine(model, a, b)
+
+
+def _cosine(model: SentenceTransformer, a: str, b: str) -> float:
+    """Normalized cosine similarity of two normalized texts."""
+    import numpy as np
+
+    emb = model.encode([normalize_text(a), normalize_text(b)])
+    a_vec, b_vec = emb[0], emb[1]
+    norm = float(np.linalg.norm(a_vec) * np.linalg.norm(b_vec))
+    if norm == 0:
+        return 0.0
+    cos = float(np.dot(a_vec, b_vec) / norm)
+    return max(0.0, min(1.0, cos))
 
 
 def semantic_similarity(gold: str, candidate: str, embedder=None) -> float | None:
@@ -181,7 +194,7 @@ def semantic_similarity(gold: str, candidate: str, embedder=None) -> float | Non
 
 def compute_signals(gold: str, candidate: str, embedder=None) -> dict:
     """Compute the full signal set for the report."""
-    signals = {
+    signals: dict[str, float | None] = {
         "wer": round(word_error_rate(gold, candidate), 4),
         "cer": round(char_error_rate(gold, candidate), 4),
         "coverage": round(token_coverage(gold, candidate), 4),

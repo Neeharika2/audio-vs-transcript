@@ -28,6 +28,16 @@ _CURRENCY_TO_UNIT = {
     "gbp": "pounds",
     "¥": "yen",
     "jpy": "yen",
+    "₽": "rubles",
+    "rub": "rubles",
+    "₹": "rupees",
+    "inr": "rupees",
+    "₩": "won",
+    "kr": "kroner",
+    "₺": "lira",
+    "try": "lira",
+    "₫": "dong",
+    "vnd": "dong",
 }
 
 _UNIT_TO_WORD = {
@@ -43,7 +53,18 @@ _UNIT_TO_WORD = {
     "°c": "degrees celsius",
     "°f": "degrees fahrenheit",
     "%": "percent",
+    "°": "degrees",
+    "mph": "miles per hour",
+    "kph": "kilometers per hour",
+    "m/s": "meters per second",
+    "ft": "feet",
+    "yd": "yards",
+    "mi": "miles",
+    "oz": "ounces",
+    "lb": "pounds",
+    "in": "inches",
 }
+
 
 
 def tokenize(text: str) -> list[str]:
