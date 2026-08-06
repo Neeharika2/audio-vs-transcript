@@ -39,6 +39,8 @@ def get_stt_runner():
 def get_judge():
     """Return the LLM Judge for the V2 pipeline, or None to run offline heuristics."""
     if EVAL_PROVIDER == "gemini":
+        if not GEMINI_API_KEY:
+            raise ValueError("GEMINI_API_KEY is required for EVAL_PROVIDER='gemini'")
         return GeminiJudge(model_name=EVAL_MODEL_NAME, api_key=GEMINI_API_KEY)
     if EVAL_PROVIDER == "mock":
         return None

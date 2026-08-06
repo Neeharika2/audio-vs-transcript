@@ -29,6 +29,8 @@ def evaluate_endpoint(
     with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
         tmp.write(audio.file.read())
         audio_path = tmp.name
+    if audio_path is None:
+        raise RuntimeError("Failed to create temporary audio file")
 
     try:
         candidate_transcript = stt_runner.transcribe(audio_path)
