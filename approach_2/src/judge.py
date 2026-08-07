@@ -302,9 +302,10 @@ def parse_verdict(text: str) -> LLMJudgeVerdict | None:
 class GeminiJudge:
     """Audio-grounded judge backed by Gemini 3.5 Flash (google-genai SDK)."""
 
-    def __init__(self, api_key: str | None = None, model: str | None = None):
+    def __init__(self, api_key: str | None = None, model: str | None = None, timeout: float = 90.0):
         self.api_key = api_key if api_key is not None else config.GEMINI_API_KEY
         self.model = model if model is not None else config.GEMINI_MODEL
+        self.timeout = timeout
         if not self.api_key:
             raise ValueError(
                 "GeminiJudge requires an API key; set GEMINI_API_KEY in the repo-root .env"
@@ -316,7 +317,7 @@ class GeminiJudge:
     def _get_client(self):
         if self._client is None:
             from google import genai
-            self._client = genai.Client(api_key=self.api_key)
+            self._client = genai.Client(api_key=self.api_key, http_options={"timeout": self.timeout})
         return self._client
 
     def judge(self, request: JudgeRequest) -> LLMJudgeVerdict | None:

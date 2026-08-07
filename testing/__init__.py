@@ -2,4 +2,4 @@
 
 from testing.scenarios import SCENARIOS, Scenario
 
-__all__ = ["SCENARIOS", "Scenario"]
+__all__ = ["SCENARIOS", "Scenario", "eval_layer3"]

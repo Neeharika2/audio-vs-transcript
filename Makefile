@@ -64,3 +64,6 @@ eval1:
 
 tests:
 	@$(PY) -m pytest approach_1/tests approach_2/tests -q
+
+layer3:
+	@$(PY) -m pytest -m layer3 -q

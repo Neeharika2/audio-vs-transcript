@@ -64,11 +64,12 @@ class DeepSeekJudge:
         model_name: str,
         api_key: str,
         base_url: str = "https://api.deepseek.com",
+        timeout: float = 60.0,
     ):
         if not api_key:
             raise ValueError("DEEPSEEK_API_KEY is required to run the DeepSeek judge")
         self.model_name = model_name
-        self.client = OpenAI(api_key=api_key, base_url=base_url)
+        self.client = OpenAI(api_key=api_key, base_url=base_url, timeout=timeout)
 
     def judge(self, prompt: str, schema: type[StructuredT]) -> StructuredT:
         expected = json.dumps(schema.model_json_schema(), indent=2)
