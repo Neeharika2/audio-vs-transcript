@@ -24,7 +24,6 @@ DEEPGRAM_API_KEY = os.environ.get("DEEPGRAM_API_KEY", "")
 DEEPGRAM_MODEL = "nova-3"
 
 # Evaluation thresholds and sampling (see docs/plan.md).
-MATCH_THRESHOLD = 0.55
 LOW_CONF_THRESHOLD = 0.6
 TIER_AUTO_ACCEPT = 98
 TIER_REVIEW = 90

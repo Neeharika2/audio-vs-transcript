@@ -48,12 +48,15 @@ Consequences that make naive line-by-line comparison wrong:
 - 1:1 pairing is insufficient: an engine that merges three sentences must be
   aligned to all three of the other engine's segments (many-to-one).
 
-**Decision for the plan:** use a two-signal alignment — time-overlap *and*
-normalized text similarity — combined into a single score matrix, then run
-Needleman–Wunsch (dynamic programming) over the two segment sequences. Add a
-post-pass that merges unmatched adjacent segments into matched neighbors to
-absorb 1:N splits. This mirrors `approach_1/src/align.py` but adds timestamps as
-a first-class signal.
+**Decision for the plan:** flatten both engines to normalized word streams and
+run one global Needleman–Wunsch over word tokens (equal words +1, gaps
+substitutions −1), penalizing a diagonal match when its interpolated timestamps
+drift beyond tolerance so a repeated phrase cannot be smeared across a dropped
+span. Regroup the aligned words into per-segment windows (merging adjacent
+windows that a single other-engine segment spans), so each comparison covers the
+same spoken content regardless of how each engine cut it. This avoids
+segment-boundary matching entirely — the source of the 1:N failure — instead of
+patching it with a post-pass.
 
 ### 2.2 "Compare aligned segments" needs a defined diff, not eyeballing
 
@@ -106,7 +109,7 @@ audio and is hard to tune.
 |---|---|---|
 | Primary engine | Faster-Whisper (local) | Already a dependency; configurable model size |
 | Secondary engine | Deepgram Nova (cloud REST) | Needs `DEEPGRAM_API_KEY`; tests use synthetic fixtures, no mock engine |
-| Alignment | Time-overlap + text-similarity score matrix → Needleman–Wunsch → 1:N merge post-pass | Handles split/merge/timestamp drift |
+| Alignment | Global word-level Needleman–Wunsch over normalized word streams (time-penalized diagonals) → window reassembly | Handles split/merge/timestamp drift; no segment-boundary matching |
 | Agreement metric | `1 - WER` over normalized words | Deterministic, matches word diff output |
 | Confidence formula | `0.40·engine_conf + 0.45·agreement + 0.15·(1 − low_conf_ratio)`; glossary escalation handled by the tier rule | Explicit, weighted, fixed weights |
 | Review tiers | `≥98` auto-accept · `90–97` review-if-technical · `<90` mandatory | Matches the user's thresholds |

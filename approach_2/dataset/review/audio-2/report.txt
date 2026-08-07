@@ -3,27 +3,7 @@ Engines: whisper, deepgram
 
 [00]    0.21-   8.07s  conf= 94  review_technical
       I have seen APC today. He is a very pleasant gentleman who is 42 years old, 344 pounds.
-[01]    8.81-  18.23s  conf= 87  mandatory
-      He is 59. He has BMA of 51. He has been overweight for 10 years since the age of 33. At his highest,
-[02]   18.51-  25.53s  conf= 87  mandatory
-      he was 358 pounds. At his lowest, 260. He is pursuing surgical attempts of weight loss
-[03]   25.53-  32.29s  conf= 85  mandatory
-      to feel good, get healthy and begin to exercise again. He wants to be able to exercise and
-[04]   32.29-  39.21s  conf= 65  mandatory
-      play volleyball. Physically, he is sluggish. He gets tired quickly. He doesn't go out often.
-[05]   39.85-  46.11s  conf= 80  mandatory
-      When he loses weight, he always regains it and he gains back more than he lost. His biggest
-[06]   46.11-  54.39s  conf= 89  mandatory
-      weight loss is 25 pounds and it was 3 months before he gained it back. He did 6 months of
-[07]   54.39-  60.73s  conf= 76  mandatory
-      not drinking alcohol and not taking in many calories. He has been on multiple commercial
-[08]   60.73-  68.61s  conf= 59  mandatory
-      weight loss programs including Slim Fast for 1 month, 1 year ago and Atkins Diet for 1 month,
-[09]   68.89-  74.55s  conf= 79  mandatory
-      2 years ago. Past medical history. He has difficulty climbing stairs, difficulty with
-[10]   74.55-  81.81s  conf= 85  mandatory
-      airline seats, tying shoes used to public seating, difficulty walking, high cholesterol and high
-[11]   81.81-  88.31s  conf= 83  mandatory
-      blood pressure. He has asthma and difficulty walking, 2 blocks are going 8 to 10 steps. He
-[12]   88.31- 100.07s  conf= 93  review_technical
-      has sleep apnea and snoring. He is diabetic on medication. He has joint pain, knee pain, back pain, foot and ankle pain, leg and foot swelling.
+[01]    8.81-  39.21s  conf= 97  review_technical
+      He is 59. He has BMA of 51. He has been overweight for 10 years since the age of 33. At his highest, he was 358 pounds. At his lowest, 260. He is pursuing surgical attempts of weight loss to feel good, get healthy and begin to exercise again. He wants to be able to exercise and play volleyball. Physically, he is sluggish. He gets tired quickly. He doesn't go out often.
+[02]   39.85- 100.07s  conf= 96  review_technical
+      When he loses weight, he always regains it and he gains back more than he lost. His biggest weight loss is 25 pounds and it was 3 months before he gained it back. He did 6 months of not drinking alcohol and not taking in many calories. He has been on multiple commercial weight loss programs including Slim Fast for 1 month, 1 year ago and Atkins Diet for 1 month, 2 years ago. Past medical history. He has difficulty climbing stairs, difficulty with airline seats, tying shoes used to public seating, difficulty walking, high cholesterol and high blood pressure. He has asthma and difficulty walking, 2 blocks are going 8 to 10 steps. He has sleep apnea and snoring. He is diabetic on medication. He has joint pain, knee pain, back pain, foot and ankle pain, leg and foot swelling.

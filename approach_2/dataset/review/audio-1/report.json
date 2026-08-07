@@ -1302,13 +1302,13 @@
     {
       "idx": 7,
       "start": 37.28,
-      "end": 42.32,
+      "end": 49.36,
       "engine_a": {
         "engine": "whisper",
         "start": 37.28,
-        "end": 42.32,
-        "text": "She does have asthma, but doesn't require daily medication for this",
-        "confidence": 0.9614,
+        "end": 49.36,
+        "text": "She does have asthma, but doesn't require daily medication for this and does not think it is plaring up. Her only medication currently is Orthoticycline and Allegra.",
+        "confidence": 0.9191,
         "words": [
           {
             "text": " She",
@@ -1353,101 +1353,7 @@
           {
             "text": " this",
             "confidence": 0.9889832139015198
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 37.239998,
-        "end": 39.16,
-        "text": "she does have asthma",
-        "confidence": 0.948,
-        "words": [
-          {
-            "text": "she",
-            "confidence": 1.0
           },
-          {
-            "text": "does",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "have",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "asthma",
-            "confidence": 0.7949219
-          }
-        ]
-      },
-      "agreement": 0.3333,
-      "diff": [
-        {
-          "text": "she",
-          "op": "match"
-        },
-        {
-          "text": "does",
-          "op": "match"
-        },
-        {
-          "text": "have",
-          "op": "match"
-        },
-        {
-          "text": "asthma",
-          "op": "match"
-        },
-        {
-          "text": "but",
-          "op": "delete"
-        },
-        {
-          "text": "doesn",
-          "op": "delete"
-        },
-        {
-          "text": "t",
-          "op": "delete"
-        },
-        {
-          "text": "require",
-          "op": "delete"
-        },
-        {
-          "text": "daily",
-          "op": "delete"
-        },
-        {
-          "text": "medication",
-          "op": "delete"
-        },
-        {
-          "text": "for",
-          "op": "delete"
-        },
-        {
-          "text": "this",
-          "op": "delete"
-        }
-      ],
-      "confidence": 68.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 8,
-      "start": 42.32,
-      "end": 45.02,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 42.32,
-        "end": 45.02,
-        "text": "and does not think it is plaring up.",
-        "confidence": 0.8615,
-        "words": [
           {
             "text": " and",
             "confidence": 0.5152854919433594
@@ -1479,16 +1385,64 @@
           {
             "text": " up.",
             "confidence": 0.9480272531509399
+          },
+          {
+            "text": " Her",
+            "confidence": 0.9872368574142456
+          },
+          {
+            "text": " only",
+            "confidence": 0.9950670003890991
+          },
+          {
+            "text": " medication",
+            "confidence": 0.9580850005149841
+          },
+          {
+            "text": " currently",
+            "confidence": 0.9219696521759033
+          },
+          {
+            "text": " is",
+            "confidence": 0.9920439124107361
+          },
+          {
+            "text": " Orthoticycline",
+            "confidence": 0.5969265818595886
+          },
+          {
+            "text": " and",
+            "confidence": 0.9699460864067078
+          },
+          {
+            "text": " Allegra.",
+            "confidence": 0.9271662533283234
           }
         ]
       },
       "engine_b": {
         "engine": "deepgram",
-        "start": 39.399998,
-        "end": 48.42494,
-        "text": "but doesn't require daily medication for this and does not think it is flaring up her only medication currently is orthotracycline",
-        "confidence": 0.9845,
+        "start": 37.239998,
+        "end": 49.544937,
+        "text": "she does have asthma but doesn't require daily medication for this and does not think it is flaring up her only medication currently is orthotracycline and allegra",
+        "confidence": 0.9794,
         "words": [
+          {
+            "text": "she",
+            "confidence": 1.0
+          },
+          {
+            "text": "does",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "have",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "asthma",
+            "confidence": 0.7949219
+          },
           {
             "text": "but",
             "confidence": 1.0
@@ -1572,42 +1526,66 @@
           {
             "text": "orthotracycline",
             "confidence": 0.7807617
+          },
+          {
+            "text": "and",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "allegra",
+            "confidence": 0.9779053
           }
         ]
       },
-      "agreement": 0.3182,
+      "agreement": 0.9286,
       "diff": [
         {
+          "text": "she",
+          "op": "match"
+        },
+        {
+          "text": "does",
+          "op": "match"
+        },
+        {
+          "text": "have",
+          "op": "match"
+        },
+        {
+          "text": "asthma",
+          "op": "match"
+        },
+        {
           "text": "but",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "doesn",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "t",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "require",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "daily",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "medication",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "for",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "this",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "and",
@@ -1643,84 +1621,39 @@
         },
         {
           "text": "her",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "only",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "medication",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "currently",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "is",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "orthotracycline",
-          "op": "insert"
+          "op": "substitute"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "allegra",
+          "op": "match"
         }
       ],
-      "confidence": 66.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 9,
-      "start": 45.58,
-      "end": 49.36,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 45.58,
-        "end": 49.36,
-        "text": "Her only medication currently is Orthoticycline and Allegra.",
-        "confidence": 0.8791748053262899,
-        "words": [
-          {
-            "text": " Her",
-            "confidence": 0.9872368574142456
-          },
-          {
-            "text": " only",
-            "confidence": 0.9950670003890991
-          },
-          {
-            "text": " medication",
-            "confidence": 0.9580850005149841
-          },
-          {
-            "text": " currently",
-            "confidence": 0.9219696521759033
-          },
-          {
-            "text": " is",
-            "confidence": 0.9920439124107361
-          },
-          {
-            "text": " Orthoticycline",
-            "confidence": 0.5969265818595886
-          },
-          {
-            "text": " and",
-            "confidence": 0.9699460864067078
-          },
-          {
-            "text": " Allegra.",
-            "confidence": 0.9271662533283234
-          }
-        ]
-      },
-      "engine_b": null,
-      "agreement": 0.0,
-      "diff": [],
-      "confidence": 50.0,
-      "tier": "mandatory",
+      "confidence": 94.0,
+      "tier": "review_technical",
       "verdict": "unreviewed",
       "correction": null
     }
@@ -1730,15 +1663,12 @@
     "sample_ids": [
       3,
       5,
-      7,
-      8,
-      9,
-      0
+      7
     ],
     "accuracy": null,
     "accepted": null,
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T04:38:27+00:00"
+  "generated_at": "2026-08-07T05:27:32+00:00"
 }

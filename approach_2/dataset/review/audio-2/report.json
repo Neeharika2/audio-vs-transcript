@@ -266,13 +266,13 @@
     {
       "idx": 1,
       "start": 8.81,
-      "end": 18.23,
+      "end": 39.21,
       "engine_a": {
         "engine": "whisper",
         "start": 8.81,
-        "end": 18.23,
-        "text": "He is 59. He has BMA of 51. He has been overweight for 10 years since the age of 33. At his highest,",
-        "confidence": 0.913,
+        "end": 39.21,
+        "text": "He is 59. He has BMA of 51. He has been overweight for 10 years since the age of 33. At his highest, he was 358 pounds. At his lowest, 260. He is pursuing surgical attempts of weight loss to feel good, get healthy and begin to exercise again. He wants to be able to exercise and play volleyball. Physically, he is sluggish. He gets tired quickly. He doesn't go out often.",
+        "confidence": 0.9349,
         "words": [
           {
             "text": " He",
@@ -365,15 +365,211 @@
           {
             "text": " highest,",
             "confidence": 0.9940899014472961
+          },
+          {
+            "text": " he",
+            "confidence": 0.969024658203125
+          },
+          {
+            "text": " was",
+            "confidence": 0.981189489364624
+          },
+          {
+            "text": " 358",
+            "confidence": 0.9857580065727234
+          },
+          {
+            "text": " pounds.",
+            "confidence": 0.9414789080619812
+          },
+          {
+            "text": " At",
+            "confidence": 0.957943320274353
+          },
+          {
+            "text": " his",
+            "confidence": 0.9676579236984253
+          },
+          {
+            "text": " lowest,",
+            "confidence": 0.9963219165802002
+          },
+          {
+            "text": " 260.",
+            "confidence": 0.9150132536888123
+          },
+          {
+            "text": " He",
+            "confidence": 0.9777186512947083
+          },
+          {
+            "text": " is",
+            "confidence": 0.9317488074302673
+          },
+          {
+            "text": " pursuing",
+            "confidence": 0.9777105450630188
+          },
+          {
+            "text": " surgical",
+            "confidence": 0.9970241189002991
+          },
+          {
+            "text": " attempts",
+            "confidence": 0.9714520573616028
+          },
+          {
+            "text": " of",
+            "confidence": 0.978405237197876
+          },
+          {
+            "text": " weight",
+            "confidence": 0.9985228180885315
+          },
+          {
+            "text": " loss",
+            "confidence": 0.9884390234947205
+          },
+          {
+            "text": " to",
+            "confidence": 0.23022283613681793
+          },
+          {
+            "text": " feel",
+            "confidence": 0.7203107476234436
+          },
+          {
+            "text": " good,",
+            "confidence": 0.9818407893180847
+          },
+          {
+            "text": " get",
+            "confidence": 0.9426247477531433
+          },
+          {
+            "text": " healthy",
+            "confidence": 0.9780521988868713
+          },
+          {
+            "text": " and",
+            "confidence": 0.7957358360290527
+          },
+          {
+            "text": " begin",
+            "confidence": 0.9579524993896484
+          },
+          {
+            "text": " to",
+            "confidence": 0.9921356439590454
+          },
+          {
+            "text": " exercise",
+            "confidence": 0.9751044511795044
+          },
+          {
+            "text": " again.",
+            "confidence": 0.9776730537414551
+          },
+          {
+            "text": " He",
+            "confidence": 0.8928563594818115
+          },
+          {
+            "text": " wants",
+            "confidence": 0.9752785563468933
+          },
+          {
+            "text": " to",
+            "confidence": 0.9970809817314148
+          },
+          {
+            "text": " be",
+            "confidence": 0.9918301701545715
+          },
+          {
+            "text": " able",
+            "confidence": 0.9943608641624451
+          },
+          {
+            "text": " to",
+            "confidence": 0.9982391595840454
+          },
+          {
+            "text": " exercise",
+            "confidence": 0.9787713885307312
+          },
+          {
+            "text": " and",
+            "confidence": 0.9834758043289185
+          },
+          {
+            "text": " play",
+            "confidence": 0.9851013422012329
+          },
+          {
+            "text": " volleyball.",
+            "confidence": 0.9833791851997375
+          },
+          {
+            "text": " Physically,",
+            "confidence": 0.9513129889965057
+          },
+          {
+            "text": " he",
+            "confidence": 0.9734280705451965
+          },
+          {
+            "text": " is",
+            "confidence": 0.9293333292007446
+          },
+          {
+            "text": " sluggish.",
+            "confidence": 0.9785855213801066
+          },
+          {
+            "text": " He",
+            "confidence": 0.973749577999115
+          },
+          {
+            "text": " gets",
+            "confidence": 0.9903175830841064
+          },
+          {
+            "text": " tired",
+            "confidence": 0.7982914447784424
+          },
+          {
+            "text": " quickly.",
+            "confidence": 0.9934930205345154
+          },
+          {
+            "text": " He",
+            "confidence": 0.97962886095047
+          },
+          {
+            "text": " doesn't",
+            "confidence": 0.912082850933075
+          },
+          {
+            "text": " go",
+            "confidence": 0.9878668785095215
+          },
+          {
+            "text": " out",
+            "confidence": 0.9943326711654663
+          },
+          {
+            "text": " often.",
+            "confidence": 0.9870637655258179
           }
         ]
       },
       "engine_b": {
         "engine": "deepgram",
         "start": 8.72,
-        "end": 17.125,
-        "text": "he is five nine he has bmi of fifty one has been overweight for ten years since the age of thirty three",
-        "confidence": 0.9773,
+        "end": 39.52,
+        "text": "he is five nine he has bmi of fifty one has been overweight for ten years since the age of thirty three at his highest he was three fifty eight pounds at his lowest two sixty he is pursuing surgical attempts of weight loss to feel good get healthy and begin to exercise again he wants to be able to exercise and play volleyball physically he is sluggish he gets tired quickly he doesn't go out often",
+        "confidence": 0.9873,
         "words": [
           {
             "text": "he",
@@ -462,193 +658,7 @@
           {
             "text": "three",
             "confidence": 0.9995117
-          }
-        ]
-      },
-      "agreement": 0.7826,
-      "diff": [
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "is",
-          "op": "match"
-        },
-        {
-          "text": "59",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "has",
-          "op": "match"
-        },
-        {
-          "text": "bmi",
-          "op": "substitute"
-        },
-        {
-          "text": "of",
-          "op": "match"
-        },
-        {
-          "text": "51",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "delete"
-        },
-        {
-          "text": "has",
-          "op": "match"
-        },
-        {
-          "text": "been",
-          "op": "match"
-        },
-        {
-          "text": "overweight",
-          "op": "match"
-        },
-        {
-          "text": "for",
-          "op": "match"
-        },
-        {
-          "text": "10",
-          "op": "match"
-        },
-        {
-          "text": "years",
-          "op": "match"
-        },
-        {
-          "text": "since",
-          "op": "match"
-        },
-        {
-          "text": "the",
-          "op": "match"
-        },
-        {
-          "text": "age",
-          "op": "match"
-        },
-        {
-          "text": "of",
-          "op": "match"
-        },
-        {
-          "text": "33",
-          "op": "match"
-        },
-        {
-          "text": "at",
-          "op": "delete"
-        },
-        {
-          "text": "his",
-          "op": "delete"
-        },
-        {
-          "text": "highest",
-          "op": "delete"
-        }
-      ],
-      "confidence": 87.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 2,
-      "start": 18.51,
-      "end": 25.53,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 18.51,
-        "end": 25.53,
-        "text": "he was 358 pounds. At his lowest, 260. He is pursuing surgical attempts of weight loss",
-        "confidence": 0.971,
-        "words": [
-          {
-            "text": " he",
-            "confidence": 0.969024658203125
           },
-          {
-            "text": " was",
-            "confidence": 0.981189489364624
-          },
-          {
-            "text": " 358",
-            "confidence": 0.9857580065727234
-          },
-          {
-            "text": " pounds.",
-            "confidence": 0.9414789080619812
-          },
-          {
-            "text": " At",
-            "confidence": 0.957943320274353
-          },
-          {
-            "text": " his",
-            "confidence": 0.9676579236984253
-          },
-          {
-            "text": " lowest,",
-            "confidence": 0.9963219165802002
-          },
-          {
-            "text": " 260.",
-            "confidence": 0.9150132536888123
-          },
-          {
-            "text": " He",
-            "confidence": 0.9777186512947083
-          },
-          {
-            "text": " is",
-            "confidence": 0.9317488074302673
-          },
-          {
-            "text": " pursuing",
-            "confidence": 0.9777105450630188
-          },
-          {
-            "text": " surgical",
-            "confidence": 0.9970241189002991
-          },
-          {
-            "text": " attempts",
-            "confidence": 0.9714520573616028
-          },
-          {
-            "text": " of",
-            "confidence": 0.978405237197876
-          },
-          {
-            "text": " weight",
-            "confidence": 0.9985228180885315
-          },
-          {
-            "text": " loss",
-            "confidence": 0.9884390234947205
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 17.525,
-        "end": 26.805,
-        "text": "at his highest he was three fifty eight pounds at his lowest two sixty he is pursuing surgical attempts of weight loss to feel good",
-        "confidence": 0.9879,
-        "words": [
           {
             "text": "at",
             "confidence": 1.0
@@ -748,197 +758,7 @@
           {
             "text": "good",
             "confidence": 0.9995117
-          }
-        ]
-      },
-      "agreement": 0.7273,
-      "diff": [
-        {
-          "text": "at",
-          "op": "insert"
-        },
-        {
-          "text": "his",
-          "op": "insert"
-        },
-        {
-          "text": "highest",
-          "op": "insert"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "was",
-          "op": "match"
-        },
-        {
-          "text": "358",
-          "op": "match"
-        },
-        {
-          "text": "pounds",
-          "op": "match"
-        },
-        {
-          "text": "at",
-          "op": "match"
-        },
-        {
-          "text": "his",
-          "op": "match"
-        },
-        {
-          "text": "lowest",
-          "op": "match"
-        },
-        {
-          "text": "260",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "is",
-          "op": "match"
-        },
-        {
-          "text": "pursuing",
-          "op": "match"
-        },
-        {
-          "text": "surgical",
-          "op": "match"
-        },
-        {
-          "text": "attempts",
-          "op": "match"
-        },
-        {
-          "text": "of",
-          "op": "match"
-        },
-        {
-          "text": "weight",
-          "op": "match"
-        },
-        {
-          "text": "loss",
-          "op": "match"
-        },
-        {
-          "text": "to",
-          "op": "insert"
-        },
-        {
-          "text": "feel",
-          "op": "insert"
-        },
-        {
-          "text": "good",
-          "op": "insert"
-        }
-      ],
-      "confidence": 87.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 3,
-      "start": 25.53,
-      "end": 32.29,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 25.53,
-        "end": 32.29,
-        "text": "to feel good, get healthy and begin to exercise again. He wants to be able to exercise and",
-        "confidence": 0.9091,
-        "words": [
-          {
-            "text": " to",
-            "confidence": 0.23022283613681793
           },
-          {
-            "text": " feel",
-            "confidence": 0.7203107476234436
-          },
-          {
-            "text": " good,",
-            "confidence": 0.9818407893180847
-          },
-          {
-            "text": " get",
-            "confidence": 0.9426247477531433
-          },
-          {
-            "text": " healthy",
-            "confidence": 0.9780521988868713
-          },
-          {
-            "text": " and",
-            "confidence": 0.7957358360290527
-          },
-          {
-            "text": " begin",
-            "confidence": 0.9579524993896484
-          },
-          {
-            "text": " to",
-            "confidence": 0.9921356439590454
-          },
-          {
-            "text": " exercise",
-            "confidence": 0.9751044511795044
-          },
-          {
-            "text": " again.",
-            "confidence": 0.9776730537414551
-          },
-          {
-            "text": " He",
-            "confidence": 0.8928563594818115
-          },
-          {
-            "text": " wants",
-            "confidence": 0.9752785563468933
-          },
-          {
-            "text": " to",
-            "confidence": 0.9970809817314148
-          },
-          {
-            "text": " be",
-            "confidence": 0.9918301701545715
-          },
-          {
-            "text": " able",
-            "confidence": 0.9943608641624451
-          },
-          {
-            "text": " to",
-            "confidence": 0.9982391595840454
-          },
-          {
-            "text": " exercise",
-            "confidence": 0.9787713885307312
-          },
-          {
-            "text": " and",
-            "confidence": 0.9834758043289185
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 27.045,
-        "end": 33.6,
-        "text": "get healthy and begin to exercise again he wants to be able to exercise and play volleyball",
-        "confidence": 0.9979,
-        "words": [
           {
             "text": "get",
             "confidence": 1.0
@@ -1006,22 +826,230 @@
           {
             "text": "volleyball",
             "confidence": 0.99560547
+          },
+          {
+            "text": "physically",
+            "confidence": 0.9894206
+          },
+          {
+            "text": "he",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "is",
+            "confidence": 0.9091797
+          },
+          {
+            "text": "sluggish",
+            "confidence": 0.9946289
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "gets",
+            "confidence": 0.9951172
+          },
+          {
+            "text": "tired",
+            "confidence": 0.9873047
+          },
+          {
+            "text": "quickly",
+            "confidence": 0.99560547
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "doesn't",
+            "confidence": 0.98999023
+          },
+          {
+            "text": "go",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "out",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "often",
+            "confidence": 0.99853516
           }
         ]
       },
-      "agreement": 0.7222,
+      "agreement": 0.9726,
       "diff": [
         {
-          "text": "to",
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "59",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "bmi",
+          "op": "substitute"
+        },
+        {
+          "text": "of",
+          "op": "match"
+        },
+        {
+          "text": "51",
+          "op": "match"
+        },
+        {
+          "text": "he",
           "op": "delete"
+        },
+        {
+          "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "been",
+          "op": "match"
+        },
+        {
+          "text": "overweight",
+          "op": "match"
+        },
+        {
+          "text": "for",
+          "op": "match"
+        },
+        {
+          "text": "10",
+          "op": "match"
+        },
+        {
+          "text": "years",
+          "op": "match"
+        },
+        {
+          "text": "since",
+          "op": "match"
+        },
+        {
+          "text": "the",
+          "op": "match"
+        },
+        {
+          "text": "age",
+          "op": "match"
+        },
+        {
+          "text": "of",
+          "op": "match"
+        },
+        {
+          "text": "33",
+          "op": "match"
+        },
+        {
+          "text": "at",
+          "op": "match"
+        },
+        {
+          "text": "his",
+          "op": "match"
+        },
+        {
+          "text": "highest",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "was",
+          "op": "match"
+        },
+        {
+          "text": "358",
+          "op": "match"
+        },
+        {
+          "text": "pounds",
+          "op": "match"
+        },
+        {
+          "text": "at",
+          "op": "match"
+        },
+        {
+          "text": "his",
+          "op": "match"
+        },
+        {
+          "text": "lowest",
+          "op": "match"
+        },
+        {
+          "text": "260",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "pursuing",
+          "op": "match"
+        },
+        {
+          "text": "surgical",
+          "op": "match"
+        },
+        {
+          "text": "attempts",
+          "op": "match"
+        },
+        {
+          "text": "of",
+          "op": "match"
+        },
+        {
+          "text": "weight",
+          "op": "match"
+        },
+        {
+          "text": "loss",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
         },
         {
           "text": "feel",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "good",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "get",
@@ -1085,125 +1113,11 @@
         },
         {
           "text": "play",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "volleyball",
-          "op": "insert"
-        }
-      ],
-      "confidence": 85.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 4,
-      "start": 32.29,
-      "end": 39.21,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 32.29,
-        "end": 39.21,
-        "text": "play volleyball. Physically, he is sluggish. He gets tired quickly. He doesn't go out often.",
-        "confidence": 0.9612,
-        "words": [
-          {
-            "text": " play",
-            "confidence": 0.9851013422012329
-          },
-          {
-            "text": " volleyball.",
-            "confidence": 0.9833791851997375
-          },
-          {
-            "text": " Physically,",
-            "confidence": 0.9513129889965057
-          },
-          {
-            "text": " he",
-            "confidence": 0.9734280705451965
-          },
-          {
-            "text": " is",
-            "confidence": 0.9293333292007446
-          },
-          {
-            "text": " sluggish.",
-            "confidence": 0.9785855213801066
-          },
-          {
-            "text": " He",
-            "confidence": 0.973749577999115
-          },
-          {
-            "text": " gets",
-            "confidence": 0.9903175830841064
-          },
-          {
-            "text": " tired",
-            "confidence": 0.7982914447784424
-          },
-          {
-            "text": " quickly.",
-            "confidence": 0.9934930205345154
-          },
-          {
-            "text": " He",
-            "confidence": 0.97962886095047
-          },
-          {
-            "text": " doesn't",
-            "confidence": 0.912082850933075
-          },
-          {
-            "text": " go",
-            "confidence": 0.9878668785095215
-          },
-          {
-            "text": " out",
-            "confidence": 0.9943326711654663
-          },
-          {
-            "text": " often.",
-            "confidence": 0.9870637655258179
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 33.92,
-        "end": 35.68,
-        "text": "physically he is sluggish",
-        "confidence": 0.9731,
-        "words": [
-          {
-            "text": "physically",
-            "confidence": 0.9894206
-          },
-          {
-            "text": "he",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "is",
-            "confidence": 0.9091797
-          },
-          {
-            "text": "sluggish",
-            "confidence": 0.9946289
-          }
-        ]
-      },
-      "agreement": 0.25,
-      "diff": [
-        {
-          "text": "play",
-          "op": "delete"
-        },
-        {
-          "text": "volleyball",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "physically",
@@ -1223,60 +1137,60 @@
         },
         {
           "text": "he",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "gets",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "tired",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "quickly",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "he",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "doesn",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "t",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "go",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "out",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "often",
-          "op": "delete"
+          "op": "match"
         }
       ],
-      "confidence": 65.0,
-      "tier": "mandatory",
+      "confidence": 97.0,
+      "tier": "review_technical",
       "verdict": "unreviewed",
       "correction": null
     },
     {
-      "idx": 5,
+      "idx": 2,
       "start": 39.85,
-      "end": 46.11,
+      "end": 100.07,
       "engine_a": {
         "engine": "whisper",
         "start": 39.85,
-        "end": 46.11,
-        "text": "When he loses weight, he always regains it and he gains back more than he lost. His biggest",
-        "confidence": 0.9578,
+        "end": 100.07,
+        "text": "When he loses weight, he always regains it and he gains back more than he lost. His biggest weight loss is 25 pounds and it was 3 months before he gained it back. He did 6 months of not drinking alcohol and not taking in many calories. He has been on multiple commercial weight loss programs including Slim Fast for 1 month, 1 year ago and Atkins Diet for 1 month, 2 years ago. Past medical history. He has difficulty climbing stairs, difficulty with airline seats, tying shoes used to public seating, difficulty walking, high cholesterol and high blood pressure. He has asthma and difficulty walking, 2 blocks are going 8 to 10 steps. He has sleep apnea and snoring. He is diabetic on medication. He has joint pain, knee pain, back pain, foot and ankle pain, leg and foot swelling.",
+        "confidence": 0.8995,
         "words": [
           {
             "text": " When",
@@ -1349,217 +1263,7 @@
           {
             "text": " biggest",
             "confidence": 0.9964163303375244
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 37.76,
-        "end": 45.175003,
-        "text": "he doesn't go out often when he lose weight he always regains it and he gains back more than he lost",
-        "confidence": 0.9794,
-        "words": [
-          {
-            "text": "he",
-            "confidence": 1.0
           },
-          {
-            "text": "doesn't",
-            "confidence": 0.98999023
-          },
-          {
-            "text": "go",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "out",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "often",
-            "confidence": 0.99853516
-          },
-          {
-            "text": "when",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "he",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "lose",
-            "confidence": 0.63134766
-          },
-          {
-            "text": "weight",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "always",
-            "confidence": 1.0
-          },
-          {
-            "text": "regains",
-            "confidence": 0.9970703
-          },
-          {
-            "text": "it",
-            "confidence": 0.9641113
-          },
-          {
-            "text": "and",
-            "confidence": 1.0
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "gains",
-            "confidence": 0.99609375
-          },
-          {
-            "text": "back",
-            "confidence": 0.9970703
-          },
-          {
-            "text": "more",
-            "confidence": 1.0
-          },
-          {
-            "text": "than",
-            "confidence": 1.0
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "lost",
-            "confidence": 1.0
-          }
-        ]
-      },
-      "agreement": 0.5909,
-      "diff": [
-        {
-          "text": "he",
-          "op": "insert"
-        },
-        {
-          "text": "doesn",
-          "op": "insert"
-        },
-        {
-          "text": "t",
-          "op": "insert"
-        },
-        {
-          "text": "go",
-          "op": "insert"
-        },
-        {
-          "text": "out",
-          "op": "insert"
-        },
-        {
-          "text": "often",
-          "op": "insert"
-        },
-        {
-          "text": "when",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "lose",
-          "op": "substitute"
-        },
-        {
-          "text": "weight",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "always",
-          "op": "match"
-        },
-        {
-          "text": "regains",
-          "op": "match"
-        },
-        {
-          "text": "it",
-          "op": "match"
-        },
-        {
-          "text": "and",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "gains",
-          "op": "match"
-        },
-        {
-          "text": "back",
-          "op": "match"
-        },
-        {
-          "text": "more",
-          "op": "match"
-        },
-        {
-          "text": "than",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "lost",
-          "op": "match"
-        },
-        {
-          "text": "his",
-          "op": "delete"
-        },
-        {
-          "text": "biggest",
-          "op": "delete"
-        }
-      ],
-      "confidence": 80.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 6,
-      "start": 46.11,
-      "end": 54.39,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 46.11,
-        "end": 54.39,
-        "text": "weight loss is 25 pounds and it was 3 months before he gained it back. He did 6 months of",
-        "confidence": 0.9319,
-        "words": [
           {
             "text": " weight",
             "confidence": 0.9978165626525879
@@ -1639,241 +1343,7 @@
           {
             "text": " of",
             "confidence": 0.9812498688697815
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 45.415,
-        "end": 56.07,
-        "text": "his biggest weight loss is twenty five pounds and it was three months before he gained it back he did six months of not drinking alcohol",
-        "confidence": 0.9959,
-        "words": [
-          {
-            "text": "his",
-            "confidence": 1.0
           },
-          {
-            "text": "biggest",
-            "confidence": 1.0
-          },
-          {
-            "text": "weight",
-            "confidence": 1.0
-          },
-          {
-            "text": "loss",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "is",
-            "confidence": 1.0
-          },
-          {
-            "text": "twenty",
-            "confidence": 1.0
-          },
-          {
-            "text": "five",
-            "confidence": 1.0
-          },
-          {
-            "text": "pounds",
-            "confidence": 0.9921875
-          },
-          {
-            "text": "and",
-            "confidence": 1.0
-          },
-          {
-            "text": "it",
-            "confidence": 1.0
-          },
-          {
-            "text": "was",
-            "confidence": 1.0
-          },
-          {
-            "text": "three",
-            "confidence": 1.0
-          },
-          {
-            "text": "months",
-            "confidence": 1.0
-          },
-          {
-            "text": "before",
-            "confidence": 1.0
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "gained",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "it",
-            "confidence": 0.91015625
-          },
-          {
-            "text": "back",
-            "confidence": 1.0
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "did",
-            "confidence": 1.0
-          },
-          {
-            "text": "six",
-            "confidence": 1.0
-          },
-          {
-            "text": "months",
-            "confidence": 1.0
-          },
-          {
-            "text": "of",
-            "confidence": 1.0
-          },
-          {
-            "text": "not",
-            "confidence": 0.9941406
-          },
-          {
-            "text": "drinking",
-            "confidence": 1.0
-          },
-          {
-            "text": "alcohol",
-            "confidence": 1.0
-          }
-        ]
-      },
-      "agreement": 0.8,
-      "diff": [
-        {
-          "text": "his",
-          "op": "insert"
-        },
-        {
-          "text": "biggest",
-          "op": "insert"
-        },
-        {
-          "text": "weight",
-          "op": "match"
-        },
-        {
-          "text": "loss",
-          "op": "match"
-        },
-        {
-          "text": "is",
-          "op": "match"
-        },
-        {
-          "text": "25",
-          "op": "match"
-        },
-        {
-          "text": "pounds",
-          "op": "match"
-        },
-        {
-          "text": "and",
-          "op": "match"
-        },
-        {
-          "text": "it",
-          "op": "match"
-        },
-        {
-          "text": "was",
-          "op": "match"
-        },
-        {
-          "text": "3",
-          "op": "match"
-        },
-        {
-          "text": "months",
-          "op": "match"
-        },
-        {
-          "text": "before",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "gained",
-          "op": "match"
-        },
-        {
-          "text": "it",
-          "op": "match"
-        },
-        {
-          "text": "back",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "did",
-          "op": "match"
-        },
-        {
-          "text": "6",
-          "op": "match"
-        },
-        {
-          "text": "months",
-          "op": "match"
-        },
-        {
-          "text": "of",
-          "op": "match"
-        },
-        {
-          "text": "not",
-          "op": "insert"
-        },
-        {
-          "text": "drinking",
-          "op": "insert"
-        },
-        {
-          "text": "alcohol",
-          "op": "insert"
-        }
-      ],
-      "confidence": 89.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 7,
-      "start": 54.39,
-      "end": 60.73,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 54.39,
-        "end": 60.73,
-        "text": "not drinking alcohol and not taking in many calories. He has been on multiple commercial",
-        "confidence": 0.8912,
-        "words": [
           {
             "text": " not",
             "confidence": 0.11247795820236206
@@ -1933,185 +1403,7 @@
           {
             "text": " commercial",
             "confidence": 0.9525138139724731
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 56.15,
-        "end": 63.99,
-        "text": "and not taking in many calories he has been on multiple commercial weight loss programs including slimfast",
-        "confidence": 0.9893,
-        "words": [
-          {
-            "text": "and",
-            "confidence": 0.9902344
           },
-          {
-            "text": "not",
-            "confidence": 1.0
-          },
-          {
-            "text": "taking",
-            "confidence": 1.0
-          },
-          {
-            "text": "in",
-            "confidence": 0.9970703
-          },
-          {
-            "text": "many",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "calories",
-            "confidence": 1.0
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "has",
-            "confidence": 1.0
-          },
-          {
-            "text": "been",
-            "confidence": 1.0
-          },
-          {
-            "text": "on",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "multiple",
-            "confidence": 1.0
-          },
-          {
-            "text": "commercial",
-            "confidence": 1.0
-          },
-          {
-            "text": "weight",
-            "confidence": 1.0
-          },
-          {
-            "text": "loss",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "programs",
-            "confidence": 0.91186523
-          },
-          {
-            "text": "including",
-            "confidence": 1.0
-          },
-          {
-            "text": "slimfast",
-            "confidence": 0.92297363
-          }
-        ]
-      },
-      "agreement": 0.5294,
-      "diff": [
-        {
-          "text": "not",
-          "op": "delete"
-        },
-        {
-          "text": "drinking",
-          "op": "delete"
-        },
-        {
-          "text": "alcohol",
-          "op": "delete"
-        },
-        {
-          "text": "and",
-          "op": "match"
-        },
-        {
-          "text": "not",
-          "op": "match"
-        },
-        {
-          "text": "taking",
-          "op": "match"
-        },
-        {
-          "text": "in",
-          "op": "match"
-        },
-        {
-          "text": "many",
-          "op": "match"
-        },
-        {
-          "text": "calories",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "has",
-          "op": "match"
-        },
-        {
-          "text": "been",
-          "op": "match"
-        },
-        {
-          "text": "on",
-          "op": "match"
-        },
-        {
-          "text": "multiple",
-          "op": "match"
-        },
-        {
-          "text": "commercial",
-          "op": "match"
-        },
-        {
-          "text": "weight",
-          "op": "insert"
-        },
-        {
-          "text": "loss",
-          "op": "insert"
-        },
-        {
-          "text": "programs",
-          "op": "insert"
-        },
-        {
-          "text": "including",
-          "op": "insert"
-        },
-        {
-          "text": "slimfast",
-          "op": "insert"
-        }
-      ],
-      "confidence": 76.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 8,
-      "start": 60.73,
-      "end": 68.61,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 60.73,
-        "end": 68.61,
-        "text": "weight loss programs including Slim Fast for 1 month, 1 year ago and Atkins Diet for 1 month,",
-        "confidence": 0.7711,
-        "words": [
           {
             "text": " weight",
             "confidence": 0.9940191507339478
@@ -2183,133 +1475,7 @@
           {
             "text": " month,",
             "confidence": 0.9773412346839905
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 63.99,
-        "end": 66.07,
-        "text": "for one month one year ago",
-        "confidence": 0.9231,
-        "words": [
-          {
-            "text": "for",
-            "confidence": 0.98535156
           },
-          {
-            "text": "one",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "month",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "one",
-            "confidence": 0.7006836
-          },
-          {
-            "text": "year",
-            "confidence": 0.9902344
-          },
-          {
-            "text": "ago",
-            "confidence": 0.8664551
-          }
-        ]
-      },
-      "agreement": 0.3333,
-      "diff": [
-        {
-          "text": "weight",
-          "op": "delete"
-        },
-        {
-          "text": "loss",
-          "op": "delete"
-        },
-        {
-          "text": "programs",
-          "op": "delete"
-        },
-        {
-          "text": "including",
-          "op": "delete"
-        },
-        {
-          "text": "slim",
-          "op": "delete"
-        },
-        {
-          "text": "fast",
-          "op": "delete"
-        },
-        {
-          "text": "for",
-          "op": "match"
-        },
-        {
-          "text": "1",
-          "op": "match"
-        },
-        {
-          "text": "month",
-          "op": "match"
-        },
-        {
-          "text": "1",
-          "op": "match"
-        },
-        {
-          "text": "year",
-          "op": "match"
-        },
-        {
-          "text": "ago",
-          "op": "match"
-        },
-        {
-          "text": "and",
-          "op": "delete"
-        },
-        {
-          "text": "atkins",
-          "op": "delete"
-        },
-        {
-          "text": "diet",
-          "op": "delete"
-        },
-        {
-          "text": "for",
-          "op": "delete"
-        },
-        {
-          "text": "1",
-          "op": "delete"
-        },
-        {
-          "text": "month",
-          "op": "delete"
-        }
-      ],
-      "confidence": 59.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 9,
-      "start": 68.89,
-      "end": 74.55,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 68.89,
-        "end": 74.55,
-        "text": "2 years ago. Past medical history. He has difficulty climbing stairs, difficulty with",
-        "confidence": 0.8776,
-        "words": [
           {
             "text": " 2",
             "confidence": 0.9836081862449646
@@ -2361,145 +1527,7 @@
           {
             "text": " with",
             "confidence": 0.9880604147911072
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 70.395,
-        "end": 75.915,
-        "text": "past medical history he has difficulty climbing stairs difficulty with airline seats",
-        "confidence": 0.9948,
-        "words": [
-          {
-            "text": "past",
-            "confidence": 0.99902344
           },
-          {
-            "text": "medical",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "history",
-            "confidence": 0.953125
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "has",
-            "confidence": 1.0
-          },
-          {
-            "text": "difficulty",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "climbing",
-            "confidence": 1.0
-          },
-          {
-            "text": "stairs",
-            "confidence": 0.99658203
-          },
-          {
-            "text": "difficulty",
-            "confidence": 1.0
-          },
-          {
-            "text": "with",
-            "confidence": 1.0
-          },
-          {
-            "text": "airline",
-            "confidence": 0.99316406
-          },
-          {
-            "text": "seats",
-            "confidence": 0.9970703
-          }
-        ]
-      },
-      "agreement": 0.6154,
-      "diff": [
-        {
-          "text": "2",
-          "op": "delete"
-        },
-        {
-          "text": "years",
-          "op": "delete"
-        },
-        {
-          "text": "ago",
-          "op": "delete"
-        },
-        {
-          "text": "past",
-          "op": "match"
-        },
-        {
-          "text": "medical",
-          "op": "match"
-        },
-        {
-          "text": "history",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "has",
-          "op": "match"
-        },
-        {
-          "text": "difficulty",
-          "op": "match"
-        },
-        {
-          "text": "climbing",
-          "op": "match"
-        },
-        {
-          "text": "stairs",
-          "op": "match"
-        },
-        {
-          "text": "difficulty",
-          "op": "match"
-        },
-        {
-          "text": "with",
-          "op": "match"
-        },
-        {
-          "text": "airline",
-          "op": "insert"
-        },
-        {
-          "text": "seats",
-          "op": "insert"
-        }
-      ],
-      "confidence": 79.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 10,
-      "start": 74.55,
-      "end": 81.81,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 74.55,
-        "end": 81.81,
-        "text": "airline seats, tying shoes used to public seating, difficulty walking, high cholesterol and high",
-        "confidence": 0.9316,
-        "words": [
           {
             "text": " airline",
             "confidence": 0.8584712147712708
@@ -2555,157 +1583,7 @@
           {
             "text": " high",
             "confidence": 0.9891738891601562
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 76.155,
-        "end": 82.84,
-        "text": "tying shoes used to public seating difficulty walking high cholesterol and high blood pressure",
-        "confidence": 0.9698,
-        "words": [
-          {
-            "text": "tying",
-            "confidence": 0.99316406
           },
-          {
-            "text": "shoes",
-            "confidence": 1.0
-          },
-          {
-            "text": "used",
-            "confidence": 0.64208984
-          },
-          {
-            "text": "to",
-            "confidence": 0.9819336
-          },
-          {
-            "text": "public",
-            "confidence": 1.0
-          },
-          {
-            "text": "seating",
-            "confidence": 0.986084
-          },
-          {
-            "text": "difficulty",
-            "confidence": 1.0
-          },
-          {
-            "text": "walking",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "high",
-            "confidence": 1.0
-          },
-          {
-            "text": "cholesterol",
-            "confidence": 0.97753906
-          },
-          {
-            "text": "and",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "high",
-            "confidence": 1.0
-          },
-          {
-            "text": "blood",
-            "confidence": 1.0
-          },
-          {
-            "text": "pressure",
-            "confidence": 0.99902344
-          }
-        ]
-      },
-      "agreement": 0.7143,
-      "diff": [
-        {
-          "text": "airline",
-          "op": "delete"
-        },
-        {
-          "text": "seats",
-          "op": "delete"
-        },
-        {
-          "text": "tying",
-          "op": "match"
-        },
-        {
-          "text": "shoes",
-          "op": "match"
-        },
-        {
-          "text": "used",
-          "op": "match"
-        },
-        {
-          "text": "to",
-          "op": "match"
-        },
-        {
-          "text": "public",
-          "op": "match"
-        },
-        {
-          "text": "seating",
-          "op": "match"
-        },
-        {
-          "text": "difficulty",
-          "op": "match"
-        },
-        {
-          "text": "walking",
-          "op": "match"
-        },
-        {
-          "text": "high",
-          "op": "match"
-        },
-        {
-          "text": "cholesterol",
-          "op": "match"
-        },
-        {
-          "text": "and",
-          "op": "match"
-        },
-        {
-          "text": "high",
-          "op": "match"
-        },
-        {
-          "text": "blood",
-          "op": "insert"
-        },
-        {
-          "text": "pressure",
-          "op": "insert"
-        }
-      ],
-      "confidence": 85.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 11,
-      "start": 81.81,
-      "end": 88.31,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 81.81,
-        "end": 88.31,
-        "text": "blood pressure. He has asthma and difficulty walking, 2 blocks are going 8 to 10 steps. He",
-        "confidence": 0.8377,
-        "words": [
           {
             "text": " blood",
             "confidence": 0.3484976887702942
@@ -2773,189 +1651,7 @@
           {
             "text": " He",
             "confidence": 0.9487267732620239
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 83.24,
-        "end": 89.96,
-        "text": "he has asthma and difficulty walking two blocks are going eight to ten steps he has sleep apnea",
-        "confidence": 0.9826,
-        "words": [
-          {
-            "text": "he",
-            "confidence": 1.0
           },
-          {
-            "text": "has",
-            "confidence": 1.0
-          },
-          {
-            "text": "asthma",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "and",
-            "confidence": 0.96240234
-          },
-          {
-            "text": "difficulty",
-            "confidence": 1.0
-          },
-          {
-            "text": "walking",
-            "confidence": 0.84814453
-          },
-          {
-            "text": "two",
-            "confidence": 0.9970703
-          },
-          {
-            "text": "blocks",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "are",
-            "confidence": 0.9614258
-          },
-          {
-            "text": "going",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "eight",
-            "confidence": 0.94921875
-          },
-          {
-            "text": "to",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "ten",
-            "confidence": 1.0
-          },
-          {
-            "text": "steps",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "has",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "sleep",
-            "confidence": 0.9980469
-          },
-          {
-            "text": "apnea",
-            "confidence": 0.9790039
-          }
-        ]
-      },
-      "agreement": 0.7222,
-      "diff": [
-        {
-          "text": "blood",
-          "op": "delete"
-        },
-        {
-          "text": "pressure",
-          "op": "delete"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "has",
-          "op": "match"
-        },
-        {
-          "text": "asthma",
-          "op": "match"
-        },
-        {
-          "text": "and",
-          "op": "match"
-        },
-        {
-          "text": "difficulty",
-          "op": "match"
-        },
-        {
-          "text": "walking",
-          "op": "match"
-        },
-        {
-          "text": "2",
-          "op": "match"
-        },
-        {
-          "text": "blocks",
-          "op": "match"
-        },
-        {
-          "text": "are",
-          "op": "match"
-        },
-        {
-          "text": "going",
-          "op": "match"
-        },
-        {
-          "text": "8",
-          "op": "match"
-        },
-        {
-          "text": "to",
-          "op": "match"
-        },
-        {
-          "text": "10",
-          "op": "match"
-        },
-        {
-          "text": "steps",
-          "op": "match"
-        },
-        {
-          "text": "he",
-          "op": "match"
-        },
-        {
-          "text": "has",
-          "op": "insert"
-        },
-        {
-          "text": "sleep",
-          "op": "insert"
-        },
-        {
-          "text": "apnea",
-          "op": "insert"
-        }
-      ],
-      "confidence": 83.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 12,
-      "start": 88.31,
-      "end": 100.07,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 88.31,
-        "end": 100.07,
-        "text": "has sleep apnea and snoring. He is diabetic on medication. He has joint pain, knee pain, back pain, foot and ankle pain, leg and foot swelling.",
-        "confidence": 0.9621,
-        "words": [
           {
             "text": " has",
             "confidence": 0.9821104407310486
@@ -3064,11 +1760,483 @@
       },
       "engine_b": {
         "engine": "deepgram",
-        "start": 90.03999,
+        "start": 39.84,
         "end": 100.248314,
-        "text": "and snoring he is diabetic on medication he has joint pain knee pain back pain foot and ankle pain leg and foot swelling",
-        "confidence": 0.9489,
+        "text": "when he lose weight he always regains it and he gains back more than he lost his biggest weight loss is twenty five pounds and it was three months before he gained it back he did six months of not drinking alcohol and not taking in many calories he has been on multiple commercial weight loss programs including slimfast for one month one year ago and atkins died for one month two years ago past medical history he has difficulty climbing stairs difficulty with airline seats tying shoes used to public seating difficulty walking high cholesterol and high blood pressure he has asthma and difficulty walking two blocks are going eight to ten steps he has sleep apnea and snoring he is diabetic on medication he has joint pain knee pain back pain foot and ankle pain leg and foot swelling",
+        "confidence": 0.9758,
         "words": [
+          {
+            "text": "when",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "he",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "lose",
+            "confidence": 0.63134766
+          },
+          {
+            "text": "weight",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "always",
+            "confidence": 1.0
+          },
+          {
+            "text": "regains",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "it",
+            "confidence": 0.9641113
+          },
+          {
+            "text": "and",
+            "confidence": 1.0
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "gains",
+            "confidence": 0.99609375
+          },
+          {
+            "text": "back",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "more",
+            "confidence": 1.0
+          },
+          {
+            "text": "than",
+            "confidence": 1.0
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "lost",
+            "confidence": 1.0
+          },
+          {
+            "text": "his",
+            "confidence": 1.0
+          },
+          {
+            "text": "biggest",
+            "confidence": 1.0
+          },
+          {
+            "text": "weight",
+            "confidence": 1.0
+          },
+          {
+            "text": "loss",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "is",
+            "confidence": 1.0
+          },
+          {
+            "text": "twenty",
+            "confidence": 1.0
+          },
+          {
+            "text": "five",
+            "confidence": 1.0
+          },
+          {
+            "text": "pounds",
+            "confidence": 0.9921875
+          },
+          {
+            "text": "and",
+            "confidence": 1.0
+          },
+          {
+            "text": "it",
+            "confidence": 1.0
+          },
+          {
+            "text": "was",
+            "confidence": 1.0
+          },
+          {
+            "text": "three",
+            "confidence": 1.0
+          },
+          {
+            "text": "months",
+            "confidence": 1.0
+          },
+          {
+            "text": "before",
+            "confidence": 1.0
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "gained",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "it",
+            "confidence": 0.91015625
+          },
+          {
+            "text": "back",
+            "confidence": 1.0
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "did",
+            "confidence": 1.0
+          },
+          {
+            "text": "six",
+            "confidence": 1.0
+          },
+          {
+            "text": "months",
+            "confidence": 1.0
+          },
+          {
+            "text": "of",
+            "confidence": 1.0
+          },
+          {
+            "text": "not",
+            "confidence": 0.9941406
+          },
+          {
+            "text": "drinking",
+            "confidence": 1.0
+          },
+          {
+            "text": "alcohol",
+            "confidence": 1.0
+          },
+          {
+            "text": "and",
+            "confidence": 0.9902344
+          },
+          {
+            "text": "not",
+            "confidence": 1.0
+          },
+          {
+            "text": "taking",
+            "confidence": 1.0
+          },
+          {
+            "text": "in",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "many",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "calories",
+            "confidence": 1.0
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "has",
+            "confidence": 1.0
+          },
+          {
+            "text": "been",
+            "confidence": 1.0
+          },
+          {
+            "text": "on",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "multiple",
+            "confidence": 1.0
+          },
+          {
+            "text": "commercial",
+            "confidence": 1.0
+          },
+          {
+            "text": "weight",
+            "confidence": 1.0
+          },
+          {
+            "text": "loss",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "programs",
+            "confidence": 0.91186523
+          },
+          {
+            "text": "including",
+            "confidence": 1.0
+          },
+          {
+            "text": "slimfast",
+            "confidence": 0.92297363
+          },
+          {
+            "text": "for",
+            "confidence": 0.98535156
+          },
+          {
+            "text": "one",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "month",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "one",
+            "confidence": 0.7006836
+          },
+          {
+            "text": "year",
+            "confidence": 0.9902344
+          },
+          {
+            "text": "ago",
+            "confidence": 0.8664551
+          },
+          {
+            "text": "and",
+            "confidence": 0.9873047
+          },
+          {
+            "text": "atkins",
+            "confidence": 0.8828125
+          },
+          {
+            "text": "died",
+            "confidence": 0.8886719
+          },
+          {
+            "text": "for",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "one",
+            "confidence": 1.0
+          },
+          {
+            "text": "month",
+            "confidence": 1.0
+          },
+          {
+            "text": "two",
+            "confidence": 0.96875
+          },
+          {
+            "text": "years",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "ago",
+            "confidence": 0.9995117
+          },
+          {
+            "text": "past",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "medical",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "history",
+            "confidence": 0.953125
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "has",
+            "confidence": 1.0
+          },
+          {
+            "text": "difficulty",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "climbing",
+            "confidence": 1.0
+          },
+          {
+            "text": "stairs",
+            "confidence": 0.99658203
+          },
+          {
+            "text": "difficulty",
+            "confidence": 1.0
+          },
+          {
+            "text": "with",
+            "confidence": 1.0
+          },
+          {
+            "text": "airline",
+            "confidence": 0.99316406
+          },
+          {
+            "text": "seats",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "tying",
+            "confidence": 0.99316406
+          },
+          {
+            "text": "shoes",
+            "confidence": 1.0
+          },
+          {
+            "text": "used",
+            "confidence": 0.64208984
+          },
+          {
+            "text": "to",
+            "confidence": 0.9819336
+          },
+          {
+            "text": "public",
+            "confidence": 1.0
+          },
+          {
+            "text": "seating",
+            "confidence": 0.986084
+          },
+          {
+            "text": "difficulty",
+            "confidence": 1.0
+          },
+          {
+            "text": "walking",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "high",
+            "confidence": 1.0
+          },
+          {
+            "text": "cholesterol",
+            "confidence": 0.97753906
+          },
+          {
+            "text": "and",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "high",
+            "confidence": 1.0
+          },
+          {
+            "text": "blood",
+            "confidence": 1.0
+          },
+          {
+            "text": "pressure",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "has",
+            "confidence": 1.0
+          },
+          {
+            "text": "asthma",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "and",
+            "confidence": 0.96240234
+          },
+          {
+            "text": "difficulty",
+            "confidence": 1.0
+          },
+          {
+            "text": "walking",
+            "confidence": 0.84814453
+          },
+          {
+            "text": "two",
+            "confidence": 0.9970703
+          },
+          {
+            "text": "blocks",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "are",
+            "confidence": 0.9614258
+          },
+          {
+            "text": "going",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "eight",
+            "confidence": 0.94921875
+          },
+          {
+            "text": "to",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "ten",
+            "confidence": 1.0
+          },
+          {
+            "text": "steps",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "he",
+            "confidence": 1.0
+          },
+          {
+            "text": "has",
+            "confidence": 0.99902344
+          },
+          {
+            "text": "sleep",
+            "confidence": 0.9980469
+          },
+          {
+            "text": "apnea",
+            "confidence": 0.9790039
+          },
           {
             "text": "and",
             "confidence": 0.76464844
@@ -3163,19 +2331,479 @@
           }
         ]
       },
-      "agreement": 0.8846,
+      "agreement": 0.9716,
       "diff": [
         {
+          "text": "when",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "lose",
+          "op": "substitute"
+        },
+        {
+          "text": "weight",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "always",
+          "op": "match"
+        },
+        {
+          "text": "regains",
+          "op": "match"
+        },
+        {
+          "text": "it",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "gains",
+          "op": "match"
+        },
+        {
+          "text": "back",
+          "op": "match"
+        },
+        {
+          "text": "more",
+          "op": "match"
+        },
+        {
+          "text": "than",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "lost",
+          "op": "match"
+        },
+        {
+          "text": "his",
+          "op": "match"
+        },
+        {
+          "text": "biggest",
+          "op": "match"
+        },
+        {
+          "text": "weight",
+          "op": "match"
+        },
+        {
+          "text": "loss",
+          "op": "match"
+        },
+        {
+          "text": "is",
+          "op": "match"
+        },
+        {
+          "text": "25",
+          "op": "match"
+        },
+        {
+          "text": "pounds",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "it",
+          "op": "match"
+        },
+        {
+          "text": "was",
+          "op": "match"
+        },
+        {
+          "text": "3",
+          "op": "match"
+        },
+        {
+          "text": "months",
+          "op": "match"
+        },
+        {
+          "text": "before",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "gained",
+          "op": "match"
+        },
+        {
+          "text": "it",
+          "op": "match"
+        },
+        {
+          "text": "back",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "did",
+          "op": "match"
+        },
+        {
+          "text": "6",
+          "op": "match"
+        },
+        {
+          "text": "months",
+          "op": "match"
+        },
+        {
+          "text": "of",
+          "op": "match"
+        },
+        {
+          "text": "not",
+          "op": "match"
+        },
+        {
+          "text": "drinking",
+          "op": "match"
+        },
+        {
+          "text": "alcohol",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "not",
+          "op": "match"
+        },
+        {
+          "text": "taking",
+          "op": "match"
+        },
+        {
+          "text": "in",
+          "op": "match"
+        },
+        {
+          "text": "many",
+          "op": "match"
+        },
+        {
+          "text": "calories",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
           "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "been",
+          "op": "match"
+        },
+        {
+          "text": "on",
+          "op": "match"
+        },
+        {
+          "text": "multiple",
+          "op": "match"
+        },
+        {
+          "text": "commercial",
+          "op": "match"
+        },
+        {
+          "text": "weight",
+          "op": "match"
+        },
+        {
+          "text": "loss",
+          "op": "match"
+        },
+        {
+          "text": "programs",
+          "op": "match"
+        },
+        {
+          "text": "including",
+          "op": "match"
+        },
+        {
+          "text": "slim",
           "op": "delete"
+        },
+        {
+          "text": "slimfast",
+          "op": "substitute"
+        },
+        {
+          "text": "for",
+          "op": "match"
+        },
+        {
+          "text": "1",
+          "op": "match"
+        },
+        {
+          "text": "month",
+          "op": "match"
+        },
+        {
+          "text": "1",
+          "op": "match"
+        },
+        {
+          "text": "year",
+          "op": "match"
+        },
+        {
+          "text": "ago",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "atkins",
+          "op": "match"
+        },
+        {
+          "text": "died",
+          "op": "substitute"
+        },
+        {
+          "text": "for",
+          "op": "match"
+        },
+        {
+          "text": "1",
+          "op": "match"
+        },
+        {
+          "text": "month",
+          "op": "match"
+        },
+        {
+          "text": "2",
+          "op": "match"
+        },
+        {
+          "text": "years",
+          "op": "match"
+        },
+        {
+          "text": "ago",
+          "op": "match"
+        },
+        {
+          "text": "past",
+          "op": "match"
+        },
+        {
+          "text": "medical",
+          "op": "match"
+        },
+        {
+          "text": "history",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "difficulty",
+          "op": "match"
+        },
+        {
+          "text": "climbing",
+          "op": "match"
+        },
+        {
+          "text": "stairs",
+          "op": "match"
+        },
+        {
+          "text": "difficulty",
+          "op": "match"
+        },
+        {
+          "text": "with",
+          "op": "match"
+        },
+        {
+          "text": "airline",
+          "op": "match"
+        },
+        {
+          "text": "seats",
+          "op": "match"
+        },
+        {
+          "text": "tying",
+          "op": "match"
+        },
+        {
+          "text": "shoes",
+          "op": "match"
+        },
+        {
+          "text": "used",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "public",
+          "op": "match"
+        },
+        {
+          "text": "seating",
+          "op": "match"
+        },
+        {
+          "text": "difficulty",
+          "op": "match"
+        },
+        {
+          "text": "walking",
+          "op": "match"
+        },
+        {
+          "text": "high",
+          "op": "match"
+        },
+        {
+          "text": "cholesterol",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "high",
+          "op": "match"
+        },
+        {
+          "text": "blood",
+          "op": "match"
+        },
+        {
+          "text": "pressure",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "has",
+          "op": "match"
+        },
+        {
+          "text": "asthma",
+          "op": "match"
+        },
+        {
+          "text": "and",
+          "op": "match"
+        },
+        {
+          "text": "difficulty",
+          "op": "match"
+        },
+        {
+          "text": "walking",
+          "op": "match"
+        },
+        {
+          "text": "2",
+          "op": "match"
+        },
+        {
+          "text": "blocks",
+          "op": "match"
+        },
+        {
+          "text": "are",
+          "op": "match"
+        },
+        {
+          "text": "going",
+          "op": "match"
+        },
+        {
+          "text": "8",
+          "op": "match"
+        },
+        {
+          "text": "to",
+          "op": "match"
+        },
+        {
+          "text": "10",
+          "op": "match"
+        },
+        {
+          "text": "steps",
+          "op": "match"
+        },
+        {
+          "text": "he",
+          "op": "match"
+        },
+        {
+          "text": "has",
+          "op": "match"
         },
         {
           "text": "sleep",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "apnea",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "and",
@@ -3270,7 +2898,7 @@
           "op": "match"
         }
       ],
-      "confidence": 93.0,
+      "confidence": 96.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
       "correction": null
@@ -3279,24 +2907,12 @@
   "spot_check": {
     "seed": 42,
     "sample_ids": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      0
+      2
     ],
     "accuracy": null,
     "accepted": null,
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T04:38:27+00:00"
+  "generated_at": "2026-08-07T05:25:55+00:00"
 }

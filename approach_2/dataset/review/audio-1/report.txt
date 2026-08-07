@@ -15,9 +15,5 @@ Engines: whisper, deepgram
       She used the Plasmur and she began using it again two weeks ago.
 [06]   28.20-  36.32s  conf= 93  review_technical
       It doesn't appear to be working very well. She has used over-the-counter sprays, but no prescription nasal sprays.
-[07]   37.28-  42.32s  conf= 68  mandatory
-      She does have asthma, but doesn't require daily medication for this
-[08]   42.32-  45.02s  conf= 66  mandatory
-      and does not think it is plaring up.
-[09]   45.58-  49.36s  conf= 50  mandatory
-      Her only medication currently is Orthoticycline and Allegra.
+[07]   37.28-  49.36s  conf= 94  review_technical
+      She does have asthma, but doesn't require daily medication for this and does not think it is plaring up. Her only medication currently is Orthoticycline and Allegra.

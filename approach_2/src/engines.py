@@ -49,7 +49,7 @@ class WhisperEngine:
 
 
 class DeepgramEngine:
-    def __init__(self, api_key: str, model: str = "nova-2"):
+    def __init__(self, api_key: str, model: str = "nova-3"):
         if not api_key:
             raise ValueError("DeepgramEngine requires an API key (DEEPGRAM_API_KEY)")
         self.api_key = api_key

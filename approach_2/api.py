@@ -79,5 +79,7 @@ def review(stem: str, body: ReviewBody) -> dict:
             entry.pop("verdict", None)
     if body.correction is not None:
         entry["correction"] = body.correction or None
+    if not entry:
+        verdicts.pop(body.idx, None)
     save_verdicts(stem, verdicts)
     return _report(stem).model_dump(mode="json")

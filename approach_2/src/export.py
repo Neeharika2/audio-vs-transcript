@@ -4,12 +4,6 @@ from __future__ import annotations
 
 from approach_2.src.models import AlignedSegment, ReviewReport
 
-_TIER_LABEL = {
-    "auto_accept": "auto-accept",
-    "review_technical": "review-if-technical",
-    "mandatory": "mandatory",
-}
-
 
 def _best_text(s: AlignedSegment) -> str:
     if s.engine_a is not None:

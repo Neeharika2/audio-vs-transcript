@@ -11,6 +11,4 @@ Engines: whisper, deepgram
 | 4 | 20.38-22.70s | 98 | auto_accept | She had also used Allegra also. |
 | 5 | 23.60-28.20s | 87 | mandatory | She used the Plasmur and she began using it again two weeks ago. |
 | 6 | 28.20-36.32s | 93 | review_technical | It doesn't appear to be working very well. She has used over-the-counter sprays, |
-| 7 | 37.28-42.32s | 68 | mandatory | She does have asthma, but doesn't require daily medication for this |
-| 8 | 42.32-45.02s | 66 | mandatory | and does not think it is plaring up. |
-| 9 | 45.58-49.36s | 50 | mandatory | Her only medication currently is Orthoticycline and Allegra. |
+| 7 | 37.28-49.36s | 94 | review_technical | She does have asthma, but doesn't require daily medication for this and does not |

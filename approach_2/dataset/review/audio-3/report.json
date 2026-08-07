@@ -459,9 +459,9 @@
       "engine_b": {
         "engine": "deepgram",
         "start": 15.955,
-        "end": 21.795,
-        "text": "there is no pericardial effusion or vegetation seen doppler interrogation",
-        "confidence": 0.977,
+        "end": 19.875,
+        "text": "there is no pericardial effusion or vegetation seen",
+        "confidence": 0.9802,
         "words": [
           {
             "text": "there",
@@ -494,18 +494,10 @@
           {
             "text": "seen",
             "confidence": 0.99902344
-          },
-          {
-            "text": "doppler",
-            "confidence": 0.9995117
-          },
-          {
-            "text": "interrogation",
-            "confidence": 0.929362
           }
         ]
       },
-      "agreement": 0.5,
+      "agreement": 0.6667,
       "diff": [
         {
           "text": "there",
@@ -542,17 +534,9 @@
         {
           "text": "seen",
           "op": "match"
-        },
-        {
-          "text": "doppler",
-          "op": "insert"
-        },
-        {
-          "text": "interrogation",
-          "op": "insert"
         }
       ],
-      "confidence": 74.0,
+      "confidence": 82.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
       "correction": null
@@ -560,13 +544,13 @@
     {
       "idx": 4,
       "start": 20.39,
-      "end": 25.65,
+      "end": 30.35,
       "engine_a": {
         "engine": "whisper",
         "start": 20.39,
-        "end": 25.65,
-        "text": "Doppler interrogation including colour flow imaging reveals systemic venous return to",
-        "confidence": 0.8769,
+        "end": 30.35,
+        "text": "Doppler interrogation including colour flow imaging reveals systemic venous return to the written right atom with normal tricuspid inflow.",
+        "confidence": 0.855,
         "words": [
           {
             "text": " Doppler",
@@ -611,16 +595,56 @@
           {
             "text": " to",
             "confidence": 0.9923876523971558
+          },
+          {
+            "text": " the",
+            "confidence": 0.9883673787117004
+          },
+          {
+            "text": " written",
+            "confidence": 0.37237676978111267
+          },
+          {
+            "text": " right",
+            "confidence": 0.8469604253768921
+          },
+          {
+            "text": " atom",
+            "confidence": 0.5460100173950195
+          },
+          {
+            "text": " with",
+            "confidence": 0.9609941244125366
+          },
+          {
+            "text": " normal",
+            "confidence": 0.9898926615715027
+          },
+          {
+            "text": " tricuspid",
+            "confidence": 0.9304516911506653
+          },
+          {
+            "text": " inflow.",
+            "confidence": 0.9637892842292786
           }
         ]
       },
       "engine_b": {
         "engine": "deepgram",
-        "start": 21.795,
-        "end": 26.595,
-        "text": "including color flow imaging reveals systemic veneous return to the return",
-        "confidence": 0.9145,
+        "start": 20.275,
+        "end": 30.355,
+        "text": "doppler interrogation including color flow imaging reveals systemic veneous return to the return right atom with normal tricuspid inflow",
+        "confidence": 0.9412,
         "words": [
+          {
+            "text": "doppler",
+            "confidence": 0.9995117
+          },
+          {
+            "text": "interrogation",
+            "confidence": 0.929362
+          },
           {
             "text": "including",
             "confidence": 1.0
@@ -664,18 +688,42 @@
           {
             "text": "return",
             "confidence": 0.65234375
+          },
+          {
+            "text": "right",
+            "confidence": 0.98291016
+          },
+          {
+            "text": "atom",
+            "confidence": 0.9206543
+          },
+          {
+            "text": "with",
+            "confidence": 0.9921875
+          },
+          {
+            "text": "normal",
+            "confidence": 1.0
+          },
+          {
+            "text": "tricuspid",
+            "confidence": 1.0
+          },
+          {
+            "text": "inflow",
+            "confidence": 0.99902344
           }
         ]
       },
-      "agreement": 0.4545,
+      "agreement": 0.8421,
       "diff": [
         {
           "text": "doppler",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "interrogation",
-          "op": "delete"
+          "op": "match"
         },
         {
           "text": "including",
@@ -715,105 +763,11 @@
         },
         {
           "text": "the",
-          "op": "insert"
+          "op": "match"
         },
         {
           "text": "return",
-          "op": "insert"
-        }
-      ],
-      "confidence": 71.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 5,
-      "start": 25.65,
-      "end": 30.35,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 25.65,
-        "end": 30.35,
-        "text": "the written right atom with normal tricuspid inflow.",
-        "confidence": 0.8249,
-        "words": [
-          {
-            "text": " the",
-            "confidence": 0.9883673787117004
-          },
-          {
-            "text": " written",
-            "confidence": 0.37237676978111267
-          },
-          {
-            "text": " right",
-            "confidence": 0.8469604253768921
-          },
-          {
-            "text": " atom",
-            "confidence": 0.5460100173950195
-          },
-          {
-            "text": " with",
-            "confidence": 0.9609941244125366
-          },
-          {
-            "text": " normal",
-            "confidence": 0.9898926615715027
-          },
-          {
-            "text": " tricuspid",
-            "confidence": 0.9304516911506653
-          },
-          {
-            "text": " inflow.",
-            "confidence": 0.9637892842292786
-          }
-        ]
-      },
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 27.154999,
-        "end": 30.355,
-        "text": "right atom with normal tricuspid inflow",
-        "confidence": 0.9825,
-        "words": [
-          {
-            "text": "right",
-            "confidence": 0.98291016
-          },
-          {
-            "text": "atom",
-            "confidence": 0.9206543
-          },
-          {
-            "text": "with",
-            "confidence": 0.9921875
-          },
-          {
-            "text": "normal",
-            "confidence": 1.0
-          },
-          {
-            "text": "tricuspid",
-            "confidence": 1.0
-          },
-          {
-            "text": "inflow",
-            "confidence": 0.99902344
-          }
-        ]
-      },
-      "agreement": 0.75,
-      "diff": [
-        {
-          "text": "the",
-          "op": "delete"
-        },
-        {
-          "text": "written",
-          "op": "delete"
+          "op": "substitute"
         },
         {
           "text": "right",
@@ -840,13 +794,13 @@
           "op": "match"
         }
       ],
-      "confidence": 82.0,
+      "confidence": 88.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
       "correction": null
     },
     {
-      "idx": 6,
+      "idx": 5,
       "start": 30.35,
       "end": 33.57,
       "engine_a": {
@@ -960,7 +914,7 @@
       "correction": null
     },
     {
-      "idx": 7,
+      "idx": 6,
       "start": 34.07,
       "end": 37.29,
       "engine_a": {
@@ -1086,7 +1040,7 @@
       "correction": null
     },
     {
-      "idx": 8,
+      "idx": 7,
       "start": 37.95,
       "end": 40.43,
       "engine_a": {
@@ -1188,7 +1142,7 @@
       "correction": null
     },
     {
-      "idx": 9,
+      "idx": 8,
       "start": 41.19,
       "end": 44.59,
       "engine_a": {
@@ -1314,7 +1268,7 @@
       "correction": null
     },
     {
-      "idx": 10,
+      "idx": 9,
       "start": 45.33,
       "end": 47.67,
       "engine_a": {
@@ -1412,7 +1366,7 @@
       "correction": null
     },
     {
-      "idx": 11,
+      "idx": 10,
       "start": 48.33,
       "end": 51.71,
       "engine_a": {
@@ -1562,7 +1516,7 @@
       "correction": null
     },
     {
-      "idx": 12,
+      "idx": 11,
       "start": 52.51,
       "end": 58.97,
       "engine_a": {
@@ -1753,17 +1707,16 @@
     "sample_ids": [
       3,
       4,
-      5,
-      7,
-      9,
-      10,
+      6,
       8,
-      12
+      9,
+      7,
+      11
     ],
     "accuracy": null,
     "accepted": null,
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T04:38:27+00:00"
+  "generated_at": "2026-08-07T05:25:55+00:00"
 }

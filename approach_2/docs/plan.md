@@ -26,7 +26,7 @@ segment), and exportable artifacts (transcript + review report).
 ```text
 [audio.wav]
    │
-   ▼  src/audio.py     ffmpeg: 16 kHz mono WAV + loudness normalize (optional noise reduction)
+   ▼  src/audio.py     ffmpeg: 16 kHz mono WAV
 [audio_16k.wav]
    │
    ├────────────────┬──────────────────┐
@@ -38,7 +38,7 @@ src/engines.py   WhisperEngine    DeepgramEngine
    │          (timestamps, word confidence)
    │                └──────┬───────┘
    ▼                       ▼
-src/align.py     time-overlap + text-sim score matrix → Needleman–Wunsch → 1:N merge
+src/align.py     global word-level Needleman–Wunsch → regroup into AlignedSegments
    │                       ▼
    │            [AlignedSegment] pairs (combined time span)
    │                       ▼
@@ -74,7 +74,7 @@ approach_2/
 │   ├── models.py         # Word, EngineSegment, WordOp, AlignedSegment, SpotCheck, ReviewReport
 │   ├── audio.py          # preprocess_audio() -> wav path
 │   ├── engines.py        # WhisperEngine, DeepgramEngine
-│   ├── align.py          # align() (score matrix + NW + 1:N merge)
+│   ├── align.py          # align() (global word-level NW + window reassembly)
 │   ├── compare.py        # word_diff(), agreement()
 │   ├── score.py          # segment_confidence(), assign_tier()
 │   ├── review.py         # sample_review_set(), acceptance_check()
@@ -89,8 +89,8 @@ approach_2/
 
 Notes:
 - **`normalize.py`** — local copy at `approach_2/src/normalize.py` (kept
-  separate from approach_1 per the repo convention). It imports only stdlib +
-  rapidfuzz. Filler stripping is a tiny helper in `align.py`.
+  separate from approach_1 per the repo convention). It imports only stdlib.
+  Filler stripping is a tiny helper in `align.py`.
 - **No engine protocol, no mock engine** — the two concrete engines are the only
   ones; tests build `EngineSegment` objects directly. This matches the direction
   of the recent `approach_1` refactor.
@@ -152,13 +152,12 @@ class ReviewReport(BaseModel):
 
 ### 5.1 Audio preprocessing (`audio.py`)
 
-`preprocess_audio(src, out_dir, noise_reduction=False) -> Path`
+`to_wav_16k(src, out_dir) -> Path`
 
-- Shell out to `ffmpeg`: resample to 16 kHz mono PCM WAV, apply `loudnorm` for
-  loudness normalization. One command, no new dependencies.
-- If `noise_reduction=True`, run a light `noisereduce` pass afterward.
-  **Off by default.**
-- Write to `out_dir/<name>_16k.wav`. The API's review endpoints serve this file
+- Shell out to `ffmpeg`: resample to 16 kHz mono PCM WAV (`pcm_s16le`). One
+  command, no new dependencies. No loudness normalization or noise reduction
+  (kept deliberately conservative — both engines work fine on the raw signal).
+- Write to `out_dir/<name>.wav`. The API's review endpoints serve this file
   so segment timestamps map directly to playback.
 
 ### 5.2 Engines (`engines.py`)
@@ -180,29 +179,41 @@ Two concrete classes; no shared protocol.
 Inputs: `segments_a`, `segments_b` (both `list[EngineSegment]`).
 
 1. **Normalize each segment text** with `approach_2.src.normalize.normalize_text`
-   and strip the shared filler set (`uh`, `um`, `uhh`, `mmm`, `hmm`, `er`, `ah`) —
-   only for matching; stored text is never mutated.
-2. **Score matrix.** `score(i, j) = 0.5·overlap(i, j) + 0.5·text_sim(i, j)`:
-   - `overlap = overlap_seconds / min(dur_i, dur_j)` (0 if disjoint);
-   - `text_sim = token_set_ratio(norm_i, norm_j) / 100` (rapidfuzz).
-3. **Needleman–Wunsch** over the matrix (gap penalty, `MATCH_THRESHOLD = 0.55`)
-   → the optimal 1:1 alignment path.
-4. **1:N merge post-pass.** An unmatched segment adjacent to a matched pair
-   (gap ≤ 1 segment, up to 3 merged) is folded into that pair and re-tested.
-   Handles engines that split/merge sentences differently.
-5. **Unmatched remainder** becomes an `AlignedSegment` with the missing side
-   `None` — a disagreement by definition.
+   and strip the shared filler set (`uh`, `um`, `uhh`, `mmm`, `hmm`, `er`, `ah`)
+   — only for matching; stored text is never mutated.
+2. **Flatten to word streams.** Every engine-A and engine-B word becomes a token
+   with an interpolated timestamp (each word is placed evenly across its
+   segment's span).
+3. **Global Needleman–Wunsch over word tokens.** Equal words score +1,
+   substitutions and gaps score −1; a diagonal match is additionally penalized
+   when its two interpolated timestamps differ by more than `_TIME_TOLERANCE`
+   (`1.5 s`) at `_TIME_PENALTY` (`2.0`) per extra second. This keeps a repeated
+   phrase from being smeared to a different spoken span when one engine drops a
+   segment. Every non-gap cell (match or substitution) is kept as a
+   correspondence.
+4. **Window reassembly.** Open one window per engine-A segment and merge
+   adjacent windows whenever a single engine-B segment contributes words to both
+   — engine B spans the boundary, so the split is only engine A's. This absorbs
+   1:N, N:1, and crossing (2×2) splits without choosing either engine as a
+   reference.
+5. **Assign engine-B segments whole** to the window holding their matched words.
+   Segments with no matched words go to the best time-overlapping window, or
+   become engine-B-only segments when they cover audio engine A never
+   transcribed (genuine unmatched content — a disagreement by definition).
 6. **Combined span:** `start = min(a.start, b.start)`, `end = max(a.end, b.end)`.
 
+Word-level comparison happens later in `compare()`, per window, on these
+already-aligned spoken spans.
+
 Edge cases handled explicitly: empty transcription from one engine; silent
-trailing regions; constant timestamp offset (covered by the text-sim weight).
+trailing regions; timestamp drift (covered by the time penalty + word order).
 
 ### 5.4 Word comparison (`compare.py`)
 
 Per `AlignedSegment` with both sides present:
 
-- Levenshtein alignment over **normalized** word tokens (rapidfuzz) → `WordOp`
-  list.
+- Levenshtein alignment over **normalized** word tokens (hand-rolled DP in
+  `compare.py`, stdlib only) → `WordOp` list.
 - `agreement = 1 - distance / max(len_a, len_b)`.
 - Missing side ⇒ `agreement = 0.0`, `diff = []`.
 
@@ -323,8 +334,6 @@ Every key maps to a stated requirement or an explicit user threshold:
 | `ENGINE_B` | `deepgram` | secondary engine |
 | `DEEPGRAM_API_KEY` | (env) | Deepgram Nova API key |
 | `DEEPGRAM_MODEL` | `nova-3` | Deepgram model name |
-| `NOISE_REDUCTION` | `false` | enable preprocessing noise reduction |
-| `MATCH_THRESHOLD` | `0.55` | alignment match cutoff |
 | `LOW_CONF_THRESHOLD` | `0.6` | per-word confidence cutoff |
 | `TIER_AUTO_ACCEPT` | `98` | ≥ this ⇒ auto-accept |
 | `TIER_REVIEW` | `90` | below this ⇒ mandatory |

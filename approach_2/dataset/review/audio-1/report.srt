@@ -27,13 +27,5 @@ She used the Plasmur and she began using it again two weeks ago.
 It doesn't appear to be working very well. She has used over-the-counter sprays, but no prescription nasal sprays.
 
 8
-00:00:37,280 --> 00:00:42,320
-She does have asthma, but doesn't require daily medication for this
-
-9
-00:00:42,320 --> 00:00:45,020
-and does not think it is plaring up.
-
-10
-00:00:45,580 --> 00:00:49,360
-Her only medication currently is Orthoticycline and Allegra.
+00:00:37,280 --> 00:00:49,360
+She does have asthma, but doesn't require daily medication for this and does not think it is plaring up. Her only medication currently is Orthoticycline and Allegra.

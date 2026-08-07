@@ -80,8 +80,11 @@ pip install -r requirements.txt
 ### Run
 
 ```bash
-python -m approach_2.main transcribe            # both engines, all files
-python -m approach_2.main review                # evaluate -> dataset/review/<name>/
+python -m approach_2.main transcribe            # transcribe all files in dataset/audio
+python -m approach_2.main transcribe audio-3.ogg  # one file
+python -m approach_2.main review                # evaluate stored transcripts -> reports
+python -m approach_2.main review audio-1        # one file
+python -m approach_2.main evaluate audio-1      # transcribe (if missing) + review in one step
 ```
 
 Interactive review (play segments, mark correct/incorrect, correct text):
@@ -92,6 +95,7 @@ uvicorn approach_2.api:app --port 8000
 
 Verdicts persist to `dataset/review/<name>/verdicts.json`; acceptance (≥99% on
 the reviewed sample) is recomputed live. CLI equivalents print the same status.
+See `approach_2/README.md` for the data layout, alignment notes, and tests.
 
 ### Tiers
 

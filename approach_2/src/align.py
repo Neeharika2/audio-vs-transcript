@@ -37,11 +37,6 @@ def norm_words(seg: EngineSegment) -> list[str]:
     return [w for w in normalize_text(seg.text).split() if w not in _FILLERS]
 
 
-def norm_text(seg: EngineSegment) -> str:
-    """Normalized, filler-stripped text used for matching and agreement."""
-    return " ".join(norm_words(seg))
-
-
 def _word_align(
     tokens_a: list[str],
     times_a: list[float],
