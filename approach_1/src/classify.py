@@ -145,6 +145,19 @@ MATCH_SKIP_THRESHOLD = 0.99
 MAX_CONCURRENCY = 6
 
 
+def p_counts_differ(pair: AlignedPair) -> bool:
+    """True if the pair's texts differ in normalized word count.
+
+    A whole-word insertion or deletion changes the token count but not the
+    `token_set_ratio`, so this flags pairs that the similarity metric would
+    otherwise auto-accept despite missing or added content.
+    """
+    return (
+        len(normalize_text(pair.gold.text).split())
+        != len(normalize_text(pair.candidate.text).split())
+    )
+
+
 def _judge_pair(pair: AlignedPair, judge: Judge, gold_full: str, candidate_full: str) -> SegmentJudgement:
     prompt = _PAIR_PROMPT.format(
         gold=pair.gold.text,
@@ -189,7 +202,16 @@ def classify(
     llm_calls = 0
 
     if judge is not None:
-        to_judge = [p for p in alignment.pairs if p.similarity < MATCH_SKIP_THRESHOLD]
+        # Skip only near-identical pairs. A token_set_ratio can score a pair
+        # 1.0 even when a whole word was deleted, so never auto-skip a pair
+        # whose word counts differ -- that is exactly the "missing word" case
+        # the LLM must arbitrate.
+        def _needs_judge(pair: AlignedPair) -> bool:
+            if p_counts_differ(pair):
+                return True
+            return pair.similarity < MATCH_SKIP_THRESHOLD
+
+        to_judge = [p for p in alignment.pairs if _needs_judge(p)]
         if to_judge:
             with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_CONCURRENCY) as pool:
                 judgements = list(
