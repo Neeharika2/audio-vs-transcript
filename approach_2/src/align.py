@@ -1,23 +1,35 @@
-"""Segment alignment: time-overlap + text similarity, Needleman-Wunsch, 1:N merge.
+"""Segment alignment: global word-level alignment reassembled into segments.
 
-Two engines rarely produce the same segmentation: they split and merge sentences
-differently, timestamps drift, and fillers get dropped. Aligning by timestamps
-alone or by text alone fails, so we combine both into a score matrix and run
-Needleman-Wunsch over the two segment sequences. A post-pass folds unmatched
-adjacent segments into matched pairs to absorb 1:N splits/merges.
+Two engines rarely produce the same segmentation: they split and merge
+sentences differently, timestamps drift, and fillers get dropped. Comparing
+raw segment texts is wrong because the boundaries themselves disagree — a
+segment that engine A produced in two parts may be one engine B segment, so
+text from a neighbouring spoken span leaks into the comparison. Instead of
+pairing raw segments, we flatten both engines to normalized word streams,
+align them globally with Needleman-Wunsch (word order is identical even when
+segment boundaries are not; matches far apart in time are penalized so a
+repeated phrase cannot be pulled across a dropped span), and group the aligned
+words back into AlignedSegments. Each engine's segment is assigned whole to
+the window that holds its matched words, so the two sides of every comparison
+cover the same spoken content regardless of how each engine happened to cut it.
 """
 
 from __future__ import annotations
 
-from rapidfuzz import fuzz
-
 from approach_2.src.normalize import normalize_text
-from approach_2 import config
 from approach_2.src.models import AlignedSegment, EngineSegment
 
 # Filler words are stripped only for matching/agreement; stored text is never
 # mutated. Reused by compare.py.
 _FILLERS = {"uh", "um", "uhh", "umm", "hmm", "mmm", "hm", "mm", "er", "ah", "oh"}
+
+# Word-level matches whose (interpolated) timestamps differ by more than
+# _TIME_TOLERANCE seconds are penalized _TIME_PENALTY per extra second. STT
+# boundaries drift by well under a second for identical content, so this keeps
+# the alignment from smearing a repeated phrase (e.g. "part of the story") to a
+# different time region when one engine drops a segment.
+_TIME_TOLERANCE = 1.5
+_TIME_PENALTY = 2.0
 
 
 def norm_words(seg: EngineSegment) -> list[str]:
@@ -30,129 +42,56 @@ def norm_text(seg: EngineSegment) -> str:
     return " ".join(norm_words(seg))
 
 
-def _overlap(a: EngineSegment, b: EngineSegment) -> float:
-    """Shared time / min duration, in [0, 1]; 0 when disjoint."""
-    start = max(a.start, b.start)
-    end = min(a.end, b.end)
-    overlap = max(0.0, end - start)
-    dur = min(a.end - a.start, b.end - b.start)
-    if dur <= 0:
-        return 1.0 if overlap > 0 else 0.0
-    return overlap / dur
+def _word_align(
+    tokens_a: list[str],
+    times_a: list[float],
+    tokens_b: list[str],
+    times_b: list[float],
+) -> list[tuple[int, int]]:
+    """Global Needleman-Wunsch over word tokens -> optimal (i, j) correspondences.
 
-
-def _text_sim(a: str, b: str) -> float:
-    """Positional similarity with a length penalty, in [0, 1].
-
-    Used both for the match score and merge acceptance. The length penalty is
-    what lets text discriminate a 1:N split: every constituent of a merged
-    sentence passes token_set_ratio at ~1.0 (it is a subset), so a positional
-    ratio scaled by min/max length is needed to prefer the longest, best-fit
-    constituent and to reject absorbing a dropped segment.
+    Both engines transcribe the same audio, so word order is identical and the
+    global optimum is the correct content mapping. Equal words score +1,
+    substitutions and gaps score -1; a diagonal move is additionally penalized
+    when its interpolated timestamps are far apart, so a repeated phrase cannot
+    be dragged to a different spoken span just because the text matches. Every
+    non-gap cell (match or substitution) is kept as a correspondence, anchoring
+    where each spoken word lands on the other side.
     """
-    if not a or not b:
-        return 0.0
-    sim = fuzz.ratio(a, b) / 100.0
-    len_a, len_b = len(a.split()), len(b.split())
-    length_factor = min(len_a, len_b) / max(len_a, len_b)
-    return sim * length_factor
-
-
-def score(a: EngineSegment, b: EngineSegment) -> float:
-    """Combined match score in [0, 1]: half time overlap, half text similarity."""
-    return 0.5 * _overlap(a, b) + 0.5 * _text_sim(norm_text(a), norm_text(b))
-
-
-def _nw_pairs(segs_a: list[EngineSegment], segs_b: list[EngineSegment]) -> list[tuple[int, int]]:
-    """Needleman-Wunsch over the score matrix -> optimal 1:1 index pairs.
-
-    Each cell contributes (score - MATCH_THRESHOLD) when paired, so only
-    genuinely similar segments beat taking a gap.
-    """
-    n, m = len(segs_a), len(segs_b)
+    n, m = len(tokens_a), len(tokens_b)
     if n == 0 or m == 0:
         return []
-    scores = [[score(segs_a[i], segs_b[j]) for j in range(m)] for i in range(n)]
-    threshold = config.MATCH_THRESHOLD
 
-    dp = [[0.0] * (m + 1) for _ in range(n + 1)]
-    for i in range(n):
-        for j in range(m):
-            diag = dp[i][j] + scores[i][j] - threshold
-            up = dp[i][j + 1]
-            left = dp[i + 1][j]
-            dp[i + 1][j + 1] = max(diag, up, left)
+    def _diag(i: int, j: int) -> float:
+        dt = abs(times_a[i - 1] - times_b[j - 1])
+        time_cost = _TIME_PENALTY * max(0.0, dt - _TIME_TOLERANCE)
+        return dp[i - 1][j - 1] + (1 if tokens_a[i - 1] == tokens_b[j - 1] else -1) - time_cost
+
+    dp = [[0] * (m + 1) for _ in range(n + 1)]
+    for i in range(n + 1):
+        dp[i][0] = -i
+    for j in range(m + 1):
+        dp[0][j] = -j
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            dp[i][j] = max(_diag(i, j), dp[i - 1][j] - 1, dp[i][j - 1] - 1)
 
     pairs: list[tuple[int, int]] = []
     i, j = n, m
-    while i > 0 and j > 0:
-        diag = dp[i - 1][j - 1] + scores[i - 1][j - 1] - threshold
-        up = dp[i - 1][j]
-        left = dp[i][j - 1]
-        if dp[i][j] == diag and diag >= up and diag >= left:
-            if scores[i - 1][j - 1] >= threshold:
-                pairs.append((i - 1, j - 1))
+    while i > 0 or j > 0:
+        diag = _diag(i, j) if i > 0 and j > 0 else float("-inf")
+        up = dp[i - 1][j] - 1 if i > 0 else float("-inf")
+        left = dp[i][j - 1] - 1 if j > 0 else float("-inf")
+        if i > 0 and j > 0 and diag >= up and diag >= left:
+            pairs.append((i - 1, j - 1))
             i -= 1
             j -= 1
-        elif dp[i][j] == up and up >= left:
+        elif i > 0 and up >= left:
             i -= 1
         else:
             j -= 1
     pairs.reverse()
     return pairs
-
-
-def _merge_pass(
-    pairs: list[tuple[int, int]],
-    segs_a: list[EngineSegment],
-    segs_b: list[EngineSegment],
-) -> tuple[list[tuple[list[int], list[int]]], list[int], list[int]]:
-    """Fold unmatched adjacent segments into matched pairs (1:N split/merge).
-
-    Returns (merged_pairs, unmatched_a, unmatched_b) where each merged pair is
-    (a_indices, b_indices). A segment is only absorbed when the combined
-    normalized text still matches the counterpart above MATCH_THRESHOLD.
-    """
-    n, m = len(segs_a), len(segs_b)
-    threshold = config.MATCH_THRESHOLD
-    used_a = {i for i, _ in pairs}
-    used_b = {j for _, j in pairs}
-    groups: list[tuple[set[int], set[int]]] = [({i}, {j}) for i, j in pairs]
-
-    def try_add(a_idx: set[int], b_idx: set[int], cand_a: int | None, cand_b: int | None) -> bool:
-        new_a = a_idx | ({cand_a} if cand_a is not None else set())
-        new_b = b_idx | ({cand_b} if cand_b is not None else set())
-        ta = " ".join(norm_text(segs_a[k]) for k in sorted(new_a))
-        tb = " ".join(norm_text(segs_b[k]) for k in sorted(new_b))
-        return _text_sim(ta, tb) >= threshold
-
-    for a_idx, b_idx in groups:
-        changed = True
-        while changed:
-            changed = False
-            for cand in (min(a_idx) - 1, max(a_idx) + 1):
-                if len(a_idx) >= 3 or cand < 0 or cand >= n or cand in used_a:
-                    continue
-                if try_add(a_idx, b_idx, cand, None):
-                    a_idx.add(cand)
-                    used_a.add(cand)
-                    changed = True
-                    break
-            if changed:
-                continue
-            for cand in (min(b_idx) - 1, max(b_idx) + 1):
-                if len(b_idx) >= 3 or cand < 0 or cand >= m or cand in used_b:
-                    continue
-                if try_add(a_idx, b_idx, None, cand):
-                    b_idx.add(cand)
-                    used_b.add(cand)
-                    changed = True
-                    break
-
-    merged = [(sorted(a_idx), sorted(b_idx)) for a_idx, b_idx in groups]
-    unmatched_a = sorted(set(range(n)) - used_a)
-    unmatched_b = sorted(set(range(m)) - used_b)
-    return merged, unmatched_a, unmatched_b
 
 
 def _merge_engine_segments(segs: list[EngineSegment]) -> EngineSegment | None:
@@ -173,36 +112,107 @@ def _merge_engine_segments(segs: list[EngineSegment]) -> EngineSegment | None:
 
 
 def align(segs_a: list[EngineSegment], segs_b: list[EngineSegment]) -> list[AlignedSegment]:
-    """Align two engine segment streams into time-ordered AlignedSegments."""
-    pairs = _nw_pairs(segs_a, segs_b)
-    merged, unmatched_a, unmatched_b = _merge_pass(pairs, segs_a, segs_b)
+    """Align two engine streams into time-ordered AlignedSegments that each
+    compare the same spoken content.
+
+    1. Flatten both engines to normalized word streams and align them globally
+       at word level (order is identical; segment boundaries are not).
+    2. Open one window per engine-A segment, then merge adjacent windows when a
+       single engine-B segment contributes words to both — engine B spans the
+       boundary, so the split is only engine A's. This absorbs 1:N, N:1, and
+       crossing (2x2) splits without choosing either engine as a reference.
+    3. Assign every engine-B segment whole to the window holding its matched
+       words. Segments with no matched words go to the best time-overlapping
+       window, or become engine-B-only segments when they cover audio engine A
+       never transcribed (genuine unmatched content).
+    4. Word-level comparison happens later in compare(), per window, on these
+       already-aligned spoken spans.
+    """
+    tokens_a: list[str] = []
+    seg_of_a: list[int] = []
+    times_a: list[float] = []
+    for si, seg in enumerate(segs_a):
+        words = norm_words(seg)
+        span = seg.end - seg.start
+        for k, word in enumerate(words):
+            tokens_a.append(word)
+            seg_of_a.append(si)
+            times_a.append(seg.start + (k + 0.5) / max(1, len(words)) * span)
+
+    tokens_b: list[str] = []
+    seg_of_b: list[int] = []
+    times_b: list[float] = []
+    for si, seg in enumerate(segs_b):
+        words = norm_words(seg)
+        span = seg.end - seg.start
+        for k, word in enumerate(words):
+            tokens_b.append(word)
+            seg_of_b.append(si)
+            times_b.append(seg.start + (k + 0.5) / max(1, len(words)) * span)
+
+    pairs = _word_align(tokens_a, times_a, tokens_b, times_b)
+
+    matched_b: list[set[int]] = [set() for _ in segs_a]
+    for ia, ib in pairs:
+        matched_b[seg_of_a[ia]].add(seg_of_b[ib])
+
+    windows: list[tuple[list[int], set[int]]] = [([i], matched_b[i]) for i in range(len(segs_a))]
+
+    # Merge adjacent windows sharing an engine-B segment until no boundary is
+    # crossed by a single engine-B segment anymore.
+    while True:
+        merged: list[tuple[list[int], set[int]]] = []
+        changed = False
+        k = 0
+        while k < len(windows):
+            a_idx, b_set = windows[k]
+            nxt = k + 1
+            while nxt < len(windows) and b_set & windows[nxt][1]:
+                a_idx = a_idx + windows[nxt][0]
+                b_set = b_set | windows[nxt][1]
+                nxt += 1
+            if nxt > k + 1:
+                changed = True
+            merged.append((a_idx, b_set))
+            k = nxt
+        windows = merged
+        if not changed:
+            break
+
+    b_to_window: dict[int, int] = {}
+    for wi, (_, b_set) in enumerate(windows):
+        for bi in b_set:
+            b_to_window.setdefault(bi, wi)
+
+    for bi, seg in enumerate(segs_b):
+        if bi in b_to_window:
+            continue
+        best, best_overlap = None, 0.0
+        for wi, (a_idx, _) in enumerate(windows):
+            start = min(segs_a[i].start for i in a_idx)
+            end = max(segs_a[i].end for i in a_idx)
+            overlap = max(0.0, min(end, seg.end) - max(start, seg.start))
+            if overlap > best_overlap:
+                best, best_overlap = wi, overlap
+        if best is not None and best_overlap > 0:
+            b_to_window[bi] = best
 
     aligned: list[AlignedSegment] = []
-    for a_idx, b_idx in merged:
+    for wi, (a_idx, _) in enumerate(windows):
         a_seg = _merge_engine_segments([segs_a[i] for i in a_idx])
-        b_seg = _merge_engine_segments([segs_b[j] for j in b_idx])
+        b_idx = sorted(bi for bi, w in b_to_window.items() if w == wi)
+        b_seg = _merge_engine_segments([segs_b[bi] for bi in b_idx]) if b_idx else None
         aligned.append(
-            AlignedSegment(
-                idx=len(aligned),
-                start=min(s.start for s in (a_seg, b_seg) if s is not None),
-                end=max(s.end for s in (a_seg, b_seg) if s is not None),
-                engine_a=a_seg,
-                engine_b=b_seg,
-                agreement=0.0,
-            )
+            AlignedSegment(idx=len(aligned), start=a_seg.start, end=a_seg.end, engine_a=a_seg, engine_b=b_seg, agreement=0.0)
         )
-    for i in unmatched_a:
-        s = segs_a[i]
+    for bi, seg in enumerate(segs_b):
+        if bi in b_to_window:
+            continue
         aligned.append(
-            AlignedSegment(idx=len(aligned), start=s.start, end=s.end, engine_a=s, engine_b=None, agreement=0.0)
-        )
-    for j in unmatched_b:
-        s = segs_b[j]
-        aligned.append(
-            AlignedSegment(idx=len(aligned), start=s.start, end=s.end, engine_a=None, engine_b=s, agreement=0.0)
+            AlignedSegment(idx=len(aligned), start=seg.start, end=seg.end, engine_a=None, engine_b=seg, agreement=0.0)
         )
 
     aligned.sort(key=lambda s: s.start)
-    for k, s in enumerate(aligned):
-        s.idx = k
+    for k, seg in enumerate(aligned):
+        seg.idx = k
     return aligned

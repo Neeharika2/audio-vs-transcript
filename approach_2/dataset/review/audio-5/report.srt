@@ -3,7 +3,7 @@
 I have seen ABC today for her pre-operator visit for weight management.
 
 2
-00:00:00,800 --> 00:00:16,335
+00:00:05,260 --> 00:00:10,180
 I have explained to her the need for Optifast for weight loss prior to these procedures
 
 3
@@ -19,7 +19,7 @@ She understands this.
 Impression plan. We are going to put her on two weeks of Optifast at around 900 calories. I have also explained the risks and potential complications of laparoscopic colosyctomy to
 
 6
-00:00:27,055 --> 00:00:32,890
+00:00:27,260 --> 00:00:32,520
 her in detail including bleeding, infection, deep venous, thrombosis, pulmonary embolism,
 
 7
@@ -27,7 +27,7 @@ her in detail including bleeding, infection, deep venous, thrombosis, pulmonary 
 injury to the small intestine, stomach, liver, leak from the cystic duct, common bile duct
 
 8
-00:00:37,690 --> 00:00:44,805
+00:00:38,480 --> 00:00:44,300
 and possible need for ERCPA and further surgery. This surgery is going to be planned for October 6.
 
 9
@@ -35,61 +35,57 @@ and possible need for ERCPA and further surgery. This surgery is going to be pla
 This is for Kolelothiasis prior to her lab banning procedure.
 
 10
-00:00:47,445 --> 00:00:58,980
+00:00:49,500 --> 00:00:58,980
 I have also reviewed with her the risks and potential complications of laparoscopic gastric banning including bleeding, infection, deep venous, thrombosis, pulmonary embolism,
 
 11
-00:00:55,445 --> 00:01:02,910
-including bleeding infection deep venous thrombosis pulmonary embolism slippage of man erosion of the man injury to the esophagus
-
-12
 00:00:59,180 --> 00:01:04,720
 leakage of the band, erosion of the band, injury to the esophagus, stomach and small
 
-13
-00:01:03,470 --> 00:01:10,830
+12
+00:01:04,720 --> 00:01:09,540
 intestine, large intestine, spleen, liver, injury to the band, port or tubing, necessitating
 
-14
+13
 00:01:10,080 --> 00:01:15,040
 replacement of the band or porting a tubing among other potential complications and
 
-15
-00:01:14,935 --> 00:01:16,055
+14
+00:01:15,040 --> 00:01:15,680
 she understands.
 
-16
-00:01:16,040 --> 00:01:26,615
+15
+00:01:16,040 --> 00:01:19,460
 We are going to proceed for laparoscopic gastric banning.
 
-17
+16
 00:01:19,720 --> 00:01:21,980
 I have reviewed her entire chart in detail.
 
-18
+17
 00:01:21,980 --> 00:01:27,740
 I have also gone over with her the Fairfield Country Bariatric Concern Form for
 
-19
-00:01:26,570 --> 00:01:29,770
+18
+00:01:27,740 --> 00:01:29,320
 banding and all the risks.
 
-20
-00:01:29,930 --> 00:01:35,660
+19
+00:01:29,980 --> 00:01:35,660
 She has also signed the St. Vincent Hospital Concern Form for lap banding.
 
-21
-00:01:34,250 --> 00:01:43,900
+20
+00:01:36,040 --> 00:01:43,900
 She has taken the pre-operative quiz for banding. She has assigned the pre-op and post-op instructions and understands them and we reviewed them.
 
-22
-00:01:42,625 --> 00:01:54,225
-We have reviewed with her any potential other issues and I have answered her questions.
-
-23
+21
 00:01:44,280 --> 00:01:46,380
 She has taken the quiz and done fairly well.
 
-24
+22
+00:01:46,600 --> 00:01:51,280
+We have reviewed with her any potential other issues and I have answered her questions.
+
+23
 00:01:51,280 --> 00:01:54,020
 She has also planned for surgical intervention.

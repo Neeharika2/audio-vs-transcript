@@ -138,6 +138,17 @@ _SCALES = {
     "trillion": 1_000_000_000_000,
 }
 
+_TENS_WORDS = {
+    "twenty": 20,
+    "thirty": 30,
+    "forty": 40,
+    "fifty": 50,
+    "sixty": 60,
+    "seventy": 70,
+    "eighty": 80,
+    "ninety": 90,
+}
+
 _NUMBER_WORD_ALT = "|".join(sorted(set(_UNITS) | set(_SCALES), key=len, reverse=True))
 _NUMBER_WORD_RE = re.compile(
     rf"\b(?:{_NUMBER_WORD_ALT})(?:[\s-]+(?:and|{_NUMBER_WORD_ALT}))*\b",
@@ -161,10 +172,39 @@ def _words_to_number(words: list[str]) -> int:
     return total + current
 
 
+def _digit_speak(words: list[str]) -> str:
+    """Digit-by-digit dictation: 'five nine' -> '59', 'three fifty eight' -> '358'.
+
+    STT engines often spell numbers one digit at a time ('he is five nine',
+    'two sixty'). A plain unit maps to its value; a tens word mid-sequence
+    ('fifty' in 'three fifty eight') maps to its tens digit ('5'), but a tens
+    word in final position ('sixty' in 'two sixty') maps to the full tens
+    value ('60').
+    """
+    out: list[str] = []
+    for i, word in enumerate(words):
+        low = word.lower()
+        if low in _TENS_WORDS:
+            if i == len(words) - 1:
+                out.append(str(_TENS_WORDS[low]))
+            else:
+                out.append(str(_TENS_WORDS[low] // 10))
+        else:
+            out.append(str(_UNITS[low]))
+    return "".join(out)
+
+
 def normalize_number_words(text: str) -> str:
     """Replace spelled-out numbers with digit strings ('fifty' -> '50')."""
 
     def _replace(m: re.Match) -> str:
-        return str(_words_to_number(m.group(0).replace("-", " ").split()))
+        words = m.group(0).replace("-", " ").split()
+        # Sequences with a scale word ('hundred', 'thousand', ...) are real
+        # numbers ("three hundred fifty eight" = 358), as are ones that start
+        # with a tens word ("twenty three", "forty"). Everything else is
+        # treated as digit-by-digit dictation ("five nine" = 59).
+        if any(w.lower() in _SCALES for w in words) or words[0].lower() in _TENS_WORDS:
+            return str(_words_to_number(words))
+        return _digit_speak(words)
 
     return _NUMBER_WORD_RE.sub(_replace, text)

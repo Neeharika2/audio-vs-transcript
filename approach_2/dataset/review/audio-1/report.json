@@ -8,7 +8,7 @@
     {
       "idx": 0,
       "start": 0.98,
-      "end": 6.32,
+      "end": 5.82,
       "engine_a": {
         "engine": "whisper",
         "start": 0.98,
@@ -185,8 +185,8 @@
     },
     {
       "idx": 1,
-      "start": 6.48,
-      "end": 12.16,
+      "start": 6.58,
+      "end": 11.76,
       "engine_a": {
         "engine": "whisper",
         "start": 6.58,
@@ -419,7 +419,7 @@
     },
     {
       "idx": 2,
-      "start": 12.24,
+      "start": 12.28,
       "end": 15.5,
       "engine_a": {
         "engine": "whisper",
@@ -558,7 +558,7 @@
     {
       "idx": 3,
       "start": 16.06,
-      "end": 20.055,
+      "end": 19.5,
       "engine_a": {
         "engine": "whisper",
         "start": 16.06,
@@ -732,7 +732,7 @@
     {
       "idx": 4,
       "start": 20.38,
-      "end": 23.015,
+      "end": 22.7,
       "engine_a": {
         "engine": "whisper",
         "start": 20.38,
@@ -834,7 +834,7 @@
     {
       "idx": 5,
       "start": 23.6,
-      "end": 28.535,
+      "end": 28.2,
       "engine_a": {
         "engine": "whisper",
         "start": 23.6,
@@ -1028,7 +1028,7 @@
     {
       "idx": 6,
       "start": 28.2,
-      "end": 36.84,
+      "end": 36.32,
       "engine_a": {
         "engine": "whisper",
         "start": 28.2,
@@ -1301,7 +1301,7 @@
     },
     {
       "idx": 7,
-      "start": 37.239998,
+      "start": 37.28,
       "end": 42.32,
       "engine_a": {
         "engine": "whisper",
@@ -1439,8 +1439,8 @@
     },
     {
       "idx": 8,
-      "start": 39.399998,
-      "end": 48.42494,
+      "start": 42.32,
+      "end": 45.02,
       "engine_a": {
         "engine": "whisper",
         "start": 42.32,
@@ -1723,35 +1723,6 @@
       "tier": "mandatory",
       "verdict": "unreviewed",
       "correction": null
-    },
-    {
-      "idx": 10,
-      "start": 48.42494,
-      "end": 49.544937,
-      "engine_a": null,
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 48.42494,
-        "end": 49.544937,
-        "text": "and allegra",
-        "confidence": 0.98846436,
-        "words": [
-          {
-            "text": "and",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "allegra",
-            "confidence": 0.9779053
-          }
-        ]
-      },
-      "agreement": 0.0,
-      "diff": [],
-      "confidence": 55.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
     }
   ],
   "spot_check": {
@@ -1762,7 +1733,6 @@
       7,
       8,
       9,
-      10,
       0
     ],
     "accuracy": null,
@@ -1770,5 +1740,5 @@
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T04:09:48+00:00"
+  "generated_at": "2026-08-07T04:38:27+00:00"
 }

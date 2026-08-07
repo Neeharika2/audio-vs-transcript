@@ -1,43 +1,39 @@
 1
-00:00:00,980 --> 00:00:06,320
+00:00:00,980 --> 00:00:05,820
 This 23-year-old white female presents with a complaint of allergies.
 
 2
-00:00:06,480 --> 00:00:12,160
+00:00:06,580 --> 00:00:11,760
 She used to have allergies when she lived in Seattle, but she thinks they are worse here.
 
 3
-00:00:12,240 --> 00:00:15,500
+00:00:12,280 --> 00:00:15,500
 In the past, she has tried Claritin and Zyrtec.
 
 4
-00:00:16,060 --> 00:00:20,055
+00:00:16,060 --> 00:00:19,500
 Both worked for a short time, but then seemed to lose effectiveness.
 
 5
-00:00:20,380 --> 00:00:23,015
+00:00:20,380 --> 00:00:22,700
 She had also used Allegra also.
 
 6
-00:00:23,600 --> 00:00:28,535
+00:00:23,600 --> 00:00:28,200
 She used the Plasmur and she began using it again two weeks ago.
 
 7
-00:00:28,200 --> 00:00:36,840
+00:00:28,200 --> 00:00:36,320
 It doesn't appear to be working very well. She has used over-the-counter sprays, but no prescription nasal sprays.
 
 8
-00:00:37,240 --> 00:00:42,320
+00:00:37,280 --> 00:00:42,320
 She does have asthma, but doesn't require daily medication for this
 
 9
-00:00:39,400 --> 00:00:48,425
+00:00:42,320 --> 00:00:45,020
 and does not think it is plaring up.
 
 10
 00:00:45,580 --> 00:00:49,360
 Her only medication currently is Orthoticycline and Allegra.
-
-11
-00:00:48,425 --> 00:00:49,545
-and allegra

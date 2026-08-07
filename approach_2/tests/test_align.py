@@ -1,4 +1,5 @@
 from approach_2.src.align import align
+from approach_2.src.compare import compare
 from approach_2.tests.fixtures import seg
 
 
@@ -76,3 +77,75 @@ class TestUnmatched:
         result = align(a, b)
         assert len(result) == 2
         assert any(s.engine_b is None for s in result)
+
+    def test_engine_b_only_span_surfaces_with_missing_a(self):
+        a = [seg("something at the start", 0, 2)]
+        b = [seg("something at the start", 0, 2), seg("something deepgram alone heard", 8, 10, engine="deepgram")]
+        result = align(a, b)
+        b_only = next(s for s in result if s.engine_a is None)
+        assert b_only.engine_b is not None
+        assert b_only.agreement == 0.0
+
+
+class TestBoundaryDifferences:
+    """Regression: one engine splits what the other combines.
+
+    Deepgram's single segment spans three Whisper segments and a trailing
+    Deepgram-only "and allegra" tail. The old alignment compared raw segments,
+    pulled neighbouring text into each comparison, and dropped the tail as
+    "only one engine transcribed this span". The alignment must compare the
+    same spoken content instead.
+    """
+
+    def test_crossing_split_merge_aligns_same_content(self):
+        a = [
+            seg("She does have asthma but doesn't require daily medication for this", 37.28, 42.32),
+            seg("and does not think it is plaring up.", 42.32, 45.02),
+            seg("Her only medication currently is Orthoticycline and Allegra.", 45.58, 49.36),
+        ]
+        b = [
+            seg("she does have asthma", 37.24, 39.16, engine="deepgram"),
+            seg(
+                "but doesn't require daily medication for this and does not think it is "
+                "flaring up her only medication currently is orthotracycline",
+                39.40,
+                48.42,
+                engine="deepgram",
+            ),
+            seg("and allegra", 48.42, 49.54, engine="deepgram"),
+        ]
+        result = align(a, b)
+        for s in result:
+            compare(s)
+        assert len(result) == 1
+        merged = result[0]
+        # Both engines transcribed the whole span; no false "only one engine".
+        assert merged.engine_a is not None and merged.engine_b is not None
+        # The Deepgram "and allegra" tail is folded into the span, not dropped.
+        assert "allegra" in merged.engine_b.text
+        # Only the genuine word differences (plaring/flaring, orthoticycline/
+        # orthotracycline) count; the boundary difference must not be one.
+        assert merged.agreement >= 0.9
+        assert [o.op for o in merged.diff].count("match") >= 24
+
+    def test_engine_b_split_tail_is_not_dropped(self):
+        a = [seg("Her only medication currently is Orthocycline and Allegra", 45.58, 49.36)]
+        b = [
+            seg("her only medication currently is orthocycline", 45.58, 48.42, engine="deepgram"),
+            seg("and allegra", 48.42, 49.54, engine="deepgram"),
+        ]
+        result = align(a, b)
+        assert len(result) == 1
+        merged = result[0]
+        assert merged.engine_a is not None and merged.engine_b is not None
+        compare(merged)
+        assert merged.agreement == 1.0
+        assert merged.engine_b.text.endswith("and allegra")
+
+    def test_genuine_word_difference_still_counts(self):
+        a = [seg("the patient took aspirin", 0, 3)]
+        b = [seg("the patient took ibuprofen", 0, 3, engine="deepgram")]
+        result = align(a, b)
+        assert len(result) == 1
+        compare(result[0])
+        assert result[0].agreement == 0.75

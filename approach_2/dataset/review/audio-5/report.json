@@ -80,8 +80,8 @@
     },
     {
       "idx": 1,
-      "start": 0.79999995,
-      "end": 16.335,
+      "start": 5.26,
+      "end": 10.18,
       "engine_a": {
         "engine": "whisper",
         "start": 5.26,
@@ -1018,8 +1018,8 @@
     },
     {
       "idx": 5,
-      "start": 27.055,
-      "end": 32.89,
+      "start": 27.26,
+      "end": 32.52,
       "engine_a": {
         "engine": "whisper",
         "start": 27.26,
@@ -1386,8 +1386,8 @@
     },
     {
       "idx": 7,
-      "start": 37.69,
-      "end": 44.805,
+      "start": 38.48,
+      "end": 44.3,
       "engine_a": {
         "engine": "whisper",
         "start": 38.48,
@@ -1782,7 +1782,7 @@
     },
     {
       "idx": 9,
-      "start": 47.445,
+      "start": 49.5,
       "end": 58.98,
       "engine_a": {
         "engine": "whisper",
@@ -2104,103 +2104,6 @@
     },
     {
       "idx": 10,
-      "start": 55.445,
-      "end": 62.91,
-      "engine_a": null,
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 55.445,
-        "end": 62.91,
-        "text": "including bleeding infection deep venous thrombosis pulmonary embolism slippage of man erosion of the man injury to the esophagus",
-        "confidence": 0.98460627,
-        "words": [
-          {
-            "text": "including",
-            "confidence": 1.0
-          },
-          {
-            "text": "bleeding",
-            "confidence": 0.9511719
-          },
-          {
-            "text": "infection",
-            "confidence": 0.97753906
-          },
-          {
-            "text": "deep",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "venous",
-            "confidence": 0.99316406
-          },
-          {
-            "text": "thrombosis",
-            "confidence": 0.9885254
-          },
-          {
-            "text": "pulmonary",
-            "confidence": 1.0
-          },
-          {
-            "text": "embolism",
-            "confidence": 0.99560547
-          },
-          {
-            "text": "slippage",
-            "confidence": 1.0
-          },
-          {
-            "text": "of",
-            "confidence": 1.0
-          },
-          {
-            "text": "man",
-            "confidence": 0.8400879
-          },
-          {
-            "text": "erosion",
-            "confidence": 0.9970703
-          },
-          {
-            "text": "of",
-            "confidence": 1.0
-          },
-          {
-            "text": "the",
-            "confidence": 0.9902344
-          },
-          {
-            "text": "man",
-            "confidence": 0.99121094
-          },
-          {
-            "text": "injury",
-            "confidence": 1.0
-          },
-          {
-            "text": "to",
-            "confidence": 1.0
-          },
-          {
-            "text": "the",
-            "confidence": 0.9873047
-          },
-          {
-            "text": "esophagus",
-            "confidence": 0.99658203
-          }
-        ]
-      },
-      "agreement": 0.0,
-      "diff": [],
-      "confidence": 54.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 11,
       "start": 59.18,
       "end": 64.72,
       "engine_a": {
@@ -2281,9 +2184,9 @@
       "correction": null
     },
     {
-      "idx": 12,
-      "start": 63.47,
-      "end": 70.83,
+      "idx": 11,
+      "start": 64.72,
+      "end": 69.54,
       "engine_a": {
         "engine": "whisper",
         "start": 64.72,
@@ -2499,7 +2402,7 @@
       "correction": null
     },
     {
-      "idx": 13,
+      "idx": 12,
       "start": 70.08,
       "end": 75.04,
       "engine_a": {
@@ -2673,9 +2576,9 @@
       "correction": null
     },
     {
-      "idx": 14,
-      "start": 74.935,
-      "end": 76.055,
+      "idx": 13,
+      "start": 75.04,
+      "end": 75.68,
       "engine_a": {
         "engine": "whisper",
         "start": 75.04,
@@ -2735,9 +2638,9 @@
       "correction": null
     },
     {
-      "idx": 15,
+      "idx": 14,
       "start": 76.04,
-      "end": 86.615,
+      "end": 79.46,
       "engine_a": {
         "engine": "whisper",
         "start": 76.04,
@@ -3025,7 +2928,7 @@
       "correction": null
     },
     {
-      "idx": 16,
+      "idx": 15,
       "start": 79.72,
       "end": 81.98,
       "engine_a": {
@@ -3078,7 +2981,7 @@
       "correction": null
     },
     {
-      "idx": 17,
+      "idx": 16,
       "start": 81.98,
       "end": 87.74,
       "engine_a": {
@@ -3155,9 +3058,9 @@
       "correction": null
     },
     {
-      "idx": 18,
-      "start": 86.57,
-      "end": 89.77,
+      "idx": 17,
+      "start": 87.74,
+      "end": 89.32,
       "engine_a": {
         "engine": "whisper",
         "start": 87.74,
@@ -3285,8 +3188,8 @@
       "correction": null
     },
     {
-      "idx": 19,
-      "start": 89.93,
+      "idx": 18,
+      "start": 89.98,
       "end": 95.66,
       "engine_a": {
         "engine": "whisper",
@@ -3467,8 +3370,8 @@
       "correction": null
     },
     {
-      "idx": 20,
-      "start": 94.25,
+      "idx": 19,
+      "start": 96.04,
       "end": 103.9,
       "engine_a": {
         "engine": "whisper",
@@ -3809,9 +3712,66 @@
       "correction": null
     },
     {
+      "idx": 20,
+      "start": 104.28,
+      "end": 106.38,
+      "engine_a": {
+        "engine": "whisper",
+        "start": 104.28,
+        "end": 106.38,
+        "text": "She has taken the quiz and done fairly well.",
+        "confidence": 0.8201365950078622,
+        "words": [
+          {
+            "text": " She",
+            "confidence": 0.9910656809806824
+          },
+          {
+            "text": " has",
+            "confidence": 0.9968075752258301
+          },
+          {
+            "text": " taken",
+            "confidence": 0.9946699738502502
+          },
+          {
+            "text": " the",
+            "confidence": 0.9895499348640442
+          },
+          {
+            "text": " quiz",
+            "confidence": 0.9969747066497803
+          },
+          {
+            "text": " and",
+            "confidence": 0.9934408068656921
+          },
+          {
+            "text": " done",
+            "confidence": 0.990921676158905
+          },
+          {
+            "text": " fairly",
+            "confidence": 0.979087233543396
+          },
+          {
+            "text": " well.",
+            "confidence": 0.9986642599105835
+          }
+        ]
+      },
+      "engine_b": null,
+      "agreement": 0.0,
+      "diff": [],
+      "confidence": 55.0,
+      "tier": "mandatory",
+      "verdict": "unreviewed",
+      "correction": null
+    },
+    {
       "idx": 21,
-      "start": 102.625,
-      "end": 114.225,
+      "start": 106.6,
+      "end": 111.28,
       "engine_a": {
         "engine": "whisper",
         "start": 106.6,
@@ -4188,63 +4148,6 @@
     },
     {
       "idx": 22,
-      "start": 104.28,
-      "end": 106.38,
-      "engine_a": {
-        "engine": "whisper",
-        "start": 104.28,
-        "end": 106.38,
-        "text": "She has taken the quiz and done fairly well.",
-        "confidence": 0.8201365950078622,
-        "words": [
-          {
-            "text": " She",
-            "confidence": 0.9910656809806824
-          },
-          {
-            "text": " has",
-            "confidence": 0.9968075752258301
-          },
-          {
-            "text": " taken",
-            "confidence": 0.9946699738502502
-          },
-          {
-            "text": " the",
-            "confidence": 0.9895499348640442
-          },
-          {
-            "text": " quiz",
-            "confidence": 0.9969747066497803
-          },
-          {
-            "text": " and",
-            "confidence": 0.9934408068656921
-          },
-          {
-            "text": " done",
-            "confidence": 0.990921676158905
-          },
-          {
-            "text": " fairly",
-            "confidence": 0.979087233543396
-          },
-          {
-            "text": " well.",
-            "confidence": 0.9986642599105835
-          }
-        ]
-      },
-      "engine_b": null,
-      "agreement": 0.0,
-      "diff": [],
-      "confidence": 55.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 23,
       "start": 111.28,
       "end": 114.02,
       "engine_a": {
@@ -4317,7 +4220,6 @@
       20,
       21,
       22,
-      23,
       4,
       5
     ],
@@ -4326,5 +4228,5 @@
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-06T13:15:49+00:00"
+  "generated_at": "2026-08-07T04:38:27+00:00"
 }

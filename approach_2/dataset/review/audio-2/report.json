@@ -8,7 +8,7 @@
     {
       "idx": 0,
       "start": 0.21,
-      "end": 8.559999,
+      "end": 8.07,
       "engine_a": {
         "engine": "whisper",
         "start": 0.21,
@@ -183,7 +183,7 @@
           }
         ]
       },
-      "agreement": 0.8889,
+      "agreement": 0.9444,
       "diff": [
         {
           "text": "i",
@@ -250,22 +250,22 @@
           "op": "match"
         },
         {
-          "text": "47",
-          "op": "substitute"
+          "text": "344",
+          "op": "match"
         },
         {
           "text": "pounds",
           "op": "match"
         }
       ],
-      "confidence": 91.0,
+      "confidence": 94.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
       "correction": null
     },
     {
       "idx": 1,
-      "start": 8.72,
+      "start": 8.81,
       "end": 18.23,
       "engine_a": {
         "engine": "whisper",
@@ -465,7 +465,7 @@
           }
         ]
       },
-      "agreement": 0.7391,
+      "agreement": 0.7826,
       "diff": [
         {
           "text": "he",
@@ -476,8 +476,8 @@
           "op": "match"
         },
         {
-          "text": "14",
-          "op": "substitute"
+          "text": "59",
+          "op": "match"
         },
         {
           "text": "he",
@@ -560,15 +560,15 @@
           "op": "delete"
         }
       ],
-      "confidence": 85.0,
+      "confidence": 87.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
       "correction": null
     },
     {
       "idx": 2,
-      "start": 17.525,
-      "end": 26.805,
+      "start": 18.51,
+      "end": 25.53,
       "engine_a": {
         "engine": "whisper",
         "start": 18.51,
@@ -751,7 +751,7 @@
           }
         ]
       },
-      "agreement": 0.6364,
+      "agreement": 0.7273,
       "diff": [
         {
           "text": "at",
@@ -774,8 +774,8 @@
           "op": "match"
         },
         {
-          "text": "61",
-          "op": "substitute"
+          "text": "358",
+          "op": "match"
         },
         {
           "text": "pounds",
@@ -794,8 +794,8 @@
           "op": "match"
         },
         {
-          "text": "62",
-          "op": "substitute"
+          "text": "260",
+          "op": "match"
         },
         {
           "text": "he",
@@ -842,7 +842,7 @@
           "op": "insert"
         }
       ],
-      "confidence": 83.0,
+      "confidence": 87.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
       "correction": null
@@ -850,7 +850,7 @@
     {
       "idx": 3,
       "start": 25.53,
-      "end": 33.6,
+      "end": 32.29,
       "engine_a": {
         "engine": "whisper",
         "start": 25.53,
@@ -1269,44 +1269,7 @@
     },
     {
       "idx": 5,
-      "start": 35.92,
-      "end": 37.52,
-      "engine_a": null,
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 35.92,
-        "end": 37.52,
-        "text": "he gets tired quickly",
-        "confidence": 0.99450684,
-        "words": [
-          {
-            "text": "he",
-            "confidence": 1.0
-          },
-          {
-            "text": "gets",
-            "confidence": 0.9951172
-          },
-          {
-            "text": "tired",
-            "confidence": 0.9873047
-          },
-          {
-            "text": "quickly",
-            "confidence": 0.99560547
-          }
-        ]
-      },
-      "agreement": 0.0,
-      "diff": [],
-      "confidence": 55.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 6,
-      "start": 37.76,
+      "start": 39.85,
       "end": 46.11,
       "engine_a": {
         "engine": "whisper",
@@ -1587,9 +1550,9 @@
       "correction": null
     },
     {
-      "idx": 7,
-      "start": 45.415,
-      "end": 56.07,
+      "idx": 6,
+      "start": 46.11,
+      "end": 54.39,
       "engine_a": {
         "engine": "whisper",
         "start": 46.11,
@@ -1901,9 +1864,9 @@
       "correction": null
     },
     {
-      "idx": 8,
+      "idx": 7,
       "start": 54.39,
-      "end": 63.99,
+      "end": 60.73,
       "engine_a": {
         "engine": "whisper",
         "start": 54.39,
@@ -2139,7 +2102,7 @@
       "correction": null
     },
     {
-      "idx": 9,
+      "idx": 8,
       "start": 60.73,
       "end": 68.61,
       "engine_a": {
@@ -2337,66 +2300,9 @@
       "correction": null
     },
     {
-      "idx": 10,
-      "start": 66.795,
-      "end": 69.835,
-      "engine_a": null,
-      "engine_b": {
-        "engine": "deepgram",
-        "start": 66.795,
-        "end": 69.835,
-        "text": "and atkins died for one month two years ago",
-        "confidence": 0.9694553,
-        "words": [
-          {
-            "text": "and",
-            "confidence": 0.9873047
-          },
-          {
-            "text": "atkins",
-            "confidence": 0.8828125
-          },
-          {
-            "text": "died",
-            "confidence": 0.8886719
-          },
-          {
-            "text": "for",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "one",
-            "confidence": 1.0
-          },
-          {
-            "text": "month",
-            "confidence": 1.0
-          },
-          {
-            "text": "two",
-            "confidence": 0.96875
-          },
-          {
-            "text": "years",
-            "confidence": 0.99902344
-          },
-          {
-            "text": "ago",
-            "confidence": 0.9995117
-          }
-        ]
-      },
-      "agreement": 0.0,
-      "diff": [],
-      "confidence": 54.0,
-      "tier": "mandatory",
-      "verdict": "unreviewed",
-      "correction": null
-    },
-    {
-      "idx": 11,
+      "idx": 9,
       "start": 68.89,
-      "end": 75.915,
+      "end": 74.55,
       "engine_a": {
         "engine": "whisper",
         "start": 68.89,
@@ -2584,9 +2490,9 @@
       "correction": null
     },
     {
-      "idx": 12,
+      "idx": 10,
       "start": 74.55,
-      "end": 82.84,
+      "end": 81.81,
       "engine_a": {
         "engine": "whisper",
         "start": 74.55,
@@ -2790,9 +2696,9 @@
       "correction": null
     },
     {
-      "idx": 13,
+      "idx": 11,
       "start": 81.81,
-      "end": 89.96,
+      "end": 88.31,
       "engine_a": {
         "engine": "whisper",
         "start": 81.81,
@@ -3040,9 +2946,9 @@
       "correction": null
     },
     {
-      "idx": 14,
+      "idx": 12,
       "start": 88.31,
-      "end": 100.248314,
+      "end": 100.07,
       "engine_a": {
         "engine": "whisper",
         "start": 88.31,
@@ -3385,14 +3291,12 @@
       10,
       11,
       12,
-      13,
-      0,
-      14
+      0
     ],
     "accuracy": null,
     "accepted": null,
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-06T13:15:49+00:00"
+  "generated_at": "2026-08-07T04:38:27+00:00"
 }
