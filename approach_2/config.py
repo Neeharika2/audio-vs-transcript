@@ -36,3 +36,12 @@ SPOT_CHECK_ACCEPT = 0.99
 # escalation of review_technical segments.
 GLOSSARY_PATH = os.environ.get("GLOSSARY_PATH", "")
 
+# LLM judge (audio-capable): arbitrates only disagreement segments. Requires a
+# Google AI Studio key in the repo-root .env. Empty disables the judge stage.
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
+
+# Padding (seconds) added on each side of a segment's span when cutting the
+# audio clip the judge listens to, so word boundaries are not clipped off.
+JUDGE_PAD_SECONDS = 0.5
+

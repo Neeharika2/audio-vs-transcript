@@ -49,6 +49,12 @@ src/score.py     per-segment confidence → review tier
 src/review.py    spot-check sampling (mandatory + disagreement + seeded 10%) + acceptance
    │                       ▼
 src/pipeline.py  assemble ReviewReport   ──►  src/export.py → TXT/MD/SRT/VTT
+   │                       │
+   │        suspicious segments only (agreement < 0.9 or missing side)
+   │                       ▼
+src/judge.py     audio-grounded LLM (Gemini 3.5 Flash) → classify + severity
+   │                       ▼
+   │        llm_judgment attached to AlignedSegment → exports / API
    │
    ▼
 api.py + static/review.html   interactive review (play span, diffs, inline corrections)
@@ -78,6 +84,7 @@ approach_2/
 │   ├── compare.py        # word_diff(), agreement()
 │   ├── score.py          # segment_confidence(), assign_tier()
 │   ├── review.py         # sample_review_set(), acceptance_check()
+│   ├── judge.py          # select_for_judgment(), LLMJudge/GeminiJudge, judge_report()
 │   ├── pipeline.py       # run_pipeline() -> ReviewReport
 │   └── export.py         # to_txt(), to_md(), to_srt(), to_vtt()
 └── tests/
@@ -300,6 +307,28 @@ inference is the only nondeterministic stage; document this).
 - Verdicts persist to `dataset/review/<name>/verdicts.json`.
 - No build tooling, no JS framework.
 
+### 5.10 Audio-grounded LLM judge (`judge.py`)
+
+The two STT engines are a cheap first-pass filter. Only segments the
+deterministic disagreement detector flags are sent to an audio-capable LLM
+(Gemini 3.5 Flash) that listens to the actual audio span and arbitrates.
+
+- **Detector** (`select_for_judgment`): a segment is suspicious iff one side is
+  missing (`engine_a`/`engine_b` is `None`) or `agreement < DISAGREE_THRESHOLD`.
+  Everything else is high-confidence and bypasses the LLM entirely.
+- **LLM input** per flagged segment: the audio span cut with ffmpeg
+  (`audio.extract_span`, padded by `JUDGE_PAD_SECONDS`), both transcripts, the
+  aligned timestamps, and per-engine confidence.
+- **Structured output** (`LLMJudgeVerdict`): `classification`
+  (`missing | extra | hallucinated | incorrect | conflicting | accurate`),
+  `correct_content`, `whisper_error`, `deepgram_error`, `severity`
+  (`low | medium | high | critical`), `explanation`, `evidence`.
+- **Modularity**: `LLMJudge` is a protocol; `GeminiJudge` is the implementation
+  (google-genai SDK, lazily imported so tests never need it). Swap = new class.
+- Verdicts persist to `dataset/review/<name>/judgments.json` and are merged on
+  load by the API; exports prefer `correct_content` when present.
+- CLI: `python -m approach_2.main judge [audio]` (needs `GEMINI_API_KEY`).
+
 ---
 
 ## 6. Testing strategy
@@ -342,3 +371,6 @@ Every key maps to a stated requirement or an explicit user threshold:
 | `SPOT_CHECK_SEED` | `42` | sampling seed (reproducible) |
 | `SPOT_CHECK_ACCEPT` | `0.99` | sample accuracy to accept |
 | `GLOSSARY_PATH` | (empty) | optional domain term list |
+| `GEMINI_API_KEY` | (env) | Google AI Studio key for the LLM judge |
+| `GEMINI_MODEL` | `gemini-3.5-flash` | audio-capable judge model |
+| `JUDGE_PAD_SECONDS` | `0.5` | padding on each side of a cut audio span |

@@ -6,11 +6,26 @@ from approach_2.src.models import AlignedSegment, ReviewReport
 
 
 def _best_text(s: AlignedSegment) -> str:
+    if s.llm_judgment is not None and s.llm_judgment.correct_content:
+        return s.llm_judgment.correct_content
     if s.engine_a is not None:
         return s.engine_a.text
     if s.engine_b is not None:
         return s.engine_b.text
     return ""
+
+
+def _judge_line(s: AlignedSegment) -> str:
+    if s.llm_judgment is None:
+        return ""
+    v = s.llm_judgment
+    flags = []
+    if v.whisper_error:
+        flags.append("whisper")
+    if v.deepgram_error:
+        flags.append("deepgram")
+    who = f" ({'+'.join(flags)} erred)" if flags else ""
+    return f"  [LLM] {v.classification}/{v.severity}{who}: {v.explanation}"
 
 
 def to_txt(report: ReviewReport) -> str:
@@ -20,6 +35,9 @@ def to_txt(report: ReviewReport) -> str:
             f"[{s.idx:02d}] {s.start:7.2f}-{s.end:7.2f}s  conf={s.confidence:3.0f}  {s.tier}"
         )
         lines.append(f"      {_best_text(s)}")
+        judge_line = _judge_line(s)
+        if judge_line:
+            lines.append(judge_line)
     return "\n".join(lines) + "\n"
 
 

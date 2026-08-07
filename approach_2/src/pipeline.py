@@ -14,7 +14,7 @@ from pathlib import Path
 from approach_2 import config
 from approach_2.src.align import align
 from approach_2.src.compare import compare
-from approach_2.src.models import EngineSegment, ReviewReport, SpotCheck
+from approach_2.src.models import EngineSegment, LLMJudgeVerdict, ReviewReport, SpotCheck
 from approach_2.src.review import sample_review_set
 from approach_2.src.score import score
 
@@ -28,6 +28,11 @@ def load_segments(engine: str, stem: str) -> list[EngineSegment]:
 def verdicts_path(stem: str) -> Path:
     """JSON sidecar storing reviewer verdicts/corrections per segment."""
     return config.DATASET_DIR / "review" / stem / "verdicts.json"
+
+
+def judgments_path(stem: str) -> Path:
+    """JSON sidecar storing LLM judge verdicts per segment."""
+    return config.DATASET_DIR / "review" / stem / "judgments.json"
 
 
 def load_verdicts(stem: str) -> dict[int, dict]:
@@ -44,6 +49,34 @@ def save_verdicts(stem: str, verdicts: dict[int, dict]) -> None:
         json.dumps({str(k): v for k, v in verdicts.items()}, indent=2),
         encoding="utf-8",
     )
+
+
+def load_judgments(stem: str) -> dict[int, "LLMJudgeVerdict"]:
+    path = judgments_path(stem)
+    if not path.is_file():
+        return {}
+    return {
+        int(k): LLMJudgeVerdict.model_validate(v)
+        for k, v in json.loads(path.read_text(encoding="utf-8")).items()
+    }
+
+
+def save_judgments(stem: str, judgments: dict[int, "LLMJudgeVerdict"]) -> None:
+    path = judgments_path(stem)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({str(k): v.model_dump(mode="json") for k, v in judgments.items()}, indent=2),
+        encoding="utf-8",
+    )
+
+
+def apply_judgments(report: ReviewReport, judgments: dict[int, "LLMJudgeVerdict"]) -> ReviewReport:
+    """Merge stored LLM verdicts into a fresh report by segment index."""
+    for seg in report.segments:
+        verdict = judgments.get(seg.idx)
+        if verdict is not None:
+            seg.llm_judgment = verdict
+    return report
 
 
 def build_report(

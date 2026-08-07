@@ -114,6 +114,7 @@ audio and is hard to tune.
 | Confidence formula | `0.40·engine_conf + 0.45·agreement + 0.15·(1 − low_conf_ratio)`; glossary escalation handled by the tier rule | Explicit, weighted, fixed weights |
 | Review tiers | `≥98` auto-accept · `90–97` review-if-technical · `<90` mandatory | Matches the user's thresholds |
 | Spot check | tier 0 + tier 1 mandatory; seeded 10% of remainder; acceptance ≥99% | Statistically grounded, reproducible |
+| LLM judge | Disagreement-only, audio-grounded arbitration (Gemini 3.5 Flash): `classification` + `severity` + per-engine error flags; `LLMJudge` protocol, swappable | Cheap two-engine filter; LLM only where engines disagree |
 | Exports | JSON, TXT, MD, SRT, VTT (v1); DOCX, PDF (v2) | Text formats need no extra deps |
 
 ---

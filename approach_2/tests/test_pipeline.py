@@ -75,3 +75,17 @@ class TestVerdicts:
             2: {"verdict": "incorrect", "correction": "fixed"},
         }
         assert load_verdicts("missing") == {}
+
+    def test_judgments_roundtrip(self, tmp_path, monkeypatch):
+        from approach_2 import config
+        from approach_2.src.models import LLMJudgeVerdict
+        from approach_2.src.pipeline import load_judgments, save_judgments
+
+        monkeypatch.setattr(config, "DATASET_DIR", tmp_path)
+        verdict = LLMJudgeVerdict(
+            classification="incorrect", correct_content="20 mg",
+            whisper_error=True, severity="high",
+        )
+        save_judgments("a1", {1: verdict})
+        assert load_judgments("a1")[1].classification == "incorrect"
+        assert load_judgments("missing") == {}

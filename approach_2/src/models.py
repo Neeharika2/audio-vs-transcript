@@ -34,6 +34,30 @@ class AlignedSegment(BaseModel):
     tier: str = "mandatory"  # auto_accept | review_technical | mandatory
     verdict: str = "unreviewed"  # unreviewed | accepted | corrected | rejected
     correction: str | None = None
+    llm_judgment: "LLMJudgeVerdict | None" = None
+
+
+class LLMJudgeVerdict(BaseModel):
+    """Structured arbitration from the audio-capable LLM for a disagreement.
+
+    `classification` is one of:
+      - "missing"        one engine omitted content that IS in the audio
+      - "extra"          a transcript contains content NOT in the audio
+      - "hallucinated"   a transcript invented content that is not there
+      - "incorrect"      a word/span transcribed wrongly
+      - "conflicting"    the two transcripts conflict on something material
+      - "accurate"       the LLM listened and the audio matches (false alarm)
+
+    `severity` is one of: "low" | "medium" | "high" | "critical".
+    """
+
+    classification: str = "incorrect"
+    correct_content: str = ""
+    whisper_error: bool = False
+    deepgram_error: bool = False
+    severity: str = "low"
+    explanation: str = ""
+    evidence: str = ""
 
 
 class SpotCheck(BaseModel):

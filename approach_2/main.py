@@ -12,12 +12,19 @@ the stored transcripts and writes a report to `dataset/review/<name>/`:
 
     report.json  report.txt  report.md  report.srt  report.vtt
 
+`judge` runs the audio-grounded LLM judge over disagreement segments and stores
+the verdicts on the report (needs `GEMINI_API_KEY`):
+
+    python -m approach_2.main judge                # judge all files
+    python -m approach_2.main judge audio-1        # judge one file
+
 Usage:
     python -m approach_2.main transcribe                # all files
     python -m approach_2.main transcribe audio-3.ogg    # one file
     python -m approach_2.main review                    # evaluate all files
     python -m approach_2.main review audio-1            # evaluate one file
     python -m approach_2.main evaluate audio-1          # transcribe (if needed) + evaluate
+    python -m approach_2.main judge audio-1             # evaluate + LLM judge disagreements
 
 Interactive review UI (play spans, mark correct/incorrect, correct text):
     uvicorn approach_2.api:app --port 8000
@@ -124,8 +131,20 @@ def _print_summary(report) -> None:
         print(f"  acceptance: accuracy={accuracy:.2%} -> {outcome}")
 
 
-def _review_all(name: str | None) -> None:
+def _write_report_outputs(report, stem: str) -> None:
     from approach_2.src.export import to_md, to_srt, to_txt, to_vtt
+
+    out_dir = config.DATASET_DIR / "review" / stem
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "report.json").write_text(report.model_dump_json(indent=2), encoding="utf-8")
+    (out_dir / "report.txt").write_text(to_txt(report), encoding="utf-8")
+    (out_dir / "report.md").write_text(to_md(report), encoding="utf-8")
+    (out_dir / "report.srt").write_text(to_srt(report), encoding="utf-8")
+    (out_dir / "report.vtt").write_text(to_vtt(report), encoding="utf-8")
+    return out_dir
+
+
+def _review_all(name: str | None) -> None:
     from approach_2.src.pipeline import load_verdicts, run_pipeline
     from approach_2.src.review import apply_review
 
@@ -134,15 +153,38 @@ def _review_all(name: str | None) -> None:
     for stem in stems:
         report = run_pipeline(stem)
         apply_review(report, load_verdicts(stem))
-        out_dir = config.DATASET_DIR / "review" / stem
-        out_dir.mkdir(parents=True, exist_ok=True)
-        (out_dir / "report.json").write_text(report.model_dump_json(indent=2), encoding="utf-8")
-        (out_dir / "report.txt").write_text(to_txt(report), encoding="utf-8")
-        (out_dir / "report.md").write_text(to_md(report), encoding="utf-8")
-        (out_dir / "report.srt").write_text(to_srt(report), encoding="utf-8")
-        (out_dir / "report.vtt").write_text(to_vtt(report), encoding="utf-8")
+        out_dir = _write_report_outputs(report, stem)
         print(f"\n{stem}")
         _print_summary(report)
+        print(f"    -> {out_dir}")
+
+
+def _judge_all(name: str | None) -> None:
+    """Run the LLM judge over disagreement segments and store verdicts."""
+    from approach_2.src.judge import GeminiJudge, judge_report
+    from approach_2.src.pipeline import load_verdicts, run_pipeline
+    from approach_2.src.review import apply_review
+
+    if not config.GEMINI_API_KEY:
+        sys.exit("GEMINI_API_KEY is not set; add it to the repo-root .env to run the LLM judge")
+
+    stems = _audio_stems(config.AUDIO_DIR, name)
+    print(f"LLM-judging {len(stems)} file(s) with {config.GEMINI_MODEL}")
+    judge = GeminiJudge()
+    for stem in stems:
+        report = run_pipeline(stem)
+        apply_review(report, load_verdicts(stem))
+        audio_path = _audio_files(config.AUDIO_DIR, stem)[0]
+        try:
+            with tempfile.TemporaryDirectory(prefix="approach2_judge_") as work:
+                judge_report(report, audio_path, judge, work_dir=Path(work))
+        except Exception as exc:
+            print(f"  judge failed for {stem}: {exc}", file=sys.stderr)
+        out_dir = _write_report_outputs(report, stem)
+        judged = sum(1 for s in report.segments if s.llm_judgment is not None)
+        print(f"\n{stem}")
+        _print_summary(report)
+        print(f"    judged: {judged}/{len(report.segments)} segments")
         print(f"    -> {out_dir}")
 
 
@@ -172,12 +214,16 @@ def main() -> None:
     r.add_argument("audio", nargs="?", help="audio file name (default: all files)")
     e = sub.add_parser("evaluate", help="transcribe missing audio then evaluate it")
     e.add_argument("audio", help="audio file name in dataset/audio")
+    j = sub.add_parser("judge", help="run the audio-grounded LLM judge over disagreement segments")
+    j.add_argument("audio", nargs="?", help="audio file name (default: all files)")
     args = parser.parse_args()
 
     if args.command == "evaluate":
         _evaluate(args.audio)
     elif args.command == "review":
         _review_all(args.audio)
+    elif args.command == "judge":
+        _judge_all(args.audio)
     else:
         _transcribe_all(args.audio)
 

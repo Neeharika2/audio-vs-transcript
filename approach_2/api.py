@@ -17,7 +17,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from approach_2 import config
-from approach_2.src.pipeline import load_verdicts, run_pipeline, save_verdicts
+from approach_2.src.pipeline import apply_judgments, load_judgments, load_verdicts, run_pipeline, save_verdicts
 from approach_2.src.review import apply_review
 
 app = FastAPI(title="Approach 2 review")
@@ -43,7 +43,9 @@ def _report(stem: str):
         report = run_pipeline(stem)
     except FileNotFoundError as exc:
         raise HTTPException(404, f"no stored transcripts for {stem}; run transcribe first") from exc
-    return apply_review(report, load_verdicts(stem))
+    apply_review(report, load_verdicts(stem))
+    apply_judgments(report, load_judgments(stem))
+    return report
 
 
 @app.get("/")

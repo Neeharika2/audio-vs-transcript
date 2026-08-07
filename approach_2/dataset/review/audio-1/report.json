@@ -181,7 +181,8 @@
       "confidence": 92.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 1,
@@ -415,7 +416,8 @@
       "confidence": 94.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 2,
@@ -553,7 +555,8 @@
       "confidence": 98.0,
       "tier": "auto_accept",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 3,
@@ -727,7 +730,8 @@
       "confidence": 78.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 4,
@@ -829,7 +833,8 @@
       "confidence": 98.0,
       "tier": "auto_accept",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 5,
@@ -1023,7 +1028,16 @@
       "confidence": 87.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": {
+        "classification": "incorrect",
+        "correct_content": "she used that last summer and she began using it again two weeks ago",
+        "whisper_error": true,
+        "deepgram_error": false,
+        "severity": "medium",
+        "explanation": "Whisper incorrectly transcribes 'that last summer' as 'the Plasmur', which completely changes the meaning of the sentence, while Deepgram gets the transcription 100% correct.",
+        "evidence": "she used that last summer"
+      }
     },
     {
       "idx": 6,
@@ -1297,7 +1311,8 @@
       "confidence": 93.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 7,
@@ -1655,7 +1670,8 @@
       "confidence": 94.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     }
   ],
   "spot_check": {
@@ -1670,5 +1686,5 @@
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T05:27:32+00:00"
+  "generated_at": "2026-08-07T07:02:44+00:00"
 }
