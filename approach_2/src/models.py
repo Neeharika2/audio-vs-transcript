@@ -22,6 +22,14 @@ class WordOp(BaseModel):
     op: str  # "match" | "substitute" | "insert" | "delete"
 
 
+class TokenOp(BaseModel):
+    """One Levenshtein-aligned token pair. A `None` side means the word exists
+    on one engine only: `a=None` is an insert, `b=None` is a delete."""
+    op: str  # "match" | "substitute" | "insert" | "delete"
+    a: str | None = None
+    b: str | None = None
+
+
 class AlignedSegment(BaseModel):
     idx: int
     start: float

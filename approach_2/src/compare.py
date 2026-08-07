@@ -3,15 +3,17 @@
 from __future__ import annotations
 
 from approach_2.src.align import norm_words
-from approach_2.src.models import AlignedSegment, WordOp
+from approach_2.src.models import AlignedSegment, TokenOp, WordOp
 
 
-def word_diff(a_words: list[str], b_words: list[str]) -> list[WordOp]:
-    """Levenshtein alignment over word tokens -> match/substitute/insert/delete ops.
+def token_align(a_words: list[str], b_words: list[str]) -> list[TokenOp]:
+    """Levenshtein alignment over word tokens -> per-token (a, b) ops.
 
-    `a_words` is engine A's side, `b_words` engine B's side. A delete is a word
-    only engine A heard; an insert only engine B heard; a substitute is a word
-    the two engines heard differently.
+    `a_words` is engine A's side, `b_words` engine B's side. This is the single
+    shared backtrack for every stage that needs to explain *why* two sides
+    differ (diff + judge). A delete is a word only engine A heard (`b=None`),
+    an insert only engine B heard (`a=None`), a substitute a word the two
+    engines heard differently. Consumers derive their own view from these ops.
     """
     n, m = len(a_words), len(b_words)
     dp = [[0] * (m + 1) for _ in range(n + 1)]
@@ -24,25 +26,33 @@ def word_diff(a_words: list[str], b_words: list[str]) -> list[WordOp]:
             cost = 0 if a_words[i - 1] == b_words[j - 1] else 1
             dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost)
 
-    ops: list[WordOp] = []
+    ops: list[TokenOp] = []
     i, j = n, m
     while i > 0 or j > 0:
         if i > 0 and j > 0 and a_words[i - 1] == b_words[j - 1] and dp[i][j] == dp[i - 1][j - 1]:
-            ops.append(WordOp(text=a_words[i - 1], op="match"))
+            ops.append(TokenOp(op="match", a=a_words[i - 1], b=b_words[j - 1]))
             i -= 1
             j -= 1
         elif i > 0 and j > 0 and dp[i][j] == dp[i - 1][j - 1] + 1:
-            ops.append(WordOp(text=b_words[j - 1], op="substitute"))
+            ops.append(TokenOp(op="substitute", a=a_words[i - 1], b=b_words[j - 1]))
             i -= 1
             j -= 1
         elif i > 0 and dp[i][j] == dp[i - 1][j] + 1:
-            ops.append(WordOp(text=a_words[i - 1], op="delete"))
+            ops.append(TokenOp(op="delete", a=a_words[i - 1]))
             i -= 1
         else:
-            ops.append(WordOp(text=b_words[j - 1], op="insert"))
+            ops.append(TokenOp(op="insert", b=b_words[j - 1]))
             j -= 1
     ops.reverse()
     return ops
+
+
+def word_diff(a_words: list[str], b_words: list[str]) -> list[WordOp]:
+    """Levenshtein alignment -> match/substitute/insert/delete ops for display."""
+    return [
+        WordOp(text=op.a if op.op == "delete" else op.b, op=op.op)
+        for op in token_align(a_words, b_words)
+    ]
 
 
 def agreement(diff: list[WordOp], len_a: int, len_b: int) -> float:

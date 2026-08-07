@@ -25,6 +25,7 @@ from typing import Protocol
 from approach_2 import config
 from approach_2.src.align import norm_words
 from approach_2.src.audio import extract_span
+from approach_2.src.compare import token_align
 from approach_2.src.models import AlignedSegment, LLMJudgeVerdict, ReviewReport
 from approach_2.src.review import load_glossary
 
@@ -64,42 +65,13 @@ _TECHNICAL_LENGTH = 8
 def _token_pairs(seg: AlignedSegment) -> list[tuple[str | None, str | None]]:
     """Align the two engines' normalized tokens; yield (a_token, b_token) pairs.
 
-    A `None` side means an insertion (b-only) or deletion (a-only). This is a
-    straight word-level Levenshtein backtrack (word order is identical across
-    engines), so substitutions are distinguished from insertions/deletions.
+    A `None` side means an insertion (b-only) or deletion (a-only). Reuses the
+    shared word-level Levenshtein backtrack so the diff and the judge read the
+    same alignment.
     """
     a_tokens = norm_words(seg.engine_a) if seg.engine_a else []
     b_tokens = norm_words(seg.engine_b) if seg.engine_b else []
-    n, m = len(a_tokens), len(b_tokens)
-    dp = [[0] * (m + 1) for _ in range(n + 1)]
-    for i in range(n + 1):
-        dp[i][0] = i
-    for j in range(m + 1):
-        dp[0][j] = j
-    for i in range(1, n + 1):
-        for j in range(1, m + 1):
-            cost = 0 if a_tokens[i - 1] == b_tokens[j - 1] else 1
-            dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost)
-
-    pairs: list[tuple[str | None, str | None]] = []
-    i, j = n, m
-    while i > 0 or j > 0:
-        if i > 0 and j > 0 and a_tokens[i - 1] == b_tokens[j - 1] and dp[i][j] == dp[i - 1][j - 1]:
-            pairs.append((a_tokens[i - 1], b_tokens[j - 1]))
-            i -= 1
-            j -= 1
-        elif i > 0 and j > 0 and dp[i][j] == dp[i - 1][j - 1] + 1:
-            pairs.append((a_tokens[i - 1], b_tokens[j - 1]))
-            i -= 1
-            j -= 1
-        elif i > 0 and dp[i][j] == dp[i - 1][j] + 1:
-            pairs.append((a_tokens[i - 1], None))
-            i -= 1
-        else:
-            pairs.append((None, b_tokens[j - 1]))
-            j -= 1
-    pairs.reverse()
-    return pairs
+    return [(t.a, t.b) for t in token_align(a_tokens, b_tokens)]
 
 
 def critical_difference(seg: AlignedSegment) -> str | None:
