@@ -110,6 +110,8 @@ See `approach_2/README.md` for the data layout, alignment notes, and tests.
 ## Tests
 
 ```bash
-source .venv/bin/activate
-python -m pytest approach_1/tests approach_2/tests -q
+make tests
 ```
+
+(`make` is available from the repo root; `make` alone prints a menu of every
+target, `make setup` does the one-time install.)

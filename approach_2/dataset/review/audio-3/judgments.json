@@ -1,0 +1,65 @@
+{
+  "0": {
+    "classification": "incorrect",
+    "correct_content": "Multiple views of heart and great vessels reveal normal intracardiac and great vessel relationships.",
+    "whisper_error": true,
+    "deepgram_error": true,
+    "severity": "medium",
+    "explanation": "Both engines transcribed 'views' incorrectly as 'use'. Additionally, Whisper misspelled 'intracardiac' as 'intracardic'.",
+    "evidence": "Multiple views of heart"
+  },
+  "3": {
+    "classification": "incorrect",
+    "correct_content": "There is no pericardial effusion or vegetation seen.",
+    "whisper_error": true,
+    "deepgram_error": false,
+    "severity": "medium",
+    "explanation": "Whisper incorrectly transcribed the medical terms 'pericardial' as 'pre-cardial' and 'vegetation' as 'visitation'. Deepgram got both of these terms correct.",
+    "evidence": "pericardial effusion or vegetation seen"
+  },
+  "4": {
+    "classification": "incorrect",
+    "correct_content": "Doppler interrogation including color flow imaging reveals systemic venous return to the right atrium with normal tricuspid inflow.",
+    "whisper_error": true,
+    "deepgram_error": true,
+    "severity": "high",
+    "explanation": "Both engines transcribed the medical term 'right atrium' incorrectly as 'right atom' and inserted an extra word ('written' or 'return') before it that was not spoken in the audio.",
+    "evidence": "to the right atrium with normal"
+  },
+  "6": {
+    "classification": "incorrect",
+    "correct_content": "pulmonary venous return is to the left atrium",
+    "whisper_error": true,
+    "deepgram_error": true,
+    "severity": "medium",
+    "explanation": "Both engines transcribed the medical term 'atrium' as 'atom'. Additionally, Deepgram misspelled 'venous' as 'veneous'.",
+    "evidence": "left atrium"
+  },
+  "7": {
+    "classification": "incorrect",
+    "correct_content": "the left atrial spectrum is intact",
+    "whisper_error": true,
+    "deepgram_error": false,
+    "severity": "medium",
+    "explanation": "The speaker clearly says 'atrial' rather than 'arterial'. Deepgram got this right, whereas Whisper transcribed it incorrectly.",
+    "evidence": "atrial"
+  },
+  "8": {
+    "classification": "incorrect",
+    "correct_content": "Mitral inflow and ascending aorta flow are normal.",
+    "whisper_error": true,
+    "deepgram_error": false,
+    "severity": "medium",
+    "explanation": "Whisper mistranscribed 'mitral' as 'Material' and 'aorta' as 'autra', whereas Deepgram got the transcription perfectly correct.",
+    "evidence": "mitral inflow and ascending aorta flow are normal"
+  },
+  "9": {
+    "classification": "incorrect",
+    "correct_content": "the aortic valve is trileaflet",
+    "whisper_error": true,
+    "deepgram_error": true,
+    "severity": "medium",
+    "explanation": "Both engines misspelled the medical term 'trileaflet'. Whisper transcribed it as 'tri-lifted', and Deepgram transcribed it as 'trileftlet'.",
+    "evidence": "trileaflet"
+  }
+}

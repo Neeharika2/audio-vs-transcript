@@ -162,7 +162,7 @@ def _review_all(name: str | None) -> None:
 def _judge_all(name: str | None) -> None:
     """Run the LLM judge over disagreement segments and store verdicts."""
     from approach_2.src.judge import GeminiJudge, judge_report
-    from approach_2.src.pipeline import load_verdicts, run_pipeline
+    from approach_2.src.pipeline import load_verdicts, run_pipeline, save_judgments
     from approach_2.src.review import apply_review
 
     if not config.GEMINI_API_KEY:
@@ -180,6 +180,8 @@ def _judge_all(name: str | None) -> None:
                 judge_report(report, audio_path, judge, work_dir=Path(work))
         except Exception as exc:
             print(f"  judge failed for {stem}: {exc}", file=sys.stderr)
+        judgments = {s.idx: s.llm_judgment for s in report.segments if s.llm_judgment is not None}
+        save_judgments(stem, judgments)
         out_dir = _write_report_outputs(report, stem)
         judged = sum(1 for s in report.segments if s.llm_judgment is not None)
         print(f"\n{stem}")
