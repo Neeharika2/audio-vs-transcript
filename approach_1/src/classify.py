@@ -124,7 +124,6 @@ def _auto_missing(seg) -> ErrorItem:
         category="missing_information",
         reference_text=seg.text,
         generated_text=None,
-        context=None,
         explanation="Gold segment has no counterpart in the candidate transcript.",
         severity="medium",
     )
@@ -135,7 +134,6 @@ def _auto_hallucination(seg) -> ErrorItem:
         category="hallucinated_information",
         reference_text=None,
         generated_text=seg.text,
-        context=None,
         explanation="Candidate segment has no basis in the gold transcript.",
         severity="medium",
     )
@@ -178,7 +176,6 @@ def _record(pair: AlignedPair, judgement: SegmentJudgement) -> ErrorItem | None:
         category=category,
         reference_text=pair.gold.text,
         generated_text=pair.candidate.text,
-        context=None,
         explanation=judgement.explanation,
         severity=judgement.severity,
         signal_evidence={"segment_similarity": round(pair.similarity, 3)},

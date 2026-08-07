@@ -60,10 +60,7 @@ def pdf_to_text(path: Path) -> str:
 
 def make_judge():
     if config.DEEPSEEK_API_KEY:
-        return config.DeepSeekJudge(
-            model_name=config.EVAL_MODEL_NAME,
-            api_key=config.DEEPSEEK_API_KEY,
-        )
+        return config.get_judge()
     return None
 
 

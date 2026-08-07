@@ -11,7 +11,6 @@ from approach_2.src.judge import (
     JudgeRequest,
     build_prompt,
     critical_difference,
-    is_suspicious,
     judge_report,
     parse_verdict,
     select_for_judgment,
@@ -113,10 +112,6 @@ class TestDisagreementDetector:
         report = _report([_aligned(0, "hello world", "hello worled", 0.95)])
         assert select_for_judgment(report, disagree_threshold=0.99) != []
         assert select_for_judgment(report, disagree_threshold=0.90) == []
-
-    def test_is_suspicious_matches(self):
-        assert is_suspicious(_aligned(0, "a", "b", 0.3))
-        assert not is_suspicious(_aligned(0, "a", "a", 1.0))
 
 
 class TestBuildPrompt:

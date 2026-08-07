@@ -176,15 +176,6 @@ def select_for_judgment(
     ]
 
 
-def is_suspicious(segment: AlignedSegment, disagree_threshold: float | None = None) -> bool:
-    threshold = config.LLM_DISAGREE_THRESHOLD if disagree_threshold is None else disagree_threshold
-    return (
-        critical_difference(segment) is not None
-        or segment.agreement is None
-        or segment.agreement < threshold
-    )
-
-
 # ---------------------------------------------------------------------------
 # Judge interface + request
 # ---------------------------------------------------------------------------
