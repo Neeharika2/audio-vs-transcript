@@ -49,10 +49,10 @@ The system operates in two distinct phases: **Transcription** (converting spoken
 The skeletal project structure under `approach_1/` contains the following core modules:
 
 *   **`main.py`**: The application driver that loads the audio and reference transcript, coordinates the STT runner and the LLM evaluator, and prints the final report.
-*   **`config.py`**: Houses configuration variables, environment keys (like `GEMINI_API_KEY`), and chosen models or weights.
+*   **`config.py`**: Houses configuration variables, environment keys (like `DEEPSEEK_API_KEY`), and chosen models or weights.
 *   **`requirements.txt`**: Declares third-party dependencies required for transcription and evaluation.
 *   **`src/models.py`**: Contains Pydantic models enforcing strict JSON structures for evaluation outputs (`ErrorItem`, `EvaluationReport`).
-*   **`src/evaluator.py`**: Manages LLM prompting, system instructions, and handles interactions with the Gemini API to retrieve structured auditing results.
+*   **`src/evaluator.py`**: Manages LLM prompting, system instructions, and handles interactions with the DeepSeek API to retrieve structured auditing results.
 *   **`src/metrics.py`**: Computes consistency metrics and calculates the overall matching score.
 
 ## 3. Modular Interface Decoupling
@@ -66,11 +66,9 @@ class STTModel(Protocol):
     def transcribe(self, audio_path: str) -> str:
         ...
 ```
-*   **GeminiAudioSTT**: Uploads audio to the Gemini API and requests transcription.
 *   **LocalWhisperSTT**: Loads Whisper locally to transcribe via CPU/GPU.
-*   **MockSTT**: Returns pre-saved sample text (for offline testing).
 
-The exact provider is selected in `config.py` via `STT_PROVIDER`. The application calls `get_stt_runner()` which returns the configured implementation.
+The exact provider is selected in `config.py` via `get_stt_runner()` which returns the configured implementation.
 
 ### 3.2 LLM Evaluator Interface
 All evaluation engines implement a unified interface:
@@ -79,9 +77,7 @@ class LLMEvaluator(Protocol):
     def evaluate(self, gold_transcript: str, candidate_transcript: str) -> EvaluationReport:
         ...
 ```
-*   **GeminiEvaluator**: Generates structured reports using Gemini Structured Outputs.
-*   **OpenAIEvaluator**: Connects to OpenAI structured JSON models.
-*   **MockEvaluator**: Returns a deterministic sample report without hitting any APIs.
+*   **DeepSeekJudge**: Generates structured reports using DeepSeek Structured Outputs.
 
-The engine is instantiated dynamically via `get_evaluator()` based on the `EVAL_PROVIDER` environment variable. The driver (`main.py`) remains static and doesn't know which backend is executing the request.
+The engine is instantiated dynamically via `get_judge()` (model chosen by `EVAL_MODEL_NAME`). The driver (`main.py`) remains static and doesn't know which backend is executing the request.
 

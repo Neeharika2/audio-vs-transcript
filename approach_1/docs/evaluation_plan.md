@@ -127,7 +127,7 @@ Rationale: splitting into segments makes the LLM more precise, cheaper per call,
     "gold_source": "harvard.wav.gold.txt",
     "candidate_source": "whisper-base.txt",
     "stt_model": "faster-whisper base",
-    "evaluator": "gemini-3.5-flash"
+    "evaluator": "deepseek-chat"
   },
   "alignment": {
     "gold_segments": 7,
@@ -216,7 +216,7 @@ approach_1/
 
 ## 8. Decisions (Locked)
 
-1. **Judge model**: Gemini only — keep `gemini-2.5-flash`; no OpenAI/multi-provider for now.
+1. **Judge model**: DeepSeek only — keep `deepseek-chat`; no OpenAI/multi-provider for now.
 2. **Embeddings**: local `sentence-transformers` for the semantic signals (offline, deterministic).
 3. **Category split**: *same fact restated with a different value → `incorrect`*; *candidate asserts the opposite of gold → `conflict`*.
 4. **Report artifacts**: JSON only for v1.

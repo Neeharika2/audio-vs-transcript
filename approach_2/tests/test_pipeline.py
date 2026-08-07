@@ -61,3 +61,17 @@ class TestPipeline:
         report = build_report(a, b, audio="synthetic")
         assert len(report.segments) == 1
         assert report.segments[0].tier == "mandatory"
+
+
+class TestVerdicts:
+    def test_verdicts_roundtrip(self, tmp_path, monkeypatch):
+        from approach_2 import config
+        from approach_2.src.pipeline import load_verdicts, save_verdicts
+
+        monkeypatch.setattr(config, "DATASET_DIR", tmp_path)
+        save_verdicts("a1", {0: {"verdict": "correct"}, 2: {"verdict": "incorrect", "correction": "fixed"}})
+        assert load_verdicts("a1") == {
+            0: {"verdict": "correct"},
+            2: {"verdict": "incorrect", "correction": "fixed"},
+        }
+        assert load_verdicts("missing") == {}

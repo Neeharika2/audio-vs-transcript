@@ -31,7 +31,7 @@ segment), and exportable artifacts (transcript + review report).
    │
    ├────────────────┬──────────────────┐
    ▼                ▼                  ▼
-src/engines.py   WhisperEngine    GoogleEngine
+src/engines.py   WhisperEngine    DeepgramEngine
    │                │                │
    │                ▼                ▼
    │          segments A         segments B
@@ -73,7 +73,7 @@ approach_2/
 │   ├── __init__.py
 │   ├── models.py         # Word, EngineSegment, WordOp, AlignedSegment, SpotCheck, ReviewReport
 │   ├── audio.py          # preprocess_audio() -> wav path
-│   ├── engines.py        # WhisperEngine, GoogleEngine
+│   ├── engines.py        # WhisperEngine, DeepgramEngine
 │   ├── align.py          # align() (score matrix + NW + 1:N merge)
 │   ├── compare.py        # word_diff(), agreement()
 │   ├── score.py          # segment_confidence(), assign_tier()
@@ -88,9 +88,9 @@ approach_2/
 ```
 
 Notes:
-- **No `normalize.py`** — reuse `approach_1.src.normalize.normalize_text` (same
-  repo; it imports only stdlib + rapidfuzz). Filler stripping is a tiny helper in
-  `align.py`.
+- **`normalize.py`** — local copy at `approach_2/src/normalize.py` (kept
+  separate from approach_1 per the repo convention). It imports only stdlib +
+  rapidfuzz. Filler stripping is a tiny helper in `align.py`.
 - **No engine protocol, no mock engine** — the two concrete engines are the only
   ones; tests build `EngineSegment` objects directly. This matches the direction
   of the recent `approach_1` refactor.
@@ -166,20 +166,21 @@ class ReviewReport(BaseModel):
 Two concrete classes; no shared protocol.
 
 - **WhisperEngine** — faster-whisper with `word_timestamps=True`,
-  `vad_filter=True`. Map whisper confidence to `[0,1]`:
-  `conf = 1 / (1 + exp(logprob))` (calibration caveat in `analysis.md §4.2`).
-- **GoogleEngine** — Google Cloud Speech with `enable_word_time_offsets=True`;
-  per-word confidence is already `[0,1]`.
-- Both return `list[EngineSegment]`. Factories `get_engine_a()` / `get_engine_b()`
-  in `config.py`; engine B raises a clear error if `GOOGLE_APPLICATION_CREDENTIALS`
-  is unset.
+  `vad_filter=True`. Segment confidence is `exp(avg_logprob)`; word confidence
+  is the per-token probability.
+- **DeepgramEngine** — Deepgram Nova over REST (`POST /v1/listen`) with
+  `utterances=true` + `words=true`; per-word and utterance confidence come back
+  in `[0,1]`. Smart formatting / punctuation are disabled so the transcript
+  comes back as plain words, matching Whisper's output for alignment. Requires
+  `DEEPGRAM_API_KEY`.
+- Both return `list[EngineSegment]`; `main.py` instantiates one of each.
 
 ### 5.3 Alignment (`align.py`) — the core
 
 Inputs: `segments_a`, `segments_b` (both `list[EngineSegment]`).
 
-1. **Normalize each segment text** with `approach_1.src.normalize.normalize_text`
-   and strip a small filler set (`uh`, `um`, `uhh`, `mmm`, `hmm`, `er`, `ah`) —
+1. **Normalize each segment text** with `approach_2.src.normalize.normalize_text`
+   and strip the shared filler set (`uh`, `um`, `uhh`, `mmm`, `hmm`, `er`, `ah`) —
    only for matching; stored text is never mutated.
 2. **Score matrix.** `score(i, j) = 0.5·overlap(i, j) + 0.5·text_sim(i, j)`:
    - `overlap = overlap_seconds / min(dur_i, dur_j)` (0 if disjoint);
@@ -251,11 +252,13 @@ def sample_review_set(report, seed, fraction=0.10):
 
 **Acceptance** (`acceptance_check`):
 
-- Reviewer marks each sampled word correct/incorrect against the audio
+- Reviewer marks each sampled segment correct/incorrect against the audio
   (the UI plays the segment's exact time span).
 - `accuracy ≥ 0.99` → **accept** the transcript.
-- `0.95 ≤ accuracy < 0.99` → **expand**: double the random sample, re-review.
+- `0.95 ≤ accuracy < 0.99` → **expand**: review more segments.
 - `< 0.95` → **full manual review** flag on the report.
+- **Status:** implemented as `apply_review()` in `review.py`; verdicts persist
+  to a JSON sidecar and are merged on load by both the CLI (`review`) and the API.
 
 ### 5.7 Pipeline orchestration (`pipeline.py`)
 
@@ -274,14 +277,16 @@ inference is the only nondeterministic stage; document this).
 | SRT / VTT | Timestamped segments (best engine text, corrected text when available) | stdlib |
 | DOCX / PDF | Phase 2 (needs `python-docx` / `reportlab`) | later |
 
-### 5.9 Interactive review UI (Phase P8)
+### 5.9 Interactive review UI (implemented)
 
-- FastAPI serves the normalized WAV (HTTP Range so `<audio>` can seek) and a
-  `GET /segments` JSON (diff + tiers + spans).
-- One static HTML page: segment list with confidence badge and tier color; click
-  a segment → seek `<audio>` to `[start, end]` and play; highlight word ops
-  (sub/ins/del colored); inline correction box saves to a JSON sidecar via
-  `POST /review`.
+- FastAPI (`api.py`) serves the source audio (HTTP Range so `<audio>` can seek),
+  a `GET /report/{stem}` JSON (diff + tiers + spans), and accepts verdicts via
+  `POST /review/{stem}`.
+- One static HTML page (`static/review.html`): segment list with confidence
+  badge and tier color; click a segment → seek `<audio>` to `[start, end]` and
+  play; highlight word ops (sub/ins/del colored); mark correct/incorrect and
+  save corrections.
+- Verdicts persist to `dataset/review/<name>/verdicts.json`.
 - No build tooling, no JS framework.
 
 ---
@@ -307,36 +312,17 @@ Plain pytest tests, written alongside each stage, using synthetic fixtures:
 
 ---
 
-## 7. Phased implementation
-
-| Phase | Deliverable | Exit criterion |
-|---|---|---|
-| **P0** | `docs/analysis.md`, `docs/plan.md` | Approved scope; open questions answered |
-| **P1** | Skeleton: `main.py`, `config.py`, `requirements.txt`, `src/models.py` | Models instantiate; CLI parses all subcommands |
-| **P2** | `src/audio.py` | WAV → 16 kHz mono loudness-normalized WAV; unit test on a generated tone |
-| **P3** | `src/engines.py` | Whisper transcribes a file into `EngineSegment`s; Google factory errors cleanly without creds |
-| **P4** | `src/align.py` (+ `tests/test_align.py`) | Synthetic split/merge/drift cases align with correct 1:N pairs |
-| **P5** | `src/compare.py`, `src/score.py` (+ tests) | Word ops, agreement, confidence, and tiers match spec on fixtures |
-| **P6** | `src/review.py` (+ tests) | Seeded sampling + acceptance gate behave as specified |
-| **P7** | `src/pipeline.py`, `src/export.py` | End-to-end `ReviewReport` + TXT/MD/SRT/VTT from synthetic segments |
-| **P8** | `api.py`, `static/review.html` | Click-to-play, diff highlights, inline corrections persist to JSON |
-| **P9** | End-to-end validation | Full suite passes on a real audio file; docs updated |
-
-**Ordering rationale:** deterministic core (align → compare → score) before any
-UI or API, as in `approach_1`. Alignment (P4) is the riskiest stage and gets the
-most test coverage.
-
----
-
-## 8. Config surface (`config.py`)
+## 7. Config surface (`config.py`)
 
 Every key maps to a stated requirement or an explicit user threshold:
 
 | Key | Default | Meaning |
 |---|---|---|
 | `ENGINE_A` | `whisper` | primary engine |
-| `WHISPER_MODEL` | `base` | faster-whisper size (`base` for tests, `large-v3` for prod) |
-| `ENGINE_B` | `google` | secondary engine |
+| `WHISPER_MODEL` | `small` | faster-whisper size (`base` for tests, `small`/`large-v3` for prod) |
+| `ENGINE_B` | `deepgram` | secondary engine |
+| `DEEPGRAM_API_KEY` | (env) | Deepgram Nova API key |
+| `DEEPGRAM_MODEL` | `nova-3` | Deepgram model name |
 | `NOISE_REDUCTION` | `false` | enable preprocessing noise reduction |
 | `MATCH_THRESHOLD` | `0.55` | alignment match cutoff |
 | `LOW_CONF_THRESHOLD` | `0.6` | per-word confidence cutoff |
@@ -347,25 +333,3 @@ Every key maps to a stated requirement or an explicit user threshold:
 | `SPOT_CHECK_SEED` | `42` | sampling seed (reproducible) |
 | `SPOT_CHECK_ACCEPT` | `0.99` | sample accuracy to accept |
 | `GLOSSARY_PATH` | (empty) | optional domain term list |
-
----
-
-## 9. Decisions (locked)
-
-1. Consensus evaluation with two engines; no human reference transcript.
-2. Alignment is time+text Needleman–Wunsch with a 1:N merge pass — never
-   line-by-line comparison.
-3. Agreement = `1 - WER`; confidence is the single formula in §5.5.
-4. Review tiers and spot-check rules per the user's thresholds (§5.5, §5.6).
-5. Engine 2 = Google Cloud Speech; tests use synthetic fixtures (no mock engine).
-6. Exports: TXT/MD/SRT/VTT in v1; DOCX/PDF in a later phase.
-7. Review UI is a dependency-free static HTML page served by FastAPI.
-
-## 10. Open questions (blocking P3/P8)
-
-1. Confirm Google Cloud Speech is available (service-account credentials,
-   `GOOGLE_APPLICATION_CREDENTIALS`), or switch secondary engine to Azure Speech.
-2. Language: default English — confirm before the engines are wired.
-3. Whisper model size for production runs (`base` vs `large-v3`): affects speed
-   and quality trade-offs.
-4. Glossary source: wordlist file acceptable, or is a richer entity list expected?

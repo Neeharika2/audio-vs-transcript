@@ -17,6 +17,10 @@ Usage:
     python -m approach_2.main transcribe audio-3.ogg    # one file
     python -m approach_2.main review                    # evaluate all files
     python -m approach_2.main review audio-1            # evaluate one file
+    python -m approach_2.main evaluate audio-1          # transcribe (if needed) + evaluate
+
+Interactive review UI (play spans, mark correct/incorrect, correct text):
+    uvicorn approach_2.api:app --port 8000
 """
 
 from __future__ import annotations
@@ -38,7 +42,10 @@ def _audio_files(audio_dir: Path, name: str | None) -> list[Path]:
         if not path.is_absolute():
             path = audio_dir / path
         if not path.is_file():
-            sys.exit(f"Audio file not found: {path}")
+            matches = [p for p in audio_dir.iterdir() if p.stem == name and p.is_file()]
+            if len(matches) != 1:
+                sys.exit(f"Audio file not found: {name}")
+            path = matches[0]
         return [path]
     if not audio_dir.is_dir():
         sys.exit(f"Audio directory not found: {audio_dir}")
@@ -67,6 +74,10 @@ def transcribe_file(audio: Path, engines: list, work_dir: Path) -> None:
 
 def _audio_stems(audio_dir: Path, name: str | None) -> list[str]:
     return sorted(p.stem for p in _audio_files(audio_dir, name))
+
+
+def _transcript_exists(stem: str) -> bool:
+    return all((config.OUTPUT_DIRS[engine] / f"{stem}.segments.json").is_file() for engine in config.OUTPUT_DIRS)
 
 
 def _transcribe_all(name: str | None) -> None:
@@ -99,16 +110,30 @@ def _print_summary(report) -> None:
         f"mandatory={tiers['mandatory']}  "
         f"review_sample={sampled}"
     )
+    accuracy = report.spot_check.accuracy
+    if accuracy is None:
+        print("  acceptance: no verdicts recorded yet")
+    else:
+        outcome = (
+            "accepted"
+            if report.spot_check.accepted
+            else "expand sample"
+            if report.spot_check.expanded
+            else "full review required"
+        )
+        print(f"  acceptance: accuracy={accuracy:.2%} -> {outcome}")
 
 
 def _review_all(name: str | None) -> None:
     from approach_2.src.export import to_md, to_srt, to_txt, to_vtt
-    from approach_2.src.pipeline import run_pipeline
+    from approach_2.src.pipeline import load_verdicts, run_pipeline
+    from approach_2.src.review import apply_review
 
     stems = _audio_stems(config.AUDIO_DIR, name)
     print(f"Evaluating {len(stems)} file(s)")
     for stem in stems:
         report = run_pipeline(stem)
+        apply_review(report, load_verdicts(stem))
         out_dir = config.DATASET_DIR / "review" / stem
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "report.json").write_text(report.model_dump_json(indent=2), encoding="utf-8")
@@ -121,6 +146,23 @@ def _review_all(name: str | None) -> None:
         print(f"    -> {out_dir}")
 
 
+def _evaluate(name: str | None) -> None:
+    """Transcribe any files missing transcripts, then run the review."""
+    files = _audio_files(config.AUDIO_DIR, name)
+    missing = [f for f in files if not _transcript_exists(f.stem)]
+    if missing:
+        engines = [
+            WhisperEngine(model_name=config.WHISPER_MODEL),
+            DeepgramEngine(api_key=config.DEEPGRAM_API_KEY, model=config.DEEPGRAM_MODEL),
+        ]
+        print(f"Transcribing {len(missing)} missing file(s)")
+        with tempfile.TemporaryDirectory(prefix="approach2_") as work:
+            for audio in missing:
+                print(f"\n{audio.name}")
+                transcribe_file(audio, engines, Path(work))
+    _review_all(name)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -128,9 +170,13 @@ def main() -> None:
     t.add_argument("audio", nargs="?", help="audio file name in dataset/audio (default: all files)")
     r = sub.add_parser("review", help="evaluate stored transcripts and export a report")
     r.add_argument("audio", nargs="?", help="audio file name (default: all files)")
+    e = sub.add_parser("evaluate", help="transcribe missing audio then evaluate it")
+    e.add_argument("audio", help="audio file name in dataset/audio")
     args = parser.parse_args()
 
-    if args.command == "review":
+    if args.command == "evaluate":
+        _evaluate(args.audio)
+    elif args.command == "review":
         _review_all(args.audio)
     else:
         _transcribe_all(args.audio)

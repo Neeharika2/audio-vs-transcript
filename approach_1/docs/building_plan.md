@@ -19,7 +19,7 @@ By the end of this step, I will have a clear layout of components and data flow.
 
 ### Task 2: Choose the STT Model
 - **Decoupled Strategy**: Define an abstract `STTModel` protocol/interface.
-- **Providers**: Implement `WhisperSTT` (local faster-whisper inference) as the primary provider, and `MockSTT` (offline mockup) for testing without audio files.
+- **Providers**: Implement `WhisperSTT` (local faster-whisper inference) as the primary provider, and `DeepSeekJudge` as the evaluation backend.
 - Determine dynamic model loading based on a single config environment flag.
 
 ### Task 3: Create the Project Skeleton

@@ -1,7 +1,11 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR.parent / ".env")
+
 DATASET_DIR = BASE_DIR / "dataset"
 AUDIO_DIR = DATASET_DIR / "audio"
 
@@ -28,4 +32,8 @@ DISAGREE_THRESHOLD = 0.9
 SPOT_CHECK_FRACTION = 0.10
 SPOT_CHECK_SEED = 42
 SPOT_CHECK_ACCEPT = 0.99
+
+# Optional wordlist of domain terms (one per line). Empty disables terminology
+# escalation of review_technical segments.
+GLOSSARY_PATH = os.environ.get("GLOSSARY_PATH", "")
 

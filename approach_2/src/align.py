@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from rapidfuzz import fuzz
 
-from approach_1.src.normalize import normalize_text
+from approach_2.src.normalize import normalize_text
 from approach_2 import config
 from approach_2.src.models import AlignedSegment, EngineSegment
 

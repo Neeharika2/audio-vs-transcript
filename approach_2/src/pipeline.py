@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 from approach_2 import config
 from approach_2.src.align import align
@@ -22,6 +23,27 @@ def load_segments(engine: str, stem: str) -> list[EngineSegment]:
     path = config.OUTPUT_DIRS[engine] / f"{stem}.segments.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     return [EngineSegment.model_validate(d) for d in data]
+
+
+def verdicts_path(stem: str) -> Path:
+    """JSON sidecar storing reviewer verdicts/corrections per segment."""
+    return config.DATASET_DIR / "review" / stem / "verdicts.json"
+
+
+def load_verdicts(stem: str) -> dict[int, dict]:
+    path = verdicts_path(stem)
+    if not path.is_file():
+        return {}
+    return {int(k): v for k, v in json.loads(path.read_text(encoding="utf-8")).items()}
+
+
+def save_verdicts(stem: str, verdicts: dict[int, dict]) -> None:
+    path = verdicts_path(stem)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps({str(k): v for k, v in verdicts.items()}, indent=2),
+        encoding="utf-8",
+    )
 
 
 def build_report(

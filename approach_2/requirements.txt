@@ -1,3 +1,6 @@
 pydantic>=2.0
 faster-whisper
 requests
+python-dotenv
+fastapi
+uvicorn

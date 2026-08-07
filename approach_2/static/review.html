@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Approach 2 — transcript review</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 16px; max-width: 900px; margin: auto; }
+  header { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+  audio { width: 100%; margin-bottom: 16px; }
+  #status { padding: 8px 12px; border-radius: 6px; background: #333; color: #fff; }
+  .seg { border: 1px solid #8882; border-radius: 8px; padding: 10px 12px; margin: 10px 0; }
+  .seg.sample { border-color: #e67e22; }
+  .seg-head { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
+  .badge { padding: 2px 8px; border-radius: 10px; font-size: 12px; color: #fff; }
+  .badge.auto_accept { background: #27ae60; }
+  .badge.review_technical { background: #e67e22; }
+  .badge.mandatory { background: #c0392b; }
+  .span { font-variant-numeric: tabular-nums; color: #888; }
+  .text { line-height: 1.6; }
+  .ops { margin: 6px 0; line-height: 1.8; }
+  .op { padding: 1px 3px; border-radius: 3px; margin: 0 1px; }
+  .op.match { color: inherit; }
+  .op.substitute { background: #e74c3c88; text-decoration: underline; }
+  .op.insert { background: #27ae6088; }
+  .op.delete { background: #95a5a688; text-decoration: line-through; }
+  .missing { color: #e67e22; font-style: italic; }
+  .review-row { display: flex; gap: 8px; align-items: center; margin-top: 8px; flex-wrap: wrap; }
+  button { cursor: pointer; padding: 4px 10px; border-radius: 6px; border: 1px solid #8888; background: #0000; }
+  button.active { border-color: #27ae60; color: #27ae60; }
+  input[type=text] { flex: 1; min-width: 200px; padding: 4px 8px; border-radius: 6px; border: 1px solid #8888; }
+  .v-ok.active { color: #27ae60; border-color: #27ae60; }
+  .v-bad.active { color: #e74c3c; border-color: #e74c3c; }
+</style>
+</head>
+<body>
+<header>
+  <label>File <select id="files"></select></label>
+  <button id="refresh" onclick="loadReport()">Reload</button>
+  <span id="status">—</span>
+</header>
+<audio id="player" controls></audio>
+<div id="segments"></div>
+
+<script>
+const audio = document.getElementById("player");
+let playingEnd = null;
+audio.addEventListener("timeupdate", () => {
+  if (playingEnd !== null && audio.currentTime >= playingEnd) { audio.pause(); playingEnd = null; }
+});
+
+let report = null;
+
+async function api(path, options) {
+  const res = await fetch(path, options);
+  if (!res.ok) throw new Error((await res.text()) || res.status);
+  return res.json();
+}
+
+async function loadFiles() {
+  const files = await api("/files");
+  const sel = document.getElementById("files");
+  sel.innerHTML = files.map(f => `<option>${f}</option>`).join("");
+  sel.onchange = () => loadReport();
+  if (files.length) loadReport();
+}
+
+function esc(s) { return s.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+
+function opSpan(op) {
+  const span = document.createElement("span");
+  span.className = "op " + op.op;
+  span.textContent = op.text;
+  return span;
+}
+
+function statusBar() {
+  const sc = report.spot_check;
+  let label = "no segments reviewed yet";
+  if (sc.accuracy !== null) {
+    const outcome = sc.accepted ? "ACCEPTED" : (sc.expanded ? "EXPAND SAMPLE" : "FULL REVIEW REQUIRED");
+    label = `marked ${Math.round(sc.accuracy * 100)}% correct → ${outcome}`;
+  }
+  const el = document.getElementById("status");
+  el.textContent = label;
+  el.style.background = sc.accepted ? "#27ae60" : (sc.accuracy !== null && sc.expanded ? "#e67e22" : "#c0392b");
+}
+
+function render() {
+  const box = document.getElementById("segments");
+  box.innerHTML = "";
+  for (const seg of report.segments) {
+    const card = document.createElement("div");
+    card.className = "seg" + (report.spot_check.sample_ids.includes(seg.idx) ? " sample" : "");
+
+    const head = document.createElement("div");
+    head.className = "seg-head";
+    head.innerHTML = `<b>#${seg.idx}</b> <span class="span">${seg.start.toFixed(2)}–${seg.end.toFixed(2)}s</span>
+      <span class="badge ${seg.tier}">${seg.tier} · ${seg.confidence}</span>
+      <button onclick="playSeg(${seg.start}, ${seg.end})">▶ play</button>`;
+    card.appendChild(head);
+
+    const text = seg.engine_a ? seg.engine_a.text : (seg.engine_b ? seg.engine_b.text : "");
+    const p = document.createElement("p");
+    p.className = "text";
+    p.textContent = text;
+    card.appendChild(p);
+
+    if (seg.diff && seg.diff.length) {
+      const ops = document.createElement("div");
+      ops.className = "ops";
+      seg.diff.forEach(op => ops.appendChild(opSpan(op)));
+      card.appendChild(ops);
+    } else if (!seg.engine_a || !seg.engine_b) {
+      const miss = document.createElement("div");
+      miss.className = "missing";
+      miss.textContent = "only one engine transcribed this span";
+      card.appendChild(miss);
+    }
+
+    const row = document.createElement("div");
+    row.className = "review-row";
+    const ok = document.createElement("button");
+    ok.className = "v-ok" + (seg.verdict === "correct" ? " active" : "");
+    ok.textContent = "✓ correct";
+    ok.onclick = () => postVerdict(seg.idx, ok.classList.contains("active") ? "" : "correct");
+    const bad = document.createElement("button");
+    bad.className = "v-bad" + (seg.verdict === "incorrect" ? " active" : "");
+    bad.textContent = "✗ incorrect";
+    bad.onclick = () => postVerdict(seg.idx, bad.classList.contains("active") ? "" : "incorrect");
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "correction…";
+    input.value = seg.correction || "";
+    input.dataset.idx = seg.idx;
+    const save = document.createElement("button");
+    save.textContent = "save correction";
+    save.onclick = () => postCorrection(Number(save.dataset.idx), input.value);
+    save.dataset.idx = seg.idx;
+    row.append(ok, bad, input, save);
+    card.appendChild(row);
+    box.appendChild(card);
+  }
+  statusBar();
+}
+
+function playSeg(start, end) {
+  audio.currentTime = Math.max(0, start - 0.05);
+  playingEnd = end;
+  audio.play();
+}
+
+async function postVerdict(idx, verdict) {
+  report = await api(`/review/${currentStem()}`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idx, verdict }),
+  });
+  render();
+}
+
+async function postCorrection(idx, correction) {
+  report = await api(`/review/${currentStem()}`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idx, correction }),
+  });
+  render();
+}
+
+function currentStem() { return document.getElementById("files").value; }
+
+async function loadReport() {
+  const stem = currentStem();
+  if (!stem) return;
+  audio.src = `/audio/${stem}`;
+  report = await api(`/report/${stem}`);
+  render();
+}
+
+loadFiles();
+</script>
+</body>
+</html>

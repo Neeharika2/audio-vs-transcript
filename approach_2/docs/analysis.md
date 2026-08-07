@@ -74,9 +74,9 @@ explicit inputs and fixed weights (see `plan.md §5.5`).
 
 ### 2.4 Engine confidence signals are not directly comparable
 
-- Faster-Whisper returns per-word `avg_logprob`-style values (negative log
-  probabilities).
-- Google Speech-to-Text returns per-word confidence in `[0, 1]`.
+- Faster-Whisper returns per-segment `avg_logprob` and per-word token
+  probabilities; segment confidence is derived as `exp(avg_logprob)`.
+- Deepgram Nova returns per-word and per-utterance confidence in `[0, 1]`.
 
 The plan must map whisper scores into `[0, 1]` before combining. This is flagged
 as a calibration risk (see `§4`), not something to hand-wave.
@@ -105,7 +105,7 @@ audio and is hard to tune.
 | Decision | Value | Rationale |
 |---|---|---|
 | Primary engine | Faster-Whisper (local) | Already a dependency; configurable model size |
-| Secondary engine | Google Cloud Speech-to-Text | Google ecosystem in use; tests use synthetic fixtures, no mock engine |
+| Secondary engine | Deepgram Nova (cloud REST) | Needs `DEEPGRAM_API_KEY`; tests use synthetic fixtures, no mock engine |
 | Alignment | Time-overlap + text-similarity score matrix → Needleman–Wunsch → 1:N merge post-pass | Handles split/merge/timestamp drift |
 | Agreement metric | `1 - WER` over normalized words | Deterministic, matches word diff output |
 | Confidence formula | `0.40·engine_conf + 0.45·agreement + 0.15·(1 − low_conf_ratio)`; glossary escalation handled by the tier rule | Explicit, weighted, fixed weights |
@@ -117,9 +117,8 @@ audio and is hard to tune.
 
 ## 4. Risks and open questions
 
-1. **Google credentials differ from the existing key.** The repo's `.env` holds
-   `GEMINI_API_KEY`. Google Speech-to-Text needs a service-account JSON /
-   `GOOGLE_APPLICATION_CREDENTIALS`. Must be documented; tests never call Google
+1. **Deepgram is a cloud API with a key.** `DEEPGRAM_API_KEY` is required to
+   transcribe; it is read from the repo root `.env`. Tests never call Deepgram
    (they use synthetic `EngineSegment` fixtures).
 2. **Whisper confidence calibration.** Mapping `avg_logprob` to `[0,1]` is a
    heuristic. Plan: logistic mapping as the default, documented as needing
