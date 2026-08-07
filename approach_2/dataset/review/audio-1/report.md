@@ -11,4 +11,4 @@ Engines: whisper, deepgram
 | 4 | 20.38-22.70s | 98 | auto_accept | She had also used Allegra also. |
 | 5 | 23.60-28.20s | 87 | mandatory | she used that last summer and she began using it again two weeks ago |
 | 6 | 28.20-36.32s | 93 | review_technical | It doesn't appear to be working very well. She has used over-the-counter sprays, |
-| 7 | 37.28-49.36s | 94 | review_technical | She does have asthma, but doesn't require daily medication for this and does not |
+| 7 | 37.28-49.36s | 94 | review_technical | She does have asthma, but doesn't require daily medication for this, and does no |

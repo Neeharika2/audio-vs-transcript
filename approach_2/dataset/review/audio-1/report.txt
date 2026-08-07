@@ -9,12 +9,14 @@ Engines: whisper, deepgram
       In the past, she has tried Claritin and Zyrtec.
 [03]   16.06-  19.50s  conf= 78  mandatory
       Both worked for a short time, but then seemed to lose effectiveness.
+  [LLM] incorrect/high (deepgram erred): Deepgram incorrectly transcribed 'then seemed' as 'didn't seem', which completely reverses the clinical meaning regarding the treatment's effectiveness. Deepgram also omitted the article 'a' in 'for a short time'. Whisper is completely accurate.
 [04]   20.38-  22.70s  conf= 98  auto_accept
       She had also used Allegra also.
 [05]   23.60-  28.20s  conf= 87  mandatory
       she used that last summer and she began using it again two weeks ago
-  [LLM] incorrect/medium (whisper erred): Whisper incorrectly transcribes 'that last summer' as 'the Plasmur', which completely changes the meaning of the sentence, while Deepgram gets the transcription 100% correct.
+  [LLM] incorrect/medium (whisper erred): Whisper misheard 'that last summer' as 'the Plasmur', which is completely incorrect and introduces a non-existent word, whereas Deepgram transcribed the phrase perfectly.
 [06]   28.20-  36.32s  conf= 93  review_technical
       It doesn't appear to be working very well. She has used over-the-counter sprays, but no prescription nasal sprays.
 [07]   37.28-  49.36s  conf= 94  review_technical
-      She does have asthma, but doesn't require daily medication for this and does not think it is plaring up. Her only medication currently is Orthoticycline and Allegra.
+      She does have asthma, but doesn't require daily medication for this, and does not think it is flaring up. Her only medication currently is Ortho Tri-Cyclen and Allegra.
+  [LLM] incorrect/medium (whisper+deepgram erred): The speaker says 'flaring up' (which Whisper transcribed as 'plaring up') and 'Ortho Tri-Cyclen' (a common contraceptive), which both engines transcribed incorrectly as fake medications ('Orthoticycline' and 'orthotracycline').

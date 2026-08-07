@@ -258,7 +258,7 @@ handled by spot-check sampling (§5.6), not by the tier rule.
 def sample_review_set(report, seed, fraction=0.10):
     mandatory = [s for s in report.segments if s.tier == "mandatory"]
     disagree  = [s for s in report.segments
-                 if s.agreement is None or s.agreement < DISAGREE_THRESHOLD]
+                 if s.agreement is None or s.agreement < REVIEW_DISAGREE_THRESHOLD]
     rest      = [s for s in report.segments
                  if s not in mandatory and s not in disagree]
     random_10 = seeded_random_sample(rest, fraction)   # seed from config
@@ -313,9 +313,21 @@ The two STT engines are a cheap first-pass filter. Only segments the
 deterministic disagreement detector flags are sent to an audio-capable LLM
 (Gemini 3.5 Flash) that listens to the actual audio span and arbitrates.
 
-- **Detector** (`select_for_judgment`): a segment is suspicious iff one side is
-  missing (`engine_a`/`engine_b` is `None`) or `agreement < DISAGREE_THRESHOLD`.
-  Everything else is high-confidence and bypasses the LLM entirely.
+- **Detector** (`select_for_judgment`): a segment is flagged iff it carries a
+  **critical signal** (see below) OR one side is missing OR
+  `agreement < LLM_DISAGREE_THRESHOLD`. Everything else is high-confidence and
+  bypasses the LLM entirely.
+
+  **Critical signals** (deterministic, override the agreement score — a single
+  missing word can mask a semantic contradiction that a lexical similarity
+  score can never see):
+  - negation changed ("requires" → "does not require");
+  - a number differs ("20 mg" vs "200 mg");
+  - a glossary/domain term changed (medication, anatomy, procedure);
+  - a content word inserted or deleted;
+  - a long technical word substituted (likely a garbled domain term).
+  Short substitutions ("seattl"/"seattle", "spray"/"sprays") are spelling/plural
+  noise and are left to the agreement threshold.
 - **LLM input** per flagged segment: the audio span cut with ffmpeg
   (`audio.extract_span`, padded by `JUDGE_PAD_SECONDS`), both transcripts, the
   aligned timestamps, and per-engine confidence.
@@ -366,7 +378,8 @@ Every key maps to a stated requirement or an explicit user threshold:
 | `LOW_CONF_THRESHOLD` | `0.6` | per-word confidence cutoff |
 | `TIER_AUTO_ACCEPT` | `98` | ≥ this ⇒ auto-accept |
 | `TIER_REVIEW` | `90` | below this ⇒ mandatory |
-| `DISAGREE_THRESHOLD` | `0.9` | agreement below ⇒ always reviewed |
+| `LLM_DISAGREE_THRESHOLD` | `0.9` | agreement below ⇒ LLM judge call |
+| `REVIEW_DISAGREE_THRESHOLD` | `0.9` | agreement below ⇒ always human-reviewed |
 | `SPOT_CHECK_FRACTION` | `0.10` | random sample fraction |
 | `SPOT_CHECK_SEED` | `42` | sampling seed (reproducible) |
 | `SPOT_CHECK_ACCEPT` | `0.99` | sample accuracy to accept |

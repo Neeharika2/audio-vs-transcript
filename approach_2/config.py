@@ -27,7 +27,13 @@ DEEPGRAM_MODEL = "nova-3"
 LOW_CONF_THRESHOLD = 0.6
 TIER_AUTO_ACCEPT = 98
 TIER_REVIEW = 90
-DISAGREE_THRESHOLD = 0.9
+
+# Two independent "how much do we trust agreement" decisions:
+#   LLM_DISAGREE_THRESHOLD    -> is this suspicious enough to spend an LLM call?
+#   REVIEW_DISAGREE_THRESHOLD -> is this worth a human's eyes (review sample)?
+# They are separate so tightening one does not silently tighten the other.
+LLM_DISAGREE_THRESHOLD = 0.9
+REVIEW_DISAGREE_THRESHOLD = 0.9
 SPOT_CHECK_FRACTION = 0.10
 SPOT_CHECK_SEED = 42
 SPOT_CHECK_ACCEPT = 0.99

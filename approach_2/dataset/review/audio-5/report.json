@@ -581,7 +581,8 @@
       "confidence": 96.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 1,
@@ -1083,7 +1084,8 @@
       "confidence": 97.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 2,
@@ -1509,7 +1511,8 @@
       "confidence": 94.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 3,
@@ -2267,7 +2270,8 @@
       "confidence": 90.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 4,
@@ -2473,7 +2477,8 @@
       "confidence": 87.0,
       "tier": "mandatory",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 5,
@@ -2951,7 +2956,8 @@
       "confidence": 91.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     },
     {
       "idx": 6,
@@ -3821,7 +3827,8 @@
       "confidence": 92.0,
       "tier": "review_technical",
       "verdict": "unreviewed",
-      "correction": null
+      "correction": null,
+      "llm_judgment": null
     }
   ],
   "spot_check": {
@@ -3838,5 +3845,5 @@
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T05:25:55+00:00"
+  "generated_at": "2026-08-07T07:47:56+00:00"
 }

@@ -731,7 +731,15 @@
       "tier": "mandatory",
       "verdict": "unreviewed",
       "correction": null,
-      "llm_judgment": null
+      "llm_judgment": {
+        "classification": "incorrect",
+        "correct_content": "Both worked for a short time, but then seemed to lose effectiveness.",
+        "whisper_error": false,
+        "deepgram_error": true,
+        "severity": "high",
+        "explanation": "Deepgram incorrectly transcribed 'then seemed' as 'didn't seem', which completely reverses the clinical meaning regarding the treatment's effectiveness. Deepgram also omitted the article 'a' in 'for a short time'. Whisper is completely accurate.",
+        "evidence": "but then seemed to lose"
+      }
     },
     {
       "idx": 4,
@@ -1035,7 +1043,7 @@
         "whisper_error": true,
         "deepgram_error": false,
         "severity": "medium",
-        "explanation": "Whisper incorrectly transcribes 'that last summer' as 'the Plasmur', which completely changes the meaning of the sentence, while Deepgram gets the transcription 100% correct.",
+        "explanation": "Whisper misheard 'that last summer' as 'the Plasmur', which is completely incorrect and introduces a non-existent word, whereas Deepgram transcribed the phrase perfectly.",
         "evidence": "she used that last summer"
       }
     },
@@ -1671,7 +1679,15 @@
       "tier": "review_technical",
       "verdict": "unreviewed",
       "correction": null,
-      "llm_judgment": null
+      "llm_judgment": {
+        "classification": "incorrect",
+        "correct_content": "She does have asthma, but doesn't require daily medication for this, and does not think it is flaring up. Her only medication currently is Ortho Tri-Cyclen and Allegra.",
+        "whisper_error": true,
+        "deepgram_error": true,
+        "severity": "medium",
+        "explanation": "The speaker says 'flaring up' (which Whisper transcribed as 'plaring up') and 'Ortho Tri-Cyclen' (a common contraceptive), which both engines transcribed incorrectly as fake medications ('Orthoticycline' and 'orthotracycline').",
+        "evidence": "flaring up... Ortho Tri-Cyclen"
+      }
     }
   ],
   "spot_check": {
@@ -1686,5 +1702,5 @@
     "expanded": false,
     "full_review": false
   },
-  "generated_at": "2026-08-07T07:02:44+00:00"
+  "generated_at": "2026-08-07T07:48:50+00:00"
 }

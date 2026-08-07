@@ -10,6 +10,7 @@ from approach_2.src.judge import (
     GeminiJudge,
     JudgeRequest,
     build_prompt,
+    critical_difference,
     is_suspicious,
     judge_report,
     parse_verdict,
@@ -47,6 +48,50 @@ class _FakeJudge:
     def judge(self, request: JudgeRequest) -> LLMJudgeVerdict | None:
         self.requests.append(request)
         return self.verdict
+
+
+class TestCriticalDifference:
+    def test_negation_flip_flagged(self):
+        # "requires" vs "does not require" — a missing "not" changes meaning.
+        s = _aligned(0, "patient requires medication", "patient does not require medication", 0.75)
+        assert critical_difference(s) == "negation"
+
+    def test_number_change_flagged(self):
+        s = _aligned(0, "take 20 milligrams", "take 200 milligrams", 0.6)
+        assert critical_difference(s) == "number"
+
+    def test_glossary_term_change_flagged(self, monkeypatch, tmp_path):
+        glossary = tmp_path / "terms.txt"
+        glossary.write_text("orthotracycline\n", encoding="utf-8")
+        from approach_2 import config
+        monkeypatch.setattr(config, "GLOSSARY_PATH", str(glossary))
+        s = _aligned(0, "on orthoticycline", "on orthotracycline", 0.5)
+        assert critical_difference(s) == "glossary_term"
+
+    def test_long_technical_word_substitution_flagged(self):
+        # A surgery name garbled — critical even at high agreement.
+        s = _aligned(0, "needs cholecystectomy", "needs colosyctomy", 0.97)
+        assert critical_difference(s) == "technical_word"
+
+    def test_word_added_or_removed_flagged(self):
+        s = _aligned(0, "she used it last summer", "she used it", 0.6)
+        assert critical_difference(s) == "word_added_removed"
+
+    def test_short_spelling_noise_ignored(self):
+        # Short substitutions are spelling/plural noise, not critical.
+        s = _aligned(0, "she lived in seattl", "she lived in seattle", 0.95)
+        assert critical_difference(s) is None
+        s2 = _aligned(0, "over the counter sprays", "over the counter spray", 0.95)
+        assert critical_difference(s2) is None
+
+    def test_article_noise_ignored(self):
+        s = _aligned(0, "the patient is here", "a patient is here", 0.9)
+        assert critical_difference(s) is None
+
+    def test_critical_signal_overrides_high_agreement(self):
+        # High agreement should NOT protect a technical-word substitution.
+        s = _aligned(0, "normal intra cardiac", "normal intracardic", 0.9)
+        assert critical_difference(s) is not None
 
 
 class TestDisagreementDetector:

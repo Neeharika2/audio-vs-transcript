@@ -1,9 +1,11 @@
 """Audio-grounded LLM judge for disagreement segments.
 
 The two STT engines are the cheap first-pass filter. Only segments the
-deterministic detector flags (a missing side or agreement below
-`DISAGREE_THRESHOLD`) are sent to an audio-capable LLM. The LLM listens to the
-actual audio clip and arbitrates between the two transcripts, returning a
+deterministic detector flags are sent to an audio-capable LLM. A segment is
+flagged when it has a **critical signal** (negation, number, glossary term, or
+content-word change) regardless of its agreement score, or when the engines
+agree below `LLM_DISAGREE_THRESHOLD` / one side is missing. The LLM listens to
+the actual audio clip and arbitrates between the two transcripts, returning a
 structured verdict (classification, severity, per-engine error flags, correct
 content).
 
@@ -21,8 +23,134 @@ from pathlib import Path
 from typing import Protocol
 
 from approach_2 import config
+from approach_2.src.align import norm_words
 from approach_2.src.audio import extract_span
 from approach_2.src.models import AlignedSegment, LLMJudgeVerdict, ReviewReport
+from approach_2.src.review import load_glossary
+
+
+# ---------------------------------------------------------------------------
+# Critical-signal detection (deterministic; no LLM involved)
+#
+# Agreement is a *lexical* similarity score: "the patient" vs "patient" scores
+# nearly 1.0 even though they mean the same thing, while "requires" vs "does
+# not require" is a semantic contradiction that a single missing word can mask.
+# A threshold alone cannot separate the two, so specific high-risk changes are
+# escalated to the LLM regardless of the overall agreement score. These rules
+# are intentionally conservative (a few cheap extra LLM calls) because missing
+# a medication/negation change is worse than over-checking a harmless plural.
+# ---------------------------------------------------------------------------
+
+# Normalized tokens that flip meaning when they appear on one side only.
+_NEGATION_TOKENS = {
+    "not", "no", "never", "none", "without", "doesnt", "dont", "didnt",
+    "cannot", "cant", "wont", "isnt", "arent", "nt", "unlikely",
+}
+
+# Filler + function words that carry no clinical meaning; a change in these is
+# not a critical signal.
+_TRIVIAL_TOKENS = {
+    "uh", "um", "uhh", "umm", "hmm", "mmm", "hm", "mm", "er", "ah", "oh",
+    "the", "a", "an", "and", "or", "but", "of", "in", "on", "at", "to", "for",
+    "with", "by", "is", "was", "are", "were", "has", "have", "had", "it", "its",
+}
+
+# A substituted word on either side at least this long is treated as a
+# technical/domain term worth checking ("cholecystectomy" vs "colosyctomy"),
+# while short substitutions are usually spelling or plural noise.
+_TECHNICAL_LENGTH = 8
+
+
+def _token_pairs(seg: AlignedSegment) -> list[tuple[str | None, str | None]]:
+    """Align the two engines' normalized tokens; yield (a_token, b_token) pairs.
+
+    A `None` side means an insertion (b-only) or deletion (a-only). This is a
+    straight word-level Levenshtein backtrack (word order is identical across
+    engines), so substitutions are distinguished from insertions/deletions.
+    """
+    a_tokens = norm_words(seg.engine_a) if seg.engine_a else []
+    b_tokens = norm_words(seg.engine_b) if seg.engine_b else []
+    n, m = len(a_tokens), len(b_tokens)
+    dp = [[0] * (m + 1) for _ in range(n + 1)]
+    for i in range(n + 1):
+        dp[i][0] = i
+    for j in range(m + 1):
+        dp[0][j] = j
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            cost = 0 if a_tokens[i - 1] == b_tokens[j - 1] else 1
+            dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost)
+
+    pairs: list[tuple[str | None, str | None]] = []
+    i, j = n, m
+    while i > 0 or j > 0:
+        if i > 0 and j > 0 and a_tokens[i - 1] == b_tokens[j - 1] and dp[i][j] == dp[i - 1][j - 1]:
+            pairs.append((a_tokens[i - 1], b_tokens[j - 1]))
+            i -= 1
+            j -= 1
+        elif i > 0 and j > 0 and dp[i][j] == dp[i - 1][j - 1] + 1:
+            pairs.append((a_tokens[i - 1], b_tokens[j - 1]))
+            i -= 1
+            j -= 1
+        elif i > 0 and dp[i][j] == dp[i - 1][j] + 1:
+            pairs.append((a_tokens[i - 1], None))
+            i -= 1
+        else:
+            pairs.append((None, b_tokens[j - 1]))
+            j -= 1
+    pairs.reverse()
+    return pairs
+
+
+def critical_difference(seg: AlignedSegment) -> str | None:
+    """Return a reason string if the segment carries a critical signal, else None.
+
+    Critical signals (any one is enough to send the segment to the LLM):
+      - negation changed ("requires" -> "does not require")
+      - a number differs ("20 mg" vs "200 mg", "October 6" vs "sixth")
+      - a glossary/domain term changed (medication, anatomy, procedure)
+      - a content word was inserted or deleted (meaning added or lost)
+      - a long technical word was substituted (likely a domain term garbled)
+
+    Short word substitutions ("seattl"/"seattle", "spray"/"sprays") are treated
+    as spelling/plural noise and left to the agreement threshold.
+    """
+    if seg.engine_a is None or seg.engine_b is None:
+        return "missing_side"
+
+    pairs = _token_pairs(seg)
+    glossary = load_glossary()
+
+    # Strong signals first, segment-wide: a negation or number anywhere on one
+    # side is critical regardless of which aligned pair it lands in.
+    all_tokens = set()
+    for a_tok, b_tok in pairs:
+        if a_tok == b_tok:
+            continue
+        all_tokens |= {t for t in (a_tok, b_tok) if t}
+    if all_tokens & _NEGATION_TOKENS:
+        return "negation"
+    if any(t.isdigit() for t in all_tokens):
+        return "number"
+    if glossary & all_tokens:
+        return "glossary_term"
+
+    for a_tok, b_tok in pairs:
+        if a_tok == b_tok:
+            continue
+        both = {t for t in (a_tok, b_tok) if t}
+
+        # True insertion/deletion of a content word changes meaning.
+        if (a_tok is None or b_tok is None) and any(
+            t not in _TRIVIAL_TOKENS and len(t) > 2 for t in both
+        ):
+            return "word_added_removed"
+
+        # Long substituted word = likely a garbled technical/domain term.
+        if both and any(len(t) >= _TECHNICAL_LENGTH for t in both):
+            return "technical_word"
+
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -35,20 +163,26 @@ def select_for_judgment(
 ) -> list[AlignedSegment]:
     """Flag segments that need audio-grounded LLM verification.
 
-    Rule: a segment is suspicious iff one side is missing or the two engines
-    agree less than `disagree_threshold` (default `config.DISAGREE_THRESHOLD`).
-    Everything else is high-confidence and bypasses the LLM.
+    A segment is flagged iff it carries a critical signal OR (one side is
+    missing or agreement < `disagree_threshold`, default
+    `config.LLM_DISAGREE_THRESHOLD`). Everything else bypasses the LLM.
     """
-    threshold = config.DISAGREE_THRESHOLD if disagree_threshold is None else disagree_threshold
+    threshold = config.LLM_DISAGREE_THRESHOLD if disagree_threshold is None else disagree_threshold
     return [
         s for s in report.segments
-        if s.agreement is None or s.agreement < threshold
+        if critical_difference(s) is not None
+        or s.agreement is None
+        or s.agreement < threshold
     ]
 
 
 def is_suspicious(segment: AlignedSegment, disagree_threshold: float | None = None) -> bool:
-    threshold = config.DISAGREE_THRESHOLD if disagree_threshold is None else disagree_threshold
-    return segment.agreement is None or segment.agreement < threshold
+    threshold = config.LLM_DISAGREE_THRESHOLD if disagree_threshold is None else disagree_threshold
+    return (
+        critical_difference(segment) is not None
+        or segment.agreement is None
+        or segment.agreement < threshold
+    )
 
 
 # ---------------------------------------------------------------------------

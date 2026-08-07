@@ -95,8 +95,10 @@ content regardless of how each engine happened to cut it. Word-level agreement
 ## LLM judge (disagreement arbitration)
 
 The deterministic agreement score is the first-pass filter. `src/judge.py`
-flags a segment for LLM verification only when one engine missed it entirely or
-the engines agree below `DISAGREE_THRESHOLD` (0.9). For each flagged segment it
+flags a segment for LLM verification when it carries a **critical signal** —
+negation/number/glossary-term change, a content word added or removed, or a long
+technical-word substitution — or when one engine missed it entirely or the
+engines agree below `LLM_DISAGREE_THRESHOLD` (0.9). For each flagged segment it
 cuts the exact audio span, sends it to Gemini 3.5 Flash together with both
 transcripts + timestamps + confidence, and stores the structured verdict. The
 `LLMJudge` protocol keeps the model swappable; `GeminiJudge` is the current

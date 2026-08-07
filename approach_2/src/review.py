@@ -54,7 +54,7 @@ def sample_review_set(
     """
     seed = config.SPOT_CHECK_SEED if seed is None else seed
     fraction = config.SPOT_CHECK_FRACTION if fraction is None else fraction
-    disagree_threshold = config.DISAGREE_THRESHOLD
+    disagree_threshold = config.REVIEW_DISAGREE_THRESHOLD
 
     mandatory = [s.idx for s in segments if s.tier == "mandatory"]
     glossary = load_glossary()

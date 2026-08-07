@@ -2,25 +2,32 @@ Audio: audio-3
 Engines: whisper, deepgram
 
 [00]    1.65-   8.35s  conf= 92  review_technical
-      Multiple use of heart and great vessels reveal normal intracardic and great vessel relationships.
+      Multiple views of heart and great vessels reveal normal intracardiac and great vessel relationships.
+  [LLM] incorrect/medium (whisper+deepgram erred): Both engines transcribed 'views' incorrectly as 'use'. Additionally, Whisper misspelled 'intracardiac' as 'intracardic'.
 [01]    8.97-  10.57s  conf= 98  auto_accept
       Cardiac function is normal.
 [02]   11.13-  15.29s  conf= 99  auto_accept
       There is no significant chamber, enlargement or hypertrophy.
 [03]   15.87-  19.47s  conf= 82  mandatory
-      There is no pre-cardial effusion or visitation seen.
+      There is no pericardial effusion or vegetation seen.
+  [LLM] incorrect/medium (whisper erred): Whisper incorrectly transcribed the medical terms 'pericardial' as 'pre-cardial' and 'vegetation' as 'visitation'. Deepgram got both of these terms correct.
 [04]   20.39-  30.35s  conf= 88  mandatory
-      Doppler interrogation including colour flow imaging reveals systemic venous return to the written right atom with normal tricuspid inflow.
+      Doppler interrogation including color flow imaging reveals systemic venous return to the right atrium with normal tricuspid inflow.
+  [LLM] incorrect/high (whisper+deepgram erred): Both engines transcribed the medical term 'right atrium' incorrectly as 'right atom' and inserted an extra word ('written' or 'return') before it that was not spoken in the audio.
 [05]   30.35-  33.57s  conf= 93  review_technical
       Pulmonary outflow is normal at the wall.
 [06]   34.07-  37.29s  conf= 87  mandatory
-      Pulmonary venous return is to the left atom.
+      pulmonary venous return is to the left atrium
+  [LLM] incorrect/medium (whisper+deepgram erred): Both engines transcribed the medical term 'atrium' as 'atom'. Additionally, Deepgram misspelled 'venous' as 'veneous'.
 [07]   37.95-  40.43s  conf= 92  review_technical
-      The left arterial spectrum is intact.
+      the left atrial spectrum is intact
+  [LLM] incorrect/medium (whisper erred): The speaker clearly says 'atrial' rather than 'arterial'. Deepgram got this right, whereas Whisper transcribed it incorrectly.
 [08]   41.19-  44.59s  conf= 80  mandatory
-      Material inflow and ascending autra flow are normal.
+      Mitral inflow and ascending aorta flow are normal.
+  [LLM] incorrect/medium (whisper erred): Whisper mistranscribed 'mitral' as 'Material' and 'aorta' as 'autra', whereas Deepgram got the transcription perfectly correct.
 [09]   45.33-  47.67s  conf= 78  mandatory
-      The aortic valve is tri-lifted.
+      the aortic valve is trileaflet
+  [LLM] incorrect/medium (whisper+deepgram erred): Both engines misspelled the medical term 'trileaflet'. Whisper transcribed it as 'tri-lifted', and Deepgram transcribed it as 'trileftlet'.
 [10]   48.33-  51.71s  conf= 97  review_technical
       The coronary arteries appear to be normal in their origins.
 [11]   52.51-  58.97s  conf= 94  review_technical
