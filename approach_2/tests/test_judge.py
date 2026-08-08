@@ -10,6 +10,7 @@ from approach_2.src.judge import (
     GeminiJudge,
     JudgeRequest,
     build_prompt,
+    category,
     critical_difference,
     judge_report,
     parse_verdict,
@@ -91,6 +92,41 @@ class TestCriticalDifference:
         # High agreement should NOT protect a technical-word substitution.
         s = _aligned(0, "normal intra cardiac", "normal intracardic", 0.9)
         assert critical_difference(s) is not None
+
+
+class TestCategory:
+    def test_no_signal_is_match(self):
+        s = _aligned(0, "hello world", "hello world", 1.0)
+        assert category(s) == "match"
+
+    def test_short_spelling_noise_is_match(self):
+        s = _aligned(0, "she lived in seattl", "she lived in seattle", 0.95)
+        assert category(s) == "match"
+
+    def test_negation_is_conflicting_information(self):
+        s = _aligned(0, "patient requires medication", "patient does not require medication", 0.75)
+        assert category(s) == "conflicting_information"
+
+    def test_number_change_is_incorrect_information(self):
+        s = _aligned(0, "take 20 milligrams", "take 200 milligrams", 0.6)
+        assert category(s) == "incorrect_information"
+
+    def test_long_technical_word_is_incorrect_information(self):
+        s = _aligned(0, "needs cholecystectomy", "needs colosyctomy", 0.97)
+        assert category(s) == "incorrect_information"
+
+    def test_word_removed_is_missing_information(self):
+        s = _aligned(0, "she used it last summer", "she used it", 0.6)
+        assert category(s) == "missing_information"
+
+    def test_word_added_is_hallucinated_information(self):
+        s = _aligned(0, "she used it", "she used it last summer", 0.6)
+        assert category(s) == "hallucinated_information"
+
+    def test_missing_side_is_missing_information(self):
+        s = _aligned(0, "only whisper", "", 0.0)
+        s.engine_b = None
+        assert category(s) == "missing_information"
 
 
 class TestDisagreementDetector:

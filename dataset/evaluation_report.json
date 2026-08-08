@@ -1,0 +1,226 @@
+{
+  "dataset": "dataset/test_cases.json (generated from testing/scenarios.py)",
+  "scenario_count": 8,
+  "categories_covered": [
+    "Correct",
+    "Missing",
+    "Extra",
+    "Incorrect",
+    "Conflicting"
+  ],
+  "generated_at": "2026-08-08T05:18:49+00:00",
+  "summary": [
+    {
+      "metric": "A1_heuristic",
+      "name": "Approach 1 \u2014 offline heuristic engine (no LLM)",
+      "accuracy": "5/8 = 62%",
+      "meaning": "The deterministic engine with no LLM. It catches numeric changes and negations only; it is deliberately blind to mid-sentence deletions (Missing), added content (Extra) and garbled technical words \u2014 those misses are by design and are what the LLM layer is for."
+    },
+    {
+      "metric": "A1_with_llm",
+      "name": "Approach 1 \u2014 full pipeline + correct LLM verdict",
+      "accuracy": "8/8 = 100%",
+      "meaning": "The full Approach 1 pipeline given that the LLM flagged the discrepancy correctly. Measures the pipeline's mapping: does it place the finding in the right category (missing / incorrect / conflicting / hallucinated)?"
+    },
+    {
+      "metric": "A2_detector",
+      "name": "Approach 2 \u2014 disagreement detector (no LLM)",
+      "accuracy": "8/8 = 100%",
+      "meaning": "The Approach 2 detector (algorithm, no LLM). It speaks the same category vocabulary as A1 \u2014 match, missing_information, incorrect_information, conflicting_information, hallucinated_information \u2014 so both columns are directly comparable."
+    }
+  ],
+  "scenarios": [
+    {
+      "category": "Correct",
+      "scenario": "perfect_match",
+      "gold": "The patient takes twenty milligrams of aspirin daily.",
+      "candidate": "The patient takes twenty milligrams of aspirin daily.",
+      "expected": {
+        "A1_category": "match",
+        "A2_detector": "match"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "match",
+          "ok": true
+        },
+        "A1_with_llm": {
+          "predicted": "match",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "match",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Incorrect",
+      "scenario": "number_change",
+      "gold": "The patient takes twenty milligrams of aspirin daily.",
+      "candidate": "The patient takes two hundred milligrams of aspirin daily.",
+      "expected": {
+        "A1_category": "incorrect_information",
+        "A2_detector": "incorrect_information"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "incorrect_information",
+          "ok": true
+        },
+        "A1_with_llm": {
+          "predicted": "incorrect_information",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "incorrect_information",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Conflicting",
+      "scenario": "negated_fact",
+      "gold": "Anuria requires dialysis.",
+      "candidate": "Anuria does not require dialysis.",
+      "expected": {
+        "A1_category": "conflicting_information",
+        "A2_detector": "conflicting_information"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "conflicting_information",
+          "ok": true
+        },
+        "A1_with_llm": {
+          "predicted": "conflicting_information",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "conflicting_information",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Missing",
+      "scenario": "missing_item",
+      "gold": "This patient requires dialysis twice a week.",
+      "candidate": "This patient requires twice a week.",
+      "expected": {
+        "A1_category": "missing_information",
+        "A2_detector": "missing_information"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "match",
+          "ok": false
+        },
+        "A1_with_llm": {
+          "predicted": "missing_information",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "missing_information",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Extra",
+      "scenario": "extra_item",
+      "gold": "The patient takes twenty milligrams of aspirin daily.",
+      "candidate": "The patient takes twenty milligrams of aspirin daily and metformin.",
+      "expected": {
+        "A1_category": "hallucinated_information",
+        "A2_detector": "hallucinated_information"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "match",
+          "ok": false
+        },
+        "A1_with_llm": {
+          "predicted": "hallucinated_information",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "hallucinated_information",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Other",
+      "scenario": "technical_word_garbled",
+      "gold": "The plan is to schedule cholecystectomy.",
+      "candidate": "The plan is to schedule colosyctomy.",
+      "expected": {
+        "A1_category": "incorrect_information",
+        "A2_detector": "incorrect_information"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "match",
+          "ok": false
+        },
+        "A1_with_llm": {
+          "predicted": "incorrect_information",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "incorrect_information",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Other",
+      "scenario": "contraction_equivalent",
+      "gold": "He'd had abdominal pain for two weeks.",
+      "candidate": "He had abdominal pain for two weeks.",
+      "expected": {
+        "A1_category": "match",
+        "A2_detector": "match"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "match",
+          "ok": true
+        },
+        "A1_with_llm": {
+          "predicted": "match",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "match",
+          "ok": true
+        }
+      }
+    },
+    {
+      "category": "Other",
+      "scenario": "short_spelling_noise",
+      "gold": "She lived in seattle for years.",
+      "candidate": "She lived in seattl for years.",
+      "expected": {
+        "A1_category": "match",
+        "A2_detector": "match"
+      },
+      "results": {
+        "A1_heuristic": {
+          "predicted": "match",
+          "ok": true
+        },
+        "A1_with_llm": {
+          "predicted": "match",
+          "ok": true
+        },
+        "A2_detector": {
+          "predicted": "match",
+          "ok": true
+        }
+      }
+    }
+  ]
+}

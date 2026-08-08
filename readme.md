@@ -115,3 +115,24 @@ make tests
 
 (`make` is available from the repo root; `make` alone prints a menu of every
 target, `make setup` does the one-time install.)
+
+### Data: real vs. synthetic test cases
+
+- **Real evaluation data** lives per-approach under `approach_1/datasets/`
+  (audio + manual `.pdf` golds + cached STT `.txt`) and `approach_2/dataset/`
+  (audio + per-engine transcripts + review reports). These are the actual files
+  the applications run on.
+- **Synthetic test-case dataset** is `dataset/test_cases.json`, a single
+  JSON export of the shared error-injection catalog `testing/scenarios.py`.
+  That catalog is the one source of truth consumed by **both** approaches'
+  `pytest` suites (`approach_1/tests/test_scenarios.py`,
+  `approach_2/tests/test_scenarios.py`) — so the submitted JSON never diverges
+  from the tests. It contains the controlled cases (perfect match, number
+  change, negation, missing word, garbled term, semantic-equivalent, spelling
+  noise) with their expected categories.
+
+The two are intentionally separate: real files demonstrate the system on actual
+recordings, while `test_cases.json` verifies that the evaluator detects and
+classifies known failure modes. The JSON is **not** read by any approach's
+runtime; regenerate it with `python -m testing.export_test_cases` if the
+catalog changes.

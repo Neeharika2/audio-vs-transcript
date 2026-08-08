@@ -84,6 +84,14 @@ SCENARIOS: list[Scenario] = [
         # emits "missing".
     ),
     Scenario(
+        name="extra_item",
+        baseline="The patient takes twenty milligrams of aspirin daily.",
+        error_side="The patient takes twenty milligrams of aspirin daily and metformin.",
+        expected_a2_reason="word_added_removed",
+        expected_a2_category="extra",        # one engine heard extra content
+        expected_a1_category="hallucinated", # no basis in the gold transcript
+    ),
+    Scenario(
         name="technical_word_garbled",
         baseline="The plan is to schedule cholecystectomy.",
         error_side="The plan is to schedule colosyctomy.",

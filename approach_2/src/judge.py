@@ -74,6 +74,69 @@ def _token_pairs(seg: AlignedSegment) -> list[tuple[str | None, str | None]]:
     return [(t.a, t.b) for t in token_align(a_tokens, b_tokens)]
 
 
+# A1-compatible category vocabulary (mirrors approach_1's FindingsList).
+CATEGORY_MATCH = "match"
+CATEGORY_MISSING = "missing_information"
+CATEGORY_INCORRECT = "incorrect_information"
+CATEGORY_CONFLICTING = "conflicting_information"
+CATEGORY_HALLUCINATED = "hallucinated_information"
+CATEGORIES = (
+    CATEGORY_MATCH,
+    CATEGORY_MISSING,
+    CATEGORY_INCORRECT,
+    CATEGORY_CONFLICTING,
+    CATEGORY_HALLUCINATED,
+)
+
+
+def category(seg: AlignedSegment) -> str:
+    """Classify a segment into an A1-style category (never a raw signal token).
+
+    The deterministic detector speaks the same vocabulary as Approach 1:
+      - no critical signal            -> "match"
+      - negation flip                 -> "conflicting_information"
+      - number / glossary / technical -> "incorrect_information"
+      - one side dropped a word       -> "missing_information"
+      - one side added a word         -> "hallucinated_information"
+      - one side produced no text     -> "missing_information"
+    """
+    if seg.engine_a is None or seg.engine_b is None:
+        return CATEGORY_MISSING
+
+    pairs = _token_pairs(seg)
+    glossary = load_glossary()
+
+    all_tokens = set()
+    for a_tok, b_tok in pairs:
+        if a_tok == b_tok:
+            continue
+        all_tokens |= {t for t in (a_tok, b_tok) if t}
+    if all_tokens & _NEGATION_TOKENS:
+        return CATEGORY_CONFLICTING
+    if any(t.isdigit() for t in all_tokens):
+        return CATEGORY_INCORRECT
+    if glossary & all_tokens:
+        return CATEGORY_INCORRECT
+
+    for a_tok, b_tok in pairs:
+        if a_tok == b_tok:
+            continue
+        both = {t for t in (a_tok, b_tok) if t}
+
+        if (a_tok is None or b_tok is None) and any(
+            t not in _TRIVIAL_TOKENS and len(t) > 2 for t in both
+        ):
+            # Which side the word is missing from decides missing vs added:
+            # only on engine_a (whisper/baseline)  -> one side dropped it
+            # only on engine_b (deepgram/candidate) -> one side invented it.
+            return CATEGORY_MISSING if b_tok is None else CATEGORY_HALLUCINATED
+
+        if both and any(len(t) >= _TECHNICAL_LENGTH for t in both):
+            return CATEGORY_INCORRECT
+
+    return CATEGORY_MATCH
+
+
 def critical_difference(seg: AlignedSegment) -> str | None:
     """Return a reason string if the segment carries a critical signal, else None.
 

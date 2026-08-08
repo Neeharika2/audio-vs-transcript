@@ -182,6 +182,20 @@ A segment is flagged iff **any** of these holds (deterministic, in `src/judge.py
 Short substitutions ("seattl"/"seattle", "spray"/"sprays") are treated as
 spelling/plural noise and left to the agreement threshold alone.
 
+## Categories
+
+The deterministic detector (`src/judge.py::category()`) and the LLM verdict both
+report a category. The detector uses **the same vocabulary as Approach 1**, so
+the two approaches' outputs are directly comparable:
+
+| Category | Detector signal | LLM verdict |
+|---|---|---|
+| `match` | no critical signal | `accurate` |
+| `missing_information` | one side dropped a word / had no text | `missing` |
+| `incorrect_information` | number, glossary or technical word changed | `incorrect` |
+| `conflicting_information` | negation flipped meaning | `conflicting` |
+| `hallucinated_information` | one side added content not in the audio | `extra`, `hallucinated` |
+
 ## Tests
 
 ```bash

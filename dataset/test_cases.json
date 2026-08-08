@@ -1,0 +1,74 @@
+[
+  {
+    "name": "perfect_match",
+    "baseline": "The patient takes twenty milligrams of aspirin daily.",
+    "error_side": "The patient takes twenty milligrams of aspirin daily.",
+    "expected_a1_category": null,
+    "expected_a2_reason": null,
+    "expected_a2_category": null,
+    "semantic_only": false
+  },
+  {
+    "name": "number_change",
+    "baseline": "The patient takes twenty milligrams of aspirin daily.",
+    "error_side": "The patient takes two hundred milligrams of aspirin daily.",
+    "expected_a1_category": "incorrect",
+    "expected_a2_reason": "number",
+    "expected_a2_category": "incorrect",
+    "semantic_only": false
+  },
+  {
+    "name": "negated_fact",
+    "baseline": "Anuria requires dialysis.",
+    "error_side": "Anuria does not require dialysis.",
+    "expected_a1_category": "conflict",
+    "expected_a2_reason": "negation",
+    "expected_a2_category": "incorrect",
+    "semantic_only": false
+  },
+  {
+    "name": "missing_item",
+    "baseline": "This patient requires dialysis twice a week.",
+    "error_side": "This patient requires twice a week.",
+    "expected_a1_category": "missing",
+    "expected_a2_reason": "word_added_removed",
+    "expected_a2_category": "missing",
+    "semantic_only": false
+  },
+  {
+    "name": "extra_item",
+    "baseline": "The patient takes twenty milligrams of aspirin daily.",
+    "error_side": "The patient takes twenty milligrams of aspirin daily and metformin.",
+    "expected_a1_category": "hallucinated",
+    "expected_a2_reason": "word_added_removed",
+    "expected_a2_category": "extra",
+    "semantic_only": false
+  },
+  {
+    "name": "technical_word_garbled",
+    "baseline": "The plan is to schedule cholecystectomy.",
+    "error_side": "The plan is to schedule colosyctomy.",
+    "expected_a1_category": "incorrect",
+    "expected_a2_reason": "technical_word",
+    "expected_a2_category": "incorrect",
+    "semantic_only": false
+  },
+  {
+    "name": "contraction_equivalent",
+    "baseline": "He'd had abdominal pain for two weeks.",
+    "error_side": "He had abdominal pain for two weeks.",
+    "expected_a1_category": null,
+    "expected_a2_reason": null,
+    "expected_a2_category": null,
+    "semantic_only": true
+  },
+  {
+    "name": "short_spelling_noise",
+    "baseline": "She lived in seattle for years.",
+    "error_side": "She lived in seattl for years.",
+    "expected_a1_category": null,
+    "expected_a2_reason": null,
+    "expected_a2_category": null,
+    "semantic_only": true
+  }
+]
