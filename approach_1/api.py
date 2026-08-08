@@ -1,4 +1,5 @@
 import hashlib
+import json
 import os
 import subprocess
 import tempfile
@@ -16,12 +17,19 @@ app = FastAPI(title="Audio vs Transcript Evaluator")
 BASE_DIR = Path(__file__).resolve().parent
 TRANSCRIPT_EXTS = {".pdf", ".txt"}
 STT_OUT = BASE_DIR / "datasets" / "stt_generated_transcripts"
+SHARED_DATASET = BASE_DIR.parent / "dataset" / "test_cases.json"
 
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> str:
     """Single-page review UI: click Run, upload audio + manual transcript."""
     return (BASE_DIR / "static" / "index.html").read_text(encoding="utf-8")
+
+
+@app.get("/framework", response_class=HTMLResponse)
+def framework() -> str:
+    """Framework validation page: shared synthetic test cases + analysis."""
+    return (BASE_DIR / "static" / "framework.html").read_text(encoding="utf-8")
 
 
 def _extract_text(upload: UploadFile) -> str:
@@ -128,3 +136,120 @@ def evaluate_text(
         ),
         threshold=config.SCORE_THRESHOLD,
     )
+
+
+# -----------------------------------------------------------------------------
+# Framework validation over the shared synthetic test catalog
+# -----------------------------------------------------------------------------
+
+_A1_CATEGORY = {
+    "incorrect": "incorrect_information",
+    "missing": "missing_information",
+    "conflict": "conflicting_information",
+    "hallucinated": "hallucinated_information",
+}
+
+_RELATIONSHIP = {
+    "incorrect": "incorrect",
+    "missing": "missing",
+    "conflict": "conflict",
+    "hallucinated": "hallucination",
+}
+
+# Scenarios the A1 *deterministic heuristic* can actually see without an LLM.
+_HEURISTIC_CAPABLE = {"number_change", "negated_fact"}
+
+_FINDING_KEYS = (
+    "missing_information",
+    "incorrect_information",
+    "conflicting_information",
+    "hallucinated_information",
+)
+
+
+class _OracleJudge:
+    """Emulates a correct LLM: returns the scenario's expected relationship."""
+
+    def __init__(self, relationship: str):
+        self.relationship = relationship
+
+    def judge(self, prompt, schema):
+        import re
+
+        from approach_1.src.models import ErrorItem, FindingList, SegmentJudgement
+
+        if schema is FindingList:
+            match = re.search(r"\[.*\]", prompt, flags=re.S)
+            if match:
+                return schema(findings=[ErrorItem(**item) for item in json.loads(match.group(0))])
+            return schema(findings=[])
+        return SegmentJudgement(
+            relationship=self.relationship, explanation="oracle", severity="high"
+        )
+
+
+def _emitted_categories(report) -> list[str]:
+    return [key for key in _FINDING_KEYS if getattr(report, key)]
+
+
+def _a1_analysis(name: str, expected: str, heuristic_ok: bool) -> str:
+    if expected == "match":
+        return "No discrepancy expected. The heuristic correctly leaves the case alone."
+    if heuristic_ok:
+        return "Detected by the deterministic heuristic (entity / negation signal)."
+    if name in _HEURISTIC_CAPABLE:
+        return "Expected, but the heuristic missed it (no LLM configured); the pipeline with the judge catches it."
+    return "Invisible to the heuristic — a deep diff (deletion / added content / garbled word) that only the LLM layer can classify."
+
+
+@app.get("/validate")
+def validate() -> dict:
+    """Run the shared synthetic test catalog through Approach 1.
+
+    Each case is compared gold->candidate twice:
+      - `heuristic`: the deterministic evaluator with no LLM (what A1 can see
+        offline alone),
+      - `pipeline`: the full approach_1 pipeline with a correct LLM verdict.
+    Expected category comes from the same `dataset/test_cases.json` both
+    approaches share, so the A1 and A2 columns are comparable.
+    """
+    if not SHARED_DATASET.is_file():
+        raise HTTPException(404, f"no shared synthetic dataset at {SHARED_DATASET}")
+    cases = json.loads(SHARED_DATASET.read_text(encoding="utf-8"))
+
+    results = []
+    passed_total = 0
+    for case in cases:
+        name = case["name"]
+        gold = case["baseline"]
+        candidate = case["error_side"]
+        raw = case.get("expected_a1_category")
+        expected = _A1_CATEGORY.get(raw) if raw else "match"
+
+        heuristic_report = evaluate(gold, candidate)
+        heuristic_cats = _emitted_categories(heuristic_report)
+
+        if raw:
+            judge = _OracleJudge(_RELATIONSHIP[raw])
+            pipeline_cats = _emitted_categories(evaluate(gold, candidate, judge=judge))
+        else:
+            pipeline_cats = heuristic_cats
+
+        heuristic_ok = (not heuristic_cats) if expected == "match" else expected in heuristic_cats
+        pipeline_ok = (not pipeline_cats) if expected == "match" else expected in pipeline_cats
+        passed = pipeline_ok
+        passed_total += passed
+
+        results.append({
+            "name": name,
+            "gold": gold,
+            "candidate": candidate,
+            "expected": expected,
+            "heuristic_detected": sorted(heuristic_cats) or ["match"],
+            "heuristic_passed": heuristic_ok,
+            "pipeline_detected": sorted(pipeline_cats) or ["match"],
+            "pipeline_passed": pipeline_ok,
+            "passed": passed,
+            "analysis": _a1_analysis(name, expected, heuristic_ok),
+        })
+    return {"total": len(cases), "passed": passed_total, "results": results}

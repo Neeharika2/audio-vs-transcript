@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approach 2 — Framework validation</title>
+<style>
+  :root{
+    --bg:#FDF7F2; --panel:#FFFFFF; --panel-alt:#F8F1EA; --line:#E4D7CB;
+    --ink:#000000; --dim:#625a52; --accent:#B72D54; --ok:#2E7D32;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background:var(--bg); color:var(--ink); font-size:14px; line-height:1.5; }
+  .wrap{ max-width:960px; margin:0 auto; padding:24px 24px 80px; }
+  header.page{ margin-bottom:18px; }
+  header.page h1{ font-size:22px; font-weight:700; margin:0 0 4px; }
+  header.page .sub{ color:var(--dim); font-size:13px; margin:0 0 10px; }
+  .nav{ display:flex; gap:14px; font-size:13px; }
+  .nav a{ color:var(--accent); text-decoration:none; border-bottom:1px solid var(--line); }
+  .panel{ border:1px solid var(--line); background:var(--panel); margin-bottom:16px; }
+  .panel > .title{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+                   padding:9px 14px; border-bottom:1px solid var(--line); background:var(--panel-alt);
+                   display:flex; align-items:center; gap:10px; }
+  .panel > .title .count{ color:var(--dim); font-weight:600; margin-left:auto; }
+  .kpis{ display:flex; gap:24px; font-size:14px; padding:10px 14px; }
+  .kpis b{ font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  th, td{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); font-weight:600; white-space:nowrap; }
+  .mono{ font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; }
+  .pass{ color:var(--ok); font-weight:700; }
+  .analysis{ color:var(--dim); font-size:12.5px; max-width:300px; }
+
+  details{ border:1px solid var(--line); margin:8px 0; background:var(--panel); }
+  details>summary{ padding:9px 12px; cursor:pointer; font-weight:600; font-size:13px; list-style:none; }
+  details>summary::before{ content:"+    "; color:var(--accent); font-family:monospace; }
+  details[open]>summary::before{ content:"−    "; }
+  details .inner{ padding:10px 14px; border-top:1px solid var(--line); }
+  .vs{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .vs .side .lbl{ font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); margin-bottom:3px; }
+  .vs .side .txt{ white-space:pre-wrap; }
+  .meta{ margin-top:10px; font-size:12.5px; color:var(--dim); }
+  @media (max-width:640px){ .vs{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <h1>Approach 2 — Framework validation</h1>
+    <p class="sub">Synthetic test cases from <span class="mono">dataset/test_cases.json</span> run through Approach 2's detector.</p>
+    <div class="nav"><a href="/">← Audit</a></div>
+  </header>
+
+  <div id="kpis"></div>
+  <div id="rows"></div>
+</div>
+
+<script type="module">
+async function api(path) {
+  const res = await fetch(path);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.detail || res.status);
+  return data;
+}
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c])); }
+
+function badge(ok) { return ok ? '<span style="color:#2E7D32;font-weight:700;">PASS</span>'
+                             : '<span style="color:#B72D24;font-weight:700;">FAIL</span>'; }
+
+const v = await api("/validate");
+document.getElementById("kpis").innerHTML =
+  `<div class="panel"><div class="title">Summary</div>
+     <div class="kpis">
+       <span><b>${v.passed}</b> / ${v.total} cases passed</span>
+       <span>shared catalog: <b>8</b> scenarios</span>
+       <span>detector only — no LLM</span>
+     </div></div>`;
+
+document.getElementById("rows").innerHTML = v.results.map(r => `
+  <details>
+    <summary>${esc(r.name)} — expected <span class="mono">${esc(r.expected)}</span> ${badge(r.passed)}</summary>
+    <div class="inner">
+      <div class="vs">
+        <div class="side"><div class="lbl">Whisper (baseline)</div><div class="txt mono">${esc(r.whisper)}</div></div>
+        <div class="side"><div class="lbl">Deepgram (error injected)</div><div class="txt mono">${esc(r.deepgram)}</div></div>
+      </div>
+      <table style="margin-top:12px;border:1px solid var(--line);">
+        <thead><tr><th>Signal</th><th>Detected category</th><th>Expected</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">${esc(r.signal)}</td><td class="mono">${esc(r.predicted)}</td><td class="mono">${esc(r.expected)}</td><td>${badge(r.passed)}</td></tr>
+        </tbody>
+      </table>
+      <div class="meta">${esc(r.analysis)}</div>
+    </div>
+  </details>`).join("");
+</script>
+</body>
+</html>

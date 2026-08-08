@@ -14,7 +14,11 @@ EVAL_MODEL_NAME = os.getenv("EVAL_MODEL_NAME", "deepseek-v4-flash")
 
 # Semantic embeddings (local sentence-transformers)
 # Options: "1"/"true" enabled, anything else disables the embedding signal
-EMBEDDINGS_ENABLED = os.getenv("EMBEDDINGS_ENABLED", "true").lower() in ("1", "true", "yes")
+EMBEDDINGS_ENABLED = os.getenv("EMBEDDINGS_ENABLED", "true").lower() in (
+    "1",
+    "true",
+    "yes",
+)
 
 # Score threshold: overall_score below this -> status Mismatch
 SCORE_THRESHOLD = float(os.getenv("SCORE_THRESHOLD", "90"))

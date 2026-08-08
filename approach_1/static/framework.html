@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approach 1 — Framework validation</title>
+<style>
+  :root {
+    --bg: #FDF7F2; --panel: #FFFFFF; --panel-alt: #F8F1EA; --border: #E4D7CB;
+    --ink: #000000; --dim: #625a52; --accent: #B72D54; --ok: #2E7D32;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 14px; line-height: 1.5; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 80px; }
+  header.page { margin-bottom: 18px; }
+  header.page h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
+  header.page .sub { color: var(--dim); font-size: 13px; margin: 0 0 10px; }
+  .nav { display: flex; gap: 14px; font-size: 13px; }
+  .nav a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--border); }
+  .panel { border: 1px solid var(--border); background: var(--panel); margin-bottom: 16px; }
+  .panel > .title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+                    padding: 9px 14px; border-bottom: 1px solid var(--border); background: var(--panel-alt);
+                    display: flex; align-items: center; gap: 10px; }
+  .panel > .title .count { color: var(--dim); font-weight: 600; margin-left: auto; }
+  .panel .body { padding: 12px 14px; }
+  .kpis { display: flex; gap: 24px; font-size: 14px; padding: 10px 14px; }
+  .kpis b { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--dim); font-weight: 600; white-space: nowrap; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+  .pass { color: var(--ok); font-weight: 700; }
+  .note { color: var(--dim); font-size: 12.5px; }
+  .analysis { color: var(--dim); font-size: 12.5px; max-width: 320px; }
+
+  details { border: 1px solid var(--border); margin: 8px 0; background: var(--panel); }
+  details > summary { padding: 9px 12px; cursor: pointer; font-weight: 600; font-size: 13px; list-style: none; }
+  details > summary::before { content: "+    "; color: var(--accent); font-family: monospace; }
+  details[open] > summary::before { content: "−    "; }
+  details .inner { padding: 10px 14px; border-top: 1px solid var(--border); }
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .vs .side .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--dim); margin-bottom: 3px; }
+  .vs .side .txt { white-space: pre-wrap; }
+  .meta { margin-top: 10px; font-size: 12.5px; color: var(--dim); }
+  @media (max-width: 640px) { .vs { grid-template-columns: 1fr; } table, thead, tbody, tr, td { display: block; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <h1>Approach 1 — Framework validation</h1>
+    <p class="sub">Synthetic test cases from <span class="mono">dataset/test_cases.json</span> run through Approach 1's pipeline.</p>
+    <div class="nav"><a href="/">← Evaluator</a></div>
+  </header>
+
+  <div id="kpis"></div>
+  <div id="rows"></div>
+</div>
+
+<script type="module">
+async function api(path) {
+  const res = await fetch(path);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.detail || res.status);
+  return data;
+}
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c])); }
+
+function badge(ok) { return ok ? '<span style="color:#2E7D32;font-weight:700;">PASS</span>'
+                             : '<span style="color:#B72D24;font-weight:700;">FAIL</span>'; }
+
+function renderRows(data) {
+  const box = document.getElementById("rows");
+  box.innerHTML = data.results.map(r => `
+    <details>
+      <summary>${esc(r.name)} — expected <span class="mono">${esc(r.expected)}</span> ${badge(r.passed)}</summary>
+      <div class="inner">
+        <div class="vs">
+          <div class="side"><div class="lbl">Gold context</div><div class="txt mono">${esc(r.gold)}</div></div>
+          <div class="side"><div class="lbl">Candidate (error injected)</div><div class="txt mono">${esc(r.candidate)}</div></div>
+        </div>
+        <table style="margin-top:12px;border:1px solid var(--border);">
+          <thead><tr><th>Stage</th><th>Detected categories</th><th>Expected→match?</th></tr></thead>
+          <tbody>
+            <tr><td>Heuristic (no LLM)</td><td class="mono">${esc(r.heuristic_detected.join(", "))}</td><td>${badge(r.heuristic_passed)}</td></tr>
+            <tr><td>Pipeline + LLM verdict</td><td class="mono">${esc(r.pipeline_detected.join(", "))}</td><td>${badge(r.pipeline_passed)}</td></tr>
+          </tbody>
+        </table>
+        <div class="meta">${esc(r.analysis)}</div>
+      </div>
+    </details>`).join("");
+}
+
+const v = await api("/validate");
+document.getElementById("kpis").innerHTML =
+  `<div class="panel"><div class="title">Summary</div>
+     <div class="kpis">
+       <span><b>${v.passed}</b> / ${v.total} cases passed</span>
+       <span>shared catalog: <b>8</b> scenarios</span>
+     </div></div>`;
+renderRows(v);
+</script>
+</body>
+</html>

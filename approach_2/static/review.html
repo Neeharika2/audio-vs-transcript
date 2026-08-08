@@ -6,64 +6,106 @@
 <title>Approach 2 — Transcript Audit</title>
 <style>
   :root{
-    --bg:#ffffff; --panel:#f4f4f4; --line:#d9d9d9; --ink:#111; --dim:#6b6b6b;
-    --faint:#9a9a9a; --strong:#000;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#0f0f0f; --panel:#1a1a1a; --line:#2e2e2e; --ink:#ececec;
-      --dim:#b0b0b0; --faint:#7a7a7a; --strong:#fff; }
+    --bg:#FDF7F2; --panel:#FFFFFF; --panel-alt:#F8F1EA; --line:#E4D7CB;
+    --ink:#000000; --dim:#625a52; --accent:#B72D54;
   }
   *{ box-sizing:border-box; }
-  body{ margin:0; font-family:system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--ink); }
-  .wrap{ max-width:860px; margin:0 auto; padding:20px; }
-  header{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding-bottom:16px;
-         border-bottom:2px solid var(--ink); margin-bottom:16px; }
-  header h1{ font-size:16px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin:0; }
-  select, button{ font:inherit; padding:6px 10px; border-radius:6px; border:1px solid var(--line);
-    background:var(--bg); color:var(--ink); }
-  select:focus, button:focus{ outline:2px solid var(--ink); }
-  button{ cursor:pointer; } button:hover{ background:var(--panel); }
-  audio{ width:100%; margin-bottom:16px; }
-  #status{ flex:1; text-align:right; color:var(--dim); font-size:13px; }
+  body{ margin:0; font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background:var(--bg); color:var(--ink); font-size:14px; line-height:1.5; }
+  .wrap{ max-width:960px; margin:0 auto; padding:24px 24px 80px; }
 
-  /* summary stat cards (monochrome) */
-  .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin-bottom:22px; }
-  .stat{ border:1px solid var(--line); border-radius:10px; padding:12px; background:var(--panel); }
-  .stat .n{ font-size:28px; font-weight:800; line-height:1; }
-  .stat .l{ font-size:12px; color:var(--dim); text-transform:uppercase; letter-spacing:.4px; margin-top:6px; }
-  .stat.total .n{ font-size:32px; }
-  .stat.zero .n{ color:var(--faint); }
+  header.page{ margin-bottom:22px; }
+  header.page h1{ font-size:22px; font-weight:700; margin:0 0 4px; }
+  header.page .sub{ color:var(--dim); font-size:13px; margin:0; }
 
-  .msg{ border:1px dashed var(--line); padding:14px; border-radius:8px; color:var(--dim); }
+  .bar{ display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+        padding:10px 14px; border:1px solid var(--line); background:var(--panel); margin-bottom:18px; }
+  .bar label{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); }
+  select, button{ font:inherit; }
+  select{
+    border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:6px 10px; border-radius:0; flex:1; min-width:140px;
+  }
+  .btn{
+    font:inherit; border:1px solid var(--accent); background:var(--accent); color:#fff;
+    padding:6px 16px; cursor:pointer; font-weight:600;
+  }
+  .btn:hover{ filter:brightness(1.06); }
+  .btn.ghost{ background:transparent; border-color:var(--line); color:var(--ink); }
+  .btn.ghost:hover{ background:var(--panel-alt); filter:none; }
+  #status{ color:var(--dim); font-size:13px; margin-left:auto; }
+
+  audio{ width:100%; margin-bottom:18px; }
+
+  .panel{ border:1px solid var(--line); background:var(--panel); margin-bottom:18px; }
+  .panel > .title{
+    font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    padding:8px 14px; border-bottom:1px solid var(--line); background:var(--panel-alt);
+  }
+  .panel > .body{ padding:14px; }
+
+  /* summary table */
+  table.stats{ width:100%; border-collapse:collapse; font-size:13px; }
+  table.stats th, table.stats td{ text-align:left; padding:7px 10px; border-right:1px solid var(--line); }
+  table.stats th:last-child, table.stats td:last-child{ border-right:none; }
+  table.stats thead th{ font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); font-weight:600; }
+  table.stats td.n{ font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; }
+  table.stats td .u{ font-size:11px; color:var(--dim); font-weight:500; vertical-align:2px; }
+  table.stats td.zero .n, table.stats td.zero .u{ color:#AFA69C; }
+
+  .tag{ display:inline-block; padding:1px 8px; font-size:11px; font-weight:700;
+        text-transform:uppercase; letter-spacing:.05em; border:1px solid currentColor; }
+  .tag.incorrect{ color:#B72D54; } .tag.conflicting{ color:#8A4B2B; }
+  .tag.missing{ color:#6D5A00; }   .tag.extra{ color:#B7660F; }
+  .tag.hallucinated{ color:#7A3E9D; }
+  .tag.accurate{ color:#2E7D32; }
+  .tag.unjudged{ color:#8A6D00; border-style:dashed; }
+  .tag.none{ color:var(--dim); }
+
+  /* diff chips */
+  .chips{ display:flex; flex-wrap:wrap; gap:4px; margin:6px 0 0 82px; }
+  .chip{ font:600 12px/1.5 ui-monospace, Menlo, Consolas, monospace; padding:0 6px; border:1px solid var(--line); }
+  .chip.ins{ background:#F6E3EA; color:#8C2447; border-color:#D99AAC; }
+  .chip.sub{ background:#F6EEE0; color:#7A5A00; border-color:#D8BE7E; }
+  .chip.del{ background:#F0E6F6; color:#6A3E8C; border-color:#CBB0DD; }
 
   /* per-category sections */
-  .cat{ margin-bottom:26px; }
-  .cat h2{ font-size:15px; font-weight:700; text-transform:uppercase; letter-spacing:.4px;
-          margin:0 0 10px; padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .cat{ margin-bottom:22px; }
+  .cat h2{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
+           margin:0 0 8px; padding-bottom:6px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px; }
   .cat h2 .count{ color:var(--dim); font-weight:600; }
-  .item{ border:1px solid var(--line); border-left:3px solid var(--ink); border-radius:8px;
-        padding:12px; margin-bottom:10px; background:var(--panel); }
-  .item-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
-  .time{ font-variant-numeric:tabular-nums; color:var(--dim); font-size:13px; }
-  .sev{ font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--faint);
-       border:1px solid var(--line); border-radius:10px; padding:1px 7px; }
-  .sev.high, .sev.critical{ font-weight:700; color:var(--strong); border-color:var(--ink); }
-  .row{ display:flex; align-items:flex-start; gap:8px; margin:6px 0; line-height:1.5; }
-  .row .tag{ min-width:74px; font-size:11px; text-transform:uppercase; letter-spacing:.4px;
-            color:var(--faint); padding-top:2px; }
-  .row .txt{ flex:1; }
-  .row.corrected .txt{ }
-  .ex{ color:var(--dim); font-size:13px; margin:6px 0 0 82px; }
+  .item{ border:1px solid var(--line); border-left:3px solid var(--accent); padding:10px 12px; margin-bottom:10px; background:var(--panel); }
+  .item .head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:7px; }
+  .item .time{ font-variant-numeric:tabular-nums; color:var(--dim); font-size:13px; }
+  .item .sev{ font-size:11px; text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
+  .item .sev.low{ color:#2E7D32; } .item .sev.medium{ color:#8A6D00; }
+  .item .sev.high, .item .sev.critical{ color:var(--accent); font-weight:700; }
+  .item .row{ display:flex; align-items:flex-start; gap:8px; margin:4px 0; }
+  .item .row .tag{ min-width:74px; font-size:10px; padding-top:2px; }
+  .item .row .txt{ flex:1; white-space:pre-wrap; }
+  .item .ex{ color:var(--dim); font-size:12.5px; margin:5px 0 0 82px; }
+
+  .msg{ border:1px dashed var(--line); padding:14px; color:var(--dim); }
+  .empty-row{ color:var(--dim); font-style:italic; }
+
+  .nav{ margin-left:auto; font-size:13px; }
+  .nav a{ color:var(--accent); text-decoration:none; border-bottom:1px solid var(--line); }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <h1>Transcript Audit</h1>
-    <select id="files"></select>
-    <button id="refresh" onclick="loadReport()">Reload</button>
-    <span id="status">Select a file</span>
+  <header class="page">
+    <h1>Approach 2 — Two-STT Audit</h1>
+    <p class="sub">Review segments where two speech-to-text engines disagree; listen to the audio and accept or correct.</p>
+    <div class="nav"><a href="/framework">Framework validation →</a></div>
   </header>
+
+  <div class="bar">
+    <label for="files">Recording</label>
+    <select id="files"></select>
+    <button class="btn ghost" id="refresh" onclick="loadReport()">Reload</button>
+    <span id="status">Select a file</span>
+  </div>
 
   <audio id="player" controls></audio>
 
@@ -102,15 +144,28 @@ function esc(s) { return String(s).replace(/[&<>"']/g, c =>
 
 function currentStem() { return document.getElementById("files").value; }
 
-function spokenText(seg) { return seg.engine_a ? seg.engine_a.text : (seg.engine_b ? seg.engine_b.text : ""); }
+function transcriptRows(seg) {
+  const rows = [];
+  for (const side of [seg.engine_a, seg.engine_b]) {
+    if (!side || !side.engine) continue;
+    rows.push(`<div class="row"><span class="tag none">${esc(side.engine)}</span><span class="txt">${esc(side.text || "")}</span></div>`);
+  }
+  return rows.join("");
+}
 
 function bucketize() {
   const buckets = Object.fromEntries(CATEGORIES.map(c => [c.key, []]));
   buckets.accurate = [];
-  buckets.unjudged = [];
+  buckets.autoaccepted = [];
+  buckets.pending = [];
   for (const seg of report.segments) {
     const j = seg.llm_judgment;
-    if (!j) { buckets.unjudged.push(seg); continue; }
+    if (!j) {
+      // No verdict. A segment the detector would NOT send to the LLM was
+      // auto-accepted and is never judged; one it *would* send is pending.
+      (seg.llm_selected ? buckets.pending : buckets.autoaccepted).push(seg);
+      continue;
+    }
     if (buckets[j.classification]) buckets[j.classification].push(seg);
     else buckets["accurate"].push(seg); // any unknown classification -> accurate-ish
   }
@@ -119,51 +174,80 @@ function bucketize() {
 
 function renderStats(buckets) {
   const total = report.segments.length;
-  const judged = total - buckets.unjudged.length;
+  const judged = total - buckets.pending.length - buckets.autoaccepted.length;
   const counts = {};
   for (const c of CATEGORIES) counts[c.key] = buckets[c.key].length;
 
-  const s = document.getElementById("summary");
-  s.innerHTML = `
-    <div class="stats">
-      <div class="stat total"><div class="n">${total}</div><div class="l">Total segments</div></div>
-      ${CATEGORIES.map(c =>
-        `<div class="stat ${counts[c.key] === 0 ? "zero" : ""}">` +
-        `<div class="n">${counts[c.key]}</div><div class="l">${c.label}</div></div>`
-      ).join("")}
-      <div class="stat"><div class="n">${judged}</div><div class="l">LLM-judged</div></div>
+  document.getElementById("summary").innerHTML = `
+    <div class="panel">
+      <div class="title">Summary</div>
+      <div class="body" style="padding:0;">
+        <table class="stats">
+          <thead><tr>
+            <th>Segments</th>
+            <th>LLM-judged</th>
+            ${CATEGORIES.map(c => `<th>${c.label}</th>`).join("")}
+            <th>No issue / verified</th>
+            <th>Auto-accepted</th>
+            <th>Unjudged</th>
+          </tr></thead>
+          <tbody><tr>
+            <td class="n">${total}</td>
+            <td class="n">${judged}</td>
+            ${CATEGORIES.map(c => `<td class="n ${counts[c.key] === 0 ? "zero" : ""}">${counts[c.key]}</td>`).join("")}
+            <td class="n ${buckets.accurate.length === 0 ? "zero" : ""}">${buckets.accurate.length}</td>
+            <td class="n ${buckets.autoaccepted.length === 0 ? "zero" : ""}">${buckets.autoaccepted.length}</td>
+            <td class="n ${buckets.pending.length === 0 ? "zero" : ""}">${buckets.pending.length}</td>
+          </tr></tbody>
+        </table>
+      </div>
     </div>`;
 }
 
-function itemCard(seg) {
+function chunkRows(diff) {
+  if (!diff || !diff.length) return "";
+  const chips = diff.map(d => {
+    const which = d.text || d.a || d.b || "";
+    const cls = d.op === "insert" ? "ins" : (d.op === "delete" ? "del" : "sub");
+    const glyph = d.op === "insert" ? "+" : (d.op === "delete" ? "−" : "~");
+    return `<span class="chip ${cls}">${glyph}${esc(which)}</span>`;
+  }).join("");
+  return `<div class="chips">${chips}</div>`;
+}
+
+function itemCard(seg, section) {
   const j = seg.llm_judgment;
-  const text = spokenText(seg);
   const corrected = (j && j.correct_content) ? j.correct_content : null;
   const sev = j ? j.severity : "low";
   const missing = !seg.engine_a || !seg.engine_b;
+  const autoAccepted = !j && !seg.llm_selected;
+  const pending = !j && seg.llm_selected;
+  const cls = j ? (j.classification || "accurate") : (autoAccepted ? "accurate" : "unjudged");
+
+  const meta = [];
+  if (seg.agreement != null) meta.push(`agreement ${Math.round(seg.agreement * 100)}%`);
+  if (seg.tier) meta.push(`tier ${seg.tier}`);
+  if (seg.confidence != null) meta.push(`conf ${Math.round(seg.confidence)}`);
 
   const item = document.createElement("div");
   item.className = "item";
 
   const head = document.createElement("div");
-  head.className = "item-head";
+  head.className = "head";
   head.innerHTML =
-    `<button onclick="playSeg(${seg.start}, ${seg.end})">Play</button>` +
+    `<button class="btn ghost" style="padding:3px 10px;" onclick="playSeg(${seg.start}, ${seg.end})">Play</button>` +
     `<span class="time">${seg.start.toFixed(2)}–${seg.end.toFixed(2)}s</span>` +
-    `<span class="sev ${sev}">${sev}</span>` +
+    `<span class="tag ${cls}">${j ? cls : (autoAccepted ? "auto-accepted" : "unjudged")}</span>` +
+    (j ? `<span class="sev ${sev}">${sev}</span>` : (meta.length ? `<span class="time">${meta.join(" · ")}</span>` : "")) +
     (missing ? `<span class="time">only one engine transcribed</span>` : "");
   item.appendChild(head);
 
-  if (text) {
-    const r = document.createElement("div");
-    r.className = "row";
-    r.innerHTML = `<span class="tag">Transcript</span><span class="txt">${esc(text)}</span>`;
-    item.appendChild(r);
-  }
+  item.insertAdjacentHTML("beforeend", transcriptRows(seg));
+  item.insertAdjacentHTML("beforeend", chunkRows(seg.diff));
   if (corrected) {
     const r = document.createElement("div");
-    r.className = "row corrected";
-    r.innerHTML = `<span class="tag">Corrected</span><span class="txt">${esc(corrected)}</span>`;
+    r.className = "row";
+    r.innerHTML = `<span class="tag none">Corrected</span><span class="txt">${esc(corrected)}</span>`;
     item.appendChild(r);
   }
   if (j && j.explanation) {
@@ -195,27 +279,40 @@ function render() {
     const sec = document.createElement("div");
     sec.className = "cat";
     const h = document.createElement("h2");
-    h.innerHTML = `${c.label} <span class="count">(${segs.length})</span>`;
+    h.innerHTML = `<span class="tag ${c.key}">${c.label}</span><span class="count">(${segs.length})</span>`;
     sec.appendChild(h);
     for (const s of segs) sec.appendChild(renderCard(s));
     box.appendChild(sec);
   }
 
   if (buckets.accurate.length > 0) {
+    shown += buckets.accurate.length;
     const sec = document.createElement("div");
     sec.className = "cat";
-    sec.innerHTML = `<h2>Accurate / false alarms <span class="count">(${buckets.accurate.length})</span></h2>`;
+    sec.innerHTML = `<h2><span class="tag accurate">No Issue</span><span class="count">(${buckets.accurate.length}) — verified against audio</span></h2>`;
+    for (const s of buckets.accurate) sec.appendChild(renderCard(s, "accurate"));
     box.appendChild(sec);
   }
 
-  if (buckets.unjudged.length > 0) {
-    shown += buckets.unjudged.length;
+  if (buckets.autoaccepted.length > 0) {
+    shown += buckets.autoaccepted.length;
     const sec = document.createElement("div");
     sec.className = "cat";
     const h = document.createElement("h2");
-    h.innerHTML = `Not LLM-judged <span class="count">(${buckets.unjudged.length})</span>`;
+    h.innerHTML = `<span class="tag accurate">Auto-accepted</span><span class="count">(${buckets.autoaccepted.length}) — never sent to the LLM</span>`;
     sec.appendChild(h);
-    for (const s of buckets.unjudged) sec.appendChild(renderCard(s));
+    for (const s of buckets.autoaccepted) sec.appendChild(renderCard(s, "autoaccepted"));
+    box.appendChild(sec);
+  }
+
+  if (buckets.pending.length > 0) {
+    shown += buckets.pending.length;
+    const sec = document.createElement("div");
+    sec.className = "cat";
+    const h = document.createElement("h2");
+    h.innerHTML = `Unjudged — sent to LLM but no verdict yet <span class="count">(${buckets.pending.length})</span>`;
+    sec.appendChild(h);
+    for (const s of buckets.pending) sec.appendChild(renderCard(s, "pending"));
     box.appendChild(sec);
   }
 
@@ -237,7 +334,7 @@ async function loadReport() {
 }
 
 // alias helpers used above
-function renderCard(s) { return itemCard(s); }
+function renderCard(s, section) { return itemCard(s, section); }
 
 loadFiles();
 </script>

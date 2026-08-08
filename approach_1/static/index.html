@@ -3,121 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Audio vs Transcript Evaluator</title>
+<title>Approach 1 — Audio vs Transcript</title>
 <style>
   :root {
-    --bg: #0f172a;
-    --panel: #1e293b;
-    --border: #334155;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --accent: #38bdf8;
-    --ok: #4ade80;
-    --bad: #f87171;
+    --bg: #FDF7F2;
+    --panel: #FFFFFF;
+    --panel-alt: #F8F1EA;
+    --border: #E4D7CB;
+    --ink: #000000;
+    --muted: #625a52;
+    --accent: #B72D54;
+    --accent-ink: #FFFFFF;
+    --danger: #B72D54;
+    --ok: #2E7D32;
+    --warn: #8A6D00;
   }
   * { box-sizing: border-box; }
+  html, body { margin: 0; }
   body {
-    margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
     background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
   }
-  .container { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
-  h1 { font-size: 1.5rem; margin: 0 0 4px; }
-  .subtitle { color: var(--muted); margin: 0 0 32px; }
-  #step-run { text-align: center; padding: 60px 0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  header.page { margin-bottom: 28px; }
+  header.page h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
+  header.page .sub { color: var(--ink); opacity: .65; font-size: 13px; margin: 0; }
+  .nav { display: flex; gap: 14px; font-size: 13px; margin-top: 8px; }
+  .nav a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--border); }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .panel > .title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel-alt);
+  }
+  .panel > .body { padding: 14px; }
+
+  /* ---------- step 1 ---------- */
+  #step-run { padding: 40px 0; text-align: center; }
+  .hint { color: var(--muted); font-size: 13px; margin-top: 10px; }
+
+  /* ---------- step 2: upload ---------- */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .drop {
+    border: 1px dashed var(--border);
+    padding: 26px 16px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--panel-alt);
+    transition: border-color .12s;
+  }
+  .drop:hover, .drop.has-file { border-color: var(--accent); }
+  .drop .drop-title { font-weight: 600; }
+  .drop .drop-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .drop .drop-name { color: var(--accent); font-size: 12px; word-break: break-all; margin-top: 4px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+  /* ---------- buttons ---------- */
   .btn {
     font: inherit;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 28px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 8px 18px;
     cursor: pointer;
     font-weight: 600;
   }
-  .btn-lg { font-size: 1.25rem; padding: 16px 44px; }
-  .btn-primary { background: var(--accent); color: #0b1220; }
-  .btn-primary:hover { filter: brightness(1.1); }
-  .btn-primary:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
-  .hint { color: var(--muted); margin-top: 12px; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-  .drop {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    background: var(--panel);
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    padding: 36px 16px;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color .15s;
+  .btn:hover { filter: brightness(1.06); }
+  .btn:disabled { background: #C9A6B3; border-color:#C9A6B3; color:#fff; cursor: not-allowed; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
   }
-  .drop:hover, .drop.has-file { border-color: var(--accent); }
-  .drop-title { font-weight: 600; }
-  .drop-sub { color: var(--muted); font-size: .85rem; }
-  .drop-name { color: var(--accent); font-size: .9rem; word-break: break-all; }
-  #status { margin: 16px 0 0; color: var(--muted); }
-  #status.error { color: var(--bad); }
-  #result { margin-top: 32px; }
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-  .score-line { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
-  .score { font-size: 2.5rem; font-weight: 700; }
-  .badge { padding: 4px 12px; border-radius: 999px; font-weight: 600; font-size: .85rem; }
-  .badge.match { background: rgba(74,222,128,.15); color: var(--ok); }
-  .badge.mismatch { background: rgba(248,113,113,.15); color: var(--bad); }
-  .counts { display: flex; gap: 20px; color: var(--muted); font-size: .9rem; flex-wrap: wrap; }
-  .counts b { color: var(--text); }
-  h2 { font-size: 1.05rem; margin: 24px 0 12px; }
-  h2 .empty { color: var(--ok); font-weight: 500; font-size: .9rem; }
-  .finding { border-left: 3px solid var(--border); padding: 8px 12px; margin-bottom: 10px; background: rgba(255,255,255,.03); }
-  .finding .sev { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
-  .finding .sev.high { color: var(--bad); }
-  .finding .sev.medium { color: #fbbf24; }
-  .finding .exp { margin: 4px 0; }
-  .finding .span { color: var(--muted); font-size: .9rem; margin: 2px 0; }
-  .finding .span b { color: var(--text); font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
-  th { color: var(--muted); font-weight: 500; }
-  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+  .btn-ghost:hover { background: var(--panel-alt); filter: none; }
+  .btn-lg { font-size: 15px; padding: 10px 26px; }
+
+  #status { margin-top: 14px; color: var(--muted); font-size: 13px; }
+  #status.error { color: var(--danger); }
+
+  .bar { height: 3px; background: var(--panel-alt); margin-top: 12px; position: relative; overflow: hidden; }
+  .bar i { position: absolute; inset: 0; background: var(--accent); width: 30%; animation: slide 1.1s infinite ease-in-out; }
+  @keyframes slide { 0% { transform: translateX(-100%);} 100% { transform: translateX(400%);} }
+
+  /* ---------- results ---------- */
+  .score-line { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+  .score { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .score .of { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+  .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border: 1px solid currentColor;
+  }
+  .tag.match { color: var(--ok); }
+  .tag.mismatch { color: var(--danger); }
+  .tag.neutral { color: var(--ink); }
+
+  /* findings table */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+  .sev { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+  .sev.low { color: var(--ok); }
+  .sev.medium { color: var(--warn); }
+  .sev.high { color: var(--danger); }
+  .sev.critical { color: var(--danger); font-weight: 700; }
+  .finding-why { color: var(--muted); font-size: 12.5px; }
+  .side { margin: 2px 0; }
+  .side .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-right: 6px; }
+  .empty-row { color: var(--muted); padding: 12px 10px; font-style: italic; }
+
+  /* tabs */
+  .tabs { display: flex; border-bottom: 1px solid var(--border); }
+  .tabs button {
+    font: inherit; font-size: 12.5px; font-weight: 600;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    padding: 9px 14px; cursor: pointer; color: var(--muted);
+  }
+  .tabs button.active { color: var(--ink); border-bottom-color: var(--accent); }
+  .tabpanel { padding-top: 14px; }
+  .tabpanel[hidden] { display: none; }
+
+  .kv { display: grid; grid-template-columns: 220px 1fr; gap: 4px 12px; font-size: 13px; }
+  .kv div { padding: 3px 0; border-bottom: 1px dotted var(--border); }
+  .kv .k { color: var(--muted); }
+  .kv .v { font-variant-numeric: tabular-nums; }
+  .kv .v.mono { white-space: pre-wrap; word-break: break-word; }
+
+  .h { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+       margin: 18px 0 8px; color: var(--ink); }
+  .h:first-child { margin-top: 0; }
 </style>
 </head>
 <body>
 <main class="container">
-  <h1>Audio vs Transcript Evaluation</h1>
-  <p class="subtitle">Transcribe an audio file and check it against a manual transcript.</p>
+  <header class="page">
+    <h1>Approach 1 — Audio vs Transcript</h1>
+    <p class="sub">Transcribe audio with an STT model and compare the result against a human reference transcript.</p>
+    <div class="nav"><a href="/framework">Framework validation →</a></div>
+  </header>
 
-  <section id="step-run">
-    <button id="btn-run" class="btn btn-primary btn-lg">Run</button>
-    <p class="hint">Click Run to upload an audio file and a manual transcript.</p>
+  <section id="step-start" class="panel">
+    <button id="btn-run" class="btn btn-lg" type="button">New evaluation</button>
+    <p class="hint">Provide an audio file and a manual transcript (PDF or TXT).</p>
   </section>
 
-  <section id="step-upload" hidden>
-    <div class="grid">
-      <label class="drop" id="drop-audio">
-        <input type="file" id="file-audio" hidden>
-        <span class="drop-title">Audio</span>
-        <span class="drop-sub">any audio format</span>
-      </label>
-      <label class="drop" id="drop-transcript">
-        <input type="file" id="file-transcript" accept=".pdf,.txt" hidden>
-        <span class="drop-title">Manual Transcript</span>
-        <span class="drop-sub">.pdf or .txt</span>
-      </label>
+  <section id="step-upload" class="panel" hidden>
+    <div class="panel-body" style="padding:14px;">
+      <div class="grid">
+        <label class="drop" id="drop-audio">
+          <input type="file" id="file-audio" hidden>
+          <span class="drop-title">Audio</span>
+          <span class="drop-sub">wav / mp3 / m4a …</span>
+        </label>
+        <label class="drop" id="drop-transcript">
+          <input type="file" id="file-transcript" accept=".pdf,.txt" hidden>
+          <span class="drop-title">Reference transcript</span>
+          <span class="drop-sub">PDF or TXT</span>
+        </label>
+      </div>
+      <button id="btn-start" class="btn" disabled>Evaluate</button>
+      <div id="status"></div>
     </div>
-    <button id="btn-start" class="btn btn-primary" disabled>Evaluate</button>
-    <p id="status"></p>
   </section>
 
-  <section id="result" hidden></section>
+  <section id="result" hidden>
+    <div class="panel">
+      <div class="panel-title" style="padding:10px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);background:var(--panel-alt);">Results</div>
+      <div class="panel-body" style="padding:14px;">
+        <div id="res-summary"></div>
+        <div class="tabs">
+          <button data-tab="findings" class="active">Findings</button>
+          <button data-tab="breakdown">Score breakdown</button>
+          <button data-tab="signals">Signals</button>
+          <button data-tab="alignment">Alignment</button>
+        </div>
+        <div class="tabpanel" data-panel="findings"></div>
+        <div class="tabpanel" data-panel="scores" hidden></div>
+        <div class="tabpanel" data-panel="signals" hidden></div>
+        <div class="tabpanel" data-panel="alignment" hidden></div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script>
 const els = {
-  stepRun: document.getElementById("step-run"),
+  stepStart: document.getElementById("step-start"),
   stepUpload: document.getElementById("step-upload"),
   btnRun: document.getElementById("btn-run"),
   btnStart: document.getElementById("btn-start"),
@@ -130,19 +221,18 @@ const els = {
 };
 
 els.btnRun.addEventListener("click", () => {
-  els.stepRun.hidden = true;
+  els.stepStart.hidden = true;
   els.stepUpload.hidden = false;
 });
 
 function wire(drop, input) {
   input.addEventListener("change", () => {
     if (!input.files.length) return;
-    const name = input.files[0].name;
-    const existing = drop.querySelector(".drop-name");
-    if (existing) existing.remove();
+    const old = drop.querySelector(".drop-name");
+    if (old) old.remove();
     const el = document.createElement("span");
     el.className = "drop-name";
-    el.textContent = name;
+    el.textContent = input.files[0].name;
     drop.appendChild(el);
     drop.classList.add("has-file");
     els.btnStart.disabled = !(els.fileAudio.files.length && els.fileTranscript.files.length);
@@ -157,7 +247,7 @@ els.btnStart.addEventListener("click", async () => {
   fd.append("manual_transcript", els.fileTranscript.files[0]);
   els.btnStart.disabled = true;
   els.status.className = "";
-  els.status.textContent = "Transcribing audio and comparing... this can take a while.";
+  els.status.innerHTML = "Transcribing audio and comparing… <span class='bar'><i></i></span>";
   els.result.hidden = true;
   try {
     const res = await fetch("/evaluate", { method: "POST", body: fd });
@@ -177,52 +267,123 @@ els.btnStart.addEventListener("click", async () => {
   }
 });
 
-function render(data) {
-  els.result.hidden = false;
-  const sections = [
-    ["missing_information", "Missing"],
-    ["incorrect_information", "Incorrect"],
-    ["conflicting_information", "Conflicting"],
-    ["hallucinated_information", "Hallucinated"],
-  ];
-  const html = `
-    <div class="card">
-      <div class="score-line">
-        <span class="score">${data.overall_score}</span>
-        <span class="badge ${data.status === "Match" ? "match" : "mismatch"}">${data.status}</span>
-      </div>
-      <div class="counts">
-        ${sections.map(([key, label]) => `<span><b>${(data[key] || []).length}</b> ${label}</span>`).join("")}
-        <span>STT model: <b>${data.inputs?.stt_model || "-"}</b></span>
-      </div>
-    </div>
+const CATS = [
+  ["missing_information", "Missing", "match"],
+  ["incorrect_information", "Incorrect", "danger"],
+  ["conflicting_information", "Conflicting", "danger"],
+  ["hallucinated_information", "Hallucinated", "danger"],
+];
 
-    ${sections.map(([key, label]) => {
-      const items = data[key] || [];
-      return `<h2>${label} information <span class="empty">${items.length ? "" : "\u2014 none"}</span></h2>
-        ${items.map(f => `
-          <div class="finding">
-            <div class="sev ${f.severity}">${f.severity}</div>
-            <div class="exp">${esc(f.explanation || "")}</div>
-            ${f.reference_text ? `<div class="span"><b>Manual:</b> ${esc(f.reference_text)}</div>` : ""}
-            ${f.generated_text ? `<div class="span"><b>STT:</b> ${esc(f.generated_text)}</div>` : ""}
-          </div>`).join("") || ""}`;
-    }).join("")}
+const TABS = ["findings", "scores", "signals", "alignment"];
 
-    <div class="card">
-      <h2 style="margin-top:0">Signals</h2>
-      <table>
-        <tr><th>Metric</th><th>Value</th></tr>
-        ${Object.entries(data.signals || {}).map(([k, v]) =>
-          `<tr><td>${esc(k)}</td><td>${v === null ? "-" : v}</td></tr>`).join("")}
-      </table>
-    </div>`;
-  els.result.innerHTML = html;
-}
+document.querySelectorAll(".tabs button[data-tab]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tabs button[data-tab]").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelectorAll(".tabpanel").forEach(p => { p.hidden = true; });
+    document.querySelector(`.tabpanel[data-panel="${btn.dataset.tab}"]`).hidden = false;
+  });
+});
 
 function esc(s) {
-  return s.replace(/[&<>"']/g, c =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+}
+
+function tag(cls, label) {
+  return `<span class="tag ${cls}">${esc(label)}</span>`;
+}
+
+function renderSummary(data) {
+  const counts = CATS.map(([key, label]) =>
+    `<span>${(data[key] || []).length} ${label}</span>`).join("");
+  const statusCls = data.status === "Match" ? "match" : "mismatch";
+  return `
+    <div class="score-line">
+      <span class="score">${data.overall_score}<span class="of"> / 100</span></span>
+      ${tag(statusCls, data.status)}
+      <span class="tag neutral">${data.inputs?.stt_model || "stt"}</span>
+    </div>
+    <div class="score-line">
+      ${counts}
+      <span>${data.inputs?.gold_source || ""}</span>
+      <span>${data.inputs?.candidate_source || ""}</span>
+    </div>`;
+}
+
+function findingRow(f) {
+  return `
+    <tr>
+      <td class="sev ${f.severity}">${esc(f.severity)}</td>
+      <td class="mono">
+        ${f.reference_text ? `<div class="side"><span class="lbl">Manual</span>${esc(f.reference_text)}</div>` : ""}
+        ${f.generated_text ? `<div class="side"><span class="lbl">STT</span>${esc(f.generated_text)}</div>` : ""}
+        ${(!f.reference_text && !f.generated_text) ? "<span class='empty'>(no text)</span>" : ""}
+      </td>
+      <td>${esc(f.explanation || "")}</td>
+    </tr>`;
+}
+
+function renderFindings(data) {
+  const rows = CATS.map(([key, label]) => (data[key] || [])).flat();
+  const body = rows.length
+    ? rows.map(f => findingRow(f)).join("")
+    : `<tr><td colspan="3" class="empty-row">No findings — transcript and reference produced no discrepancies.</td></tr>`;
+  return `
+    <table>
+      <thead><tr><th style="width:80px;">Severity</th><th style="width:46%;">Text evidence</th><th>Why it was flagged</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table>`;
+}
+
+function renderScores(data) {
+  const b = data.score_breakdown || {};
+  const m = data.meta || {};
+  return `
+    <div class="kv">
+      <div class="k">Overall score</div><div class="v">${data.overall_score} / 100</div>
+      <div class="k">Semantic</div><div class="v">${b.semantic ?? "—"}</div>
+      <div class="k">Lexical</div><div class="v">${b.lexical ?? "—"}</div>
+      <div class="k">Entity</div><div class="v">${b.entity ?? "—"}</div>
+      <div class="k">Error penalty</div><div class="v">${b.error_penalty ?? "—"}</div>
+      <div class="k">LLM calls</div><div class="v">${m.llm_calls ?? "—"}</div>
+      <div class="k">Latency</div><div class="v">${m.latency_ms != null ? m.latency_ms + " ms" : "—"}</div>
+      <div class="k">Evaluator model</div><div class="v">${data.inputs?.evaluator || "—"}</div>
+    </div>`;
+}
+
+function renderSignals(data) {
+  const entries = Object.entries(data.signals || {});
+  if (!entries.length) return `<div class="empty-row">No signals recorded.</div>`;
+  return `<table>
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>${entries.map(([k, v]) =>
+        `<tr><td class="mono">${esc(k)}</td><td class="mono">${v === null ? "—" : esc(v)}</td></tr>`).join("")}</tbody>
+    </table>`;
+}
+
+function renderAlignment(data) {
+  const a = data.alignment || {};
+  const kv = [
+    ["Gold segments", a.gold_segments],
+    ["Candidate segments", a.candidate_segments],
+    ["Matched", a.matched],
+    ["Unmatched gold", a.unmatched_gold],
+    ["Unmatched candidate", a.unmatched_candidate],
+    ["Covered gold", a.covered_gold],
+  ];
+  return `<div class="kv">${kv.map(([k, v]) =>
+    `<div><span class="k">${esc(k)}</span></div><div class="v">${v === undefined ? "—" : esc(v)}</div>`).join("")}</div>`;
+}
+
+function render(data) {
+  els.result.hidden = false;
+  document.querySelector("[data-panel='findings']").innerHTML = renderFindings(data);
+  document.querySelector("[data-panel='scores']").innerHTML = renderScores(data);
+  document.querySelector("[data-panel='signals']").innerHTML = renderSignals(data);
+  document.querySelector("[data-panel='alignment']").innerHTML = renderAlignment(data);
+  document.getElementById("res-summary").innerHTML = renderSummary(data);
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 </script>
 </body>
