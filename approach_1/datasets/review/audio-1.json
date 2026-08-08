@@ -1,0 +1,97 @@
+{
+  "id": "audio-1",
+  "created_at": "2026-08-08T08:52:03.613408+00:00",
+  "label": "audio-1",
+  "gold": "This 23-year-old white female presents with complaint of allergies. She used to have allergies\nwhen she lived in Seattle but she thinks they are worse here. In the past, she has tried\nClaritin, and Zyrtec. Both worked for short time but then seemed to lose effectiveness. She\nhas used Allegra also. She used that last summer and she began using it again two weeks\nago. It does not appear to be working very well. She has used over-the-counter sprays but no\nprescription nasal sprays. She does have asthma but doest not require daily medication for\nthis and does not think it is flaring up. Her only medication currently is Ortho Tri-Cyclen and\nthe Allegra.",
+  "candidate": "This 23 year old white female presents with the complaint of allergies. She used to have allergies when she lived in Seetil, but she thinks they are worse here. In the past she has dried clarin and sciatic. Both worked for short time but then same until she was effectiveness. She had also used allegra also. She used the last summer and she began using it again two weeks ago. It doesn't appear to be working very well. She has used over the counter-sprays but no prescription nasal sprays. She does have asthma but doesn't require daily medication for this and does not think it is plaring up. Her only medication currently is orthoticycline and allegra.",
+  "stt_model": "base",
+  "report": {
+    "id": "audio-1",
+    "inputs": {
+      "gold_source": "/home/neeharika/audio_vs_transcript/approach_1/datasets/manual_transcripts/transcript_1.pdf",
+      "candidate_source": "stt:base",
+      "stt_model": "base",
+      "evaluator": "deepseek-v4-flash"
+    },
+    "missing_information": [],
+    "incorrect_information": [
+      {
+        "category": "incorrect_information",
+        "reference_text": "In the past, she has tried Claritin, and Zyrtec.",
+        "generated_text": "In the past she has dried clarin and sciatic.",
+        "explanation": "The candidate mis-transcribes the medication names ('Claritin and Zyrtec' \u2192 'clarin and sciatic') and 'tried' as 'dried', changing the drugs mentioned.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.854
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "She used to have allergies when she lived in Seattle",
+        "generated_text": "She used to have allergies when she lived in Seetil",
+        "explanation": "The city name 'Seattle' is misrecognized as 'Seetil'.",
+        "severity": "medium",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "Her only medication currently is Ortho Tri-Cyclen and the Allegra.",
+        "generated_text": "Her only medication currently is orthoticycline and allegra.",
+        "explanation": "The medication 'Ortho Tri-Cyclen' is misrecognized as 'orthoticycline', changing a medication name.",
+        "severity": "high",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "does not think it is flaring up",
+        "generated_text": "does not think it is plaring up",
+        "explanation": "'flaring up' is misrecognized as 'plaring up', altering the asthma symptom description.",
+        "severity": "medium",
+        "signal_evidence": null
+      }
+    ],
+    "conflicting_information": [
+      {
+        "category": "conflicting_information",
+        "reference_text": "Both worked for short time but then seemed to lose effectiveness.",
+        "generated_text": "Both worked for short time but then same until she was effectiveness.",
+        "explanation": "The gold states the medications lost effectiveness, while the candidate says they stayed the same, which contradicts the reference.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.879
+        }
+      }
+    ],
+    "hallucinated_information": [],
+    "overall_score": 52,
+    "status": "Mismatch",
+    "alignment": {
+      "gold_segments": 10,
+      "candidate_segments": 10,
+      "matched": 10,
+      "unmatched_gold": 0,
+      "unmatched_candidate": 0,
+      "covered_gold": 0
+    },
+    "signals": {
+      "wer": 0.1765,
+      "cer": 0.0779,
+      "coverage": 0.8519,
+      "hallucination_ratio": 0.1481,
+      "entity_recall": 1.0,
+      "entity_precision": 1.0,
+      "semantic_similarity": 0.932
+    },
+    "score_breakdown": {
+      "semantic": 93.2,
+      "entity": 100.0,
+      "lexical": 82.3,
+      "error_penalty": 40.0
+    },
+    "meta": {
+      "llm_calls": 10,
+      "latency_ms": 92767,
+      "generated_at": "2026-08-08T08:52:03.613026+00:00"
+    }
+  }
+}

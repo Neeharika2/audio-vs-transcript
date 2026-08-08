@@ -48,11 +48,53 @@ cp ../.env .env        # provides DEEPSEEK_API_KEY
 
 ### Run
 
+**Step 1 — generate the STT transcript (the model converts audio → text):**
+
 ```bash
-python -m approach_1.main evaluate audio.wav --gold gold.txt
-python -m approach_1.main evaluate-text --gold gold.txt --candidate candidate.txt
-uvicorn approach_1.api:app --reload    # POST /evaluate (audio+transcript), POST /evaluate-text
+python -m approach_1.main transcribe path/to/audio.wav
 ```
+
+- Runs faster-whisper (`STT_MODEL_NAME`, default `base`) on the audio.
+- Saves the text to
+  `approach_1/datasets/stt_generated_transcripts/<audio_stem>_stt.txt` and
+  prints it to stdout.
+- Reuses the cached transcript on repeat runs; add `--force-stt` to
+  re-transcribe.
+
+**Step 2 — compare STT against the gold reference and get the report:**
+
+```bash
+# (a) audio + gold transcript, one command (transcribes if not cached, then compares)
+python -m approach_1.main evaluate path/to/audio.wav --gold path/to/gold.txt
+
+# (b) compare two text files directly (no audio/STT needed)
+python -m approach_1.main evaluate-text --gold path/to/gold.txt --candidate path/to/candidate.txt
+```
+
+Both print the full JSON report: overall score (0–100), status (`Match` /
+`Mismatch`), score breakdown, signals, and the categorized findings
+(missing / incorrect / conflicting / hallucinated).
+
+**Optionally set the STT model size before running:**
+
+```bash
+STT_MODEL_NAME=small python -m approach_1.main transcribe path/to/audio.wav
+```
+
+**Web UI (interactive):**
+
+```bash
+python -m approach_1.main transcribe path/to/audio.wav   # optional: pre-generate STT
+uvicorn approach_1.api:app --reload --port 8000
+```
+
+Open <http://localhost:8000/>. Pages:
+
+| Path | Purpose |
+|---|---|
+| `/` | **review** stored evaluation runs (score, findings, transcripts) — the main page |
+| `/new` | run a new evaluation (upload audio + gold transcript, click **Evaluate**) |
+| `/framework` | synthetic test-cases used to verify the pipeline |
 
 ---
 
@@ -93,6 +135,12 @@ Interactive review (play segments, mark correct/incorrect, correct text):
 uvicorn approach_2.api:app --port 8000
 ```
 
+Web pages (main page is `/`):
+- `/` — audit stored reports (segments, agreement, verdicts)
+- `/new` — run a new evaluation in the browser: upload audio, both engines
+  transcribe it, the report is generated and appears on `/`
+- `/framework` — synthetic test-cases used to verify the pipeline
+
 Verdicts persist to `dataset/review/<name>/verdicts.json`; acceptance (≥99% on
 the reviewed sample) is recomputed live. CLI equivalents print the same status.
 See `approach_2/README.md` for the data layout, alignment notes, and tests.
@@ -119,9 +167,9 @@ target, `make setup` does the one-time install.)
 ### Data: real vs. synthetic test cases
 
 - **Real evaluation data** lives per-approach under `approach_1/datasets/`
-  (audio + manual `.pdf` golds + cached STT `.txt`) and `approach_2/dataset/`
-  (audio + per-engine transcripts + review reports). These are the actual files
-  the applications run on.
+  (audio + manual `.pdf` golds + cached STT `.txt` + stored review runs in
+  `datasets/review/`) and `approach_2/dataset/` (audio + per-engine transcripts
+  + review reports). These are the actual files the applications run on.
 - **Synthetic test-case dataset** is `dataset/test_cases.json`, a single
   JSON export of the shared error-injection catalog `testing/scenarios.py`.
   That catalog is the one source of truth consumed by **both** approaches'

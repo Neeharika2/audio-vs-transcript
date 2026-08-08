@@ -11,6 +11,7 @@ from fastapi.responses import HTMLResponse
 from approach_1 import config
 from approach_1.src.evaluate import evaluate
 from approach_1.src.models import EvaluationInputs, EvaluationReportV2
+from approach_1.src import runstore
 
 app = FastAPI(title="Audio vs Transcript Evaluator")
 
@@ -22,7 +23,13 @@ SHARED_DATASET = BASE_DIR.parent / "dataset" / "test_cases.json"
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> str:
-    """Single-page review UI: click Run, upload audio + manual transcript."""
+    """Main page: stored evaluation results (review)."""
+    return (BASE_DIR / "static" / "review.html").read_text(encoding="utf-8")
+
+
+@app.get("/new", response_class=HTMLResponse)
+def new_evaluation() -> str:
+    """New evaluation form: upload audio + gold transcript and run the comparison."""
     return (BASE_DIR / "static" / "index.html").read_text(encoding="utf-8")
 
 
@@ -30,6 +37,29 @@ def index() -> str:
 def framework() -> str:
     """Framework validation page: shared synthetic test cases + analysis."""
     return (BASE_DIR / "static" / "framework.html").read_text(encoding="utf-8")
+
+
+@app.get("/review", response_class=HTMLResponse)
+def review_page() -> str:
+    """Review page: pick a stored evaluation and inspect its results."""
+    return (BASE_DIR / "static" / "review.html").read_text(encoding="utf-8")
+
+
+@app.get("/review/runs")
+def list_runs() -> dict:
+    """List stored evaluation runs (label, score, status, time)."""
+    return {"runs": runstore.list_runs()}
+
+
+@app.get("/review/runs/{run_id}")
+def run_detail(run_id: str) -> dict:
+    """Full stored evaluation payload for the review page."""
+    payload = runstore.load_run(run_id)
+    if payload is None:
+        raise HTTPException(404, f"no stored evaluation '{run_id}'")
+    report = payload["report"]
+    report["candidate"] = payload["candidate"]
+    return payload
 
 
 def _extract_text(upload: UploadFile) -> str:
@@ -103,7 +133,7 @@ def evaluate_endpoint(
         STT_OUT.mkdir(parents=True, exist_ok=True)
         cache_path.write_text(candidate_transcript, encoding="utf-8")
 
-    return evaluate(
+    report = evaluate(
         gold,
         candidate_transcript,
         judge=judge,
@@ -116,6 +146,13 @@ def evaluate_endpoint(
         ),
         threshold=config.SCORE_THRESHOLD,
     )
+
+    # Persist the result as a reviewable run (auto-save on every evaluate).
+    filename = audio.filename or "audio.wav"
+    run_id = f"{Path(filename).stem}_{digest}"
+    report.id = run_id
+    runstore.save_run(report, run_id, gold, candidate_transcript)
+    return report
 
 
 @app.post("/evaluate-text", response_model=EvaluationReportV2)

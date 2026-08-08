@@ -11,9 +11,10 @@ Run with:
 from __future__ import annotations
 
 import json
+import tempfile
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
@@ -84,6 +85,55 @@ def _report_payload(stem: str) -> dict:
 @app.get("/")
 def index() -> FileResponse:
     return FileResponse(config.BASE_DIR / "static" / "review.html")
+
+
+@app.get("/new")
+def new_page() -> FileResponse:
+    return FileResponse(config.BASE_DIR / "static" / "new.html")
+
+
+@app.post("/evaluate")
+def evaluate_new(
+    audio: UploadFile = File(...),
+) -> dict:
+    """Run a new evaluation: save the audio, transcribe it with both engines,
+    and create the stored report so it appears on the main audit page."""
+    dest = config.AUDIO_DIR / (audio.filename or "audio.wav")
+    config.AUDIO_DIR.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(audio.file.read())
+
+    from approach_2.src.audio import to_wav_16k
+    from approach_2.src.engines import DeepgramEngine, WhisperEngine
+
+    stem = dest.stem
+    engines = [
+        WhisperEngine(model_name=config.WHISPER_MODEL),
+        DeepgramEngine(api_key=config.DEEPGRAM_API_KEY, model=config.DEEPGRAM_MODEL),
+    ]
+    try:
+        with tempfile.TemporaryDirectory(prefix="approach2_") as work:
+            wav = to_wav_16k(dest, Path(work))
+            for engine in engines:
+                segments = engine.transcribe(wav)
+                out_dir = config.OUTPUT_DIRS[engine.engine]
+                out_dir.mkdir(parents=True, exist_ok=True)
+                (out_dir / f"{stem}.txt").write_text(
+                    " ".join(s.text for s in segments if s.text) + "\n",
+                    encoding="utf-8",
+                )
+                (out_dir / f"{stem}.segments.json").write_text(
+                    json.dumps([s.model_dump() for s in segments], indent=2),
+                    encoding="utf-8",
+                )
+    except Exception as exc:
+        raise HTTPException(500, f"transcription failed: {exc}")
+
+    report = run_pipeline(stem)
+    apply_review(report, load_verdicts(stem))
+    report_dir = config.DATASET_DIR / "review" / stem
+    report_dir.mkdir(parents=True, exist_ok=True)
+    (report_dir / "report.json").write_text(report.model_dump_json(indent=2), encoding="utf-8")
+    return {"stem": stem, "segments": len(report.segments)}
 
 
 @app.get("/framework")

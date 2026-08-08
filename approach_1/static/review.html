@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approach 1 — Review</title>
+<style>
+  :root {
+    --bg: #FDF7F2; --panel: #FFFFFF; --panel-alt: #F8F1EA; --border: #E4D7CB;
+    --ink: #000000; --muted: #625a52; --accent: #B72D54;
+    --accent-ink: #FFFFFF; --ok: #2E7D32; --warn: #8A6D00; --danger: #B72D54;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px; line-height: 1.5;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 24px 24px 80px; }
+
+  header.page { margin-bottom: 22px; }
+  header.page h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
+  header.page .sub { color: var(--muted); font-size: 13px; margin: 0; }
+  .nav { display: flex; gap: 14px; font-size: 13px; margin-top: 8px; }
+  .nav a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--border); }
+
+  .bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+         padding: 10px 14px; border: 1px solid var(--border); background: var(--panel); margin-bottom: 18px; }
+  .bar label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  select, button { font: inherit; }
+  select { border: 1px solid var(--border); background: var(--panel); color: var(--ink);
+           padding: 6px 10px; border-radius: 0; flex: 1; min-width: 140px; }
+  .btn { font: inherit; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+         padding: 6px 16px; cursor: pointer; font-weight: 600; }
+  .btn:hover { filter: brightness(1.06); }
+  .btn.ghost { background: transparent; border-color: var(--border); color: var(--ink); }
+  .btn.ghost:hover { background: var(--panel-alt); filter: none; }
+  #status { color: var(--muted); font-size: 13px; margin-left: auto; }
+
+  .panel { border: 1px solid var(--border); background: var(--panel); margin-bottom: 18px; }
+  .panel > .title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+                    padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--panel-alt); }
+  .panel > .body { padding: 14px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  .empty-row { color: var(--muted); padding: 12px 10px; font-style: italic; }
+
+  .tag { display: inline-block; padding: 1px 8px; font-size: 11px; font-weight: 700;
+         text-transform: uppercase; letter-spacing: .05em; border: 1px solid currentColor; }
+  .tag.match { color: var(--ok); }
+  .tag.mismatch { color: var(--danger); }
+  .tag.neutral { color: var(--ink); }
+  .tag.accurate { color: var(--ok); }
+
+  .score-line { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+  .score { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .score .of { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+  .sev { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+  .sev.low { color: var(--ok); } .sev.medium { color: var(--warn); }
+  .sev.high, .sev.critical { color: var(--danger); font-weight: 700; }
+  .side { margin: 2px 0; }
+  .side .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-right: 6px; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+  .finding-why { color: var(--muted); font-size: 12.5px; }
+
+  .kv { display: grid; grid-template-columns: 220px 1fr; gap: 4px 12px; font-size: 13px; }
+  .kv div { padding: 3px 0; border-bottom: 1px dotted var(--border); }
+  .kv .k { color: var(--muted); }
+  .kv .v { font-variant-numeric: tabular-nums; }
+  .kv .v.mono { white-space: pre-wrap; word-break: break-word; }
+
+  .tabs { display: flex; border-bottom: 1px solid var(--border); margin-top: 14px; }
+  .tabs button { font: inherit; font-size: 12.5px; font-weight: 600; background: none; border: none;
+                 border-bottom: 2px solid transparent; padding: 9px 14px; cursor: pointer; color: var(--muted); }
+  .tabs button.active { color: var(--ink); border-bottom-color: var(--accent); }
+  .tabpanel { padding-top: 14px; }
+  .tabpanel[hidden] { display: none; }
+
+  .h { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+       margin: 18px 0 8px; color: var(--ink); }
+  .h:first-child { margin-top: 0; }
+
+  .msg { border: 1px dashed var(--border); padding: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <h1>Approach 1 — Review</h1>
+    <p class="sub">Stored evaluations (audio + manual transcript → STT → comparison). Display-only.</p>
+    <div class="nav"><button class="btn" onclick="location.href='/new'">New evaluation</button><a href="/framework">Framework validation →</a></div>
+  </header>
+
+  <div class="bar">
+    <label for="runs">Evaluation</label>
+    <select id="runs"></select>
+    <button class="btn ghost" onclick="loadRuns()">Reload</button>
+    <span id="status">Loading…</span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+const CATS = [
+  ["missing_information", "Missing", "match"],
+  ["incorrect_information", "Incorrect", "danger"],
+  ["conflicting_information", "Conflicting", "danger"],
+  ["hallucinated_information", "Hallucinated", "danger"],
+];
+const TABS = ["findings", "scores", "signals", "alignment"];
+let run = null;
+
+async function api(path, options) {
+  const res = await fetch(path, options);
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.detail || res.status);
+  return data;
+}
+
+function esc(s) { return String(s).replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c])); }
+
+async function loadRuns() {
+  const data = await api("/review/runs");
+  const sel = document.getElementById("runs");
+  sel.innerHTML = data.runs.length
+    ? data.runs.map(r =>
+        `<option value="${esc(r.id)}">${esc(r.label)} — ${esc(r.status)} (${r.overall_score ?? "—"}) ${esc(r.created_at ? r.created_at.slice(0, 19).replace("T", " ") : "")}</option>`).join("")
+    : `<option value="">No stored evaluations</option>`;
+  sel.onchange = () => loadRun();
+  document.getElementById("status").textContent = data.runs.length ? `${data.runs.length} stored` : "No runs yet — evaluate an audio file first";
+  if (data.runs.length) loadRun();
+}
+
+function currentId() { return document.getElementById("runs").value; }
+
+async function loadRun() {
+  const id = currentId();
+  if (!id) return;
+  try {
+    run = await api(`/review/runs/${id}`);
+    render();
+  } catch (err) {
+    document.getElementById("status").textContent = "Failed: " + err.message;
+  }
+}
+
+function tag(cls, label) {
+  return `<span class="tag ${cls}">${esc(label)}</span>`;
+}
+
+function renderSummary() {
+  const r = run.report;
+  const counts = CATS.map(([key, label]) =>
+    `<span>${(r[key] || []).length} ${label}</span>`).join("");
+  const statusCls = r.status === "Match" ? "match" : "mismatch";
+  return `
+    <div class="score-line">
+      <span class="score">${r.overall_score}<span class="of"> / 100</span></span>
+      ${tag(statusCls, r.status)}
+      <span class="tag neutral">${r.inputs?.stt_model || "stt"}</span>
+      <span class="tag neutral">${r.inputs?.evaluator || ""}</span>
+    </div>
+    <div class="score-line">${counts}</div>`;
+}
+
+function findingRow(f) {
+  return `
+    <tr>
+      <td class="sev ${f.severity}">${esc(f.severity)}</td>
+      <td class="mono">
+        ${f.reference_text ? `<div class="side"><span class="lbl">Manual</span>${esc(f.reference_text)}</div>` : ""}
+        ${f.generated_text ? `<div class="side"><span class="lbl">STT</span>${esc(f.generated_text)}</div>` : ""}
+        ${(!f.reference_text && !f.generated_text) ? "<span>(no text)</span>" : ""}
+      </td>
+      <td>${esc(f.explanation || "")}</td>
+    </tr>`;
+}
+
+function renderFindings() {
+  const rows = CATS.map(([key]) => (run.report[key] || [])).flat();
+  const body = rows.length
+    ? rows.map(f => findingRow(f)).join("")
+    : `<tr><td colspan="3" class="empty-row">No findings — transcript and reference produced no discrepancies.</td></tr>`;
+  return `
+    <table>
+      <thead><tr><th style="width:80px;">Severity</th><th style="width:46%;">Text evidence</th><th>Why it was flagged</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table>`;
+}
+
+function renderScores() {
+  const b = run.report.score_breakdown || {};
+  const m = run.report.meta || {};
+  return `
+    <div class="kv">
+      <div class="k">Overall score</div><div class="v">${run.report.overall_score} / 100</div>
+      <div class="k">Semantic</div><div class="v">${b.semantic ?? "—"}</div>
+      <div class="k">Lexical</div><div class="v">${b.lexical ?? "—"}</div>
+      <div class="k">Entity</div><div class="v">${b.entity ?? "—"}</div>
+      <div class="k">Error penalty</div><div class="v">${b.error_penalty ?? "—"}</div>
+      <div class="k">LLM calls</div><div class="v">${m.llm_calls ?? "—"}</div>
+      <div class="k">Latency</div><div class="v">${m.latency_ms != null ? m.latency_ms + " ms" : "—"}</div>
+      <div class="k">Evaluator model</div><div class="v">${run.report.inputs?.evaluator || "—"}</div>
+    </div>`;
+}
+
+function renderSignals() {
+  const entries = Object.entries(run.report.signals || {});
+  if (!entries.length) return `<div class="empty-row">No signals recorded.</div>`;
+  return `<table>
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>${entries.map(([k, v]) =>
+        `<tr><td class="mono">${esc(k)}</td><td class="mono">${v === null ? "—" : esc(v)}</td></tr>`).join("")}</tbody>
+    </table>`;
+}
+
+function renderAlignment() {
+  const a = run.report.alignment || {};
+  const kv = [
+    ["Gold segments", a.gold_segments],
+    ["Candidate segments", a.candidate_segments],
+    ["Matched", a.matched],
+    ["Unmatched gold", a.unmatched_gold],
+    ["Unmatched candidate", a.unmatched_candidate],
+    ["Covered gold", a.covered_gold],
+  ];
+  return `<div class="kv">${kv.map(([k, v]) =>
+    `<div><span class="k">${esc(k)}</span></div><div class="v">${v === undefined ? "—" : esc(v)}</div>`).join("")}</div>`;
+}
+
+function renderTranscripts() {
+  return `
+    <div class="h">Manual reference (gold)</div>
+    <div class="mono" style="white-space:pre-wrap;">${esc(run.gold)}</div>
+    <div class="h">STT candidate</div>
+    <div class="mono" style="white-space:pre-wrap;">${esc(run.report.candidate || run.candidate)}</div>`;
+}
+
+function render() {
+  document.getElementById("status").textContent = run.label;
+
+  const box = document.getElementById("content");
+  box.innerHTML = `
+    <div class="panel">
+      <div class="title">Results</div>
+      <div class="body">
+        <div id="res-summary">${renderSummary()}</div>
+        <div class="tabs">
+          ${TABS.map((t, i) => `<button data-tab="${t}" class="${i === 0 ? "active" : ""}">${t}</button>`).join("")}
+        </div>
+        <div class="tabpanel" data-panel="findings"></div>
+        <div class="tabpanel" data-panel="scores" hidden></div>
+        <div class="tabpanel" data-panel="signals" hidden></div>
+        <div class="tabpanel" data-panel="alignment" hidden></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="title">Transcripts</div>
+      <div class="body">${renderTranscripts()}</div>
+    </div>`;
+
+  document.querySelector("[data-panel='findings']").innerHTML = renderFindings();
+  document.querySelector("[data-panel='scores']").innerHTML = renderScores();
+  document.querySelector("[data-panel='signals']").innerHTML = renderSignals();
+  document.querySelector("[data-panel='alignment']").innerHTML = renderAlignment();
+
+  box.querySelectorAll(".tabs button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      box.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      box.querySelectorAll(".tabpanel").forEach(p => { p.hidden = true; });
+      box.querySelector(`.tabpanel[data-panel="${btn.dataset.tab}"]`).hidden = false;
+    });
+  });
+}
+
+loadRuns();
+</script>
+</body>
+</html>

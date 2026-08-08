@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approach 2 — New evaluation</title>
+<style>
+  :root{
+    --bg:#FDF7F2; --panel:#FFFFFF; --panel-alt:#F8F1EA; --line:#E4D7CB;
+    --ink:#000000; --dim:#625a52; --accent:#B72D54;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        background:var(--bg); color:var(--ink); font-size:14px; line-height:1.5; }
+  .wrap{ max-width:860px; margin:0 auto; padding:24px 24px 80px; }
+
+  header.page{ margin-bottom:22px; }
+  header.page h1{ font-size:22px; font-weight:700; margin:0 0 4px; }
+  header.page .sub{ color:var(--dim); font-size:13px; margin:0; }
+  .nav{ display:flex; gap:14px; font-size:13px; }
+  .nav a{ color:var(--accent); text-decoration:none; border-bottom:1px solid var(--line); }
+
+  .panel{ border:1px solid var(--line); background:var(--panel); margin-bottom:18px; }
+  .panel > .title{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+                   padding:8px 14px; border-bottom:1px solid var(--line); background:var(--panel-alt); }
+  .panel > .body{ padding:14px; }
+
+  .drop{ border:1px dashed var(--line); padding:26px 16px; text-align:center; cursor:pointer;
+         background:var(--panel-alt); }
+  .drop:hover, .drop.has-file{ border-color:var(--accent); }
+  .drop .drop-title{ font-weight:600; }
+  .drop .drop-sub{ color:var(--dim); font-size:12px; margin-top:2px; }
+  .drop .drop-name{ color:var(--accent); font-size:12px; word-break:break-all; margin-top:4px; }
+
+  .btn{ font:inherit; border:1px solid var(--accent); background:var(--accent); color:#fff;
+        padding:8px 18px; cursor:pointer; font-weight:600; margin-top:14px; }
+  .btn:hover{ filter:brightness(1.06); }
+  .btn:disabled{ background:#C9A6B3; border-color:#C9A6B3; cursor:not-allowed; }
+
+  #status{ margin-top:14px; color:var(--dim); font-size:13px; }
+  #status.error{ color:var(--accent); }
+  .bar{ height:3px; background:var(--panel-alt); margin-top:12px; position:relative; overflow:hidden; }
+  .bar i{ position:absolute; inset:0; background:var(--accent); width:30%; animation:slide 1.1s infinite ease-in-out; }
+  @keyframes slide{ 0%{ transform:translateX(-100%);} 100%{ transform:translateX(400%);} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <h1>Approach 2 — New evaluation</h1>
+    <p class="sub">Upload an audio file; both engines transcribe it, then the report is generated and appears on the audit page.</p>
+    <div class="nav"><a href="/">← Audit</a><a href="/framework">Framework validation →</a></div>
+  </header>
+
+  <div class="panel">
+    <div class="title">Audio</div>
+    <div class="body">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept="audio/*,video/*,.wav,.mp3,.m4a,.ogg,.mp4" hidden>
+        <span class="drop-title">Audio / video file</span>
+        <span class="drop-sub">wav / mp3 / m4a / ogg / mp4 …</span>
+      </label>
+      <button class="btn" id="btn-run" disabled>Run evaluation</button>
+      <div id="status">Select a file to begin.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const drop = document.getElementById("drop");
+const file = document.getElementById("file");
+const btn = document.getElementById("btn-run");
+const status = document.getElementById("status");
+
+file.addEventListener("change", () => {
+  if (!file.files.length) return;
+  const old = drop.querySelector(".drop-name");
+  if (old) old.remove();
+  const el = document.createElement("span");
+  el.className = "drop-name";
+  el.textContent = file.files[0].name;
+  drop.appendChild(el);
+  drop.classList.add("has-file");
+  btn.disabled = false;
+  status.textContent = "";
+});
+
+btn.addEventListener("click", async () => {
+  const fd = new FormData();
+  fd.append("audio", file.files[0]);
+  btn.disabled = true;
+  status.className = "";
+  status.innerHTML = "Transcribing with both engines and generating the report… <span class='bar'><i></i></span>";
+  try {
+    const res = await fetch("/evaluate", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!res.ok) { status.className = "error"; status.textContent = data.detail || "Evaluation failed."; }
+    else {
+      status.className = "";
+      status.innerHTML = `Done: ${data.segments} segments. <a href="/" style="color:#B72D54;">Open in audit →</a>`;
+      window.setTimeout(() => { location.href = "/"; }, 900);
+    }
+  } catch (err) {
+    status.className = "error";
+    status.textContent = "Request failed: " + err.message;
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
