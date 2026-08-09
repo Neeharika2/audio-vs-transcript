@@ -100,9 +100,9 @@ cp ../.env .env
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `DEEPSEEK_API_KEY` | — | **required** for the LLM judge |
+| `GEMINI_API_KEY` | — | **required** for the LLM judge (Google AI Studio) |
 | `STT_MODEL_NAME` | `base` | faster-whisper model size |
-| `EVAL_MODEL_NAME` | `deepseek-v4-flash` | LLM judge model |
+| `EVAL_MODEL_NAME` | `gemini-3.5-flash` | LLM judge model |
 | `EMBEDDINGS_ENABLED` | `true` | use the sentence-transformers semantic signal |
 | `SCORE_THRESHOLD` | `90` | below this overall score → status `Mismatch` |
 

@@ -1,0 +1,144 @@
+{
+  "id": "audio-5",
+  "created_at": "2026-08-08T10:24:49.087107+00:00",
+  "label": "audio-5",
+  "gold": "I have seen ABC today for her preoperative visit for weight management. I have explained to\nher the need for Optifast for weight loss prior to these procedures to make it safer because of\nthe large size of her liver. She understands this.\nIMPRESSION/PLAN: We are going to put her on two weeks of Optifast at around 900\ncalories. I have also explained the risks and potential complications of laparoscopic\ncholecystectomy to her in detail including bleeding, infection, deep venous thrombosis,\npulmonary embolism, injury to the small intestine, stomach, liver, leak from the cystic duct,\ncommon bile duct, and possible need for ERCP and further surgery. This surgery is going to\nbe planned for October 6. This is for cholelithiasis prior to her Lap-Banding procedure.\nI have also reviewed with her the risks and potential complications of laparoscopic gastric\nbanding including bleeding, infection, deep venous thrombosis, pulmonary embolism,\nslippage of the band, erosion of the band, injury to the esophagus, stomach, small intestine,\nlarge intestine, spleen, liver, injury to the band, port, or tubing necessitating replacement of\nthe band, port, or tubing among other potential complications and she understands. We are\ngoing to proceed for laparoscopic gastric banding. I have reviewed her entire chart in detail. I\nhave also gone over with her the Fairfield County Bariatrics consent form for banding and all\nthe risks. She has also signed the St. Vincent's Hospital consent form for Lap-Banding. She\nhas taken the preoperative quiz for banding. She has signed the preop and postop\ninstructions, and understands them and we reviewed them. She has taken the quiz and done\nfairly well. We have reviewed with her any potential other issues and I have answered her\nquestions. She is planned for surgical intervention.",
+  "candidate": "I have seen ABC today for her pre-operator visit for weight management. I have explained to her the need for optifers for weight loss prior to these procedures to make it safer because of the large size of her liver. She understands this, impression plan. We are going to put her on two weeks of optifers at around 900 calories. I have also explained the risks and potential complications of laparoscopic cholesterol to her in detail including bleeding infection, deep venous thrombosis, pulmonary embolism, injury to the small intestine, stomach, liver, knee from the cystic duct, common bile duct and possible lead for ER, CPA and further surgery. This surgery is going to be planned for October 6. This is for Cololateosis prior to her lab banding procedure. I have also reviewed with her the risk and potential complications of laparoscopic gastric banding including bleeding infection, deep venous thrombosis, pulmonary embolism, slippage of band, erosion of the band, injury to the esophagus, stomach and small intestine, large intestine, pleine, liver, injury to the band, port or tubing, necessitating replacement of the band or porting, tubing among other potential complications and she understands. We are going to proceed for laparoscopic gastric banding. I have reviewed her entire chart in detail. I have also gone over with her the Fairfield Country Bariatric Concern form for banding and all the risk. She has also signed the signed, trained, Vincent Hospital Concern form for lap banding. She has taken the pre-operator quiz for banding. She has assigned the pre-op and post-op instructions and understands them and we reviewed them. She has taken the quiz and done fairly well. We have reviewed with her any potential other issues and I have answered her questions. She is also planned for surgical intervention.",
+  "stt_model": "base",
+  "report": {
+    "id": "audio-5",
+    "inputs": {
+      "gold_source": "/home/neeharika/audio_vs_transcript/approach_1/datasets/manual_transcripts/transcript_5.pdf",
+      "candidate_source": "stt:base",
+      "stt_model": "base",
+      "evaluator": "deepseek-v4-flash"
+    },
+    "missing_information": [],
+    "incorrect_information": [
+      {
+        "category": "incorrect_information",
+        "reference_text": "I have explained to her the need for Optifast for weight loss prior to these procedures to make it safer because of the large size of her liver.",
+        "generated_text": "I have explained to her the need for optifers for weight loss prior to these procedures to make it safer because of the large size of her liver.",
+        "explanation": "The candidate changes the specific product name from 'Optifast' to 'optifers', altering the factual detail.",
+        "severity": "medium",
+        "signal_evidence": {
+          "segment_similarity": 0.986
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "She has signed the preop and postop instructions, and understands them and we reviewed them.",
+        "generated_text": "She has assigned the pre-op and post-op instructions and understands them and we reviewed them.",
+        "explanation": "The candidate changes 'signed' to 'assigned', altering the fact about the instructions.",
+        "severity": "medium",
+        "signal_evidence": {
+          "segment_similarity": 0.978
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "I have also explained the risks and potential complications of laparoscopic cholecystectomy to her in detail including bleeding, infection, deep venous thrombosis, pulmonary embolism, injury to the small intestine, stomach, liver, leak from the cystic duct, common bile duct, and possible need for ERCP and further surgery.",
+        "generated_text": "I have also explained the risks and potential complications of laparoscopic cholesterol to her in detail including bleeding infection, deep venous thrombosis, pulmonary embolism, injury to the small intestine, stomach, liver, knee from the cystic duct, common bile duct and possible lead for ER, CPA and further surgery.",
+        "explanation": "The candidate changes key medical terms like 'cholecystectomy' to 'cholesterol', 'leak' to 'knee', and 'need for ERCP' to 'lead for ER, CPA', altering the meaning of the risks.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.968
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "I have also gone over with her the Fairfield County Bariatrics consent form for banding and all the risks.",
+        "generated_text": "I have also gone over with her the Fairfield Country Bariatric Concern form for banding and all the risk.",
+        "explanation": "The candidate changes 'consent form' to 'Concern form', altering the specific document name.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.967
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "IMPRESSION/PLAN: We are going to put her on two weeks of Optifast at around 900 calories.",
+        "generated_text": "We are going to put her on two weeks of optifers at around 900 calories.",
+        "explanation": "The candidate replaces 'Optifast' with 'optifers', changing the name of the treatment.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.93
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "She has also signed the St. Vincent's Hospital consent form for Lap-Banding.",
+        "generated_text": "She has also signed the signed, trained, Vincent Hospital Concern form for lap banding.",
+        "explanation": "The candidate changes the hospital name from St. Vincent's to Vincent and alters 'consent form' to 'Concern form'.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.914
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "This is for cholelithiasis prior to her Lap-Banding procedure.",
+        "generated_text": "This is for Cololateosis prior to her lab banding procedure.",
+        "explanation": "The candidate changes 'cholelithiasis' to 'Cololateosis' and 'Lap-Banding' to 'lab banding', altering the diagnosis and procedure name.",
+        "severity": "high",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "injury to the esophagus, stomach, small intestine, large intestine, spleen, liver,",
+        "generated_text": "injury to the esophagus, stomach and small intestine, large intestine, pleine, liver,",
+        "explanation": "The candidate changes 'spleen' to 'pleine', which is not a valid anatomical term, altering the list of potential complications.",
+        "severity": "high",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "I have seen ABC today for her preoperative visit for weight management.",
+        "generated_text": "I have seen ABC today for her pre-operator visit for weight management.",
+        "explanation": "The candidate changes 'preoperative' to 'pre-operator', which is not the standard medical term.",
+        "severity": "low",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "She has taken the preoperative quiz for banding.",
+        "generated_text": "She has taken the pre-operator quiz for banding.",
+        "explanation": "The candidate again changes 'preoperative' to 'pre-operator', altering the term.",
+        "severity": "low",
+        "signal_evidence": null
+      }
+    ],
+    "conflicting_information": [],
+    "hallucinated_information": [],
+    "overall_score": 20,
+    "status": "Mismatch",
+    "alignment": {
+      "gold_segments": 17,
+      "candidate_segments": 17,
+      "matched": 17,
+      "unmatched_gold": 0,
+      "unmatched_candidate": 0,
+      "covered_gold": 0
+    },
+    "signals": {
+      "wer": 0.1122,
+      "cer": 0.048,
+      "coverage": 0.8931,
+      "hallucination_ratio": 0.146,
+      "entity_recall": 1.0,
+      "entity_precision": 1.0,
+      "semantic_similarity": 0.923
+    },
+    "score_breakdown": {
+      "semantic": 92.3,
+      "entity": 100.0,
+      "lexical": 88.8,
+      "error_penalty": 74.0
+    },
+    "meta": {
+      "llm_calls": 13,
+      "latency_ms": 256435,
+      "generated_at": "2026-08-08T10:24:49.086856+00:00"
+    }
+  }
+}

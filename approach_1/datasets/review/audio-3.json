@@ -1,0 +1,144 @@
+{
+  "id": "audio-3",
+  "created_at": "2026-08-08T10:19:09.961709+00:00",
+  "label": "audio-3",
+  "gold": "Multiple views of the heart and great vessels reveal normal intracardiac and great vessel\nrelationships. Cardiac function is normal. There is no significant chamber enlargement or\nhypertrophy. There is no pericardial effusion or vegetations seen. Doppler interrogation,\nincluding color flow imaging, reveals systemic venous return to the right atrium with normal\ntricuspid inflow. Pulmonary outflow is normal at the valve. Pulmonary venous return is to the\nleft atrium. The interatrial septum is intact. Mitral inflow and ascending aorta flow are normal.\nThe aortic valve is trileaflet. The coronary arteries appear to be normal in their origins. The\naortic arch is left-sided and patent with normal descending aorta pulsatility.",
+  "candidate": "Multiple use of heart and grade vessels will normal intercardic and grade vessel relationships. Cardic function is normal. There is no significant chamber, enlargement or hypertrophy. There is no pre-cardial effusion or visitation seen. Doppler interrogation including color flow imaging will systemic when yours return to the written right atom with normal tricuspid inflow. Permanent flow is normal at the wall. Permanent when yours return is to the left atom. The left arterial spectrum is intact. Mithril inflow and ascending autura flow are normal. The optic valve is tri-liftlet. The coronary arteries appear to be normal in their origins. The optic arch is left sided and patent with normal descending autura pulse-hatility.",
+  "stt_model": "base",
+  "report": {
+    "id": "audio-3",
+    "inputs": {
+      "gold_source": "/home/neeharika/audio_vs_transcript/approach_1/datasets/manual_transcripts/transcript_3.pdf",
+      "candidate_source": "stt:base",
+      "stt_model": "base",
+      "evaluator": "deepseek-v4-flash"
+    },
+    "missing_information": [],
+    "incorrect_information": [
+      {
+        "category": "incorrect_information",
+        "reference_text": "Multiple views of the heart and great vessels reveal normal intracardiac and great vessel relationships.",
+        "generated_text": "Multiple use of heart and grade vessels will normal intercardic and grade vessel relationships.",
+        "explanation": "The candidate misrecognizes key terms: 'views' to 'use', 'reveal' to 'will', and 'intracardiac' to 'intercardic', altering the sentence meaning.",
+        "severity": "high",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "Cardiac function is normal.",
+        "generated_text": "Cardic function is normal.",
+        "explanation": "The candidate misspells 'cardiac' as 'cardic'.",
+        "severity": "low",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "There is no pericardial effusion or vegetations seen.",
+        "generated_text": "There is no pre-cardial effusion or visitation seen.",
+        "explanation": "The candidate misrecognizes 'pericardial' as 'pre-cardial' and 'vegetations' as 'visitation', changing medical terms.",
+        "severity": "high",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "Doppler interrogation, including color flow imaging, reveals systemic venous return to the right atrium with normal tricuspid inflow.",
+        "generated_text": "Doppler interrogation including color flow imaging will systemic when yours return to the written right atom with normal tricuspid inflow.",
+        "explanation": "The candidate garbles the key verb ('will' instead of 'reveals') and phrases, altering the meaning while retaining some similar words.",
+        "severity": "medium",
+        "signal_evidence": {
+          "segment_similarity": 0.908
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "Pulmonary outflow is normal at the valve.",
+        "generated_text": "Permanent flow is normal at the wall.",
+        "explanation": "The candidate changes key terms (pulmonary outflow to permanent flow, valve to wall), altering the clinical fact.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.737
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "Pulmonary venous return is to the left atrium.",
+        "generated_text": "Permanent when yours return is to the left atom.",
+        "explanation": "The candidate misrecognizes key medical terms (e.g., 'pulmonary' as 'permanent', 'venous' as 'when yours', 'atrium' as 'atom'), changing the meaning.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.761
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "The interatrial septum is intact.",
+        "generated_text": "The left arterial spectrum is intact.",
+        "explanation": "The candidate changes the anatomical structure from 'interatrial septum' to 'left arterial spectrum,' altering the key noun.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.794
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "Mitral inflow and ascending aorta flow are normal.",
+        "generated_text": "Mithril inflow and ascending autura flow are normal.",
+        "explanation": "The candidate misrecognizes 'Mitral' as 'Mithril' and 'aorta' as 'autura', changing key anatomical terms.",
+        "severity": "high",
+        "signal_evidence": null
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "The aortic valve is trileaflet.",
+        "generated_text": "The optic valve is tri-liftlet.",
+        "explanation": "The candidate changes the valve name from aortic to optic, altering the medical fact.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.867
+        }
+      },
+      {
+        "category": "incorrect_information",
+        "reference_text": "The aortic arch is left-sided and patent with normal descending aorta pulsatility.",
+        "generated_text": "The optic arch is left sided and patent with normal descending autura pulse-hatility.",
+        "explanation": "The candidate changes key medical terms, like 'aortic' to 'optic' and 'aorta' to 'autura', altering the meaning.",
+        "severity": "high",
+        "signal_evidence": {
+          "segment_similarity": 0.933
+        }
+      }
+    ],
+    "conflicting_information": [],
+    "hallucinated_information": [],
+    "overall_score": 0,
+    "status": "Mismatch",
+    "alignment": {
+      "gold_segments": 12,
+      "candidate_segments": 12,
+      "matched": 12,
+      "unmatched_gold": 0,
+      "unmatched_candidate": 0,
+      "covered_gold": 0
+    },
+    "signals": {
+      "wer": 0.3119,
+      "cer": 0.1524,
+      "coverage": 0.7246,
+      "hallucination_ratio": 0.3151,
+      "entity_recall": 1.0,
+      "entity_precision": 1.0,
+      "semantic_similarity": 0.7818
+    },
+    "score_breakdown": {
+      "semantic": 78.2,
+      "entity": 100.0,
+      "lexical": 68.8,
+      "error_penalty": 87.0
+    },
+    "meta": {
+      "llm_calls": 11,
+      "latency_ms": 130408,
+      "generated_at": "2026-08-08T10:19:09.961462+00:00"
+    }
+  }
+}

@@ -2,7 +2,7 @@ import os
 
 from dotenv import load_dotenv
 
-from approach_1.src.evaluator import DeepSeekJudge, WhisperSTT
+from approach_1.src.evaluator import GeminiJudge, WhisperSTT
 
 load_dotenv()
 
@@ -10,7 +10,7 @@ load_dotenv()
 STT_MODEL_NAME = os.getenv("STT_MODEL_NAME", "base")
 
 # Evaluator
-EVAL_MODEL_NAME = os.getenv("EVAL_MODEL_NAME", "deepseek-v4-flash")
+EVAL_MODEL_NAME = os.getenv("EVAL_MODEL_NAME", "gemini-3.5-flash")
 
 # Semantic embeddings (local sentence-transformers)
 # Options: "1"/"true" enabled, anything else disables the embedding signal
@@ -24,7 +24,7 @@ EMBEDDINGS_ENABLED = os.getenv("EMBEDDINGS_ENABLED", "true").lower() in (
 SCORE_THRESHOLD = float(os.getenv("SCORE_THRESHOLD", "90"))
 
 # API Keys
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 
 def get_stt_runner():
@@ -32,7 +32,9 @@ def get_stt_runner():
 
 
 def get_judge():
-    return DeepSeekJudge(model_name=EVAL_MODEL_NAME, api_key=DEEPSEEK_API_KEY)
+    if not GEMINI_API_KEY:
+        return None
+    return GeminiJudge(model_name=EVAL_MODEL_NAME, api_key=GEMINI_API_KEY)
 
 
 def get_embedder():

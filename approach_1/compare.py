@@ -59,7 +59,7 @@ def pdf_to_text(path: Path) -> str:
 
 
 def make_judge():
-    if config.DEEPSEEK_API_KEY:
+    if config.GEMINI_API_KEY:
         return config.get_judge()
     return None
 
