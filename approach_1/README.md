@@ -8,7 +8,7 @@ The comparison has two layers:
 
 1. A quick **deterministic** pass (word/character similarity, coverage, entity
    checks) that resolves the easy cases cheaply.
-2. An **LLM judge** (Gemini) that reads the gold and candidate segments and
+2. An **LLM judge** (DeepSeek) that reads the gold and candidate segments and
    classifies the hard ones into one of the four categories above.
 
 No API key? The pipeline falls back to its built-in heuristics and still runs
@@ -50,9 +50,9 @@ Required settings:
 
 | Variable | Meaning |
 |---|---|
-| `GEMINI_API_KEY` | API key for the LLM judge (Google AI Studio) |
+| `DEEPSEEK_API_KEY` | API key for the LLM judge (DeepSeek) |
 | `STT_MODEL_NAME` | Whisper model size (default `base`) |
-| `EVAL_MODEL_NAME` | the judge model (default `gemini-3.5-flash`) |
+| `EVAL_MODEL_NAME` | the judge model (default `deepseek-v4-flash`) |
 
 ## Run
 
@@ -102,7 +102,7 @@ approach_1/
     ├── classify.py   LLM (or heuristic) classification
     ├── signals.py    similarity signals
     ├── score.py      final score + status
-    ├── evaluator.py  Whisper STT + Gemini judge
+    ├── evaluator.py  Whisper STT + DeepSeek judge
     └── models.py     report data models
 ```
 
